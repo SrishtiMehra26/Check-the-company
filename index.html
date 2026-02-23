@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Information Search</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        header, footer { background-color: #f1f1f1; padding: 10px; text-align: center; }
+        .search-box { margin: 20px; text-align: center; }
+        .results { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Company Information Search</h1>
+    </header>
+    <div class="search-box">
+        <input type="text" id="company-name" placeholder="Enter company name..." />
+        <button onclick="searchCompany()">Search</button>
+    </div>
+    <div class="results" id="results"></div>
+
+    <script>
+        async function searchCompany() {
+            const companyName = document.getElementById('company-name').value;
+            const response = await fetch(`https://api.example.com/company?name=${companyName}`);
+            const data = await response.json();
+            document.getElementById('results').innerHTML = JSON.stringify(data, null, 2);
+        }
+    </script>
+    <footer>
+        <p>&copy; 2026 Company Info Search</p>
+    </footer>
+</body>
+</html>
