@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Information Search</title>
+    <title>Check the Company</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        header, footer { background-color: #f1f1f1; padding: 10px; text-align: center; }
-        .search-box { margin: 20px; text-align: center; }
-        .results { margin-top: 20px; }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; padding: 20px; }
+        h1 { color: #4CAF50; }
+        ul { list-style-type: none; padding: 0; }
+        li { padding: 10px; background: #fff; margin-bottom: 10px; border-radius: 4px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Company Information Search</h1>
-    </header>
-    <div class="search-box">
-        <input type="text" id="company-name" placeholder="Enter company name..." />
-        <button onclick="searchCompany()">Search</button>
-    </div>
-    <div class="results" id="results"></div>
-
+    <h1>Company Data</h1>
+    <div id="company-info"></div>
     <script>
-        async function searchCompany() {
-            const companyName = document.getElementById('company-name').value;
-            const response = await fetch(`https://api.example.com/company?name=${companyName}`);
-            const data = await response.json();
-            document.getElementById('results').innerHTML = JSON.stringify(data, null, 2);
-        }
+        const companies = [
+            { name: "Tech Solutions", location: "New York, NY", revenue: "$5M" },
+            { name: "Innovatech", location: "San Francisco, CA", revenue: "$10M" },
+            { name: "Future Corp", location: "Austin, TX", revenue: "$2M" }
+        ];
+
+        const companyInfoDiv = document.getElementById('company-info');
+        const ul = document.createElement('ul');
+
+        companies.forEach(company => {
+            const li = document.createElement('li');
+            li.innerText = `${company.name} - Location: ${company.location}, Revenue: ${company.revenue}`;
+            ul.appendChild(li);
+        });
+
+        companyInfoDiv.appendChild(ul);
     </script>
-    <footer>
-        <p>&copy; 2026 Company Info Search</p>
-    </footer>
 </body>
 </html>
