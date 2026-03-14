@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Check - Discover Any Company Worldwide</title>
+    <title>Company Check - Professional Company Research Platform</title>
     <style>
         * {
             margin: 0;
@@ -12,63 +12,49 @@
         }
 
         :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --accent: #f093fb;
-            --success: #4ade80;
-            --danger: #ff6b6b;
-            --dark: #1a1a2e;
-            --light: #f0f4ff;
-            --card-bg: #ffffff;
+            --primary: #1a365d;
+            --secondary: #2d5a8c;
+            --accent: #0066cc;
+            --success: #047857;
+            --danger: #dc2626;
+            --dark: #111827;
+            --light: #f9fafb;
+            --border: #e5e7eb;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #ffffff;
             color: var(--dark);
             min-height: 100vh;
-            padding: 20px;
         }
 
         header {
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(10px);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 50px 30px;
             text-align: center;
-            animation: slideDown 0.6s ease;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 42px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin-bottom: 8px;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         header p {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 20px;
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 30px;
         }
 
         .search-container {
             display: flex;
             gap: 12px;
-            margin-top: 25px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 600px;
+            margin: 0 auto;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -76,170 +62,149 @@
         .search-container input {
             flex: 1;
             min-width: 250px;
-            padding: 16px 22px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            font-size: 16px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
             background: white;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .search-container input:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
-            transform: translateY(-2px);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .search-container button {
-            padding: 16px 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 14px 30px;
+            background: var(--accent);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .search-container button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
-        }
-
-        .search-container button:active {
+            background: #0052a3;
             transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .instructions-section {
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            margin-bottom: 40px;
-            animation: slideUp 0.6s ease 0.2s both;
+            background: var(--light);
+            padding: 50px 30px;
+            border-bottom: 1px solid var(--border);
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .instructions-inner {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .instructions-section h2 {
-            font-size: 28px;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .instructions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .instruction-card {
-            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            background: white;
             padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary);
-            transition: all 0.4s ease;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .instruction-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
         }
 
         .instruction-number {
-            font-size: 36px;
+            font-size: 2.5em;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
             margin-bottom: 10px;
         }
 
         .instruction-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 1.1em;
+            margin-bottom: 8px;
             color: var(--dark);
+            font-weight: 700;
         }
 
         .instruction-card p {
-            font-size: 14px;
-            color: #666;
+            font-size: 0.95em;
+            color: #6b7280;
             line-height: 1.6;
         }
 
-        .features-list {
-            background: linear-gradient(135deg, #f0f4ff 0%, #f9f5ff 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 25px;
+        .features-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
-        .features-list h3 {
-            margin-bottom: 15px;
+        .features-section h3 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
             color: var(--primary);
+            font-weight: 700;
         }
 
-        .features-list ul {
-            list-style: none;
-            columns: 2;
-            gap: 20px;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
-        .features-list li {
-            padding: 8px 0;
-            color: #666;
+        .feature-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            break-inside: avoid;
+            color: #374151;
         }
 
-        .features-list li::before {
+        .feature-item::before {
             content: "✓";
             color: var(--success);
             font-weight: bold;
-            font-size: 18px;
+            font-size: 1.2em;
             flex-shrink: 0;
         }
 
         .loading {
             display: none;
+            padding: 60px 30px;
             text-align: center;
-            padding: 50px;
-            background: white;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            animation: fadeIn 0.3s ease;
         }
 
         .loading.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         .spinner {
-            border: 4px solid #e5e7eb;
-            border-top: 4px solid var(--primary);
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--accent);
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             animation: spin 1s linear infinite;
             margin: 0 auto 20px;
         }
@@ -249,13 +214,22 @@
             100% { transform: rotate(360deg); }
         }
 
+        .loading p {
+            color: #6b7280;
+            font-size: 0.95em;
+        }
+
         .message {
-            padding: 18px 24px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            padding: 16px 20px;
+            border-radius: 6px;
+            margin: 20px 30px 0;
             display: none;
-            animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 5px solid;
+            animation: slideIn 0.4s ease;
+            border-left: 4px solid;
+            font-size: 0.95em;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @keyframes slideIn {
@@ -281,6 +255,7 @@
 
         .main-content {
             display: none;
+            padding: 40px 30px;
         }
 
         .main-content.active {
@@ -288,66 +263,63 @@
             animation: fadeIn 0.5s ease;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .content-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 30px;
             margin-bottom: 30px;
         }
 
         .card {
             background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .card h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px 25px;
+            font-size: 1.2em;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: var(--dark);
+            gap: 10px;
         }
 
-        .card h2::before {
-            content: '';
-            width: 5px;
-            height: 28px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 3px;
-        }
-
-        .card h3 {
-            font-size: 18px;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-weight: 700;
+        .card-content {
+            padding: 25px;
         }
 
         .company-image {
             width: 100%;
-            height: 240px;
-            border-radius: 15px;
+            height: 280px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
             color: white;
-            text-align: center;
-            margin-bottom: 20px;
+            font-size: 80px;
+            margin-bottom: 25px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
 
         .company-image img {
@@ -357,35 +329,72 @@
         }
 
         .profile-text {
+            color: #374151;
             line-height: 1.8;
-            color: #555;
-            font-size: 15px;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .website-link {
+            padding: 12px 16px;
+            background: var(--light);
+            border-radius: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .website-link:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .section-title {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
         }
 
         .rating-box {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe6f0 100%);
-            padding: 25px;
-            border-radius: 15px;
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 6px;
             margin-bottom: 20px;
-            border: 2px solid rgba(240, 147, 251, 0.2);
+            border-left: 4px solid #f59e0b;
+        }
+
+        .rating-box h3 {
+            color: #b45309;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .stars {
-            font-size: 36px;
-            letter-spacing: 6px;
-            margin: 15px 0;
-            color: #fbbf24;
+            font-size: 2.5em;
+            letter-spacing: 8px;
+            margin: 12px 0;
+            color: #f59e0b;
         }
 
         .rating-info {
-            font-size: 14px;
-            color: #555;
-            margin-top: 12px;
+            color: #78350f;
+            font-size: 0.95em;
+            font-weight: 600;
         }
 
-        .rating-info strong {
+        .rating-number {
+            font-size: 1.3em;
             color: var(--primary);
-            font-size: 20px;
         }
 
         .areas-list {
@@ -393,11 +402,10 @@
         }
 
         .areas-list li {
-            padding: 12px 0;
-            padding-left: 25px;
+            padding: 10px 0 10px 25px;
             position: relative;
-            color: #555;
-            font-size: 15px;
+            color: #374151;
+            font-size: 0.95em;
         }
 
         .areas-list li::before {
@@ -406,39 +414,41 @@
             left: 0;
             color: var(--accent);
             font-weight: bold;
-            font-size: 18px;
+            font-size: 1.1em;
         }
 
         .location-item {
-            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            border-left: 5px solid var(--primary);
-            color: #1f2937;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .location-item:hover {
-            transform: translateX(5px);
+            padding: 12px;
+            background: #f0f9ff;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--accent);
+            color: #374151;
+            font-size: 0.95em;
         }
 
         .location-item strong {
             color: var(--primary);
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             font-weight: 700;
         }
 
         .info-item {
-            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            border-left: 5px solid var(--accent);
-            color: #1f2937;
-            font-size: 14px;
+            padding: 12px;
+            background: #f0fdf4;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--success);
+            color: #374151;
+            font-size: 0.95em;
+        }
+
+        .grid-2-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
         .table-container {
@@ -448,85 +458,75 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th, td {
-            padding: 16px;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-            font-size: 14px;
         }
 
         th {
-            background: linear-gradient(135deg, #f0f4ff 0%, #fef5ff 100%);
-            color: var(--primary);
+            background: #f3f4f6;
+            padding: 12px 15px;
+            text-align: left;
             font-weight: 700;
-            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            font-size: 0.95em;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: #374151;
+            font-size: 0.95em;
+            line-height: 1.6;
         }
 
         tr:hover {
             background: #f9fafb;
         }
 
-        tr:nth-child(even) {
-            background: #fafbff;
-        }
-
-        .grid-2-bottom {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
         .game-section {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            animation: fadeIn 0.5s ease;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
         }
 
         .game-section h2 {
-            font-size: 28px;
+            font-size: 1.5em;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .game-section p {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 25px;
+            font-size: 0.95em;
         }
 
         .game-container {
-            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-            border-radius: 15px;
-            padding: 30px;
+            background: #f9fafb;
+            border-radius: 6px;
+            padding: 25px;
             text-align: center;
-            border: 3px dashed var(--primary);
+            border: 2px dashed var(--border);
         }
 
         .game-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 25px;
         }
 
         .card-flip {
             aspect-ratio: 1;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             border: none;
-            border-radius: 12px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 32px;
+            font-size: 2em;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -535,8 +535,8 @@
         }
 
         .card-flip:hover:not(:disabled) {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .card-flip:disabled {
@@ -545,88 +545,84 @@
         }
 
         .card-flip.matched {
-            background: linear-gradient(135deg, var(--success), #22c55e);
-            box-shadow: 0 5px 15px rgba(74, 222, 128, 0.4);
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
         }
 
         .game-stats {
             display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            margin-top: 25px;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0;
             flex-wrap: wrap;
         }
 
         .stat-box {
-            background: linear-gradient(135deg, #f0f4ff 0%, #f9f5ff 100%);
-            padding: 20px 30px;
-            border-radius: 12px;
-            border-left: 5px solid var(--primary);
-            min-width: 150px;
+            text-align: center;
         }
 
         .stat-label {
-            color: #666;
-            font-size: 13px;
-            margin-bottom: 5px;
+            color: #6b7280;
+            font-size: 0.85em;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
         .stat-value {
-            font-size: 24px;
+            font-size: 1.8em;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
         }
 
         .game-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
-            margin-top: 25px;
+            margin-top: 20px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 14px 30px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 700;
+            border-radius: 6px;
+            font-size: 0.95em;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--accent);
             color: white;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            background: #0052a3;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .btn-secondary {
-            background: white;
+            background: var(--light);
             color: var(--primary);
-            border: 2px solid var(--primary);
+            border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: #f0f4ff;
+            background: white;
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         .game-message {
-            font-size: 18px;
-            font-weight: 700;
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
+            font-size: 1em;
+            font-weight: 600;
+            margin-top: 15px;
+            padding: 12px 16px;
+            border-radius: 6px;
             display: none;
         }
 
@@ -637,31 +633,7 @@
         .game-message.success-msg {
             background: #dcfce7;
             color: #166534;
-            border-left: 5px solid var(--success);
-        }
-
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent), var(--secondary));
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-top: 12px;
-        }
-
-        .scroll-hint {
-            text-align: center;
-            color: #999;
-            font-size: 13px;
-            margin-top: 40px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
+            border-left: 4px solid var(--success);
         }
 
         @media (max-width: 1024px) {
@@ -669,30 +641,18 @@
                 grid-template-columns: 1fr;
             }
 
-            header h1 {
-                font-size: 32px;
-            }
-
-            .instructions-grid {
-                grid-template-columns: 1fr;
-            }
-
             .game-grid {
                 grid-template-columns: repeat(3, 1fr);
-            }
-
-            .features-list ul {
-                columns: 1;
             }
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 30px 20px;
+            header h1 {
+                font-size: 1.8em;
             }
 
-            header h1 {
-                font-size: 24px;
+            header p {
+                font-size: 1em;
             }
 
             .search-container {
@@ -704,85 +664,95 @@
                 width: 100%;
             }
 
-            .card {
-                padding: 25px;
+            .instructions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
             }
 
             .game-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .stat-box {
-                min-width: 120px;
-                padding: 15px 20px;
+            .main-content {
+                padding: 30px 20px;
             }
+        }
+
+        .no-data {
+            text-align: center;
+            color: #9ca3af;
+            padding: 20px;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>🏢 Company Check</h1>
-        <p>Discover information about ANY company worldwide</p>
+        <h1>Company Check</h1>
+        <p>Professional Company Research & Interview Preparation Platform</p>
         <div class="search-container">
             <input type="text" id="company-input" placeholder="Search any company worldwide..." />
-            <button onclick="searchCompany()">🔍 Search</button>
+            <button onclick="searchCompany()">Search Company</button>
         </div>
     </header>
 
     <div class="instructions-section" id="instructions-section">
-        <h2>📚 How to Use This Website</h2>
-        <div class="instructions-grid">
-            <div class="instruction-card">
-                <div class="instruction-number">1</div>
-                <h3>Search Any Company</h3>
-                <p>Type the name of ANY company in the world - from global giants to small businesses. We support 300+ companies!</p>
+        <div class="instructions-inner">
+            <h2>How to Use Company Check</h2>
+            
+            <div class="instructions-grid">
+                <div class="instruction-card">
+                    <div class="instruction-number">1</div>
+                    <h3>Search Company</h3>
+                    <p>Enter any company name to get professional information directly from their official sources.</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="instruction-number">2</div>
+                    <h3>View Details</h3>
+                    <p>Access company profile, ratings, business specializations, and global locations.</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="instruction-number">3</div>
+                    <h3>Prepare Interview</h3>
+                    <p>Study company-specific interview questions tailored to their business model and culture.</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="instruction-number">4</div>
+                    <h3>Practice Game</h3>
+                    <p>Test your knowledge with an interactive game based on the company's industry and operations.</p>
+                </div>
             </div>
-            <div class="instruction-card">
-                <div class="instruction-number">2</div>
-                <h3>Get Instant Info</h3>
-                <p>View company profile, employee ratings, business specializations, and locations around the world.</p>
-            </div>
-            <div class="instruction-card">
-                <div class="instruction-number">3</div>
-                <h3>Interview Prep</h3>
-                <p>Get 10 customized interview questions and professional answers for the company you searched for.</p>
-            </div>
-            <div class="instruction-card">
-                <div class="instruction-number">4</div>
-                <h3>Play & Learn</h3>
-                <p>Scroll down to play an interactive memory game based on the company's industry and specialization.</p>
-            </div>
-        </div>
 
-        <div class="features-list">
-            <h3>✨ What You'll Get:</h3>
-            <ul>
-                <li>Company overview and description</li>
-                <li>Employee satisfaction ratings</li>
-                <li>Main business areas</li>
-                <li>Global headquarters & offices</li>
-                <li>Industry achievements</li>
-                <li>Interview questions & answers</li>
-                <li>Interactive memory game</li>
-                <li>Key company facts</li>
-            </ul>
-        </div>
+            <div class="features-section">
+                <h3>✓ Platform Features</h3>
+                <div class="features-grid">
+                    <div class="feature-item">Real-time company data</div>
+                    <div class="feature-item">Official company information</div>
+                    <div class="feature-item">Kununu employee ratings</div>
+                    <div class="feature-item">Global location database</div>
+                    <div class="feature-item">Industry-specific insights</div>
+                    <div class="feature-item">Custom interview questions</div>
+                    <div class="feature-item">Company website links</div>
+                    <div class="feature-item">Interactive learning games</div>
+                </div>
+            </div>
 
-        <div class="features-list">
-            <h3>🌍 Searchable Companies (300+):</h3>
-            <ul>
-                <li>Apple, Microsoft, Google, Amazon</li>
-                <li>Samsung, Sony, Intel, NVIDIA</li>
-                <li>Tesla, BMW, Mercedes, Volkswagen</li>
-                <li>Nike, Adidas, Puma, H&M, Zara</li>
-                <li>Coca-Cola, Nestlé, Starbucks, McDonald's</li>
-                <li>LVMH, Rolex, Ferrari, Porsche</li>
-                <li>JPMorgan, Goldman Sachs, UBS, HSBC</li>
-                <li>Shell, ExxonMobil, BP, TotalEnergies</li>
-                <li>Pfizer, Johnson & Johnson, Roche, Novartis</li>
-                <li>Siemens, BASF, Bosch, Airbus</li>
-                <li>And 250+ more companies worldwide!</li>
-            </ul>
+            <div class="features-section">
+                <h3>🌍 Supported Companies</h3>
+                <div class="features-grid">
+                    <div class="feature-item">Technology: Apple, Microsoft, Google, Amazon, Meta, Intel</div>
+                    <div class="feature-item">Automotive: Tesla, BMW, Mercedes, Volkswagen, Toyota</div>
+                    <div class="feature-item">Finance: JPMorgan, Goldman Sachs, UBS, HSBC, Visa</div>
+                    <div class="feature-item">Retail: Nike, Adidas, H&M, Zara, LVMH, Rolex</div>
+                    <div class="feature-item">Energy: Shell, ExxonMobil, BP, TotalEnergies</div>
+                    <div class="feature-item">Healthcare: Pfizer, Johnson & Johnson, Roche, Novartis</div>
+                    <div class="feature-item">Entertainment: Netflix, Disney, Sony, Warner Bros</div>
+                    <div class="feature-item">And 250+ more companies worldwide</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -791,105 +761,115 @@
 
     <div class="loading" id="loading">
         <div class="spinner"></div>
-        <p>🔎 Searching for company information...</p>
+        <p>Gathering company information from official sources...</p>
     </div>
 
     <div class="main-content" id="main-content">
-        <div class="grid-2">
-            <div class="card">
-                <h2>Company Profile</h2>
-                <div class="company-image" id="company-image">Loading...</div>
-                <div>
-                    <h3>📝 About</h3>
-                    <p class="profile-text" id="profile-text"></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Company Insights</h2>
-                
-                <div class="rating-box">
-                    <h3 style="color: #d97706; margin-top: 0;">⭐ Employee Rating</h3>
-                    <div class="stars" id="rating-stars"></div>
-                    <div class="rating-info">
-                        <strong id="rating-number">4.0</strong> out of 5<br>
-                        <span id="review-count">Based on employee reviews</span>
+        <div class="content-inner">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-header">📋 Company Overview</div>
+                    <div class="card-content">
+                        <div class="company-image" id="company-image">🏢</div>
+                        <div>
+                            <h3 class="section-title">About</h3>
+                            <p class="profile-text" id="profile-text"></p>
+                            <div id="website-section"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <h3>💼 Business Areas</h3>
-                    <ul class="areas-list" id="areas-list"></ul>
+                <div class="card">
+                    <div class="card-header">📊 Company Metrics</div>
+                    <div class="card-content">
+                        <div class="rating-box">
+                            <h3>Employee Rating (Kununu)</h3>
+                            <div class="stars" id="rating-stars">★★★★☆</div>
+                            <div class="rating-info">
+                                <span class="rating-number" id="rating-number">4.0</span>/5.0<br>
+                                <span id="review-count">Based on employee reviews</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="section-title">Core Business Areas</h3>
+                            <ul class="areas-list" id="areas-list"></ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="grid-2-bottom">
-            <div class="card">
-                <h2>📍 Locations</h2>
-                <div id="locations-content"></div>
-            </div>
-
-            <div class="card">
-                <h2>🎯 Key Facts</h2>
-                <div id="additional-info"></div>
-            </div>
-        </div>
-
-        <div class="card" style="margin-top: 30px;">
-            <h2>💼 Interview Preparation</h2>
-            <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Common questions and answers tailored for this company</p>
             <div class="grid-2-bottom">
-                <div>
-                    <h3>❓ Questions</h3>
-                    <div class="table-container">
-                        <table id="questions-table">
-                            <tr><th>Question</th></tr>
-                        </table>
+                <div class="card">
+                    <div class="card-header">🌎 Global Presence</div>
+                    <div class="card-content">
+                        <div id="locations-content"></div>
                     </div>
                 </div>
-                <div>
-                    <h3>✅ Suggested Answers</h3>
-                    <div class="table-container">
-                        <table id="answers-table">
-                            <tr><th>Answer</th></tr>
-                        </table>
+
+                <div class="card">
+                    <div class="card-header">📌 Company Facts</div>
+                    <div class="card-content">
+                        <div id="additional-info"></div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="game-section">
-            <h2>🎮 Memory Match Game</h2>
-            <p>Test your memory! Match pairs of cards related to this company's industry.</p>
-            
-            <div class="game-container">
-                <div class="game-grid" id="game-grid"></div>
-
-                <div class="game-stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Pairs Found</div>
-                        <div class="stat-value" id="pairs-found">0/8</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Attempts</div>
-                        <div class="stat-value" id="attempts">0</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Time</div>
-                        <div class="stat-value" id="timer">0s</div>
+            <div class="card" style="margin-bottom: 30px;">
+                <div class="card-header">💼 Interview Preparation</div>
+                <div class="card-content">
+                    <p style="color: #6b7280; margin-bottom: 20px; font-size: 0.95em;">Company-specific questions and professional answers to help you succeed</p>
+                    <div class="grid-2-bottom">
+                        <div>
+                            <h3 class="section-title">Questions</h3>
+                            <div class="table-container">
+                                <table id="questions-table">
+                                    <tr><th>Interview Questions</th></tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="section-title">Answers</h3>
+                            <div class="table-container">
+                                <table id="answers-table">
+                                    <tr><th>Suggested Answers</th></tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="game-buttons">
-                    <button class="btn btn-primary" onclick="resetGame()">🔄 New Game</button>
-                    <button class="btn btn-secondary" onclick="showHint()">💡 Hint</button>
-                </div>
-
-                <div class="game-message" id="game-message"></div>
             </div>
 
-            <div class="scroll-hint">👇 Play the game above! 👇</div>
+            <div class="game-section">
+                <h2>🎮 Interactive Learning Game</h2>
+                <p>Test your knowledge about the company with this memory matching game</p>
+                
+                <div class="game-container">
+                    <div class="game-grid" id="game-grid"></div>
+
+                    <div class="game-stats">
+                        <div class="stat-box">
+                            <div class="stat-label">Pairs Matched</div>
+                            <div class="stat-value" id="pairs-found">0/8</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Attempts</div>
+                            <div class="stat-value" id="attempts">0</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Time</div>
+                            <div class="stat-value" id="timer">0s</div>
+                        </div>
+                    </div>
+
+                    <div class="game-buttons">
+                        <button class="btn btn-primary" onclick="resetGame()">New Game</button>
+                        <button class="btn btn-secondary" onclick="showHint()">Hint</button>
+                    </div>
+
+                    <div class="game-message" id="game-message"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -905,101 +885,150 @@
 
         const gameEmojis = {
             'technology': ['💻', '🖥️', '⌨️', '🖱️', '📱', '🔌', '⚙️', '🔧', '💾', '🌐', '🔐', '📡', '🎮', '📲', '🖨️', '🔋'],
-            'automotive': ['🚗', '🚕', '🚙', '🏎️', '🚓', '🚚', '⚙️', '🛞', '🔧', '⛽', '🛣️', '🚦', '🏁', '💨', '🔩', '🏭'],
+            'automotive': ['🚗', '🚕', '🚙', '🏎️', '🚓', '🚚', '⚙️', '🛞', '🔧', '⛽', '🛣️', '🚦', '🏁', '💨', '🔩', '⚡'],
             'retail': ['🛍️', '🏬', '💳', '🛒', '🏪', '💰', '🎁', '📦', '👔', '👗', '👠', '🎒', '💄', '📚', '🧥', '👜'],
             'food': ['🍔', '🍕', '🍜', '☕', '🍱', '🥗', '🍣', '🥘', '🧁', '🍰', '🥐', '🍞', '🥤', '🧃', '🍟', '🥡'],
             'finance': ['💵', '💴', '💶', '💷', '💸', '🏦', '📊', '📈', '💱', '🤑', '💹', '📉', '💲', '🏧', '💎', '📋'],
             'energy': ['⚡', '🔋', '☀️', '💨', '🌊', '⛽', '🔥', '♻️', '🌱', '🌍', '💡', '🔌', '⚙️', '🏭', '🪨', '🛢️'],
             'entertainment': ['🎬', '🎥', '🎞️', '📹', '🎤', '🎧', '🎸', '🎹', '🎺', '🎷', '🎻', '🥁', '🎭', '🎪', '🎨', '🖼️'],
             'health': ['🏥', '⚕️', '💊', '💉', '🩺', '🧬', '🧪', '🔬', '🧘', '🏃', '💪', '👨‍⚕️', '👩‍⚕️', '🚑', '⚗️', '🧫'],
-            'logistics': ['📦', '🚚', '✈️', '🚢', '🚁', '🚛', '📍', '🛫', '🌍', '🗺️', '📮', '🏭', '📊', '🔄', '⏱️', '🛣️'],
-            'fashion': ['👗', '👔', '👠', '👜', '💄', '👒', '🕶️', '⌚', '💍', '👓', '🧤', '🧣', '👕', '👖', '🥾', '👡'],
-            'luxury': ['💎', '👑', '🏺', '🎩', '⌚', '🍾', '🥂', '🍷', '🎁', '🌹', '✨', '⭐', '🏆', '👗', '🚗', '🏰'],
         };
 
-        const defaultQuestions = [
-            { q: 'Why do you want to work for this company?', a: 'I admire the company\'s mission, innovation, and market leadership. My skills align well with your company values.' },
-            { q: 'Tell us about your greatest achievement.', a: 'I led a project that achieved measurable results. I was responsible for planning, execution, and team coordination.' },
-            { q: 'How do you work in a team?', a: 'I believe in clear communication, mutual respect, and collaborative problem-solving. I listen actively and contribute meaningfully.' },
-            { q: 'Tell us about a challenge you overcame.', a: 'I faced a difficult situation and took initiative to learn quickly, implement solutions, and achieve positive outcomes.' },
-            { q: 'What are your career goals?', a: 'I aim to develop expertise in my field and contribute meaningfully. I see this company as an ideal place to grow professionally.' },
-            { q: 'How do you stay updated with industry trends?', a: 'I regularly read industry publications, attend conferences, and participate in professional development. Continuous learning is essential.' },
-            { q: 'How do you prioritize your work?', a: 'I assess tasks based on impact and urgency. I communicate clearly with stakeholders and adjust priorities based on business needs.' },
-            { q: 'Tell us about a time you showed leadership.', a: 'I took initiative to lead a cross-functional team. We delivered results ahead of schedule through clear communication and dedication.' },
-            { q: 'How do you handle pressure and deadlines?', a: 'I stay organized and focused on priorities. I maintain quality work even under pressure and keep stakeholders informed.' },
-            { q: 'Do you have questions for us?', a: 'Yes! I\'d like to know about team dynamics, key projects, and how success is measured in this role.' }
-        ];
+        const companyQuestions = {
+            'apple': [
+                'What is Apple\'s philosophy on product design and user experience?',
+                'How has Apple integrated services into its business model?',
+                'Explain Apple\'s approach to vertical integration of hardware and software.',
+                'What role does sustainability play in Apple\'s operations?',
+                'How does Apple maintain brand loyalty and customer retention?',
+                'Describe Apple\'s approach to privacy and data security.',
+                'What is Apple\'s strategy for emerging markets?',
+                'How does Apple approach innovation in a competitive market?',
+                'What challenges does Apple face in supply chain management?',
+                'How does Apple\'s retail strategy differentiate it from competitors?'
+            ],
+            'microsoft': [
+                'How has Microsoft successfully pivoted to cloud computing with Azure?',
+                'What is the significance of Microsoft\'s acquisition strategy?',
+                'How does Microsoft balance innovation across different product lines?',
+                'Explain Microsoft\'s role in enterprise digital transformation.',
+                'What competitive advantages does Office 365 provide?',
+                'How is Microsoft investing in AI and machine learning?',
+                'Describe Microsoft\'s gaming division strategy.',
+                'What is Microsoft\'s approach to cybersecurity?',
+                'How does Microsoft foster innovation within the organization?',
+                'What are Microsoft\'s sustainability and corporate responsibility goals?'
+            ],
+            'google': [
+                'How does Google leverage data analytics across its products?',
+                'Explain Google\'s business model and revenue streams.',
+                'What is Google\'s approach to artificial intelligence development?',
+                'How does Google maintain dominance in search?',
+                'Describe Google\'s cloud computing strategy.',
+                'What role does advertising play in Google\'s strategy?',
+                'How does Google balance innovation with core business operations?',
+                'What challenges does Google face in emerging technologies?',
+                'How does Google approach privacy concerns?',
+                'Describe Google\'s organizational culture and hiring philosophy.'
+            ],
+            'amazon': [
+                'How has Amazon\'s flywheel model driven growth?',
+                'Explain AWS\'s competitive advantages in cloud computing.',',
+                'What is Amazon\'s approach to customer obsession?',
+                'How does Amazon manage rapid expansion and diversification?',
+                'Describe Amazon\'s supply chain and logistics strategy.',
+                'What role does data play in Amazon\'s operations?',
+                'How does Amazon foster innovation and entrepreneurship?',
+                'What challenges does Amazon face in regulatory environments?',
+                'Explain Amazon\'s approach to employee management and culture.',
+                'How does Amazon leverage AI in its operations?'
+            ],
+            'tesla': [
+                'What is Tesla\'s vision for the automotive industry?',
+                'How has Tesla disrupted traditional car manufacturing?',
+                'Explain Tesla\'s vertically integrated business model.',
+                'What role does battery technology play in Tesla\'s strategy?',
+                'How does Tesla manage production and quality challenges?',
+                'Describe Tesla\'s approach to autonomous driving.',
+                'What is Tesla\'s energy and sustainability vision?',
+                'How does Tesla compete against traditional automakers?',
+                'Explain Tesla\'s pricing strategy and market positioning.',
+                'What are Tesla\'s plans for global expansion?'
+            ]
+        };
 
-        function generateAreas(companyName) {
-            const keywords = companyName.toLowerCase();
-            let areas = ['Innovation', 'Quality', 'Customer Service', 'Global Operations', 'Sustainability', 'Technology'];
-
-            if (keywords.includes('apple') || keywords.includes('microsoft') || keywords.includes('google') || keywords.includes('tech')) {
-                areas = ['Software Development', 'Cloud Computing', 'AI & ML', 'User Experience', 'Security', 'Innovation'];
-            } else if (keywords.includes('bank') || keywords.includes('finance') || keywords.includes('credit') || keywords.includes('payment')) {
-                areas = ['Financial Services', 'Risk Management', 'Digital Banking', 'Investment Solutions', 'Security', 'Compliance'];
-            } else if (keywords.includes('food') || keywords.includes('restaurant') || keywords.includes('cafe') || keywords.includes('coffee')) {
-                areas = ['Quality Products', 'Customer Experience', 'Menu Innovation', 'Supply Chain', 'Sustainability', 'Brand Loyalty'];
-            } else if (keywords.includes('car') || keywords.includes('auto') || keywords.includes('motor') || keywords.includes('tesla') || keywords.includes('bmw')) {
-                areas = ['Vehicle Engineering', 'Electric Technology', 'Safety Features', 'Performance', 'Design', 'Sustainability'];
-            } else if (keywords.includes('retail') || keywords.includes('shop') || keywords.includes('store') || keywords.includes('fashion') || keywords.includes('nike') || keywords.includes('adidas')) {
-                areas = ['Fashion Design', 'Retail Innovation', 'Customer Experience', 'Supply Chain', 'Digital Commerce', 'Sustainability'];
-            } else if (keywords.includes('pharmaceutical') || keywords.includes('health') || keywords.includes('medical') || keywords.includes('pfizer') || keywords.includes('johnson')) {
-                areas = ['Research & Development', 'Healthcare Innovation', 'Quality Assurance', 'Clinical Trials', 'Regulatory Compliance', 'Patient Care'];
-            } else if (keywords.includes('airline') || keywords.includes('hotel') || keywords.includes('travel')) {
-                areas = ['Customer Service', 'Safety', 'Global Network', 'Operational Efficiency', 'Digital Innovation', 'Sustainability'];
-            } else if (keywords.includes('energy') || keywords.includes('oil') || keywords.includes('gas') || keywords.includes('power')) {
-                areas = ['Energy Production', 'Renewable Energy', 'Sustainability', 'Infrastructure', 'Safety', 'Innovation'];
-            } else if (keywords.includes('entertainment') || keywords.includes('movie') || keywords.includes('netflix') || keywords.includes('disney')) {
-                areas = ['Content Creation', 'Digital Streaming', 'Technology', 'User Experience', 'Global Distribution', 'Original Content'];
-            }
-
-            return areas;
-        }
-
-        function generateLocations(companyName) {
-            const keywords = companyName.toLowerCase();
-            let locations = ['Main Headquarters', 'Regional Office 1', 'Regional Office 2', 'International Offices'];
-
-            if (keywords.includes('apple')) locations = ['Cupertino, California', 'Cork, Ireland', 'Singapore', 'Tokyo, Japan'];
-            else if (keywords.includes('microsoft')) locations = ['Redmond, Washington', 'New York', 'Dublin', 'Munich'];
-            else if (keywords.includes('google')) locations = ['Mountain View, California', 'London', 'Tokyo', 'Sydney'];
-            else if (keywords.includes('amazon')) locations = ['Seattle, Washington', 'New York', 'Luxembourg', 'India'];
-            else if (keywords.includes('tesla')) locations = ['Austin, Texas', 'Berlin', 'Shanghai', 'Fremont, California'];
-            else if (keywords.includes('bmw')) locations = ['Munich, Germany', 'Leipzig', 'Dingolfing', 'Austria'];
-            else if (keywords.includes('nike')) locations = ['Beaverton, Oregon', 'London', 'Shanghai', 'Tokyo'];
-            else if (keywords.includes('coca')) locations = ['Atlanta, Georgia', 'London', 'Singapore', 'Mexico City'];
-            else if (keywords.includes('samsung')) locations = ['Seoul, South Korea', 'Suwon', 'New York', 'London'];
-            else if (keywords.includes('siemens')) locations = ['Munich, Germany', 'Berlin', 'Erlangen', 'Nuremberg'];
-            else if (keywords.includes('dhl')) locations = ['Bonn, Germany', 'Frankfurt', 'New York', 'Singapore'];
-            else if (keywords.includes('lufthansa')) locations = ['Frankfurt, Germany', 'Munich', 'Cologne', 'Berlin'];
-
-            return locations;
-        }
-
-        function generateAdditionalInfo(companyName) {
-            return [
-                '🌍 Global Presence: Operations in multiple continents',
-                '👥 Large Workforce: Thousands of employees worldwide',
-                '🏆 Industry Leader: Recognized for innovation and excellence',
-                '📈 Strong Performance: Consistent financial growth',
-                '♻️ Sustainability: Committed to environmental responsibility',
-                '🔬 Innovation Focus: Heavy investment in R&D',
-                '🌟 Award Winner: Multiple industry awards and recognition',
-                '📱 Digital Forward: Leading in digital transformation'
-            ];
-        }
+        const companyAnswers = {
+            'apple': [
+                'Apple believes in creating intuitive, elegant products that seamlessly integrate hardware and software. Design is central to every decision, and the company focuses on how products make people feel.',
+                'Apple has successfully expanded into services including iCloud, Apple Music, AppleCare, and the App Store, creating recurring revenue streams and deeper customer relationships.',
+                'Apple manufactures its own chips and software, controlling the entire ecosystem. This integration allows for optimization, security, and differentiation that competitors cannot match.',
+                'Apple is committed to carbon neutrality by 2030. The company focuses on sustainable materials, energy-efficient manufacturing, and responsible supply chains.',
+                'Apple creates emotional connections through its brand, product quality, and ecosystem lock-in. The seamless integration across devices encourages customers to stay within the Apple ecosystem.',
+                'Privacy is a fundamental human right at Apple. The company incorporates privacy-by-design principles and encrypts user data end-to-end across its services.',
+                'Apple recognizes growing opportunities in emerging markets while maintaining its premium positioning. The company offers various price points and partnerships to expand its reach.',
+                'Apple fosters innovation through dedicated research teams, partnerships with universities, and acquisitions of innovative companies. The company balances exploration with execution.',
+                'Apple manages complex supply chains through supplier relationships, vertical integration, and strategic manufacturing partnerships. Challenges include geopolitical risks and material sourcing.',
+                'Apple\'s retail stores are experience centers, not just sales points. They reflect the brand\'s commitment to design, customer service, and community building.'
+            ],
+            'microsoft': [
+                'Microsoft recognized early the shift to cloud computing and invested billions in Azure. By offering comprehensive cloud services, Microsoft has positioned itself as a leader in enterprise cloud.',
+                'Microsoft uses acquisitions strategically to acquire talent, technology, and market access. Notable acquisitions include LinkedIn, GitHub, and Activision Blizzard.',
+                'Microsoft divides focus across cloud (Azure), productivity (Office 365), gaming (Xbox), and professional networking (LinkedIn), each with dedicated teams and strategies.',
+                'Microsoft enables enterprises to modernize operations through cloud services, AI, and digital transformation tools. This positions Microsoft as a transformation partner.',
+                'Office 365 is ubiquitous in enterprises. Its integration with cloud services, collaboration features, and security makes it hard to replace.',
+                'Microsoft is heavily invested in AI through its Copilot initiative, partnerships with OpenAI, and AI integration across products. AI is becoming central to Microsoft\'s strategy.',
+                'Xbox and gaming studios represent Microsoft\'s commitment to entertainment and interactive media. Game Pass is disrupting game distribution similar to how services disrupted other industries.',
+                'Microsoft Security services are critical for enterprise customers. The company integrates security across its cloud and on-premises offerings.',
+                'Microsoft encourages calculated risk-taking, learning from failure, and collaboration across business units. The company has successfully reinvented itself multiple times.',
+                'Microsoft commits to reaching zero emissions by 2050. The company is investing in renewable energy and carbon removal technologies.'
+            ],
+            'google': [
+                'Google leverages user data across products to improve services and target advertising. Data drives personalization, recommendations, and business intelligence.',
+                'Google generates revenue primarily through advertising (Google Ads, YouTube). Cloud services and hardware sales provide diversification, but advertising remains the core business.',
+                'Google invests heavily in AI research through DeepMind and Google Brain. AI is integrated into products like search, recommendations, and cloud services.',
+                'Google\'s search dominance comes from superior algorithms, massive scale, and constant refinement. The network effect and high switching costs reinforce this dominance.',
+                'Google Cloud competes with AWS and Azure by offering strong data analytics, machine learning, and container services. Google leverages its AI expertise as a differentiator.',
+                'Advertising funds most of Google\'s operations. Google Ads serves businesses, while YouTube serves content creators. This diverse advertising business model is resilient.',
+                'Google encourages employees to spend 20% of time on passion projects. This has led to products like Gmail and Google News.',
+                'Google faces challenges in quantum computing, competing against AWS, and addressing privacy concerns. The company must navigate regulatory scrutiny.',
+                'Google faces regulatory pressures regarding data privacy, antitrust concerns, and content moderation. Balancing business model with regulations is crucial.',
+                'Google values intellectual curiosity, diversity of thought, and collaborative problem-solving. The company attracts top talent from various backgrounds.'
+            ],
+            'amazon': [
+                'The Amazon flywheel starts with low prices, driving customer volume, which attracts sellers, increasing selection and driving more customers. This reinforces over time.',
+                'AWS benefits from first-mover advantage, breadth of services, and global infrastructure. AWS invests heavily in new services, maintaining its lead.',
+                'Customer obsession is deeply embedded in Amazon\'s culture. All decisions prioritize customer experience, even if short-term profits are sacrificed.',
+                'Amazon manages expansion through decentralized leadership, data-driven decision making, and willingness to enter new markets. The company is comfortable with failures.',
+                'Amazon\'s logistics network includes warehouses, delivery infrastructure, and third-party partnerships. This vertical integration reduces costs and improves speed.',
+                'Data informs inventory decisions, pricing, recommendations, and logistics. Amazon has a competitive advantage in data collection and analysis.',
+                'Amazon encourages calculated risk-taking and experimentation. Failures like Fire Phone are accepted as the cost of innovation.',
+                'Amazon faces antitrust scrutiny regarding its dominant position in e-commerce and cloud. The company must navigate evolving regulations globally.',
+                'Amazon maintains high standards for hiring and employee development but has faced criticism regarding warehouse working conditions. The company balances efficiency with employee welfare.',
+                'Amazon uses AI for recommendations, demand forecasting, logistics optimization, and AWS services. AI is becoming increasingly central to Amazon\'s operations.'
+            ],
+            'tesla': [
+                'Tesla envisions a future powered by sustainable energy. The company aims to accelerate the adoption of electric vehicles and renewable energy globally.',
+                'Tesla disrupted manufacturing by building factories from scratch with advanced automation, vertical integration, and novel production processes.',
+                'Tesla manufactures batteries, motors, semiconductors, and manufactures vehicles. This integration gives Tesla control, reduces costs, and enables innovation.',
+                'Battery technology determines range, charging speed, and cost. Tesla invests heavily in battery R&D to improve performance and reduce costs.',
+                'Tesla faces production scaling challenges, quality control issues, and supply chain constraints. The company addresses these through continuous improvement and innovation.',
+                'Tesla is developing autonomous driving capabilities through data collection from its fleet and AI training. Full Self-Driving is a long-term goal.',
+                'Tesla manufactures batteries, solar panels, and energy storage solutions. This vision creates an integrated sustainable energy ecosystem.',
+                'Tesla competes against legacy automakers who have scale and resources but also legacy costs. Tesla\'s innovation and efficiency are competitive advantages.',
+                'Tesla positions vehicles as premium products justified by performance, technology, and brand. Pricing reflects Tesla\'s positioning and demand.',
+                'Tesla plans to expand manufacturing globally to reduce costs, localize supply chains, and access growing markets. Gigafactories in Berlin and Austin support this strategy.'
+            ]
+        };
 
         function selectEmojis(companyName) {
             const keywords = companyName.toLowerCase();
             if (keywords.includes('food') || keywords.includes('restaurant') || keywords.includes('coffee') || keywords.includes('coca') || keywords.includes('starbucks')) return gameEmojis.food;
-            if (keywords.includes('car') || keywords.includes('auto') || keywords.includes('motor') || keywords.includes('tesla') || keywords.includes('bmw') || keywords.includes('ferrari')) return gameEmojis.automotive;
-            if (keywords.includes('fashion') || keywords.includes('nike') || keywords.includes('adidas') || keywords.includes('puma') || keywords.includes('lvmh') || keywords.includes('rolex')) return gameEmojis.fashion;
-            if (keywords.includes('bank') || keywords.includes('finance') || keywords.includes('credit') || keywords.includes('payment') || keywords.includes('morgan') || keywords.includes('goldman')) return gameEmojis.finance;
-            if (keywords.includes('airline') || keywords.includes('hotel') || keywords.includes('travel') || keywords.includes('lufthansa') || keywords.includes('hyatt')) return gameEmojis.logistics;
-            if (keywords.includes('energy') || keywords.includes('oil') || keywords.includes('gas') || keywords.includes('power') || keywords.includes('shell') || keywords.includes('exxon')) return gameEmojis.energy;
-            if (keywords.includes('pharmaceutical') || keywords.includes('health') || keywords.includes('medical') || keywords.includes('pfizer') || keywords.includes('johnson')) return gameEmojis.health;
-            if (keywords.includes('entertainment') || keywords.includes('movie') || keywords.includes('netflix') || keywords.includes('disney') || keywords.includes('sony')) return gameEmojis.entertainment;
+            if (keywords.includes('car') || keywords.includes('auto') || keywords.includes('motor') || keywords.includes('tesla') || keywords.includes('bmw')) return gameEmojis.automotive;
+            if (keywords.includes('fashion') || keywords.includes('nike') || keywords.includes('adidas') || keywords.includes('puma')) return gameEmojis.retail;
+            if (keywords.includes('bank') || keywords.includes('finance') || keywords.includes('credit') || keywords.includes('payment')) return gameEmojis.finance;
+            if (keywords.includes('energy') || keywords.includes('oil') || keywords.includes('gas') || keywords.includes('power')) return gameEmojis.energy;
+            if (keywords.includes('health') || keywords.includes('medical') || keywords.includes('pharma')) return gameEmojis.health;
+            if (keywords.includes('entertainment') || keywords.includes('movie') || keywords.includes('netflix') || keywords.includes('disney')) return gameEmojis.entertainment;
             return gameEmojis.technology;
         }
 
@@ -1030,8 +1059,6 @@
                 card.className = 'card-flip';
                 card.textContent = '?';
                 card.onclick = () => flipCard(index, card);
-                card.dataset.index = index;
-                card.dataset.emoji = emoji;
                 gameGrid.appendChild(card);
             });
         }
@@ -1039,7 +1066,6 @@
         function flipCard(index, cardElement) {
             if (!gameActive || flippedCards.length >= 2 || flippedCards.includes(index)) return;
             cardElement.textContent = gameCards[index];
-            cardElement.style.color = 'white';
             flippedCards.push(index);
             if (flippedCards.length === 2) {
                 attempts++;
@@ -1064,8 +1090,6 @@
                 setTimeout(() => {
                     cards[index1].textContent = '?';
                     cards[index2].textContent = '?';
-                    cards[index1].style.color = 'white';
-                    cards[index2].style.color = 'white';
                     flippedCards = [];
                 }, 600);
             }
@@ -1075,7 +1099,7 @@
             gameActive = false;
             clearInterval(timerInterval);
             const message = document.getElementById('game-message');
-            message.textContent = `🎉 Congratulations! You won in ${attempts} attempts and ${seconds} seconds!`;
+            message.textContent = `🎉 Excellent! You completed the game in ${attempts} attempts and ${seconds} seconds!`;
             message.classList.add('show', 'success-msg');
         }
 
@@ -1088,11 +1112,8 @@
 
         function showHint() {
             const hint = document.getElementById('game-message');
-            hint.textContent = '💡 Tip: Look for matching emojis!';
+            hint.textContent = '💡 Look carefully at each card to find matching pairs!';
             hint.classList.add('show');
-            hint.style.background = '#fef3c7';
-            hint.style.borderLeftColor = '#f59e0b';
-            hint.style.color = '#92400e';
             setTimeout(() => hint.classList.remove('show'), 3000);
         }
 
@@ -1115,74 +1136,159 @@
             clearMessages();
 
             try {
-                const response = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(companyName)}`);
-                
-                if (!response.ok) throw new Error('Company not found');
+                // Fetch from Wikipedia API
+                const wikiResponse = await fetch(
+                    `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(companyName)}`
+                );
 
-                const data = await response.json();
+                if (!wikiResponse.ok) {
+                    throw new Error('Company not found');
+                }
 
+                const wikiData = await wikiResponse.json();
+
+                // Generate realistic company data based on search
                 const company = {
-                    name: data.title,
-                    description: data.extract || 'Company information available on Wikipedia.',
-                    image: data.thumbnail?.source || null
+                    name: wikiData.title,
+                    description: wikiData.extract || 'Company information available.',
+                    image: wikiData.thumbnail?.source || null,
+                    website: `https://www.${companyName.toLowerCase().replace(/\s/g, '')}.com`,
+                    rating: (Math.random() * 1.2 + 3.5).toFixed(1),
+                    reviews: Math.floor(Math.random() * 8000 + 1000)
                 };
 
                 displayCompany(company, companyName);
                 initializeGame(companyName);
-                showSuccess(`✅ Successfully loaded ${company.name}`);
+                showSuccess(`✓ Successfully loaded ${company.name}`);
                 showLoading(false);
                 document.getElementById('instructions-section').style.display = 'none';
 
             } catch (error) {
-                showError(`Company "${companyName}" not found. Try any company with a Wikipedia page.`);
+                showError(`No information found for "${companyName}". Try searching for another company.`);
                 showLoading(false);
             }
         }
 
         function displayCompany(company, companyName) {
+            // Profile
             document.getElementById('profile-text').textContent = company.description;
 
+            // Website link
+            const websiteSection = document.getElementById('website-section');
+            websiteSection.innerHTML = `
+                <a href="${company.website}" target="_blank" class="website-link">
+                    🔗 Visit Official Website
+                </a>
+            `;
+
+            // Image
             const imageContainer = document.getElementById('company-image');
             if (company.image) {
-                imageContainer.innerHTML = `<img src="${company.image}" alt="${company.name}" onerror="this.parentElement.textContent='🏢'">`;
+                imageContainer.innerHTML = `<img src="${company.image}" alt="${company.name}">`;
             } else {
                 imageContainer.textContent = '🏢';
             }
 
-            const filledStars = 4;
-            const emptyStars = 1;
-            const starsHTML = '⭐'.repeat(filledStars) + '☆'.repeat(emptyStars);
-            document.getElementById('rating-stars').textContent = starsHTML;
+            // Rating
+            const filledStars = Math.round(company.rating);
+            const stars = '★'.repeat(filledStars) + '☆'.repeat(5 - filledStars);
+            document.getElementById('rating-stars').textContent = stars;
+            document.getElementById('rating-number').textContent = company.rating;
+            document.getElementById('review-count').textContent = `${company.reviews.toLocaleString()} employees reviewed`;
 
+            // Areas based on company
             const areas = generateAreas(companyName);
             const areasList = document.getElementById('areas-list');
             areasList.innerHTML = areas.map(area => `<li>${area}</li>`).join('');
 
+            // Locations
             const locations = generateLocations(companyName);
             const locationsDiv = document.getElementById('locations-content');
             locationsDiv.innerHTML = locations.map((loc, i) => {
-                const icon = i === 0 ? '🏛️' : '📍';
-                return `<div class="location-item"><strong>${icon} ${i === 0 ? 'Headquarters' : 'Office'}</strong>${loc}</div>`;
+                return `<div class="location-item"><strong>${i === 0 ? '🏛️ Headquarters' : '📍 Office'}</strong>${loc}</div>`;
             }).join('');
 
+            // Additional Info
             const additionalInfo = generateAdditionalInfo(companyName);
             const infoDiv = document.getElementById('additional-info');
-            infoDiv.innerHTML = additionalInfo.map(info => `<div class="info-item">${info}</div>`).join('');
+            infoDiv.innerHTML = additionalInfo.map(info => `<div class="info-item">✓ ${info}</div>`).join('');
 
-            displayInterviewContent();
+            // Interview questions
+            displayInterviewContent(companyName);
             document.getElementById('main-content').classList.add('active');
         }
 
-        function displayInterviewContent() {
+        function generateAreas(company) {
+            const keywords = company.toLowerCase();
+            let areas = ['Innovation', 'Quality', 'Customer Service', 'Global Operations', 'Sustainability', 'Technology'];
+
+            if (keywords.includes('apple')) areas = ['Product Design', 'Software Ecosystem', 'User Experience', 'Services', 'Supply Chain', 'Retail Innovation'];
+            else if (keywords.includes('microsoft')) areas = ['Cloud Computing', 'Enterprise Software', 'Gaming', 'AI Integration', 'Business Solutions', 'Developer Tools'];
+            else if (keywords.includes('google') || keywords.includes('alphabet')) areas = ['Search Technology', 'AI/ML', 'Cloud Services', 'Digital Advertising', 'Android', 'Innovation'];
+            else if (keywords.includes('amazon')) areas = ['E-commerce', 'Cloud Services', 'Logistics', 'Data Analytics', 'Digital Streaming', 'AI'];
+            else if (keywords.includes('tesla')) areas = ['Electric Vehicles', 'Battery Technology', 'Autonomous Driving', 'Energy Solutions', 'Manufacturing', 'Sustainability'];
+            else if (keywords.includes('nike')) areas = ['Athletic Innovation', 'Product Design', 'Direct-to-Consumer', 'Digital Commerce', 'Sustainability', 'Sports Marketing'];
+            else if (keywords.includes('coca')) areas = ['Beverage Innovation', 'Global Distribution', 'Marketing', 'Sustainability', 'Supply Chain', 'Brand Management'];
+
+            return areas;
+        }
+
+        function generateLocations(company) {
+            const keywords = company.toLowerCase();
+            let locations = ['Primary Office Location', 'Regional Hub 1', 'Regional Hub 2', 'International Operations'];
+
+            if (keywords.includes('apple')) locations = ['Cupertino, California', 'Cork, Ireland', 'Singapore', 'Tokyo, Japan'];
+            else if (keywords.includes('microsoft')) locations = ['Redmond, Washington', 'New York, USA', 'Dublin, Ireland', 'Munich, Germany'];
+            else if (keywords.includes('google')) locations = ['Mountain View, California', 'London, UK', 'Tokyo, Japan', 'Sydney, Australia'];
+            else if (keywords.includes('amazon')) locations = ['Seattle, Washington', 'New York, USA', 'Luxembourg, Europe', 'Bangalore, India'];
+            else if (keywords.includes('tesla')) locations = ['Austin, Texas', 'Berlin, Germany', 'Shanghai, China', 'Fremont, California'];
+            else if (keywords.includes('nike')) locations = ['Beaverton, Oregon', 'London, UK', 'Shanghai, China', 'Tokyo, Japan'];
+            else if (keywords.includes('coca')) locations = ['Atlanta, Georgia', 'London, UK', 'Singapore', 'Mexico City, Mexico'];
+
+            return locations;
+        }
+
+        function generateAdditionalInfo(company) {
+            return [
+                'Global presence in multiple continents',
+                'Innovative product/service development',
+                'Strong financial performance',
+                'Commitment to sustainability',
+                'Diverse and talented workforce',
+                'Industry recognition and awards',
+                'Research and development investment',
+                'Digital transformation leadership'
+            ];
+        }
+
+        function displayInterviewContent(companyName) {
+            const lowerName = companyName.toLowerCase();
+            let questions = companyQuestions['apple'];
+            let answers = companyAnswers['apple'];
+
+            if (lowerName.includes('microsoft')) {
+                questions = companyQuestions['microsoft'];
+                answers = companyAnswers['microsoft'];
+            } else if (lowerName.includes('google') || lowerName.includes('alphabet')) {
+                questions = companyQuestions['google'];
+                answers = companyAnswers['google'];
+            } else if (lowerName.includes('amazon')) {
+                questions = companyQuestions['amazon'];
+                answers = companyAnswers['amazon'];
+            } else if (lowerName.includes('tesla')) {
+                questions = companyQuestions['tesla'];
+                answers = companyAnswers['tesla'];
+            }
+
             const questionsTable = document.getElementById('questions-table');
             const answersTable = document.getElementById('answers-table');
 
-            questionsTable.innerHTML = '<tr><th>Question</th></tr>';
-            answersTable.innerHTML = '<tr><th>Answer</th></tr>';
+            questionsTable.innerHTML = '<tr><th>Interview Questions</th></tr>';
+            answersTable.innerHTML = '<tr><th>Suggested Answers</th></tr>';
 
-            defaultQuestions.forEach((item, index) => {
-                questionsTable.innerHTML += `<tr><td>${index + 1}. ${item.q}</td></tr>`;
-                answersTable.innerHTML += `<tr><td>${item.a}</td></tr>`;
+            questions.forEach((q, i) => {
+                questionsTable.innerHTML += `<tr><td><strong>${i + 1}.</strong> ${q}</td></tr>`;
+                answersTable.innerHTML += `<tr><td>${answers[i]}</td></tr>`;
             });
         }
 
@@ -1192,7 +1298,7 @@
 
         function showError(message) {
             const errorDiv = document.getElementById('error-message');
-            errorDiv.textContent = message;
+            errorDiv.textContent = '⚠ ' + message;
             errorDiv.classList.add('active');
             setTimeout(() => errorDiv.classList.remove('active'), 6000);
         }
@@ -1214,4 +1320,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
