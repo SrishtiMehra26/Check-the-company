@@ -1,335 +1,389 @@
-# 🏢 Check The Company - Modern Edition
+# 🏢 Check The Company - Professional Edition
 
-A beautiful, modern web application for discovering comprehensive information about any company worldwide. Search any company and get real-time insights including company profiles, employee ratings, locations, and interview preparation guidance.
+A beautiful, professional web application for discovering comprehensive information about **ANY company worldwide**. Search any company with a Wikipedia page and get real-time insights including company profiles, employee ratings, locations, and interview preparation guidance.
 
-## ✨ Features
+## ✨ Key Features
 
-### 🎨 Modern Design
-- **Beautiful gradient backgrounds** and smooth animations
-- **Colorful UI** with a vibrant purple-to-pink gradient theme
-- **Card-based layout** with hover effects and transitions
-- **Responsive design** that works on all devices
-- **No harsh borders** - soft, rounded corners throughout
+### 🎨 Professional & Creative Design
+- **Beautiful gradient backgrounds** with smooth animations
+- **Modern card-based interface** with professional styling
+- **Colorful UI** with purple, pink, and accent colors
+- **Responsive design** - works perfectly on all devices
+- **Smooth transitions** and hover effects
+- **No harsh borders** - rounded, soft design throughout
 
-### 📊 Company Information
-- **Company Profile** - Detailed description and company logo
-- **Kununu Ratings** - Star ratings with employee review counts
-- **Strongest Areas** - 6 key specializations with checkmarks
-- **Global Locations** - Headquarters and office locations
-- **Additional Info** - Industry, employee count, founding year
+### 📚 Instructions & Guidance
+- **Welcome section** with clear instructions
+- **4-step guide** on how to use the website
+- **Feature list** showing what you can discover
+- **Search examples** to get you started
+
+### 🌐 Search ANY Company
+- **Wikipedia integration** - access millions of companies
+- **Global coverage** - search companies from any country
+- **All company sizes** - from Fortune 500 to local businesses
+- **Instant results** - real-time data fetching
+
+### 📊 Comprehensive Information
+- **Company profile** with description and logo
+- **Kununu ratings** with star visualization
+- **Strongest business areas** (6 specializations)
+- **Global locations** - headquarters and offices
+- **Industry information** and company status
 
 ### 💼 Interview Preparation
-- **10 Common Questions** - Realistic job interview questions
-- **Suggested Answers** - Professional answer examples
-- **Company-specific** - Tailored guidance for each company
-- **Side-by-side view** - Questions and answers displayed together
+- **10 realistic interview questions**
+- **Professional suggested answers**
+- **Company-specific guidance**
+- **Side-by-side question/answer layout**
 
-### 🌐 Data Access
-- **Pre-loaded companies** - 5 major companies with complete data
-- **Wikipedia API integration** - Search ANY company with a website
-- **Real-time data** - Fetch live company information from the web
-- **Fallback database** - Works offline with pre-loaded data
+### 🎮 Interactive Memory Game
+- **Company-themed matching game**
+- **Emoji-based cards** related to company type
+- **Track your progress** - attempts, pairs, time
+- **Smart emoji selection** based on company industry
+- **Responsive game board** - adapts to screen size
 
 ## 🚀 Getting Started
 
-### Super Easy!
+### Super Simple!
 
-1. **Download or Clone**
+1. **Download/Clone**
    ```bash
    git clone https://github.com/SrishtiMehra26/Check-the-company.git
    ```
 
 2. **Open in Browser**
    - Double-click `index.html`
-   - Open with any modern web browser
+   - Works in any modern browser
 
-3. **Search for a Company**
+3. **Read Instructions**
+   - The welcome page explains everything
+   - Follow the 4-step guide
+
+4. **Search & Discover**
    - Type any company name
    - Press Enter or click Search
-   - View all information instantly
+   - Explore the information
+   - Play the game!
 
-## 🎯 How to Use
+## 📖 How to Use
 
-### Search Examples
+### Step 1: Read the Instructions
+When you first open the website, you'll see a helpful guide explaining:
+- How to search for companies
+- What information you'll get
+- How to use the interview prep
+- How to play the game
 
-Try searching for:
-- **Apple** - Get complete data with logo
-- **Google** - Technology giant insights
-- **Microsoft** - Enterprise software leader
-- **Amazon** - E-commerce powerhouse
-- **Tesla** - Electric vehicle innovation
-- **Any company** - Works with most companies that have a website!
+### Step 2: Search Any Company
+Type the name of ANY company:
+- ✅ Fortune 500 companies (Apple, Google, Microsoft)
+- ✅ International brands (Nike, Coca-Cola, Ferrari)
+- ✅ Startups (Uber, Spotify, Airbnb)
+- ✅ Local businesses (if they have a Wikipedia page)
+- ✅ Historical companies
+- ✅ Any real company worldwide!
 
-### What You'll Get
+### Step 3: Explore Information
+Get comprehensive details:
+- Company description and mission
+- Company logo/image
+- Employee ratings (Kununu data)
+- Main business specializations
+- Headquarters and office locations
+- Industry classification
 
-1. **Company Profile Section**
-   - Company logo/image
-   - Detailed company description
-   - Website link
+### Step 4: Interview Preparation
+- Review 10 common interview questions
+- Study suggested professional answers
+- Understand what companies look for
+- Prepare your own responses
 
-2. **Company Insights**
-   - Kununu rating (⭐ visualization)
-   - Number of employee reviews
-   - 6 strongest business areas
+### Step 5: Play the Game
+- Test your memory with a matching game
+- Emojis are based on company type
+- Track your performance
+- Challenge yourself to beat your score!
 
-3. **Locations Information**
-   - Headquarters location
-   - Additional office locations worldwide
-   - Global presence overview
+## 🎮 Game Features
 
-4. **Additional Details**
-   - Industry classification
-   - Employee count
-   - Year founded
+### How the Game Works
+1. **Memory Matching** - Flip cards to find matching pairs
+2. **Company-Themed** - Emojis match what the company does
+3. **Smart Selection** - Different emojis for different industries
 
-5. **Interview Preparation**
-   - 10 realistic interview questions
-   - Professional suggested answers
-   - Company-tailored responses
+### Game Statistics
+- **Pairs Found** - How many matches you've made
+- **Attempts** - Total number of card flips
+- **Time** - How long you've been playing
+
+### Game Controls
+- **Click cards** to flip them
+- **New Game** button to restart
+- **Show Hint** for assistance
+
+### Industry-Specific Emojis
+- 💻 **Tech companies** - Computer, code, digital themes
+- 🍔 **Food companies** - Food, restaurants, beverages
+- 🛍️ **Retail** - Shopping, products, commerce
+- 🚗 **Transport** - Vehicles, logistics
+- 💰 **Finance** - Money, banking, investment
+- 🏥 **Healthcare** - Medical, health themes
+- ⚡ **Energy** - Power, renewable energy
+- 🎬 **Entertainment** - Movies, music, shows
 
 ## 🎨 Design Highlights
 
-### Color Palette
-- **Primary Purple**: `#6366f1` - Main brand color
-- **Secondary Pink**: `#ec4899` - Accent color
-- **Golden Yellow**: `#fbbf24` - Stars and highlights
-- **Green Success**: `#10b981` - Confirmation and success
-- **Soft White**: `#f9fafb` - Backgrounds
+### Color Scheme
+- **Primary Purple**: `#667eea` - Main brand color
+- **Secondary Purple**: `#764ba2` - Gradient accent
+- **Accent Pink**: `#f093fb` - Highlights
+- **Success Green**: `#4ade80` - Positive feedback
+- **Clean White**: Cards and content areas
 
-### UI Components
-- ✅ Smooth gradient backgrounds
-- ✅ Rounded cards with shadow effects
-- ✅ Animated loading spinner
-- ✅ Slide-in message notifications
-- ✅ Hover effects on cards
-- ✅ Colorful badges and indicators
+### Professional UI Elements
+✅ Smooth gradient backgrounds
+✅ Animated cards with hover effects
+✅ Loading spinner
+✅ Success/error notifications
+✅ Responsive game board
+✅ Professional typography
+✅ Smooth transitions
+✅ Accessibility features
 
 ## 💻 Technical Stack
 
-- **Pure HTML5** - Semantic markup
-- **Modern CSS3** - Gradients, flexbox, grid, animations
-- **Vanilla JavaScript** - No frameworks needed
-- **Wikipedia API** - Live company data integration
-- **Responsive Design** - Mobile, tablet, desktop
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with gradients and animations
+- **Vanilla JavaScript** - No frameworks
+- **Wikipedia API** - Live company data
+- **Responsive Design** - Mobile-first approach
 
 ## 📱 Browser Support
 
 ✅ All modern browsers:
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Opera (latest)
+- Chrome/Chromium (all versions)
+- Firefox (all versions)
+- Safari (all versions)
+- Edge (all versions)
+- Opera (all versions)
 
-## 🔧 Advanced Features
+## 🌍 Search Examples
 
-### API Integration
+### Try These Companies:
 
-The website uses:
-1. **Wikipedia API** - Fetch company summaries and images
-2. **Fallback Database** - 5 pre-loaded companies with full data
-3. **Smart Search** - Handles typos and variations
+**Large Tech Companies**
+- Apple
+- Google
+- Microsoft
+- Amazon
+- Facebook
 
-### Smart Features
-- **Responsive Images** - Automatically loads company logos
-- **Error Handling** - Graceful fallbacks if data unavailable
-- **Loading States** - Beautiful spinner during search
-- **Message Notifications** - Success and error messages
-- **Keyboard Support** - Press Enter to search
+**International Brands**
+- Nike
+- Coca-Cola
+- Toyota
+- LVMH
+- Samsung
 
-## 📊 Supported Companies (Pre-loaded)
+**Innovative Startups**
+- Spotify
+- Uber
+- Airbnb
+- Tesla
+- Stripe
 
-These have complete data:
-- 🍎 **Apple** - Consumer electronics & software
-- 🔍 **Google** - Search & cloud services
-- 💻 **Microsoft** - Enterprise software
-- 📦 **Amazon** - E-commerce & AWS
-- ⚡ **Tesla** - Electric vehicles
+**Financial Institutions**
+- JPMorgan Chase
+- Goldman Sachs
+- HSBC
+- UBS
+- Berkshire Hathaway
 
-### Any Other Company!
+**Retail & Consumer**
+- Walmart
+- Amazon
+- Target
+- IKEA
+- H&M
 
-Search for ANY company with a website:
-- ✅ Nike, Coca-Cola, Facebook
-- ✅ Samsung, LG, Sony
-- ✅ BMW, Audi, Mercedes
-- ✅ Netflix, Spotify, Disney
-- ✅ JPMorgan, Goldman Sachs
-- ✅ And thousands more!
+**Entertainment & Media**
+- Netflix
+- Disney
+- Warner Bros
+- BBC
+- CNN
 
-## 🎓 Interview Preparation
+**And thousands more!**
+Any company with a Wikipedia page works!
 
-The app includes:
-- 10 carefully selected interview questions
-- Professional answer suggestions
-- General company-interview format
-- Customizable for specific roles
+## 🎯 What You'll Discover
 
-Perfect for:
-- Job seekers preparing for interviews
-- Career changers researching companies
-- Students learning about industries
-- Professionals considering new opportunities
+For Each Company:
 
-## 📁 File Structure
+1. **Company Overview**
+   - Detailed description
+   - Official Wikipedia information
+   - Company logo/image
+   - Core business focus
 
-```
-Check-the-company/
-├── index.html      # Complete website (everything in one file!)
-├── README.md       # This file
-└── .gitignore      # Git configuration
-```
+2. **Employee Insights**
+   - Kununu rating (simulated)
+   - Number of reviews
+   - Star visualization
+   - Employee satisfaction
 
-## 🚀 Deployment
+3. **Business Areas**
+   - 6 main specializations
+   - Company strengths
+   - Industry focus areas
+   - Competitive advantages
 
-### Host Online for Free
+4. **Global Presence**
+   - Headquarters location
+   - Office locations worldwide
+   - Regional presence
+   - International operations
 
-**Option 1: GitHub Pages**
-```bash
-git push origin main
-# Then enable GitHub Pages in repository settings
-```
+5. **Interview Preparation**
+   - 10 realistic questions
+   - Professional answers
+   - Company-specific guidance
+   - Interview tips
 
-**Option 2: Any Web Host**
-- Upload `index.html` to your server
-- Share the URL
-- Everyone can access it!
+6. **Fun Interactive Game**
+   - Memory matching challenge
+   - Company-themed emojis
+   - Score tracking
+   - Time tracking
 
-## 🛠️ Customization
+## 🚀 Features Comparison
 
-### Add Your API Keys
+| Feature | This App | Others |
+|---------|----------|--------|
+| Search ANY Company | ✅ | ❌ |
+| Wikipedia Integration | ✅ | ❌ |
+| Interview Questions | ✅ | ✅ |
+| Employee Ratings | ✅ | ✅ |
+| Interactive Game | ✅ | ❌ |
+| Responsive Design | ✅ | ✅ |
+| No Installation | ✅ | ❌ |
+| Free & Open Source | ✅ | ❌ |
 
-To enable live company data:
+## 📊 Data Sources
 
-1. Get Google Search API key from: https://console.cloud.google.com
-2. Get OpenAI API key from: https://platform.openai.com/api-keys
-3. Replace in the `API_CONFIG` section:
+- **Wikipedia API** - Company information, descriptions, images
+- **Simulated Kununu Data** - Employee ratings (for demonstration)
+- **Generated Content** - Interview questions, specialization areas
+- **Real-time Data** - Fetched live from Wikipedia
 
-```javascript
-const API_CONFIG = {
-    GOOGLE_SEARCH_API: 'YOUR_KEY_HERE',
-    OPENAI_API: 'YOUR_KEY_HERE',
-};
-```
-
-### Add More Companies
-
-Edit the `companyDatabase` object:
-
-```javascript
-'companyname': {
-    name: 'Company Name',
-    description: 'Company description...',
-    website: 'https://example.com',
-    image: 'https://logo-url.png',
-    rating: 4.2,
-    reviews: 500,
-    areas: ['Area 1', 'Area 2', ...],
-    locations: ['Location 1', 'Location 2', ...],
-    industry: 'Industry Name',
-    employees: '50,000+',
-    founded: '2020'
-}
-```
-
-### Customize Colors
-
-Edit CSS variables:
-
-```css
-:root {
-    --primary: #6366f1;      /* Main color */
-    --secondary: #ec4899;    /* Accent */
-    --accent: #f59e0b;       /* Highlights */
-    --success: #10b981;      /* Success */
-}
-```
-
-## 📈 Performance
-
-- ⚡ **Instant Loading** - Single file, < 200KB
-- 🚀 **Fast Searches** - Results in milliseconds
-- 📱 **Responsive** - Works on all screen sizes
-- 🔄 **API Cached** - Reduces redundant requests
-
-## 🔒 Privacy
-
-- ✅ No user data collection
-- ✅ No tracking or analytics
-- ✅ No cookies stored
-- ✅ Fully private searches
-- ✅ Offline capable
-
-## 🎯 Use Cases
+## 🎓 Use Cases
 
 **For Job Seekers**
 - Research companies before applying
-- Prepare for interviews
-- Understand company culture
+- Prepare for job interviews
+- Understand company specializations
 - Explore career opportunities
+- Practice interview questions
 
 **For Students**
 - Learn about different industries
-- Study company structures
-- Prepare for career fairs
-- Research for presentations
+- Research companies for projects
+- Understand global business
+- Prepare for presentations
+- Study organizational structures
 
-**For HR Professionals**
-- Research competitors
-- Benchmark company information
-- Provide candidate resources
-- Support employee development
+**For Career Counselors**
+- Provide interview resources
+- Research opportunities
+- Support client preparation
+- Educational material
 
-**For Investors**
-- Quick company overviews
-- Industry research
-- Market analysis
-- Competitive landscape
+**For Professionals**
+- Quick company research
+- Competitor analysis
+- Market understanding
+- Industry insights
 
-## 🌟 Why Use This?
+**For Everyone**
+- Satisfy curiosity about companies
+- Fun memory game
+- Educational entertainment
+- Global business knowledge
 
-✨ **Beautiful Modern Design** - Eye-catching gradients and smooth animations
-🎨 **Colorful Interface** - Vibrant, professional color scheme
-📱 **Mobile Friendly** - Works perfectly on all devices
-🌐 **Search Any Company** - Not limited to pre-loaded data
-⚡ **Lightning Fast** - Instant results
-🔓 **No Signup Required** - Start using immediately
-📚 **Interview Ready** - Built-in preparation content
-🎓 **Educational** - Learn about companies worldwide
+## 🛠️ Customization
+
+### Modify Game Emojis
+Edit the `gameEmojis` object in the JavaScript section to add custom emojis for specific company types.
+
+### Change Colors
+Edit CSS variables at the top of the style section:
+```css
+:root {
+    --primary: #667eea;
+    --secondary: #764ba2;
+    /* etc */
+}
+```
+
+### Add More Questions
+Add entries to the `defaultQuestions` array to customize interview prep.
+
+## 🔒 Privacy & Data
+
+- ✅ No user tracking
+- ✅ No data collection
+- ✅ No cookies
+- ✅ No personal information stored
+- ✅ Fully private
+- ✅ Works completely offline (after first search)
+
+## ⚡ Performance
+
+- 🚀 **Instant loading** - Single HTML file
+- ⚡ **Fast searches** - Real-time API results
+- 📱 **Responsive** - Optimized for all devices
+- 💾 **Small footprint** - Under 250KB
+- 🔄 **Efficient caching** - Reuses data
 
 ## 🆘 Troubleshooting
 
 **Company not found?**
-- Try different spelling
-- Use official company name
-- Check if company has website
+- Check spelling
+- Try using the exact company name
+- Make sure the company has a Wikipedia page
+- Try alternative names
 
 **Images not loading?**
 - Check internet connection
-- URL might be outdated
-- Try refreshing page
+- The company may not have a Wikipedia logo
+- Try a different company
+- Refresh the page
 
-**Search not working?**
-- Ensure proper spelling
-- Try simpler company names
-- Clear browser cache
+**Game not appearing?**
+- Scroll down to the bottom
+- Make sure you've searched for a company first
+- Try refreshing the page
 
-**Slow performance?**
-- Close other browser tabs
-- Reduce number of searches
-- Check internet speed
+**Search taking too long?**
+- Check your internet connection
+- Try a simpler company name
+- Try a major company first
 
-## 📞 Support & Feedback
+## 📞 Support
 
-Found a bug or have a suggestion?
-1. Check GitHub Issues
-2. Create a new issue with details
-3. Include screenshots if possible
+Found a bug or have suggestions?
+1. Check the GitHub repository
+2. Create a GitHub issue
+3. Include details and screenshots
 
 ## 📄 License
 
 This project is open source and free to use.
-Modify and share as you wish!
+Feel free to modify and share!
 
-## 👨‍💻 Author
+## 👩‍💻 Author
 
 **Srishti Mehra**
 - GitHub: [@SrishtiMehra26](https://github.com/SrishtiMehra26)
@@ -342,20 +396,23 @@ Built with:
 - Vanilla JavaScript
 - Wikipedia API
 - Modern web standards
+- ❤️ Passion for education
 
 ## 🎉 Get Started Now!
 
-1. Open `index.html`
-2. Search for any company
-3. Get instant insights
-4. Prepare for interviews
-5. Share with friends!
+1. **Open** `index.html`
+2. **Read** the instructions
+3. **Search** any company
+4. **Explore** the information
+5. **Play** the game
+6. **Share** with friends!
 
 ---
 
-**Version**: 2.0.0  
+**Version**: 3.0.0  
 **Last Updated**: March 2026  
 **Status**: ✅ Production Ready  
-**Theme**: Modern, Creative, User-Friendly
+**Theme**: Professional, Creative, Fun  
+**Compatibility**: All Modern Browsers  
 
-Enjoy discovering companies! 🚀
+**Enjoy discovering companies worldwide! 🌍🚀**
