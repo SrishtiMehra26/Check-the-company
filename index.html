@@ -12,20 +12,21 @@
         }
 
         :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --accent: #f093fb;
-            --dark: #1a1a2e;
-            --light: #f8f9ff;
-            --success: #4caf50;
-            --warning: #ff9800;
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --light: #f8f9fa;
+            --text-dark: #0d1117;
+            --border: #d0d7de;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--light) 0%, #e0e7ff 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #ffffff;
             min-height: 100vh;
-            overflow-x: hidden;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
         /* Landing Page */
@@ -39,49 +40,46 @@
             overflow: hidden;
         }
 
+        .landing-page.hidden {
+            display: none !important;
+        }
+
         .landing-page::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.1);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.15) 0%, transparent 70%);
             border-radius: 50%;
-            top: -100px;
-            left: -100px;
-            animation: float 6s ease-in-out infinite;
+            top: -200px;
+            right: -200px;
         }
 
         .landing-page::after {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(240, 147, 251, 0.1);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(15, 52, 96, 0.15) 0%, transparent 70%);
             border-radius: 50%;
-            bottom: -50px;
-            right: -50px;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(30px); }
+            bottom: -150px;
+            left: -150px;
         }
 
         .landing-content {
             position: relative;
             z-index: 10;
             text-align: center;
-            color: white;
-            max-width: 900px;
-            padding: 40px;
-            animation: slideUp 0.8s ease-out;
+            color: #ffffff;
+            max-width: 1000px;
+            padding: 60px 40px;
+            animation: fadeInUp 1s ease-out;
         }
 
-        @keyframes slideUp {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -90,80 +88,108 @@
         }
 
         .landing-content h1 {
-            font-size: 4em;
+            font-size: 4.5em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.1;
         }
 
         .landing-content .tagline {
-            font-size: 1.5em;
-            margin-bottom: 50px;
-            opacity: 0.95;
+            font-size: 1.4em;
+            margin-bottom: 60px;
+            opacity: 0.9;
             font-weight: 300;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
+            color: #e0e0e0;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
             text-align: left;
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 25px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--accent);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 35px;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 3px solid var(--highlight);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .feature-card:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--highlight);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-card h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
         }
 
         .feature-card p {
             font-size: 0.95em;
-            opacity: 0.9;
-            line-height: 1.5;
+            opacity: 0.85;
+            line-height: 1.6;
+            color: #e0e0e0;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button {
-            background: var(--accent);
+            background: var(--highlight);
             color: white;
             padding: 18px 50px;
             border: none;
-            border-radius: 50px;
+            border-radius: 6px;
             font-size: 1.1em;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4);
-            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(233, 69, 96, 0.4);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            border: 2px solid var(--highlight);
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(240, 147, 251, 0.6);
+            background: transparent;
+            color: var(--highlight);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(233, 69, 96, 0.5);
         }
 
         .cta-button:active {
-            transform: scale(0.98);
+            transform: translateY(0);
         }
 
         /* Main Application */
@@ -182,13 +208,14 @@
         }
 
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--primary);
             color: white;
             padding: 25px;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--accent);
         }
 
         .header-content {
@@ -200,78 +227,93 @@
         }
 
         .header h1 {
-            font-size: 2em;
+            font-size: 1.8em;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .header h1:hover {
-            transform: scale(1.05);
+            color: var(--highlight);
         }
 
         .back-btn {
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
             color: white;
-            border: 2px solid white;
+            border: 1px solid var(--highlight);
             padding: 10px 20px;
-            border-radius: 25px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .back-btn:hover {
-            background: white;
-            color: var(--primary);
+            background: var(--highlight);
+            border-color: var(--highlight);
         }
 
         .search-container {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 50px 40px;
+            background: var(--light);
+            border-bottom: 1px solid var(--border);
         }
 
         .search-box {
             display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
         }
 
         #companyInput {
             flex: 1;
             min-width: 250px;
-            padding: 16px 25px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
+            padding: 14px 20px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
             font-size: 1em;
             transition: all 0.3s ease;
             background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            color: var(--text-dark);
         }
 
         #companyInput:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+            border-color: var(--highlight);
+            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+        }
+
+        #companyInput::placeholder {
+            color: #999;
         }
 
         #searchBtn {
-            padding: 16px 40px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 14px 35px;
+            background: var(--highlight);
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 6px;
             font-size: 1em;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 2px 8px rgba(233, 69, 96, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         #searchBtn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+            background: #d63a4a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
         }
 
         #searchBtn:active {
@@ -282,24 +324,33 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 10px;
+            align-items: center;
+        }
+
+        .suggestion-label {
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .suggestion-chip {
-            background: linear-gradient(135deg, var(--light) 0%, white 100%);
-            border: 1px solid #e0e0e0;
-            padding: 8px 16px;
+            background: white;
+            border: 1px solid var(--border);
+            padding: 8px 14px;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9em;
-            color: var(--dark);
+            color: var(--text-dark);
+            font-weight: 500;
         }
 
         .suggestion-chip:hover {
-            background: var(--primary);
+            background: var(--highlight);
             color: white;
-            border-color: var(--primary);
+            border-color: var(--highlight);
             transform: scale(1.05);
         }
 
@@ -307,108 +358,110 @@
         .content {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 0 20px 40px;
+            padding: 40px 40px;
         }
 
         .quadrant-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 30px;
             margin-bottom: 40px;
-            min-height: 500px;
+            min-height: 550px;
         }
 
         .quadrant {
             background: white;
-            border-radius: 20px;
+            border-radius: 8px;
             padding: 35px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
             overflow-y: auto;
-            max-height: 700px;
+            max-height: 750px;
             transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
+            border: 1px solid var(--border);
         }
 
         .quadrant:hover {
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .quadrant h2 {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
             margin-bottom: 25px;
             font-size: 1.5em;
+            font-weight: 700;
+            border-bottom: 2px solid var(--highlight);
+            padding-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .quadrant h3 {
-            color: var(--dark);
+            color: var(--text-dark);
             margin-top: 20px;
             margin-bottom: 12px;
             font-size: 1.1em;
+            font-weight: 600;
         }
 
         /* Company Images */
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 15px 0;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
         }
 
         .gallery-image {
             width: 100%;
-            height: 150px;
+            height: 140px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 1px solid var(--border);
         }
 
         .gallery-image:hover {
             transform: scale(1.05);
-            border-color: var(--primary);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            border-color: var(--highlight);
+            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.2);
         }
 
         .main-image {
             width: 100%;
             max-height: 350px;
             object-fit: cover;
-            border-radius: 15px;
+            border-radius: 6px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid #f0f0f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
         }
 
         /* Profile Section */
         .profile-section {
-            background: linear-gradient(135deg, #f5f7ff 0%, #f0e6ff 100%);
+            background: var(--light);
             padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary);
+            border-radius: 6px;
+            border-left: 4px solid var(--highlight);
             margin-bottom: 20px;
         }
 
         .profile-section p {
-            color: var(--dark);
+            color: var(--text-dark);
             line-height: 1.8;
             font-size: 0.95em;
         }
 
         /* Rating Section */
         .rating-box {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe0b2 100%);
+            background: var(--light);
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 6px;
             margin-bottom: 20px;
             text-align: center;
-            border: 2px solid #ffe082;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--highlight);
         }
 
         .stars {
@@ -419,18 +472,19 @@
         }
 
         .rating-info {
-            color: var(--dark);
+            color: var(--text-dark);
             font-size: 1em;
             font-weight: 600;
         }
 
         /* Strongest Areas */
         .areas-box {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            background: var(--light);
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 6px;
             margin-bottom: 20px;
-            border: 2px solid #81c784;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--highlight);
         }
 
         .areas-box ul {
@@ -438,32 +492,33 @@
         }
 
         .areas-box li {
-            color: #2e7d32;
+            color: var(--text-dark);
             margin: 12px 0;
-            padding-left: 30px;
+            padding-left: 25px;
             position: relative;
             font-weight: 500;
             line-height: 1.6;
         }
 
         .areas-box li:before {
-            content: "✓";
+            content: "→";
             position: absolute;
             left: 0;
             font-weight: bold;
-            font-size: 1.2em;
+            color: var(--highlight);
         }
 
         /* Locations */
         .locations-box {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            background: var(--light);
             padding: 25px;
-            border-radius: 15px;
-            border: 2px solid #64b5f6;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--highlight);
         }
 
         .locations-box p {
-            color: #1565c0;
+            color: var(--text-dark);
             margin: 12px 0;
             line-height: 1.8;
             font-weight: 500;
@@ -473,65 +528,69 @@
         .bottom-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 30px;
             margin-bottom: 40px;
         }
 
         .bottom-quadrant {
             background: white;
-            border-radius: 20px;
+            border-radius: 8px;
             padding: 35px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            max-height: 700px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            max-height: 750px;
             overflow-y: auto;
-            border: 1px solid #f0f0f0;
+            border: 1px solid var(--border);
         }
 
         .bottom-quadrant h2 {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
             margin-bottom: 25px;
             font-size: 1.5em;
+            font-weight: 700;
+            border-bottom: 2px solid var(--highlight);
+            padding-bottom: 15px;
         }
 
         .question-item {
-            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            background: var(--light);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 6px;
             margin-bottom: 15px;
-            border-left: 5px solid var(--primary);
+            border-left: 4px solid var(--highlight);
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--highlight);
         }
 
         .question-item:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .question-item p {
-            color: var(--dark);
+            color: var(--text-dark);
             font-weight: 500;
             line-height: 1.6;
         }
 
         .answer-item {
-            background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+            background: var(--light);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 6px;
             margin-bottom: 15px;
-            border-left: 5px solid var(--success);
+            border-left: 4px solid #4caf50;
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            border-left: 4px solid #4caf50;
         }
 
         .answer-item:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .answer-item p {
-            color: var(--dark);
+            color: var(--text-dark);
             line-height: 1.7;
             font-size: 0.95em;
         }
@@ -539,20 +598,20 @@
         /* Additional Info */
         .additional-info {
             background: white;
-            border-radius: 20px;
+            border-radius: 8px;
             padding: 35px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
             margin-bottom: 40px;
-            border: 1px solid #f0f0f0;
+            border: 1px solid var(--border);
         }
 
         .additional-info h2 {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
             margin-bottom: 25px;
             font-size: 1.5em;
+            font-weight: 700;
+            border-bottom: 2px solid var(--highlight);
+            padding-bottom: 15px;
         }
 
         .info-grid {
@@ -562,20 +621,22 @@
         }
 
         .info-item {
-            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            background: var(--light);
             padding: 20px;
-            border-radius: 12px;
-            border-left: 5px solid var(--warning);
+            border-radius: 6px;
+            border-left: 4px solid var(--highlight);
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--highlight);
         }
 
         .info-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .info-item p {
-            color: var(--dark);
+            color: var(--text-dark);
             line-height: 1.7;
             font-size: 0.95em;
         }
@@ -583,36 +644,36 @@
         /* Game Section */
         .game-section {
             background: white;
-            border-radius: 20px;
+            border-radius: 8px;
             padding: 35px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
             margin-bottom: 40px;
-            border: 1px solid #f0f0f0;
+            border: 1px solid var(--border);
         }
 
         .game-section h2 {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
             margin-bottom: 25px;
             font-size: 1.5em;
+            font-weight: 700;
+            border-bottom: 2px solid var(--highlight);
+            padding-bottom: 15px;
         }
 
         .game-container {
-            background: linear-gradient(135deg, #ffeb3b 0%, #fdd835 100%);
+            background: var(--light);
             padding: 35px;
-            border-radius: 15px;
+            border-radius: 6px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(255, 221, 51, 0.2);
-            border: 2px solid #fbc02d;
+            border: 1px solid var(--border);
         }
 
         .game-question {
-            font-size: 1.3em;
-            color: var(--dark);
-            font-weight: bold;
+            font-size: 1.2em;
+            color: var(--text-dark);
+            font-weight: 600;
             margin-bottom: 25px;
+            line-height: 1.6;
         }
 
         .game-buttons {
@@ -623,23 +684,21 @@
         }
 
         .game-btn {
-            padding: 20px;
+            padding: 18px;
             background: white;
-            border: 2px solid var(--dark);
-            border-radius: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 1em;
-            transition: all 0.3s;
-            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
         }
 
         .game-btn:hover:not(:disabled) {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            border-color: var(--highlight);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.2);
         }
 
         .game-btn:disabled {
@@ -647,9 +706,9 @@
         }
 
         .game-btn.correct {
-            background: var(--success);
+            background: #4caf50;
             color: white;
-            border-color: var(--success);
+            border-color: #4caf50;
         }
 
         .game-btn.wrong {
@@ -659,37 +718,42 @@
         }
 
         .game-score {
-            color: var(--dark);
-            font-size: 1.3em;
-            font-weight: bold;
+            color: var(--text-dark);
+            font-size: 1.2em;
+            font-weight: 600;
             margin: 15px 0;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 15px;
-            border-radius: 10px;
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
         }
 
         #nextBtn {
             padding: 12px 30px;
-            background: var(--primary);
+            background: var(--highlight);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             margin-top: 15px;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.3px;
         }
 
         #nextBtn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            background: #d63a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
         }
 
         /* Loading State */
         .loading {
             text-align: center;
-            color: var(--primary);
-            font-size: 1.2em;
+            color: var(--highlight);
+            font-size: 1.1em;
             padding: 60px 20px;
             animation: pulse 1.5s infinite;
         }
@@ -700,11 +764,11 @@
         }
 
         .spinner {
-            border: 4px solid var(--light);
-            border-top: 4px solid var(--primary);
+            border: 3px solid var(--light);
+            border-top: 3px solid var(--highlight);
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             animation: spin 1s linear infinite;
             margin: 20px auto;
         }
@@ -716,21 +780,21 @@
 
         /* Error State */
         .error {
-            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
-            color: #c62828;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 5px solid #f44336;
+            background: #fff3cd;
+            color: #856404;
+            padding: 16px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
             margin: 20px 0;
             font-weight: 500;
-            box-shadow: 0 5px 20px rgba(244, 67, 54, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .empty-state {
             text-align: center;
             color: #999;
             padding: 60px 20px;
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
         /* Responsive Design */
@@ -741,7 +805,7 @@
             }
 
             .landing-content h1 {
-                font-size: 3em;
+                font-size: 3.2em;
             }
 
             .game-buttons {
@@ -751,11 +815,15 @@
 
         @media (max-width: 768px) {
             .landing-content h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
 
             .landing-content .tagline {
-                font-size: 1.2em;
+                font-size: 1.1em;
+            }
+
+            .landing-content {
+                padding: 40px 20px;
             }
 
             .header-content {
@@ -791,6 +859,11 @@
             .info-grid {
                 grid-template-columns: 1fr;
             }
+
+            .search-suggestions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         /* Scrollbar Styling */
@@ -800,16 +873,15 @@
 
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
-            border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 10px;
+            background: var(--highlight);
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
+            background: #d63a4a;
         }
     </style>
 </head>
@@ -817,37 +889,37 @@
     <!-- Landing Page -->
     <div class="landing-page" id="landingPage">
         <div class="landing-content">
-            <h1>🌍 Company Check</h1>
+            <h1>Company Check</h1>
             <p class="tagline">Discover Any Company, Anywhere in the World</p>
 
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>🔍 Universal Search</h3>
-                    <p>Search any company worldwide - from Fortune 500 companies to small local businesses</p>
+                    <p>Search any company worldwide - from Fortune 500 to small local businesses with Wikipedia presence</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📊 Comprehensive Insights</h3>
-                    <p>Get detailed information about company profiles, ratings, expertise areas, and locations</p>
+                    <h3>📊 Comprehensive Data</h3>
+                    <p>Get detailed insights about company profiles, employee ratings, expertise areas, and locations</p>
                 </div>
                 <div class="feature-card">
-                    <h3>💼 Interview Ready</h3>
-                    <p>Prepare for job interviews with company-specific questions and professional answers</p>
+                    <h3>💼 Interview Prep</h3>
+                    <p>Prepare for interviews with company-specific questions and professional answer suggestions</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🎮 Interactive Learning</h3>
-                    <p>Test your knowledge with fun company-specific games and challenges</p>
+                    <h3>🎮 Interactive Games</h3>
+                    <p>Test your knowledge with engaging, company-specific games and challenges</p>
                 </div>
                 <div class="feature-card">
                     <h3>🖼️ Visual Content</h3>
-                    <p>View real company images, headquarters photos, and office locations</p>
+                    <p>View authentic company images, headquarters photos, and office locations worldwide</p>
                 </div>
                 <div class="feature-card">
                     <h3>🌐 Global Coverage</h3>
-                    <p>Access companies from Germany, Japan, China, USA, Africa, and every continent</p>
+                    <p>Access companies from every continent - Germany, Japan, China, USA, Africa, and beyond</p>
                 </div>
             </div>
 
-            <button class="cta-button" onclick="startApp()">Start Exploring →</button>
+            <button class="cta-button" onclick="startApp()">Start Exploring</button>
         </div>
     </div>
 
@@ -856,19 +928,19 @@
         <!-- Header -->
         <div class="header">
             <div class="header-content">
-                <h1 onclick="goBackToLanding()">🌍 Company Check</h1>
-                <button class="back-btn" onclick="goBackToLanding()">← Back to Home</button>
+                <h1 onclick="goBackToLanding()" style="cursor: pointer;">Company Check</h1>
+                <button class="back-btn" onclick="goBackToLanding()">← Back Home</button>
             </div>
         </div>
 
         <!-- Search Section -->
         <div class="search-container">
             <div class="search-box">
-                <input type="text" id="companyInput" placeholder="Search any company (e.g., DHL, Tesla, Sony, Alibaba, Siemens, Samsung...)" autocomplete="off">
+                <input type="text" id="companyInput" placeholder="Search any company (e.g., DHL, Tesla, Sony, Alibaba, Siemens...)" autocomplete="off">
                 <button id="searchBtn">Search</button>
             </div>
             <div class="search-suggestions">
-                <span style="color: #999; font-size: 0.9em; margin-right: 10px;">Try:</span>
+                <span class="suggestion-label">Try:</span>
                 <div class="suggestion-chip" onclick="searchByName('DHL')">DHL</div>
                 <div class="suggestion-chip" onclick="searchByName('Tesla')">Tesla</div>
                 <div class="suggestion-chip" onclick="searchByName('Samsung')">Samsung</div>
@@ -884,17 +956,17 @@
             <div class="quadrant-container">
                 <!-- Left Quadrant - Company Profile -->
                 <div class="quadrant" id="leftQuadrant">
-                    <h2>🏢 Company Profile</h2>
+                    <h2>Company Profile</h2>
                     <div id="leftContent">
-                        <p class="empty-state">👈 Start by searching for a company above</p>
+                        <p class="empty-state">Search for a company to begin</p>
                     </div>
                 </div>
 
                 <!-- Right Quadrant - Company Details -->
                 <div class="quadrant" id="rightQuadrant">
-                    <h2>📈 Company Details</h2>
+                    <h2>Company Details</h2>
                     <div id="rightContent">
-                        <p class="empty-state">👈 Start by searching for a company above</p>
+                        <p class="empty-state">Search for a company to begin</p>
                     </div>
                 </div>
             </div>
@@ -903,41 +975,41 @@
             <div class="bottom-container">
                 <!-- Interview Questions -->
                 <div class="bottom-quadrant">
-                    <h2>💡 Interview Questions</h2>
+                    <h2>Interview Questions</h2>
                     <div id="questionsContent">
-                        <p class="empty-state">👈 Start by searching for a company above</p>
+                        <p class="empty-state">Search for a company to begin</p>
                     </div>
                 </div>
 
                 <!-- Interview Answers -->
                 <div class="bottom-quadrant">
-                    <h2>✅ Suggested Answers</h2>
+                    <h2>Suggested Answers</h2>
                     <div id="answersContent">
-                        <p class="empty-state">👈 Start by searching for a company above</p>
+                        <p class="empty-state">Search for a company to begin</p>
                     </div>
                 </div>
             </div>
 
             <!-- Additional Information -->
             <div class="additional-info">
-                <h2>⭐ Key Information & Achievements</h2>
+                <h2>Key Information & Achievements</h2>
                 <div class="info-grid" id="additionalContent">
-                    <p class="empty-state">👈 Start by searching for a company above</p>
+                    <p class="empty-state">Search for a company to begin</p>
                 </div>
             </div>
 
             <!-- Game Section -->
             <div class="game-section">
-                <h2>🎮 Company Knowledge Game</h2>
+                <h2>Knowledge Challenge</h2>
                 <div id="gameContent">
-                    <p class="empty-state">👈 Start by searching for a company above</p>
+                    <p class="empty-state">Search for a company to begin</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Comprehensive Company Database with Real Data
+        // Comprehensive Company Database
         const companyDatabase = {
             'dhl': {
                 name: 'DHL',
@@ -946,17 +1018,17 @@
                     'https://images.unsplash.com/photo-1494412519341-f48d92242c3d?w=600&h=400&fit=crop',
                     'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop'
                 ],
-                profile: 'DHL is a global logistics leader specializing in parcel delivery, express shipping, and supply chain solutions. With operations in over 220 countries, DHL connects businesses and people with reliable shipping services.',
+                profile: 'DHL is a global logistics leader specializing in parcel delivery, express shipping, and supply chain solutions. With operations in over 220 countries, DHL connects businesses and people with reliable shipping services worldwide.',
                 rating: 3.8,
                 ratingCount: 12450,
-                areas: ['International Logistics', 'Express Delivery', 'Supply Chain Management', 'E-commerce Solutions', 'Customer Service Excellence'],
-                locations: '🏢 Headquarters: Bonn, Germany\n📍 Major Hubs: Frankfurt, New York, Shanghai, Dubai, London, Singapore, Sydney',
+                areas: ['International Logistics', 'Express Delivery', 'Supply Chain Management', 'E-commerce Solutions', 'Customer Service'],
+                locations: 'Headquarters: Bonn, Germany\nMajor Hubs: Frankfurt, New York, Shanghai, Dubai, London, Singapore, Sydney',
                 additionalInfo: [
-                    '✓ Founded in 1969, pioneered overnight delivery',
-                    '✓ Employs 380,000+ people worldwide',
-                    '✓ Part of Deutsche Post DHL Group',
-                    '✓ Leading in sustainable logistics with electric vehicle fleet',
-                    '✓ Operates 400+ distribution centers globally'
+                    'Founded in 1969, pioneered overnight delivery concept',
+                    'Employs 380,000+ people across 220+ countries',
+                    'Part of Deutsche Post DHL Group',
+                    'Leading innovator in sustainable logistics with electric vehicles',
+                    'Operates 400+ distribution centers globally'
                 ],
                 questions: [
                     'Tell us about your experience handling time-sensitive deliveries.',
@@ -966,28 +1038,16 @@
                     'How do you stay organized with multiple ongoing projects?'
                 ],
                 answers: [
-                    'I have proven experience coordinating urgent shipments with 100% on-time delivery. I understand the importance of reliability and use systematic tracking.',
+                    'I have proven experience coordinating urgent shipments with 100% on-time delivery. I understand the importance of reliability and use systematic tracking methods.',
                     'I excel at managing cross-regional operations by understanding local regulations, optimizing routes, and maintaining strong partner relationships.',
                     'I\'m drawn to DHL\'s commitment to connecting the world. The logistics industry fascinates me because of its direct impact on global commerce.',
-                    'I would immediately contact all stakeholders, identify the root cause, arrange alternative routes, and prevent future occurrences through process improvements.',
+                    'I would immediately contact all stakeholders, identify root causes, arrange alternative routes, and implement preventative measures for future occurrences.',
                     'I use advanced tracking systems, priority management tools, and maintain detailed logs to ensure no detail is overlooked.'
                 ],
                 gameQuestions: [
-                    {
-                        question: 'In how many countries does DHL operate?',
-                        options: ['100', '150', '220+', '180'],
-                        correct: 2
-                    },
-                    {
-                        question: 'Where is DHL headquartered?',
-                        options: ['Frankfurt', 'Bonn', 'Berlin', 'Munich'],
-                        correct: 1
-                    },
-                    {
-                        question: 'What year was DHL founded?',
-                        options: ['1965', '1969', '1972', '1975'],
-                        correct: 1
-                    }
+                    { question: 'In how many countries does DHL operate?', options: ['100', '150', '220+', '180'], correct: 2 },
+                    { question: 'Where is DHL headquartered?', options: ['Frankfurt', 'Bonn', 'Berlin', 'Munich'], correct: 1 },
+                    { question: 'What year was DHL founded?', options: ['1965', '1969', '1972', '1975'], correct: 1 }
                 ]
             },
             'tesla': {
@@ -1001,44 +1061,32 @@
                 rating: 3.5,
                 ratingCount: 8920,
                 areas: ['Electric Vehicle Technology', 'Battery Innovation', 'Autonomous Driving Systems', 'Renewable Energy', 'Artificial Intelligence'],
-                locations: '🏢 Headquarters: Austin, Texas, USA\n📍 Gigafactories: Berlin, Shanghai, Austin, Nevada, Texas',
+                locations: 'Headquarters: Austin, Texas, USA\nGigafactories: Berlin, Shanghai, Austin, Nevada, Texas',
                 additionalInfo: [
-                    '✓ Founded by Elon Musk in 2003',
-                    '✓ Produces 1.8+ million vehicles annually',
-                    '✓ Market leader in global EV sales',
-                    '✓ Developing next-generation battery technology with 1000+ mile range',
-                    '✓ Investment in autonomous driving reaching Level 5 capabilities'
+                    'Founded by Elon Musk in 2003',
+                    'Produces 1.8+ million vehicles annually',
+                    'Market leader in global EV sales with 20% market share',
+                    'Developing next-generation battery technology with 1000+ mile range',
+                    'Advancing autonomous driving with Full Self-Driving capability'
                 ],
                 questions: [
                     'What motivates you in sustainable technology innovation?',
                     'How do you handle working in a fast-paced, innovative environment?',
                     'Tell us about a complex engineering challenge you\'ve solved.',
                     'How do you approach learning about emerging technologies?',
-                    'What\'s your understanding of battery technology in EVs?'
+                    'What\'s your understanding of battery technology in electric vehicles?'
                 ],
                 answers: [
-                    'I\'m passionate about combating climate change. Tesla\'s mission to accelerate sustainable energy aligns perfectly with my values and career goals.',
+                    'I\'m passionate about combating climate change. Tesla\'s mission to accelerate sustainable energy aligns perfectly with my core values and career aspirations.',
                     'I thrive in dynamic environments where innovation is constant. I stay focused on core objectives while remaining adaptable to changing circumstances.',
                     'I led a battery efficiency optimization project that improved range by 15% through systematic testing and innovative engineering approaches.',
                     'I actively follow research papers, attend industry conferences, and experiment with new technologies to stay at the forefront of innovation.',
                     'Modern EV batteries are the foundation of transportation revolution. Tesla\'s cell technology provides unmatched energy density, charge speed, and lifespan.'
                 ],
                 gameQuestions: [
-                    {
-                        question: 'When was Tesla founded?',
-                        options: ['2000', '2003', '2006', '2008'],
-                        correct: 1
-                    },
-                    {
-                        question: 'What does Tesla focus on primarily?',
-                        options: ['Traditional Cars', 'Electric Vehicles', 'Aviation', 'Rail Transport'],
-                        correct: 1
-                    },
-                    {
-                        question: 'What is Tesla\'s newest headquarters location?',
-                        options: ['Fremont', 'Palo Alto', 'Austin', 'Los Angeles'],
-                        correct: 2
-                    }
+                    { question: 'When was Tesla founded?', options: ['2000', '2003', '2006', '2008'], correct: 1 },
+                    { question: 'What is Tesla\'s primary focus?', options: ['Traditional Cars', 'Electric Vehicles', 'Aviation', 'Rail'], correct: 1 },
+                    { question: 'Where is Tesla\'s headquarters now?', options: ['Fremont', 'Palo Alto', 'Austin', 'Los Angeles'], correct: 2 }
                 ]
             },
             'samsung': {
@@ -1051,14 +1099,14 @@
                 profile: 'Samsung is a South Korean multinational conglomerate leading in semiconductors, smartphones, displays, and consumer electronics. With innovative Galaxy devices and cutting-edge semiconductor technology, Samsung shapes the global tech industry.',
                 rating: 3.6,
                 ratingCount: 15000,
-                areas: ['Smartphone Technology', 'Semiconductor Manufacturing', 'Display Technology (OLED/QLED)', 'Consumer Electronics', '5G & Network Infrastructure'],
-                locations: '🏢 Headquarters: Seoul, South Korea\n📍 Major Offices: Suwon, Busan, New York, London, Tokyo, Singapore, Frankfurt',
+                areas: ['Smartphone Technology', 'Semiconductor Manufacturing', 'Display Technology (OLED/QLED)', 'Consumer Electronics', '5G Infrastructure'],
+                locations: 'Headquarters: Seoul, South Korea\nMajor Offices: Suwon, Busan, New York, London, Tokyo, Singapore, Frankfurt',
                 additionalInfo: [
-                    '✓ Founded in 1938, now a global technology powerhouse',
-                    '✓ Employs 320,000+ people worldwide',
-                    '✓ World\'s largest smartphone manufacturer',
-                    '✓ Leading semiconductor supplier with state-of-the-art fabrication plants',
-                    '✓ Pioneering foldable phone technology with Galaxy Z series'
+                    'Founded in 1938, now a global technology powerhouse',
+                    'Employs 320,000+ people worldwide',
+                    'World\'s largest smartphone manufacturer by shipments',
+                    'Leading semiconductor supplier with advanced 3nm fabrication',
+                    'Pioneer in foldable phones with Galaxy Z series'
                 ],
                 questions: [
                     'How do you stay updated with rapid technological innovation?',
@@ -1068,28 +1116,16 @@
                     'What interests you about the semiconductor industry?'
                 ],
                 answers: [
-                    'I actively follow tech publications, attend industry events, and participate in professional development programs to stay ahead of trends.',
-                    'I\'ve contributed to product development cycles that shipped to millions of users worldwide, ensuring both innovation and reliability.',
-                    'Quality is non-negotiable. I implement rigorous testing protocols and maintain detailed documentation for every stage of production.',
-                    'I\'ve managed cross-continental teams and understand the complexities of global supply chains and different market requirements.',
-                    'Semiconductors are the foundation of modern technology. Samsung\'s role in advancing chip technology is crucial for future innovations.'
+                    'I actively follow tech publications, attend industry events, and participate in continuous development programs to stay ahead of emerging trends.',
+                    'I\'ve contributed to product development cycles that shipped to millions of users globally, ensuring both innovation and reliability.',
+                    'Quality is non-negotiable. I implement rigorous testing protocols and maintain detailed documentation for every production stage.',
+                    'I\'ve managed cross-continental teams and understand complexities of global supply chains and diverse market requirements.',
+                    'Semiconductors are the foundation of modern technology. Samsung\'s advancement in chip technology is crucial for future innovation.'
                 ],
                 gameQuestions: [
-                    {
-                        question: 'In what year was Samsung founded?',
-                        options: ['1925', '1938', '1950', '1965'],
-                        correct: 1
-                    },
-                    {
-                        question: 'What country is Samsung headquartered in?',
-                        options: ['Japan', 'China', 'South Korea', 'Taiwan'],
-                        correct: 2
-                    },
-                    {
-                        question: 'What is Samsung\'s flagship smartphone line?',
-                        options: ['Note Series', 'Galaxy Series', 'Alpha Series', 'Edge Series'],
-                        correct: 1
-                    }
+                    { question: 'When was Samsung founded?', options: ['1925', '1938', '1950', '1965'], correct: 1 },
+                    { question: 'Where is Samsung headquartered?', options: ['Japan', 'China', 'South Korea', 'Taiwan'], correct: 2 },
+                    { question: 'What is Samsung\'s flagship smartphone line?', options: ['Note', 'Galaxy', 'Alpha', 'Edge'], correct: 1 }
                 ]
             },
             'google': {
@@ -1103,13 +1139,13 @@
                 rating: 3.9,
                 ratingCount: 45000,
                 areas: ['Search Technology & Algorithms', 'Artificial Intelligence & Machine Learning', 'Cloud Computing (Google Cloud)', 'Consumer Hardware', 'Digital Advertising'],
-                locations: '🏢 Headquarters: Mountain View, California, USA\n📍 Major Offices: San Francisco, London, Tokyo, Singapore, Dublin, Toronto, Sydney, Toronto',
+                locations: 'Headquarters: Mountain View, California, USA\nMajor Offices: San Francisco, London, Tokyo, Singapore, Dublin, Toronto, Sydney',
                 additionalInfo: [
-                    '✓ Founded in 1998 by Larry Page and Sergey Brin',
-                    '✓ Processes 8.5+ billion searches daily',
-                    '✓ Parent company Alphabet valued at $1.5+ trillion',
-                    '✓ Leading in AI research with models like LaMDA and PaLM',
-                    '✓ Growing investment in quantum computing and sustainable technology'
+                    'Founded in 1998 by Larry Page and Sergey Brin',
+                    'Processes 8.5+ billion searches daily',
+                    'Parent company Alphabet valued at $1.5+ trillion',
+                    'Leading AI research with models like Gemini and LaMDA',
+                    'Investing heavily in quantum computing and climate tech'
                 ],
                 questions: [
                     'Tell us about your experience with large-scale data systems.',
@@ -1119,28 +1155,16 @@
                     'How do you stay innovative in your technical work?'
                 ],
                 answers: [
-                    'I\'ve worked with petabyte-scale datasets and understand distributed systems, MapReduce, and optimization principles for massive infrastructure.',
-                    'I break problems into components, research existing solutions, implement prototypes, and iterate based on performance metrics.',
-                    'AI has unlimited potential to solve real-world problems. I\'m interested in how machine learning can make products more intelligent and helpful.',
-                    'I\'ve contributed to large codebases using Git, participated in code reviews, and value clear documentation and team communication.',
-                    'I stay curious through reading research papers, attending tech talks, experimenting with new frameworks, and applying innovations to practical problems.'
+                    'I\'ve worked with petabyte-scale datasets and understand distributed systems, MapReduce, and optimization for massive infrastructure.',
+                    'I break problems into components, research solutions, implement prototypes, and iterate based on performance metrics.',
+                    'AI has unlimited potential to solve real-world problems. I\'m interested in how machine learning makes products more intelligent.',
+                    'I\'ve contributed to large codebases using Git, participated in code reviews, and value clear documentation and communication.',
+                    'I stay curious through research papers, tech talks, experimenting with new frameworks, and applying innovations to practical problems.'
                 ],
                 gameQuestions: [
-                    {
-                        question: 'What year was Google founded?',
-                        options: ['1995', '1998', '2001', '2003'],
-                        correct: 1
-                    },
-                    {
-                        question: 'What is Google\'s parent company?',
-                        options: ['Microsoft', 'Apple', 'Alphabet', 'Meta'],
-                        correct: 2
-                    },
-                    {
-                        question: 'How many searches does Google process daily?',
-                        options: ['1 billion', '5 billion', '8.5 billion+', '12 billion'],
-                        correct: 2
-                    }
+                    { question: 'What year was Google founded?', options: ['1995', '1998', '2001', '2003'], correct: 1 },
+                    { question: 'What is Google\'s parent company?', options: ['Microsoft', 'Apple', 'Alphabet', 'Meta'], correct: 2 },
+                    { question: 'How many searches does Google process daily?', options: ['1 billion', '5 billion', '8.5 billion+', '12 billion'], correct: 2 }
                 ]
             },
             'alibaba': {
@@ -1153,14 +1177,14 @@
                 profile: 'Alibaba is a Chinese multinational technology company specializing in e-commerce, cloud computing, and digital finance. As one of the world\'s largest online marketplaces, Alibaba connects millions of buyers and sellers globally.',
                 rating: 3.4,
                 ratingCount: 11000,
-                areas: ['E-commerce Platforms', 'Cloud Computing (Alibaba Cloud)', 'Digital Finance & Payments', 'Logistics & Supply Chain', 'Artificial Intelligence'],
-                locations: '🏢 Headquarters: Hangzhou, China\n📍 Major Offices: Beijing, Shanghai, Shenzhen, Singapore, Tokyo, London, New York',
+                areas: ['E-commerce Platforms', 'Cloud Computing (Alibaba Cloud)', 'Digital Finance & Payments', 'Logistics Networks', 'Artificial Intelligence'],
+                locations: 'Headquarters: Hangzhou, China\nMajor Offices: Beijing, Shanghai, Shenzhen, Singapore, Tokyo, London, New York',
                 additionalInfo: [
-                    '✓ Founded in 1999 by Jack Ma',
-                    '✓ Operates marketplaces with 900M+ active buyers',
-                    '✓ Alibaba Cloud serves enterprises globally',
-                    '✓ Investment in innovative technologies and logistics networks',
-                    '✓ Pioneer in mobile commerce and digital payments (Alipay)'
+                    'Founded in 1999 by Jack Ma and 17 co-founders',
+                    'Operates marketplaces with 900M+ active buyers',
+                    'Alibaba Cloud serves enterprises globally',
+                    'Pioneer in mobile commerce and digital payments with Alipay',
+                    'Investment in logistics networks across Asia and beyond'
                 ],
                 questions: [
                     'How would you approach building e-commerce solutions at scale?',
@@ -1170,28 +1194,16 @@
                     'What interests you about the fintech sector?'
                 ],
                 answers: [
-                    'Building e-commerce platforms requires understanding seller needs, buyer experience, trust mechanisms, and payment processing. I\'ve implemented solutions serving millions.',
-                    'I\'m experienced with cloud platforms, database optimization, and scaling infrastructure to handle traffic spikes during peak shopping seasons.',
-                    'Global marketplaces involve navigating different regulations, currencies, logistics partners, and cultural preferences. I understand these complexities.',
-                    'I\'ve worked with payment gateways, fraud detection, and ensuring secure transactions. Security and speed are equally important.',
-                    'Fintech revolutionizes financial inclusion. Alibaba\'s role in enabling digital payments across Asia shows the transformative power of technology.'
+                    'Building e-commerce requires understanding seller needs, buyer experience, trust mechanisms, and payment processing at massive scale.',
+                    'I\'m experienced with cloud platforms, database optimization, and scaling infrastructure to handle traffic spikes during peak shopping.',
+                    'Global marketplaces involve navigating different regulations, currencies, logistics partners, and cultural preferences.',
+                    'I\'ve worked with payment gateways, fraud detection, and ensuring secure transactions where security and speed are equally important.',
+                    'Fintech revolutionizes financial inclusion. Alibaba\'s role in enabling digital payments across Asia shows technology\'s transformative power.'
                 ],
                 gameQuestions: [
-                    {
-                        question: 'When was Alibaba founded?',
-                        options: ['1995', '1999', '2003', '2007'],
-                        correct: 1
-                    },
-                    {
-                        question: 'Who founded Alibaba?',
-                        options: ['Zhang Yiming', 'Jack Ma', 'Pony Ma', 'Colin Huang'],
-                        correct: 1
-                    },
-                    {
-                        question: 'What is Alibaba\'s payment platform called?',
-                        options: ['WeChat Pay', 'Alipay', 'UnionPay', 'Tenpay'],
-                        correct: 1
-                    }
+                    { question: 'When was Alibaba founded?', options: ['1995', '1999', '2003', '2007'], correct: 1 },
+                    { question: 'Who founded Alibaba?', options: ['Zhang Yiming', 'Jack Ma', 'Pony Ma', 'Colin Huang'], correct: 1 },
+                    { question: 'What is Alibaba\'s payment platform?', options: ['WeChat Pay', 'Alipay', 'UnionPay', 'Tenpay'], correct: 1 }
                 ]
             },
             'sony': {
@@ -1204,14 +1216,14 @@
                 profile: 'Sony is a Japanese multinational entertainment and electronics conglomerate. With divisions in gaming, entertainment, imaging technology, and consumer electronics, Sony shapes global entertainment through PlayStation, movies, and cameras.',
                 rating: 3.7,
                 ratingCount: 13500,
-                areas: ['Gaming & PlayStation', 'Entertainment & Media', 'Imaging Technology & Cameras', 'Audio & Headphones', 'Semiconductors & Sensors'],
-                locations: '🏢 Headquarters: Tokyo, Japan\n📍 Major Offices: Minato, Kyoto, Los Angeles, London, Berlin, Singapore, Sydney',
+                areas: ['Gaming & PlayStation', 'Entertainment & Media', 'Imaging Technology', 'Audio & Headphones', 'Semiconductors'],
+                locations: 'Headquarters: Tokyo, Japan\nMajor Offices: Minato, Kyoto, Los Angeles, London, Berlin, Singapore, Sydney',
                 additionalInfo: [
-                    '✓ Founded in 1946, over 75 years of innovation',
-                    '✓ PlayStation dominates gaming industry',
-                    '✓ Employs 105,000+ people worldwide',
-                    '✓ Leading in mirrorless camera technology',
-                    '✓ Strong presence in music, movies, and entertainment'
+                    'Founded in 1946, over 75 years of continuous innovation',
+                    'PlayStation dominates global gaming industry',
+                    'Employs 105,000+ people worldwide',
+                    'Leading in mirrorless camera technology',
+                    'Strong presence in music, movies, and entertainment'
                 ],
                 questions: [
                     'What draws you to the entertainment and technology industry?',
@@ -1221,28 +1233,16 @@
                     'How do you balance creativity with technical excellence?'
                 ],
                 answers: [
-                    'Sony\'s ability to blend entertainment with cutting-edge technology fascinates me. Creating products that bring joy to millions is meaningful work.',
+                    'Sony\'s ability to blend entertainment with cutting-edge technology fascinates me. Creating products bringing joy to millions is meaningful.',
                     'I\'ve developed consumer products from concept to market, understanding user needs, manufacturing constraints, and competitive positioning.',
-                    'Innovation requires understanding market trends, customer feedback, and technological possibilities. I balance risk with proven approaches.',
-                    'I\'m familiar with gaming engines, media codecs, and the technical requirements that enable excellent entertainment experiences.',
-                    'Great products require both artistic vision and technical implementation. I work closely with creative teams to realize their vision technically.'
+                    'Innovation requires understanding market trends, customer feedback, and technological possibilities while balancing risk.',
+                    'I\'m familiar with gaming engines, media codecs, and technical requirements enabling excellent entertainment experiences.',
+                    'Great products require both artistic vision and technical execution. I work closely with creative teams to realize their vision technically.'
                 ],
                 gameQuestions: [
-                    {
-                        question: 'When was Sony founded?',
-                        options: ['1940', '1946', '1950', '1955'],
-                        correct: 1
-                    },
-                    {
-                        question: 'What is Sony\'s gaming console?',
-                        options: ['Xbox', 'Nintendo Switch', 'PlayStation', 'Sega'],
-                        correct: 2
-                    },
-                    {
-                        question: 'Where is Sony headquartered?',
-                        options: ['Osaka', 'Kyoto', 'Tokyo', 'Nagoya'],
-                        correct: 2
-                    }
+                    { question: 'When was Sony founded?', options: ['1940', '1946', '1950', '1955'], correct: 1 },
+                    { question: 'What is Sony\'s gaming console?', options: ['Xbox', 'Nintendo Switch', 'PlayStation', 'Sega'], correct: 2 },
+                    { question: 'Where is Sony headquartered?', options: ['Osaka', 'Kyoto', 'Tokyo', 'Nagoya'], correct: 2 }
                 ]
             },
             'basf': {
@@ -1252,67 +1252,55 @@
                     'https://images.unsplash.com/photo-1535555042633-44f9c83eab4b?w=600&h=400&fit=crop',
                     'https://images.unsplash.com/photo-1576091160688-112722121049?w=600&h=400&fit=crop'
                 ],
-                profile: 'BASF is a German multinational chemical company producing chemicals, plastics, agricultural solutions, and performance products. With operations in 80+ countries, BASF is the world\'s largest chemical producer.',
+                profile: 'BASF is a German multinational chemical company producing chemicals, plastics, agricultural solutions, and performance products. With operations in 80+ countries, BASF is the world\'s largest chemical producer by volume.',
                 rating: 3.5,
                 ratingCount: 8800,
-                areas: ['Chemical Manufacturing', 'Agricultural Solutions', 'Plastics & Performance Products', 'Sustainable Chemistry', 'Research & Development'],
-                locations: '🏢 Headquarters: Ludwigshafen, Germany\n📍 Major Sites: Antwerp, Freeport, Shanghai, Kuantan, Geismar',
+                areas: ['Chemical Manufacturing', 'Agricultural Solutions', 'Plastics & Performance', 'Sustainable Chemistry', 'Research & Development'],
+                locations: 'Headquarters: Ludwigshafen, Germany\nMajor Sites: Antwerp, Freeport, Shanghai, Kuantan, Geismar',
                 additionalInfo: [
-                    '✓ Founded in 1865, over 155 years of heritage',
-                    '✓ Employs 111,000+ people worldwide',
-                    '✓ World\'s largest chemical company by revenue',
-                    '✓ Strong commitment to sustainable chemistry',
-                    '✓ Major player in circular economy initiatives'
+                    'Founded in 1865, over 155 years of heritage',
+                    'Employs 111,000+ people worldwide',
+                    'World\'s largest chemical company by revenue',
+                    'Strong commitment to sustainable and circular chemistry',
+                    'Major player in global circular economy initiatives'
                 ],
                 questions: [
                     'How do you understand the chemical industry and its importance?',
                     'Tell us about your experience with large-scale production.',
                     'How do you approach sustainability in chemical manufacturing?',
-                    'Describe your experience with safety and compliance in manufacturing.',
+                    'Describe your experience with safety and compliance.',
                     'What interests you about chemistry innovation?'
                 ],
                 answers: [
-                    'Chemistry is fundamental to modern life. BASF\'s products touch everything from agriculture to construction, making this work deeply impactful.',
-                    'Large-scale production requires understanding process optimization, quality control, and efficiency. I\'ve managed complex manufacturing operations.',
-                    'Sustainability isn\'t optional anymore. I design processes that minimize waste, reduce emissions, and create value while protecting the environment.',
-                    'Safety is paramount. I implement rigorous protocols, maintain compliance with regulations, and foster a safety-first culture.',
+                    'Chemistry is fundamental to modern life. BASF\'s products touch agriculture, construction, and industry, making work deeply impactful.',
+                    'Large-scale production requires understanding process optimization, quality control, and efficiency across multiple facilities.',
+                    'Sustainability isn\'t optional. I design processes minimizing waste, reducing emissions, and creating value while protecting environment.',
+                    'Safety is paramount. I implement rigorous protocols, maintain regulatory compliance, and foster safety-first culture.',
                     'Chemical innovation solves real problems - better crops, stronger materials, cleaner processes. The intersection of chemistry and sustainability excites me.'
                 ],
                 gameQuestions: [
-                    {
-                        question: 'When was BASF founded?',
-                        options: ['1850', '1865', '1880', '1900'],
-                        correct: 1
-                    },
-                    {
-                        question: 'Where is BASF headquartered?',
-                        options: ['Berlin', 'Frankfurt', 'Ludwigshafen', 'Munich'],
-                        correct: 2
-                    },
-                    {
-                        question: 'How many countries does BASF operate in?',
-                        options: ['40+', '60+', '80+', '100+'],
-                        correct: 2
-                    }
+                    { question: 'When was BASF founded?', options: ['1850', '1865', '1880', '1900'], correct: 1 },
+                    { question: 'Where is BASF headquartered?', options: ['Berlin', 'Frankfurt', 'Ludwigshafen', 'Munich'], correct: 2 },
+                    { question: 'How many countries does BASF operate in?', options: ['40+', '60+', '80+', '100+'], correct: 2 }
                 ]
             }
         };
 
-        // Function to start the app
+        // Start App Function
         function startApp() {
-            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('landingPage').classList.add('hidden');
             document.getElementById('appContainer').classList.add('active');
         }
 
-        // Function to go back to landing
+        // Back to Landing Function
         function goBackToLanding() {
-            document.getElementById('landingPage').style.display = 'flex';
+            document.getElementById('landingPage').classList.remove('hidden');
             document.getElementById('appContainer').classList.remove('active');
             clearAllContent();
             document.getElementById('companyInput').value = '';
         }
 
-        // Search functionality
+        // Search Event Listeners
         document.getElementById('searchBtn').addEventListener('click', searchCompany);
         document.getElementById('companyInput').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') searchCompany();
@@ -1334,7 +1322,7 @@
             const company = companyDatabase[companyName];
 
             if (!company) {
-                showError(`Company not found. Try searching for: DHL, Tesla, Samsung, Google, Alibaba, Sony, or BASF`);
+                showError(`Company not found. Try: DHL, Tesla, Samsung, Google, Alibaba, Sony, or BASF`);
                 clearAllContent();
                 return;
             }
@@ -1343,7 +1331,7 @@
         }
 
         function displayCompanyInfo(company) {
-            // Left Quadrant - Company Profile with Images
+            // Left Quadrant
             let leftHTML = `
                 <div style="margin-bottom: 20px;">
                     <img src="${company.images[0]}" alt="${company.name}" class="main-image" onerror="this.src='https://via.placeholder.com/600x400?text=${company.name}'">
@@ -1353,56 +1341,56 @@
                     <p>${company.profile}</p>
                 </div>
                 <div style="margin-top: 20px;">
-                    <h3>More Images</h3>
+                    <h3>Gallery</h3>
                     <div class="image-gallery">
-                        ${company.images.map((img, idx) => `<img src="${img}" alt="${company.name} ${idx + 1}" class="gallery-image" onerror="this.src='https://via.placeholder.com/150x150?text=${company.name}'">`).join('')}
+                        ${company.images.map((img, idx) => `<img src="${img}" alt="${company.name}" class="gallery-image" onerror="this.src='https://via.placeholder.com/150x150'">`).join('')}
                     </div>
                 </div>
             `;
             document.getElementById('leftContent').innerHTML = leftHTML;
 
-            // Right Quadrant - Ratings and Details
+            // Right Quadrant
             const filledStars = Math.round(company.rating);
-            const stars = '⭐'.repeat(filledStars) + '☆'.repeat(5 - filledStars);
+            const stars = '★'.repeat(filledStars) + '☆'.repeat(5 - filledStars);
 
             let rightHTML = `
                 <div class="rating-box">
-                    <h3>Rating (Kununu)</h3>
+                    <h3>Employee Rating (Kununu)</h3>
                     <div class="stars">${stars}</div>
-                    <div class="rating-info">${company.rating}/5.0 based on ${company.ratingCount.toLocaleString()} employee reviews</div>
+                    <div class="rating-info">${company.rating}/5.0 • ${company.ratingCount.toLocaleString()} reviews</div>
                 </div>
 
                 <div class="areas-box">
-                    <h3>💪 Strongest Areas</h3>
+                    <h3>Strongest Areas</h3>
                     <ul>
                         ${company.areas.map(area => `<li>${area}</li>`).join('')}
                     </ul>
                 </div>
 
                 <div class="locations-box">
-                    <h3>📍 Locations</h3>
+                    <h3>Locations</h3>
                     <p>${company.locations}</p>
                 </div>
             `;
             document.getElementById('rightContent').innerHTML = rightHTML;
 
-            // Interview Questions
+            // Questions
             let questionsHTML = '';
             company.questions.forEach((q, index) => {
                 questionsHTML += `<div class="question-item"><p><strong>${index + 1}.</strong> ${q}</p></div>`;
             });
             document.getElementById('questionsContent').innerHTML = questionsHTML;
 
-            // Interview Answers
+            // Answers
             let answersHTML = '';
             company.answers.forEach((a, index) => {
                 answersHTML += `<div class="answer-item"><p><strong>${index + 1}.</strong> ${a}</p></div>`;
             });
             document.getElementById('answersContent').innerHTML = answersHTML;
 
-            // Additional Information
+            // Additional Info
             let additionalHTML = '';
-            company.additionalInfo.forEach((info, index) => {
+            company.additionalInfo.forEach((info) => {
                 additionalHTML += `<div class="info-item"><p>${info}</p></div>`;
             });
             document.getElementById('additionalContent').innerHTML = additionalHTML;
@@ -1414,11 +1402,11 @@
         function displayGame(company) {
             let gameHTML = `
                 <div class="game-container">
-                    <p style="margin-bottom: 20px; font-size: 1.2em; color: var(--dark); font-weight: bold;">Test your knowledge about ${company.name}! 🚀</p>
+                    <p style="margin-bottom: 25px; font-size: 1.1em; color: var(--text-dark); font-weight: 600;">Test your knowledge about ${company.name}</p>
                     <div class="game-question" id="gameQuestion"></div>
                     <div class="game-buttons" id="gameButtons"></div>
                     <div class="game-score" id="gameScore" style="display: none;"></div>
-                    <button onclick="nextGameQuestion('${company.name}')" style="display: none;" id="nextBtn">Next Question →</button>
+                    <button onclick="nextGameQuestion()" style="display: none;" id="nextBtn">Next Question</button>
                 </div>
             `;
             document.getElementById('gameContent').innerHTML = gameHTML;
@@ -1432,30 +1420,29 @@
                 showGameQuestion(company, gameIndex);
             };
 
-            window.nextGameQuestion = function(companyName) {
+            window.nextGameQuestion = function() {
                 gameIndex++;
                 if (gameIndex < company.gameQuestions.length) {
                     showGameQuestion(company, gameIndex);
                 } else {
-                    document.getElementById('gameQuestion').innerHTML = `<strong>🎉 Game Complete! Final Score: ${gameScore}/${company.gameQuestions.length}</strong>`;
-                    document.getElementById('gameButtons').innerHTML = '<button onclick="location.reload()" style="padding: 12px 30px; background: var(--primary); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">Play Again</button>';
+                    document.getElementById('gameQuestion').innerHTML = `<strong>Game Complete! Final Score: ${gameScore}/${company.gameQuestions.length}</strong>`;
+                    document.getElementById('gameButtons').innerHTML = '<button onclick="location.reload()" style="padding: 12px 30px; background: var(--highlight); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Play Again</button>';
                 }
             };
 
             window.showGameQuestion = function(company, index) {
                 const q = company.gameQuestions[index];
-                document.getElementById('gameQuestion').innerHTML = `<strong>Question ${index + 1} of ${company.gameQuestions.length}</strong><br><br>${q.question}`;
+                document.getElementById('gameQuestion').innerHTML = `Question ${index + 1}/${company.gameQuestions.length}: <strong>${q.question}</strong>`;
 
                 let buttonsHTML = '';
                 q.options.forEach((option, optIndex) => {
-                    buttonsHTML += `<button class="game-btn" onclick="checkAnswer(${optIndex}, ${q.correct}, '${company.name}')">${option}</button>`;
+                    buttonsHTML += `<button class="game-btn" onclick="checkAnswer(${optIndex}, ${q.correct})">${option}</button>`;
                 });
                 document.getElementById('gameButtons').innerHTML = buttonsHTML;
                 document.getElementById('nextBtn').style.display = 'none';
-                document.getElementById('gameScore').style.display = 'none';
             };
 
-            window.checkAnswer = function(selected, correct, companyName) {
+            window.checkAnswer = function(selected, correct) {
                 const buttons = document.querySelectorAll('.game-btn');
                 buttons.forEach((btn, index) => {
                     if (index === correct) {
@@ -1469,10 +1456,10 @@
                 if (selected === correct) {
                     gameScore++;
                     document.getElementById('gameScore').style.display = 'block';
-                    document.getElementById('gameScore').innerHTML = `✨ Correct! Score: ${gameScore}`;
+                    document.getElementById('gameScore').innerHTML = `Correct! Score: ${gameScore}`;
                 } else {
                     document.getElementById('gameScore').style.display = 'block';
-                    document.getElementById('gameScore').innerHTML = `❌ Wrong! Score: ${gameScore}`;
+                    document.getElementById('gameScore').innerHTML = `Wrong! Score: ${gameScore}`;
                 }
 
                 document.getElementById('nextBtn').style.display = 'inline-block';
@@ -1484,11 +1471,19 @@
         function showError(message) {
             const errorDiv = document.createElement('div');
             errorDiv.className = 'error';
-            errorDiv.textContent = message;
+            errorDiv.textContent = '⚠ ' + message;
             document.querySelector('.search-container').appendChild(errorDiv);
             setTimeout(() => errorDiv.remove(), 5000);
         }
 
         function clearAllContent() {
-            document.getElementById('leftContent').innerHTML = '<p class="empty-state">👈 Start by searching for a company above</p>';
-            document.getElementById('rightContent').innerHTML = '<p class="empty-state">👈 Start by searching
+            document.getElementById('leftContent').innerHTML = '<p class="empty-state">Search for a company to begin</p>';
+            document.getElementById('rightContent').innerHTML = '<p class="empty-state">Search for a company to begin</p>';
+            document.getElementById('questionsContent').innerHTML = '<p class="empty-state">Search for a company to begin</p>';
+            document.getElementById('answersContent').innerHTML = '<p class="empty-state">Search for a company to begin</p>';
+            document.getElementById('additionalContent').innerHTML = '<p class="empty-state">Search for a company to begin</p>';
+            document.getElementById('gameContent').innerHTML = '<p class="empty-state">Search for a company to begin</p>';
+        }
+    </script>
+</body>
+</html>
