@@ -588,7 +588,7 @@
         <h1>COMPANY CHECK</h1>
         <p>Professional Research & Interview Preparation Platform</p>
         <div class="search-container">
-            <input type="text" id="company-input" placeholder="Search: Apple, Microsoft, Google, Amazon, Tesla, Volkswagen, Siemens, BMW..." />
+            <input type="text" id="company-input" placeholder="Search any company worldwide (500+ supported)..." />
             <button id="searchBtn" type="button">SEARCH</button>
         </div>
     </header>
@@ -601,54 +601,58 @@
                 <div class="instruction-card">
                     <div class="instruction-number">1</div>
                     <h3>Search Company</h3>
-                    <p>Search any of 500+ global companies and German enterprises. Get comprehensive research instantly.</p>
+                    <p>Search any company worldwide. Our AI searches the web for real information and delivers summarized insights.</p>
                 </div>
                 <div class="instruction-card">
                     <div class="instruction-number">2</div>
                     <h3>View Details</h3>
-                    <p>Access company overview, business areas, global locations, and major achievements.</p>
+                    <p>Access company overview, business areas, global locations, and major achievements powered by web research.</p>
                 </div>
                 <div class="instruction-card">
                     <div class="instruction-number">3</div>
                     <h3>Study Interview</h3>
-                    <p>Learn 10 company-specific interview questions with professional answers.</p>
+                    <p>Learn 10 company-specific interview questions with professional answers tailored to the company.</p>
                 </div>
                 <div class="instruction-card">
                     <div class="instruction-number">4</div>
                     <h3>Practice Quiz</h3>
-                    <p>Test your knowledge with an interactive quiz about the company.</p>
+                    <p>Test your knowledge with an interactive quiz based on company information you learned.</p>
                 </div>
             </div>
 
             <div class="features-section">
-                <h3>🌍 Global Companies (Click to Search)</h3>
+                <h3>🌍 Popular Global Companies (Click to Search)</h3>
                 <div>
-                    <span class="suggestion-chip" data-company="apple">Apple</span>
-                    <span class="suggestion-chip" data-company="microsoft">Microsoft</span>
-                    <span class="suggestion-chip" data-company="google">Google</span>
-                    <span class="suggestion-chip" data-company="amazon">Amazon</span>
-                    <span class="suggestion-chip" data-company="tesla">Tesla</span>
-                    <span class="suggestion-chip" data-company="meta">Meta</span>
-                    <span class="suggestion-chip" data-company="nvidia">NVIDIA</span>
-                    <span class="suggestion-chip" data-company="samsung">Samsung</span>
-                    <span class="suggestion-chip" data-company="toyota">Toyota</span>
-                    <span class="suggestion-chip" data-company="nike">Nike</span>
+                    <span class="suggestion-chip">Apple</span>
+                    <span class="suggestion-chip">Microsoft</span>
+                    <span class="suggestion-chip">Google</span>
+                    <span class="suggestion-chip">Amazon</span>
+                    <span class="suggestion-chip">Tesla</span>
+                    <span class="suggestion-chip">Meta</span>
+                    <span class="suggestion-chip">NVIDIA</span>
+                    <span class="suggestion-chip">Samsung</span>
+                    <span class="suggestion-chip">Toyota</span>
+                    <span class="suggestion-chip">Nike</span>
+                    <span class="suggestion-chip">JPMorgan</span>
+                    <span class="suggestion-chip">Walmart</span>
                 </div>
             </div>
 
             <div class="features-section">
-                <h3>🇩🇪 German Companies (Click to Search)</h3>
+                <h3>🇩🇪 Popular German Companies (Click to Search)</h3>
                 <div>
-                    <span class="suggestion-chip" data-company="volkswagen">Volkswagen</span>
-                    <span class="suggestion-chip" data-company="bmw">BMW</span>
-                    <span class="suggestion-chip" data-company="mercedes-benz">Mercedes-Benz</span>
-                    <span class="suggestion-chip" data-company="siemens">Siemens</span>
-                    <span class="suggestion-chip" data-company="basf">BASF</span>
-                    <span class="suggestion-chip" data-company="adidas">Adidas</span>
-                    <span class="suggestion-chip" data-company="sap">SAP</span>
-                    <span class="suggestion-chip" data-company="allianz">Allianz</span>
-                    <span class="suggestion-chip" data-company="deutschetelekom">Deutsche Telekom</span>
-                    <span class="suggestion-chip" data-company="lufthansa">Lufthansa</span>
+                    <span class="suggestion-chip">Volkswagen</span>
+                    <span class="suggestion-chip">BMW</span>
+                    <span class="suggestion-chip">Mercedes-Benz</span>
+                    <span class="suggestion-chip">Siemens</span>
+                    <span class="suggestion-chip">BASF</span>
+                    <span class="suggestion-chip">Adidas</span>
+                    <span class="suggestion-chip">SAP</span>
+                    <span class="suggestion-chip">Allianz</span>
+                    <span class="suggestion-chip">Deutsche Telekom</span>
+                    <span class="suggestion-chip">Lufthansa</span>
+                    <span class="suggestion-chip">Puma</span>
+                    <span class="suggestion-chip">Bosch</span>
                 </div>
             </div>
         </div>
@@ -659,7 +663,7 @@
 
     <div class="loading" id="loading">
         <div class="spinner"></div>
-        <p>Loading company information...</p>
+        <p>🔍 Searching the web for company information...</p>
     </div>
 
     <div class="main-content" id="main-content">
@@ -703,13 +707,13 @@
                         <div>
                             <h3 class="section-title">Questions</h3>
                             <table id="questions-table">
-                                <tr><th>Questions</th></tr>
+                                <tr><th>Interview Questions</th></tr>
                             </table>
                         </div>
                         <div>
                             <h3 class="section-title">Answers</h3>
                             <table id="answers-table">
-                                <tr><th>Answers</th></tr>
+                                <tr><th>Suggested Answers</th></tr>
                             </table>
                         </div>
                     </div>
@@ -739,208 +743,163 @@
     </div>
 
     <script>
-        const companies = {
-            'apple': {
-                name: 'Apple Inc.',
-                overview: 'Apple is a multinational technology company known for designing and manufacturing iPhones, iPads, Macs, and services. Founded in 1976, Apple revolutionized personal computing and mobile technology.',
-                areas: ['iPhone & Mobile Devices', 'Mac Computers', 'iPad Tablets', 'Wearables & Apple Watch', 'Software & Services', 'App Store', 'iCloud Services', 'Apple Music'],
-                locations: ['Headquarters: Cupertino, California, USA', 'R&D Centers: Silicon Valley', 'Manufacturing: Taiwan, China', 'Regional: Europe, Asia, Australia'],
-                achievements: ['$3 trillion market cap', 'iPhone: 2 billion sold', '2+ million apps on App Store', 'Carbon neutral operations', 'Services: $85B+ revenue'],
-                questions: [
-                    { q: 'When was the first iPhone released?', o: ['2005', '2007', '2009', '2011'], a: 1 },
-                    { q: 'What year did Apple reach $1 trillion?', o: ['2016', '2018', '2020', '2022'], a: 2 },
-                    { q: 'How many apps on App Store?', o: ['500K', '1M', '2M+', '5M'], a: 2 },
-                    { q: 'Apple\'s assistant is called?', o: ['Cortana', 'Siri', 'Alexa', 'Google'], a: 1 },
-                    { q: 'iPad is a?', o: ['Phone', 'Tablet', 'Computer', 'Watch'], a: 1 }
-                ],
-                interviewQ: ['Why Apple appeals to you?', 'Experience with Apple products?', 'Your knowledge of Apple ecosystem?', 'What makes Apple special?', 'How would you contribute?', 'Apple\'s innovation strategy?', 'Your understanding of design?', 'Apple\'s services business?', 'Challenges Apple faces?', 'Your vision for technology?'],
-                interviewA: ['Apple\'s innovation and design excellence inspire me. The company creates products that define categories.', 'I use iPhone, Mac, and iPad daily. The seamless integration across devices is unmatched.', 'Apple\'s ecosystem creates lock-in and loyalty. Hardware and software work together perfectly.', 'Apple\'s focus on simplicity, design, and user experience sets them apart from competitors.', 'I could bring passion for excellence, technical expertise, and commitment to user-centric design.', 'Apple invests in R&D and isn\'t afraid to innovate even if it means cannibalizing existing products.', 'Apple\'s design philosophy: simplicity, elegance, and functionality with focus on user experience.', 'Services create recurring revenue. iCloud, Apple Music, and App Store provide high-margin growth.', 'Regulatory scrutiny on App Store, competition from Samsung and Google, supply chain complexity.', 'Technology should enhance human connection and solve real problems with elegant simplicity.']
-            },
-            'microsoft': {
-                name: 'Microsoft Corporation',
-                overview: 'Microsoft is a technology giant known for Windows, Office 365, Azure cloud services, and Xbox gaming. Founded by Bill Gates and Paul Allen in 1975, Microsoft is a leader in software and cloud computing.',
-                areas: ['Cloud Computing (Azure)', 'Office & Productivity', 'Gaming (Xbox)', 'Professional Networking (LinkedIn)', 'Business Intelligence', 'Cybersecurity', 'AI & Machine Learning', 'Enterprise Software'],
-                locations: ['Headquarters: Redmond, Washington, USA', 'R&D: Seattle, New York, Silicon Valley', 'Data Centers: Worldwide', 'International: Global presence'],
-                achievements: ['Azure: 23% cloud market share', 'Office 365: 400M+ users', 'Xbox Game Pass: 25M subscribers', '$2 trillion market cap', 'Carbon negative by 2030'],
-                questions: [
-                    { q: 'Microsoft\'s cloud platform is?', o: ['AWS', 'Azure', 'Google Cloud', 'IBM'], a: 1 },
-                    { q: 'Which did Microsoft acquire?', o: ['Facebook', 'LinkedIn', 'Twitter', 'TikTok'], a: 1 },
-                    { q: 'Microsoft\'s gaming console?', o: ['PlayStation', 'Xbox', 'Nintendo', 'Sega'], a: 1 },
-                    { q: 'Office 365 users?', o: ['100M', '200M', '400M+', '800M'], a: 2 },
-                    { q: 'When did Microsoft reach $1 trillion?', o: ['2018', '2019', '2020', '2021'], a: 2 }
-                ],
-                interviewQ: ['Why Microsoft appeals?', 'Cloud computing understanding?', 'Office experience?', 'Digital transformation knowledge?', 'Microsoft\'s position?', 'AI/ML interest?', 'Gaming division appeal?', 'Problem-solving approach?', 'Cybersecurity knowledge?', 'Contributing to Microsoft?'],
-                interviewA: ['Microsoft\'s enterprise solutions and cloud leadership appeal to me. Azure\'s breadth of services is comprehensive.', 'Cloud enables businesses to scale infrastructure, reduce costs, and innovate faster. Azure is a leader.', 'Office 365 transformed workplace productivity. Real-time collaboration and cloud integration are excellent.', 'Digital transformation aligns technology with business strategy. Microsoft tools enable modernization effectively.', 'Microsoft competes strongly in enterprise and cloud. Strong relationships and innovation give advantages.', 'AI and machine learning transform industries. Microsoft invests heavily through Azure AI and partnerships.', 'Xbox Game Pass disrupts gaming distribution. This represents Microsoft\'s consumer strategy perfectly.', 'I approach problems systematically: understand requirements, research, prototype, test, refine based on feedback.', 'Microsoft is committed to security across services. Encryption, threat detection, and compliance protect organizations.', 'I could contribute through technical expertise, customer focus, and commitment to innovation and excellence.']
-            },
-            'google': {
-                name: 'Google (Alphabet Inc.)',
-                overview: 'Google, owned by Alphabet Inc., is the world\'s leading search engine company. Founded in 1998 by Larry Page and Sergey Brin, Google processes 8.5+ billion searches daily and leads in AI research.',
-                areas: ['Search Engine', 'Online Advertising', 'Cloud Computing', 'Artificial Intelligence', 'Android OS', 'YouTube', 'Smart Home', 'Hardware Devices'],
-                locations: ['Headquarters: Mountain View, California, USA', 'Major Offices: San Francisco, New York, London', 'R&D: Worldwide', 'Data Centers: Global'],
-                achievements: ['8.5B+ searches daily', 'YouTube: 2.49B users', 'Google Cloud: 26% growth', 'Android: 70% market share', 'AI research leader'],
-                questions: [
-                    { q: 'Google founded in?', o: ['1996', '1998', '2000', '2002'], a: 1 },
-                    { q: 'Google\'s parent company?', o: ['Alphabet', 'Beta', 'Omega', 'Delta'], a: 0 },
-                    { q: 'Searches per day?', o: ['1B', '3.5B', '5B', '8.5B+'], a: 3 },
-                    { q: 'Google\'s AI model?', o: ['ChatGPT', 'Gemini', 'Claude', 'GPT-4'], a: 1 },
-                    { q: 'Android market share?', o: ['50%', '60%', '70%', '80%'], a: 2 }
-                ],
-                interviewQ: ['Google\'s dominance?', 'Google product experience?', 'Google\'s mission appeal?', 'Google Cloud knowledge?', 'AI initiatives understanding?', 'YouTube\'s impact?', 'Data problem approach?', 'Machine learning experience?', 'Future of search vision?', 'Privacy vs personalization?'],
-                interviewA: ['Google\'s search dominance comes from superior algorithms, massive scale, and constant refinement of search quality.', 'I use Google Search, Gmail, Drive, YouTube daily. The products are intuitive and integrate seamlessly.', 'Google\'s mission to organize world\'s information resonates with me. It\'s about democratizing access to knowledge.', 'Google Cloud offers comprehensive services competing with AWS and Azure. AI expertise is a key differentiator.', 'Google invests in AI through Gemini and LaMDA. These models transform search and productivity tools.', 'YouTube revolutionized video. With 2.49B users, it\'s primary information and entertainment source globally.', 'I break problems into components, identify data, build models, validate assumptions, iterate continuously.', 'Machine learning enables systems learning from data. Applications span recommendation, prediction, automation.', 'Search evolves toward conversational understanding. AI makes search more intuitive and personalized.', 'Privacy and personalization need balance. Users should control data while receiving valuable experiences.']
-            },
-            'amazon': {
-                name: 'Amazon.com Inc.',
-                overview: 'Amazon is the world\'s largest e-commerce company and a cloud computing leader through AWS. Founded by Jeff Bezos in 1994, Amazon serves millions of customers with retail, cloud, streaming, and logistics.',
-                areas: ['E-commerce & Retail', 'Cloud Computing (AWS)', 'Digital Streaming', 'Logistics & Delivery', 'Advertising Services', 'Smart Home', 'Web Services', 'Entertainment'],
-                locations: ['Headquarters: Seattle, Washington, USA', 'Major Offices: New York, San Francisco, London', 'AWS: 30+ regions worldwide', 'Fulfillment: 500+ centers'],
-                achievements: ['AWS: 32% cloud market', 'Prime Video: 200M users', '500+ fulfillment centers', '$500B+ revenue', 'Advertising: 23% growth'],
-                questions: [
-                    { q: 'Amazon founded by?', o: ['Bill Gates', 'Jeff Bezos', 'Steve Jobs', 'Elon Musk'], a: 1 },
-                    { q: 'AWS is?', o: ['Advertising', 'Cloud Services', 'Retail', 'Entertainment'], a: 1 },
-                    { q: 'Amazon\'s assistant?', o: ['Siri', 'Alexa', 'Cortana', 'Google'], a: 1 },
-                    { q: 'AWS market share?', o: ['20%', '25%', '32%', '40%'], a: 2 },
-                    { q: 'Fulfillment centers?', o: ['100+', '300+', '500+', '800+'], a: 2 }
-                ],
-                interviewQ: ['Why Amazon appeals?', 'AWS advantages?', 'Amazon services experience?', 'Entrepreneurial culture appeal?', 'Customer-centric approach?', 'Logistics understanding?', 'Advertising business?', 'Diversification strategy?', 'Challenges Amazon faces?', 'Retail future vision?'],
-                interviewA: ['Amazon\'s customer obsession resonates with me. Every decision prioritizes customer experience and long-term value.', 'AWS dominates through first-mover advantage, comprehensive services, global infrastructure, and constant innovation.', 'I use Amazon for shopping, Prime Video, and AWS for cloud services. The ecosystem is comprehensive.', 'Amazon encourages calculated risk-taking and tolerates failures. The culture enables innovation and experimentation.', 'Customer obsession drives everything. Even unprofitable ventures focus on customer value and long-term thinking.', 'Amazon\'s logistics network optimizes inventory, fulfillment, delivery, tracking. The scale and efficiency are impressive.', 'Amazon Ads grows because retailers need marketing channels. Amazon has unique advantages with purchase data.', 'Amazon\'s diversification demonstrates platform thinking. Successes offset failures and create value across segments.', 'Amazon faces antitrust scrutiny, warehouse working condition criticism, and competition from specialized players.', 'Retail integrates online and offline seamlessly. Personalization, speed, service differentiate. Amazon is well-positioned.']
-            },
-            'tesla': {
-                name: 'Tesla Inc.',
-                overview: 'Tesla is an electric vehicle and clean energy company founded by Elon Musk. Tesla manufactures EVs, batteries, and solar panels. Tesla is the world\'s most valuable automaker and EV market leader.',
-                areas: ['Electric Vehicles', 'Battery Technology', 'Energy Storage', 'Solar Panels', 'Autonomous Driving', 'Charging Networks', 'Manufacturing', 'Software & AI'],
-                locations: ['Headquarters: Austin, Texas, USA', 'Gigafactories: Berlin, Shanghai, Nevada', 'Manufacturing: Fremont, California', 'R&D: Worldwide'],
-                achievements: ['Most valuable automaker', '1.81M vehicles delivered (2022)', '5 Gigafactories global', '25% gross margins', 'EV market leader'],
-                questions: [
-                    { q: 'Tesla founder?', o: ['Steve Jobs', 'Elon Musk', 'Jeff Bezos', 'Bill Gates'], a: 1 },
-                    { q: 'Production started?', o: ['2003', '2008', '2010', '2012'], a: 1 },
-                    { q: 'Popular model?', o: ['Model S', 'Model X', 'Model 3', 'Roadster'], a: 2 },
-                    { q: 'Vehicles delivered 2022?', o: ['1M', '1.3M', '1.81M', '2.5M'], a: 2 },
-                    { q: 'Gigafactory is?', o: ['Battery', 'Cars', 'Research', 'Charging'], a: 0 }
-                ],
-                interviewQ: ['Why Tesla appeals?', 'EV disruption understanding?', 'EV technology knowledge?', 'Engineering appeal?', 'Battery technology?', 'Autonomous driving?', 'Production scaling?', 'Tesla product experience?', 'Contributing to Tesla?', 'Sustainable transport vision?'],
-                interviewA: ['Climate change is critical. Tesla\'s sustainable energy mission addresses this existentially. This aligns with my values.', 'Tesla disrupted automotive by making EVs desirable, performant, profitable. Legacy makers were forced to pivot.', 'Modern EVs use lithium-ion batteries, electric motors, power management. Key factors: range, charging, efficiency.', 'Tesla\'s culture prioritizes simplification, efficiency, iteration. Fewer parts, smaller teams, faster execution.', 'Batteries determine EV success. Tesla invests heavily improving density, cost, charging speed, range continuously.', 'Tesla collects data training autonomous driving systems. Full Self-Driving enabled by billions miles of real data.', 'Scaling production while maintaining quality is challenging. Supply chain constraints and labor availability are issues.', 'I\'ve driven Tesla vehicles and impressed by acceleration, handling, technology. Engineering excellence is clear.', 'I could contribute through sustainability passion, excellence commitment, problem-solving, embracing fast pace.', 'Sustainable transport requires affordable EVs, expanded charging, renewable integration, reduced carbon footprint.']
-            },
-            'volkswagen': {
-                name: 'Volkswagen Group',
-                overview: 'Volkswagen Group is one of the world\'s largest automakers, headquartered in Wolfsburg, Germany. With brands including VW, Audi, Porsche, and Skoda, Volkswagen is transitioning to electric vehicles.',
-                areas: ['Passenger Vehicles', 'Commercial Vehicles', 'Motorcycles', 'Electric Vehicles', 'Battery Technology', 'Autonomous Driving', 'Digital Services', 'Financial Services'],
-                locations: ['Headquarters: Wolfsburg, Germany', 'Manufacturing: Germany, Europe, USA, China', 'R&D: Worldwide', 'Regional: Global'],
-                achievements: ['9M+ vehicles annually', '2M+ EVs sold', '70M vehicles all-time', '€180B electrification invest', '150+ countries'],
-                questions: [
-                    { q: 'VW headquartered in?', o: ['Berlin', 'Munich', 'Wolfsburg', 'Hamburg'], a: 2 },
-                    { q: 'VW produces annually?', o: ['5M', '7M', '9M+', '12M'], a: 2 },
-                    { q: 'VW\'s main EV brand?', o: ['ID', 'Golf', 'Passat', 'Jetta'], a: 0 },
-                    { q: 'VW\'s luxury brand?', o: ['BMW', 'Audi', 'Porsche', 'B&C'], a: 3 },
-                    { q: 'Electrification investment?', o: ['€50B', '€100B', '€150B', '€180B'], a: 3 }
-                ],
-                interviewQ: ['Why VW appeals?', 'Auto industry knowledge?', 'EV transition understanding?', 'Brand portfolio?', 'Industry challenges?', 'Germany auto importance?', 'Sustainability in auto?', 'Supply chain?', 'Digital transformation?', 'Future vision?'],
-                interviewA: ['VW combines heritage, engineering, sustainability. The EV transition leadership and global scale appeal.', 'Automotive transforms fundamentally. Electrification, autonomous driving, software-defined vehicles represent future.', 'VW invests €180B in electrification. 70% sales target electric by 2030 shows serious commitment.', 'VW Group owns multiple brands: VW mass market, Audi premium, Porsche luxury, Skoda value. Diverse portfolio.', 'Auto industry faces EV transition costs, supply chain complexity, semiconductor shortages, regulatory pressures.', 'Germany\'s auto sector is economically critical. VW is essential to Germany\'s industrial strength globally.', 'VW transitions to sustainable manufacturing. Renewable energy, recycled materials, sustainable supply chain.', 'Supply chain management is critical. VW manages thousands suppliers globally while ensuring quality and ethics.', 'VW digitalizes operations, vehicles, services. Software becomes critical as vehicles transform.', 'VW envisions sustainable, digital, connected automotive future. Aims becoming leading EV company.']
-            },
-            'siemens': {
-                name: 'Siemens AG',
-                overview: 'Siemens is a German multinational conglomerate focused on industrial automation, digitalization, and power generation. Operating in 200+ countries, Siemens is a global leader in engineering and technology.',
-                areas: ['Industrial Automation', 'Digitalization', 'Power Generation', 'Smart Infrastructure', 'Mobility Solutions', 'Factory Automation', 'Building Management', 'Software Solutions'],
-                locations: ['Headquarters: Munich, Germany', 'R&D: Erlangen, Germany', 'Manufacturing: Germany, Europe, worldwide', 'International: 200+ countries'],
-                achievements: ['200+ countries', '€72B annual revenue', '350K+ employees', 'Industrial digital leader', '€8B+ R&D'],
-                questions: [
-                    { q: 'Siemens headquartered?', o: ['Cologne', 'Munich', 'Frankfurt', 'Hamburg'], a: 1 },
-                    { q: 'Annual revenue?', o: ['€40B', '€60B', '€72B', '€90B'], a: 2 },
-                    { q: 'Siemens core focus?', o: ['Retail', 'Finance', 'Industrial', 'Entertainment'], a: 2 },
-                    { q: 'Countries operated?', o: ['100+', '150+', '200+', '250+'], a: 2 },
-                    { q: 'Employees?', o: ['200K', '250K', '300K+', '350K+'], a: 3 }
-                ],
-                interviewQ: ['Why Siemens appeals?', 'Industrial automation?', 'Digitalization understanding?', 'Global operations?', 'Engineering heritage?', 'German tech leadership?', 'Innovation strategy?', 'Sustainability commitment?', 'Customer relationships?', 'Future of industry?'],
-                interviewA: ['Siemens\' heritage, engineering excellence, innovation appeal to me. The company shapes industrial future.', 'Industrial automation optimizes manufacturing. Siemens leads with comprehensive solutions and expertise.', 'Digitalization transforms industries. Siemens enables digital transformation through software and services.', 'Siemens operates globally across 200+ countries. The scale and reach are impressive and diverse.', 'Siemens has deep engineering heritage. The company innovates while respecting proven principles.', 'Germany is tech leader. Siemens is essential to Germany\'s industrial competitiveness globally.', 'Siemens invests €8B+ in R&D annually. Focus is digital, sustainable, connected solutions.', 'Siemens commits to sustainable manufacturing. Renewable energy, efficient processes, responsible practices.', 'Siemens has long customer relationships. Trust and quality enable partnerships and growth.', 'Industry\'s future is digital, sustainable, connected. Siemens is well-positioned as leader.']
-            },
-            'bmw': {
-                name: 'BMW Group',
-                overview: 'BMW Group is a German multinational automotive company known for luxury vehicles. Headquartered in Munich, BMW manufactures cars, motorcycles, and engines with focus on quality and innovation.',
-                areas: ['Luxury Automobiles', 'Motorcycles', 'Electric Vehicles', 'Autonomous Driving', 'Digital Services', 'Battery Technology', 'Engine Technology', 'Sustainable Mobility'],
-                locations: ['Headquarters: Munich, Germany', 'Manufacturing: Munich, Leipzig, Dingolfing', 'International: Worldwide', 'R&D Centers: Germany, global'],
-                achievements: ['Luxury market leader', '2M+ vehicles annually', 'EV expansion: 2M sold', 'Premium brand reputation', 'Innovation leader'],
-                questions: [
-                    { q: 'BMW headquartered?', o: ['Berlin', 'Munich', 'Frankfurt', 'Hamburg'], a: 1 },
-                    { q: 'BMW produces annually?', o: ['1M', '1.5M', '2M+', '3M'], a: 2 },
-                    { q: 'BMW stands for?', o: ['Bavarian', 'British', 'Brazilian', 'Belgian'], a: 0 },
-                    { q: 'BMW\'s EV brand?', o: ['i', 'X', 'Z', 'M'], a: 0 },
-                    { q: 'BMW\'s motorcycle line?', o: ['S', 'C', 'F', 'GS'], a: 3 }
-                ],
-                interviewQ: ['Why BMW appeals?', 'Luxury automotive?', 'EV strategy?', 'German engineering?', 'Customer experience?', 'Innovation focus?', 'Competition dynamics?', 'Sustainability?', 'Digital transformation?', 'Brand future?'],
-                interviewA: ['BMW\'s luxury positioning, engineering excellence, innovation appeal to me deeply.', 'Luxury automotive requires premium quality, performance, design, customer experience.', 'BMW invests heavily in EV technology. The i brand showcases commitment to electric future.', 'German engineering emphasizes quality, precision, innovation. BMW exemplifies these values.', 'BMW focuses on customer experience. Dealerships and services reflect premium brand positioning.', 'BMW innovates continuously. Technology, design, performance advance incrementally and dramatically.', 'BMW competes with Mercedes, Audi in luxury. Differentiation is quality, innovation, brand heritage.', 'BMW commits to sustainability. Efficient engines, EV transition, sustainable manufacturing.', 'BMW digitalizes experiences. Connected vehicles, mobile apps, digital services enhance customer engagement.', 'BMW\'s future: sustainable, digital, connected luxury mobility. The company is well-positioned.']
-            },
-            'mercedes-benz': {
-                name: 'Mercedes-Benz Group',
-                overview: 'Mercedes-Benz is a German luxury automobile manufacturer known for premium vehicles. Headquartered in Stuttgart, Mercedes-Benz is the world\'s best-selling premium automaker with global presence.',
-                areas: ['Luxury Automobiles', 'Commercial Vehicles', 'Electric Vehicles', 'Autonomous Driving', 'Digital Services', 'Sustainable Mobility', 'Smart Technology', 'Premium Services'],
-                locations: ['Headquarters: Stuttgart, Germany', 'Manufacturing: Stuttgart, Sindelfingen, Affalterbach', 'International: Worldwide', 'R&D: Germany, global'],
-                achievements: ['Luxury market leader', '2.5M+ vehicles', 'EV expansion growing', 'Premium brand leader', 'Innovation pioneer'],
-                questions: [
-                    { q: 'Mercedes headquartered?', o: ['Berlin', 'Munich', 'Stuttgart', 'Hamburg'], a: 2 },
-                    { q: 'Mercedes produces?', o: ['1.5M', '2M', '2.5M+', '3.5M'], a: 2 },
-                    { q: 'Mercedes star symbol?', o: ['Sun', 'World', 'Circle', 'Triangle'], a: 1 },
-                    { q: 'Famous Mercedes model?', o: ['A-Class', 'C-Class', 'S-Class', 'All'], a: 3 },
-                    { q: 'Electric Mercedes?', o: ['EQC', 'EQS', 'Both', 'Neither'], a: 2 }
-                ],
-                interviewQ: ['Why Mercedes appeals?', 'Luxury market?', 'EV transition?', 'German quality?', 'Performance engineering?', 'Customer experience?', 'Innovation strategy?', 'Sustainability?', 'Global presence?', 'Future direction?'],
-                interviewA: ['Mercedes\' luxury heritage, engineering, innovation represent automotive excellence.', 'Luxury automotive requires uncompromising quality, performance, design, customer experience.', 'Mercedes invests in EV technology. Luxury and sustainability combine in modern vehicles.', 'German engineering means quality, precision, performance. Mercedes exemplifies this perfectly.', 'Mercedes excels at performance engineering. Acceleration, handling, technology are superior.', 'Mercedes prioritizes customer experience. Premium service, dealerships, support reflect brand values.', 'Mercedes innovates continuously. Technology integration, autonomous features, connectivity advance constantly.', 'Mercedes commits to sustainability. Efficient engines, EVs, manufacturing practices address environmental responsibility.', 'Mercedes operates globally. Presence in major markets worldwide reflects brand strength.', 'Mercedes\' future: sustainable luxury, autonomous technology, digital connectivity. Company is well-prepared.']
-            }
-        };
-
         let currentQuiz = [];
         let quizIndex = 0;
         let quizScore = 0;
 
-        // Search button click
         document.getElementById('searchBtn').addEventListener('click', function() {
-            const input = document.getElementById('company-input').value.trim().toLowerCase();
+            const input = document.getElementById('company-input').value.trim();
             performSearch(input);
         });
 
-        // Enter key in search input
         document.getElementById('company-input').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                const input = this.value.trim().toLowerCase();
+                const input = this.value.trim();
                 performSearch(input);
             }
         });
 
-        // Suggestion chips click
         document.querySelectorAll('.suggestion-chip').forEach(chip => {
             chip.addEventListener('click', function() {
-                const company = this.getAttribute('data-company');
+                const company = this.textContent.trim();
                 document.getElementById('company-input').value = company;
                 performSearch(company);
             });
         });
 
-        // Back button
         document.getElementById('backBtn').addEventListener('click', function() {
             goBack();
         });
 
-        // Start quiz button
         document.getElementById('startQuizBtn').addEventListener('click', function() {
             startQuiz();
         });
 
-        function performSearch(input) {
-            if (!input) {
+        async function performSearch(companyName) {
+            if (!companyName) {
                 showError('Please enter a company name');
                 return;
             }
 
-            const company = companies[input];
-            
-            if (!company) {
-                showError('Company not found. Try: apple, microsoft, google, amazon, tesla, volkswagen, siemens, bmw, mercedes-benz');
-                return;
-            }
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('instructions-section').style.display = 'none';
 
-            displayCompany(company);
+            try {
+                const wikiResponse = await fetch(
+                    `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(companyName)}`
+                );
+
+                if (!wikiResponse.ok) {
+                    throw new Error('Company not found');
+                }
+
+                const wikiData = await wikiResponse.json();
+                const companyData = generateCompanyData(companyName, wikiData);
+
+                displayCompany(companyData);
+                document.getElementById('loading').classList.remove('active');
+                showSuccess(`✓ ${companyData.name} loaded successfully!`);
+
+            } catch (error) {
+                document.getElementById('loading').classList.remove('active');
+                document.getElementById('instructions-section').style.display = 'block';
+                showError(`Company "${companyName}" not found. Try another company name.`);
+            }
+        }
+
+        function generateCompanyData(companyName, wikiData) {
+            const name = wikiData.title || companyName;
+            const description = wikiData.extract || `${name} is a major global company operating worldwide.`;
+            
+            return {
+                name: name,
+                overview: description,
+                areas: getBusinessAreas(companyName),
+                locations: getLocations(companyName),
+                achievements: getAchievements(companyName),
+                questions: generateQuestions(companyName),
+                interviewQ: getInterviewQuestions(companyName),
+                interviewA: getInterviewAnswers(companyName)
+            };
+        }
+
+        function getBusinessAreas(company) {
+            const keywords = company.toLowerCase();
+            if (keywords.includes('apple')) return ['iPhone & Mobile', 'Mac Computers', 'iPad Tablets', 'Wearables', 'Software', 'Services', 'iCloud', 'Apple Music'];
+            if (keywords.includes('microsoft')) return ['Cloud Computing', 'Office 365', 'Gaming', 'AI Services', 'Business Intelligence', 'Cybersecurity', 'Enterprise Software', 'Professional Networks'];
+            if (keywords.includes('google') || keywords.includes('alphabet')) return ['Search Engine', 'Advertising', 'Cloud Computing', 'AI & ML', 'Android OS', 'YouTube', 'Smart Home', 'Hardware'];
+            if (keywords.includes('amazon')) return ['E-commerce', 'Cloud Services', 'Digital Streaming', 'Logistics', 'Advertising', 'Smart Home', 'Web Services', 'Entertainment'];
+            if (keywords.includes('tesla')) return ['Electric Vehicles', 'Battery Tech', 'Energy Storage', 'Solar', 'Autonomous Driving', 'Charging', 'Manufacturing', 'Software'];
+            return ['Innovation', 'Global Operations', 'Product Development', 'Customer Service', 'Digital Transformation', 'Sustainability', 'R&D', 'Quality'];
+        }
+
+        function getLocations(company) {
+            const keywords = company.toLowerCase();
+            if (keywords.includes('apple')) return ['Cupertino, California', 'Silicon Valley', 'China Manufacturing', 'Worldwide Presence'];
+            if (keywords.includes('microsoft')) return ['Redmond, Washington', 'Seattle, WA', 'New York, USA', 'Worldwide Operations'];
+            if (keywords.includes('google')) return ['Mountain View, California', 'San Francisco', 'New York, USA', 'Worldwide'];
+            if (keywords.includes('amazon')) return ['Seattle, Washington', 'New York, USA', 'Global', '150+ Countries'];
+            if (keywords.includes('tesla')) return ['Austin, Texas', 'Berlin, Germany', 'Shanghai, China', 'Fremont, California'];
+            if (keywords.includes('volkswagen')) return ['Wolfsburg, Germany', 'Munich, Germany', 'Shanghai, China', 'Worldwide'];
+            if (keywords.includes('bmw')) return ['Munich, Germany', 'Leipzig, Germany', 'Oxford, UK', 'Worldwide'];
+            if (keywords.includes('mercedes')) return ['Stuttgart, Germany', 'Sindelfingen', 'Alabama, USA', 'Worldwide'];
+            return ['Global Headquarters', 'Multiple Offices', 'Manufacturing Facilities', 'International Presence'];
+        }
+
+        function getAchievements(company) {
+            const keywords = company.toLowerCase();
+            if (keywords.includes('apple')) return ['$3 trillion market cap', '2B iPhones sold', '2M+ apps', 'Carbon neutral', 'Design leader'];
+            if (keywords.includes('microsoft')) return ['$2.7T market cap', 'Azure cloud leader', '400M Office users', 'Gaming expansion', 'AI focus'];
+            if (keywords.includes('google')) return ['8.5B daily searches', '2.5B YouTube users', '70% Android share', 'AI research leader', 'Cloud growth'];
+            if (keywords.includes('amazon')) return ['$1.9T market cap', '32% cloud share', '200M Prime members', '500+ fulfillment centers', 'E-commerce leader'];
+            if (keywords.includes('tesla')) return ['Most valuable automaker', '1.8M vehicles', '5 Gigafactories', '25% margins', 'EV leader'];
+            if (keywords.includes('volkswagen')) return ['9M vehicles', 'EV leader', 'Global operations', '70% electric target', 'ID brand success'];
+            if (keywords.includes('bmw')) return ['Luxury leader', '2.4M vehicles', 'Performance brand', 'EV expansion', 'Design awards'];
+            if (keywords.includes('mercedes')) return ['Premium leader', '2.5M vehicles', 'Luxury reputation', 'EV innovation', 'Tech leader'];
+            return ['Global leader', 'Innovation focus', 'Sustainable practices', 'Industry recognition', 'Market growth'];
+        }
+
+        function generateQuestions(company) {
+            return [
+                { q: 'What year was this company founded?', o: ['1990s', '2000s', '2010s', '2020s'], a: 0 },
+                { q: 'In which country is it headquartered?', o: ['USA', 'Germany', 'Japan', 'China'], a: 0 },
+                { q: 'What is the primary business?', o: ['Technology', 'Retail', 'Manufacturing', 'Services'], a: 0 },
+                { q: 'How many employees?', o: ['100K+', '250K+', '500K+', '1M+'], a: 1 },
+                { q: 'Countries of operation?', o: ['50+', '100+', '150+', '200+'], a: 2 }
+            ];
+        }
+
+        function getInterviewQuestions(company) {
+            return [
+                'Why are you interested in this company?',
+                'What do you know about the company\'s mission?',
+                'Describe your relevant experience.',
+                'How do you handle workplace challenges?',
+                'What are your career goals?',
+                'Tell us your problem-solving approach.',
+                'How do you work in teams?',
+                'Describe a major achievement.',
+                'What skills do you bring?',
+                'Why should we hire you?'
+            ];
+        }
+
+        function getInterviewAnswers(company) {
+            return [
+                'The company\'s mission and values align with my career goals.',
+                'I understand the company is an industry leader in innovation.',
+                'My background has prepared me well for this role.',
+                'I approach challenges with research, planning, and collaboration.',
+                'I aim to grow expertise while contributing to organizational success.',
+                'I break problems into components, research solutions, and iterate.',
+                'I believe in clear communication and collaborative problem-solving.',
+                'I led a project that achieved measurable results through teamwork.',
+                'I bring technical expertise, innovation mindset, and strong work ethic.',
+                'My combination of skills and passion makes me valuable to the team.'
+            ];
         }
 
         function displayCompany(company) {
-            document.getElementById('company-image').textContent = '🏢';
             document.getElementById('profile-text').textContent = company.overview;
             
             const areasList = document.getElementById('areas-list');
@@ -968,10 +927,8 @@
 
             currentQuiz = company.questions;
             
-            document.getElementById('instructions-section').style.display = 'none';
             document.getElementById('main-content').classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            showSuccess(`✓ ${company.name} loaded successfully!`);
         }
 
         function goBack() {
@@ -980,7 +937,6 @@
             document.getElementById('company-input').value = '';
             quizIndex = 0;
             quizScore = 0;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function startQuiz() {
@@ -1049,7 +1005,7 @@
 
         function showError(msg) {
             const err = document.getElementById('error-message');
-            err.textContent = '⚠ ' + msg;
+            err.textContent = msg;
             err.classList.add('active');
             setTimeout(() => err.classList.remove('active'), 5000);
         }
