@@ -1,321 +1,361 @@
-# 🏢 Check The Company
+# 🏢 Check The Company - Modern Edition
 
-A comprehensive web application for searching company information with detailed insights about what companies do, their Kununu ratings, strongest areas, locations, and interview preparation guidance.
+A beautiful, modern web application for discovering comprehensive information about any company worldwide. Search any company and get real-time insights including company profiles, employee ratings, locations, and interview preparation guidance.
 
 ## ✨ Features
 
-- **4-Quadrant Layout** - Organized information display
-  - **Top Left (Quadrant 2)**: Company profile with image and description
-  - **Top Right (Quadrant 1)**: Kununu ratings, strongest areas, and locations
-  - **Bottom Left (Quadrant 3)**: Interview questions
-  - **Bottom Right (Quadrant 4)**: Suggested answers
+### 🎨 Modern Design
+- **Beautiful gradient backgrounds** and smooth animations
+- **Colorful UI** with a vibrant purple-to-pink gradient theme
+- **Card-based layout** with hover effects and transitions
+- **Responsive design** that works on all devices
+- **No harsh borders** - soft, rounded corners throughout
 
-- **Company Profile** - Get detailed descriptions of what companies do
-- **Kununu Ratings** - Star ratings from real employee reviews (⭐ visualization)
-- **Strongest Areas** - Bulleted list of company specializations
-- **Locations** - Headquarters and office locations worldwide
-- **Interview Questions** - 10 realistic job interview questions
-- **Suggested Answers** - Professional answer examples for interview prep
+### 📊 Company Information
+- **Company Profile** - Detailed description and company logo
+- **Kununu Ratings** - Star ratings with employee review counts
+- **Strongest Areas** - 6 key specializations with checkmarks
+- **Global Locations** - Headquarters and office locations
+- **Additional Info** - Industry, employee count, founding year
 
-## 🚀 How to Use
+### 💼 Interview Preparation
+- **10 Common Questions** - Realistic job interview questions
+- **Suggested Answers** - Professional answer examples
+- **Company-specific** - Tailored guidance for each company
+- **Side-by-side view** - Questions and answers displayed together
 
-### No Installation Required!
+### 🌐 Data Access
+- **Pre-loaded companies** - 5 major companies with complete data
+- **Wikipedia API integration** - Search ANY company with a website
+- **Real-time data** - Fetch live company information from the web
+- **Fallback database** - Works offline with pre-loaded data
 
-1. **Download/Clone the Repository**
+## 🚀 Getting Started
+
+### Super Easy!
+
+1. **Download or Clone**
    ```bash
    git clone https://github.com/SrishtiMehra26/Check-the-company.git
    ```
 
-2. **Open the Website**
-   - Simply open `index.html` in any web browser
-   - Double-click the file OR
-   - Drag it to your browser window
+2. **Open in Browser**
+   - Double-click `index.html`
+   - Open with any modern web browser
 
 3. **Search for a Company**
-   - Type a company name in the search box
-   - Press Enter or click the "Search" button
-   - View all information in the 4 quadrants
+   - Type any company name
+   - Press Enter or click Search
+   - View all information instantly
 
-## 📊 Supported Companies
+## 🎯 How to Use
 
-The website includes complete data for:
-- ✅ **DHL** - Global logistics and courier services
-- ✅ **Google** - Technology and search giant
-- ✅ **Apple** - Consumer electronics and software
-- ✅ **Microsoft** - Enterprise software and cloud
-- ✅ **Amazon** - E-commerce and cloud computing
-- ✅ **Netflix** - Streaming entertainment service
-- ✅ **Tesla** - Electric vehicles and clean energy
+### Search Examples
 
-## 🎯 What You'll Get
-
-### For Each Company:
-
-**1. Company Profile Section**
-- Company logo/image
-- Detailed description of what the company does
-- Core business information
-
-**2. Kununu Rating Section**
-- 5-star rating visualization (⭐☆☆☆☆)
-- Number of reviews from employees
-- Overall rating score
-
-**3. Strongest Areas Section**
-- 6 key specializations
-- Bulleted format for easy reading
-- Focus areas and core competencies
-
-**4. Locations Section**
-- Headquarters with 🏛️ icon
-- Up to 4 major office locations worldwide
-- Geographic distribution overview
-
-**5. Interview Questions & Answers**
-- 10 realistic job interview questions
-- Professional answer suggestions
-- Company-specific prepared responses
-- Perfect for interview preparation
-
-## 💻 Technical Details
-
-- **Pure HTML, CSS & JavaScript** - No external dependencies
-- **Works Offline** - All data is embedded in the file
-- **Fast Loading** - Instant results with no API calls
-- **Fully Responsive** - Works on desktop, tablet, and mobile
-- **Black Text & Borders** - Clean, professional design
-- **White Background** - Easy on the eyes
-
-## 🔍 Search Examples
-
-```
 Try searching for:
-- dhl
-- google
-- apple
-- microsoft
-- amazon
-- netflix
-- tesla
+- **Apple** - Get complete data with logo
+- **Google** - Technology giant insights
+- **Microsoft** - Enterprise software leader
+- **Amazon** - E-commerce powerhouse
+- **Tesla** - Electric vehicle innovation
+- **Any company** - Works with most companies that have a website!
+
+### What You'll Get
+
+1. **Company Profile Section**
+   - Company logo/image
+   - Detailed company description
+   - Website link
+
+2. **Company Insights**
+   - Kununu rating (⭐ visualization)
+   - Number of employee reviews
+   - 6 strongest business areas
+
+3. **Locations Information**
+   - Headquarters location
+   - Additional office locations worldwide
+   - Global presence overview
+
+4. **Additional Details**
+   - Industry classification
+   - Employee count
+   - Year founded
+
+5. **Interview Preparation**
+   - 10 realistic interview questions
+   - Professional suggested answers
+   - Company-tailored responses
+
+## 🎨 Design Highlights
+
+### Color Palette
+- **Primary Purple**: `#6366f1` - Main brand color
+- **Secondary Pink**: `#ec4899` - Accent color
+- **Golden Yellow**: `#fbbf24` - Stars and highlights
+- **Green Success**: `#10b981` - Confirmation and success
+- **Soft White**: `#f9fafb` - Backgrounds
+
+### UI Components
+- ✅ Smooth gradient backgrounds
+- ✅ Rounded cards with shadow effects
+- ✅ Animated loading spinner
+- ✅ Slide-in message notifications
+- ✅ Hover effects on cards
+- ✅ Colorful badges and indicators
+
+## 💻 Technical Stack
+
+- **Pure HTML5** - Semantic markup
+- **Modern CSS3** - Gradients, flexbox, grid, animations
+- **Vanilla JavaScript** - No frameworks needed
+- **Wikipedia API** - Live company data integration
+- **Responsive Design** - Mobile, tablet, desktop
+
+## 📱 Browser Support
+
+✅ All modern browsers:
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Opera (latest)
+
+## 🔧 Advanced Features
+
+### API Integration
+
+The website uses:
+1. **Wikipedia API** - Fetch company summaries and images
+2. **Fallback Database** - 5 pre-loaded companies with full data
+3. **Smart Search** - Handles typos and variations
+
+### Smart Features
+- **Responsive Images** - Automatically loads company logos
+- **Error Handling** - Graceful fallbacks if data unavailable
+- **Loading States** - Beautiful spinner during search
+- **Message Notifications** - Success and error messages
+- **Keyboard Support** - Press Enter to search
+
+## 📊 Supported Companies (Pre-loaded)
+
+These have complete data:
+- 🍎 **Apple** - Consumer electronics & software
+- 🔍 **Google** - Search & cloud services
+- 💻 **Microsoft** - Enterprise software
+- 📦 **Amazon** - E-commerce & AWS
+- ⚡ **Tesla** - Electric vehicles
+
+### Any Other Company!
+
+Search for ANY company with a website:
+- ✅ Nike, Coca-Cola, Facebook
+- ✅ Samsung, LG, Sony
+- ✅ BMW, Audi, Mercedes
+- ✅ Netflix, Spotify, Disney
+- ✅ JPMorgan, Goldman Sachs
+- ✅ And thousands more!
+
+## 🎓 Interview Preparation
+
+The app includes:
+- 10 carefully selected interview questions
+- Professional answer suggestions
+- General company-interview format
+- Customizable for specific roles
+
+Perfect for:
+- Job seekers preparing for interviews
+- Career changers researching companies
+- Students learning about industries
+- Professionals considering new opportunities
+
+## 📁 File Structure
+
+```
+Check-the-company/
+├── index.html      # Complete website (everything in one file!)
+├── README.md       # This file
+└── .gitignore      # Git configuration
 ```
 
-## 📱 Browser Compatibility
+## 🚀 Deployment
 
-✅ Works on all modern browsers:
-- Google Chrome
-- Mozilla Firefox
-- Microsoft Edge
-- Safari
-- Opera
+### Host Online for Free
 
-## 📖 Website Structure
-
-```
-index.html (Single file - that's it!)
-│
-├── Header
-│   └── Search Bar
-│
-├── Main Grid (2 columns)
-│   ├── Quadrant 2 (Left): Profile
-│   │   └── Image + Short Profile
-│   │
-│   └── Quadrant 1 (Right): Details
-│       ├── Kununu Rating
-│       ├── Strongest Areas
-│       └── Locations
-│
-└── Bottom Grid (2 columns)
-    ├── Quadrant 3 (Left): Questions
-    └── Quadrant 4 (Right): Answers
+**Option 1: GitHub Pages**
+```bash
+git push origin main
+# Then enable GitHub Pages in repository settings
 ```
 
-## 🎨 Design
-
-- **Black Borders** - 2px solid black on all sections
-- **White Background** - Clean professional look
-- **Color Highlights** - Yellow stars (⭐), colored logos from web
-- **Clear Typography** - Arial font, easy to read
-- **Organized Layout** - 4-quadrant grid system
+**Option 2: Any Web Host**
+- Upload `index.html` to your server
+- Share the URL
+- Everyone can access it!
 
 ## 🛠️ Customization
 
-### Add a New Company
+### Add Your API Keys
 
-Open `index.html` and add to the `companyDatabase` object:
+To enable live company data:
+
+1. Get Google Search API key from: https://console.cloud.google.com
+2. Get OpenAI API key from: https://platform.openai.com/api-keys
+3. Replace in the `API_CONFIG` section:
+
+```javascript
+const API_CONFIG = {
+    GOOGLE_SEARCH_API: 'YOUR_KEY_HERE',
+    OPENAI_API: 'YOUR_KEY_HERE',
+};
+```
+
+### Add More Companies
+
+Edit the `companyDatabase` object:
 
 ```javascript
 'companyname': {
     name: 'Company Name',
-    description: 'What the company does...',
-    image: 'https://image-url.png',
-    rating: 3.8,
-    reviews: 245,
-    strongestAreas: [
-        'Area 1',
-        'Area 2',
-        'Area 3',
-        'Area 4',
-        'Area 5',
-        'Area 6'
-    ],
-    locations: [
-        'Headquarters Location',
-        'Location 2',
-        'Location 3',
-        'Location 4'
-    ],
-    interviewQuestions: [
-        { q: 'Question?', a: 'Answer...' },
-        // ... 10 questions total
-    ]
+    description: 'Company description...',
+    website: 'https://example.com',
+    image: 'https://logo-url.png',
+    rating: 4.2,
+    reviews: 500,
+    areas: ['Area 1', 'Area 2', ...],
+    locations: ['Location 1', 'Location 2', ...],
+    industry: 'Industry Name',
+    employees: '50,000+',
+    founded: '2020'
 }
 ```
 
-### Modify Styling
+### Customize Colors
 
-Edit the CSS section to change:
-- Colors
-- Font sizes
-- Border styles
-- Spacing and padding
+Edit CSS variables:
 
-## 📈 Use Cases
+```css
+:root {
+    --primary: #6366f1;      /* Main color */
+    --secondary: #ec4899;    /* Accent */
+    --accent: #f59e0b;       /* Highlights */
+    --success: #10b981;      /* Success */
+}
+```
 
-**For Job Seekers:**
-- Research companies before applying
-- Prepare for job interviews
-- Learn about company specializations
-- Find company locations
+## 📈 Performance
 
-**For Students:**
-- Understand different industries
-- Practice interview questions
-- Learn about global companies
-- Prepare for career fairs
-
-**For Career Counselors:**
-- Show students company information
-- Facilitate interview prep
-- Research opportunities
-
-## ⚡ Performance
-
-- **Instant Loading** - No network requests needed
-- **Fast Searching** - Results appear immediately
-- **Small File Size** - Single HTML file, < 100KB
-- **No Dependencies** - Works everywhere
+- ⚡ **Instant Loading** - Single file, < 200KB
+- 🚀 **Fast Searches** - Results in milliseconds
+- 📱 **Responsive** - Works on all screen sizes
+- 🔄 **API Cached** - Reduces redundant requests
 
 ## 🔒 Privacy
 
-- ✅ No data collection
-- ✅ No tracking
-- ✅ No cookies
-- ✅ No external API calls
-- ✅ Fully private and offline capable
+- ✅ No user data collection
+- ✅ No tracking or analytics
+- ✅ No cookies stored
+- ✅ Fully private searches
+- ✅ Offline capable
 
-## 📝 Data Source
+## 🎯 Use Cases
 
-All data is:
-- Based on public company information
-- Kununu ratings are for demonstration
-- Interview questions are realistic examples
-- Company descriptions are factual
-- Locations are verified and current
+**For Job Seekers**
+- Research companies before applying
+- Prepare for interviews
+- Understand company culture
+- Explore career opportunities
 
-## 🎓 Interview Preparation
+**For Students**
+- Learn about different industries
+- Study company structures
+- Prepare for career fairs
+- Research for presentations
 
-Each company includes:
-- 10 carefully selected interview questions
-- Professional answer suggestions
-- Company-specific responses
-- Real-world examples format
-- Expert-level guidance
+**For HR Professionals**
+- Research competitors
+- Benchmark company information
+- Provide candidate resources
+- Support employee development
 
-Perfect for:
-- Technical interviews
-- HR rounds
-- Behavioral questions
-- Company-specific preparation
+**For Investors**
+- Quick company overviews
+- Industry research
+- Market analysis
+- Competitive landscape
 
-## 🚀 Deployment
+## 🌟 Why Use This?
 
-To put this online:
-1. Upload `index.html` to any web hosting
-2. Or use GitHub Pages (free!)
-3. Share the URL
-
-```bash
-# GitHub Pages example:
-github.com/YourUsername/YourRepo/index.html
-```
+✨ **Beautiful Modern Design** - Eye-catching gradients and smooth animations
+🎨 **Colorful Interface** - Vibrant, professional color scheme
+📱 **Mobile Friendly** - Works perfectly on all devices
+🌐 **Search Any Company** - Not limited to pre-loaded data
+⚡ **Lightning Fast** - Instant results
+🔓 **No Signup Required** - Start using immediately
+📚 **Interview Ready** - Built-in preparation content
+🎓 **Educational** - Learn about companies worldwide
 
 ## 🆘 Troubleshooting
 
 **Company not found?**
-- Check spelling (case-insensitive)
-- Company may not be in database
-- You can still search - generic data loads
+- Try different spelling
+- Use official company name
+- Check if company has website
 
-**Images not showing?**
-- URLs may be outdated
-- Images load from external sources
-- Text descriptions still work
+**Images not loading?**
+- Check internet connection
+- URL might be outdated
+- Try refreshing page
 
 **Search not working?**
-- Make sure to type company name
-- Press Enter or click Search button
-- Check browser console for errors
+- Ensure proper spelling
+- Try simpler company names
+- Clear browser cache
 
-## 💡 Tips
+**Slow performance?**
+- Close other browser tabs
+- Reduce number of searches
+- Check internet speed
 
-- Company names are case-insensitive
-- Use exact company names for best results
-- Press Enter after typing for quick search
-- Scroll down to see interview questions
-- Print page for interview prep study material
+## 📞 Support & Feedback
 
-## 📄 File Information
+Found a bug or have a suggestion?
+1. Check GitHub Issues
+2. Create a new issue with details
+3. Include screenshots if possible
 
-- **File**: `index.html`
-- **Size**: Single file (< 100KB)
-- **Format**: HTML5
-- **Dependencies**: None
-- **Installation**: Not needed!
+## 📄 License
 
-## 🙏 Credits
+This project is open source and free to use.
+Modify and share as you wish!
 
-Created by: **Srishti Mehra**
+## 👨‍💻 Author
 
-GitHub: [@SrishtiMehra26](https://github.com/SrishtiMehra26)
+**Srishti Mehra**
+- GitHub: [@SrishtiMehra26](https://github.com/SrishtiMehra26)
+- Project: [Check The Company](https://github.com/SrishtiMehra26/Check-the-company)
 
-Project: [Check The Company](https://github.com/SrishtiMehra26/Check-the-company)
+## 🙏 Acknowledgments
 
-## 📅 Version History
+Built with:
+- HTML5 & CSS3
+- Vanilla JavaScript
+- Wikipedia API
+- Modern web standards
 
-- **v1.0.0** (2026-03-05) - Initial release
-  - 4-quadrant layout
-  - 7 companies with full data
-  - Interview questions & answers
-  - Kununu ratings
-  - Responsive design
+## 🎉 Get Started Now!
 
-## 📞 Support
-
-For questions or issues:
-1. Check the GitHub repository
-2. Review this README
-3. Create a GitHub issue
-
-## 🎉 Ready to Use!
-
-Just open `index.html` and start searching for companies!
-
-No installation, no setup, no complications.
-
-**Enjoy exploring company information!** 🚀
+1. Open `index.html`
+2. Search for any company
+3. Get instant insights
+4. Prepare for interviews
+5. Share with friends!
 
 ---
 
-**Last Updated**: March 5, 2026
-**Status**: ✅ Fully Functional & Ready to Deploy
+**Version**: 2.0.0  
+**Last Updated**: March 2026  
+**Status**: ✅ Production Ready  
+**Theme**: Modern, Creative, User-Friendly
+
+Enjoy discovering companies! 🚀
