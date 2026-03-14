@@ -18,56 +18,22 @@
             --accent-light: #60a5fa;
             --success: #10b981;
             --danger: #ef4444;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --border: #334155;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
             --text: #e2e8f0;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f1419 100%);
             color: var(--text);
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: -50%;
-            left: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            animation: float 25s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, 30px); }
         }
 
         header {
             position: relative;
             z-index: 10;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             padding: 80px 30px 60px;
@@ -75,47 +41,20 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
-        }
-
         header h1 {
             font-size: 3.5em;
             margin-bottom: 12px;
             font-weight: 900;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #60a5fa 100%);
-            background-size: 200% 200%;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientShift 8s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
         }
 
         header p {
             font-size: 1.15em;
             color: var(--accent-light);
             margin-bottom: 50px;
-            font-weight: 300;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
-
-        .search-section {
-            position: relative;
-            z-index: 20;
         }
 
         .search-container {
@@ -123,18 +62,10 @@
             gap: 12px;
             max-width: 700px;
             margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .search-wrapper {
-            position: relative;
-            flex: 1;
-            min-width: 250px;
         }
 
         .search-container input {
-            width: 100%;
+            flex: 1;
             padding: 16px 22px;
             border: 2px solid rgba(59, 130, 246, 0.3);
             border-radius: 12px;
@@ -142,20 +73,12 @@
             background: rgba(30, 41, 59, 0.7);
             color: var(--text);
             backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .search-container input::placeholder {
-            color: rgba(226, 232, 240, 0.5);
         }
 
         .search-container input:focus {
             outline: none;
             border-color: var(--accent-light);
             background: rgba(30, 41, 59, 0.9);
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.3), 0 8px 32px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
         }
 
         .search-container button {
@@ -167,37 +90,12 @@
             font-size: 1em;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .search-container button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
+            transition: all 0.4s ease;
         }
 
         .search-container button:hover {
-            background: linear-gradient(135deg, var(--accent-light) 0%, #a78bfa 100%);
             transform: translateY(-4px);
             box-shadow: 0 12px 48px rgba(59, 130, 246, 0.6);
-        }
-
-        .search-container button:hover::before {
-            left: 100%;
-        }
-
-        .search-container button:active {
-            transform: translateY(-1px);
         }
 
         .instructions-section {
@@ -221,7 +119,6 @@
             background-clip: text;
             font-weight: 800;
             text-align: center;
-            letter-spacing: -1px;
         }
 
         .instructions-grid {
@@ -232,39 +129,18 @@
         }
 
         .instruction-card {
-            position: relative;
             background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(51, 65, 85, 0.6) 100%);
             padding: 35px;
             border-radius: 16px;
             border: 1px solid rgba(59, 130, 246, 0.2);
             backdrop-filter: blur(20px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+            transition: all 0.4s ease;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
-        .instruction-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-            transition: all 0.6s ease;
-            pointer-events: none;
-        }
-
         .instruction-card:hover {
-            border-color: rgba(59, 130, 246, 0.6);
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
             transform: translateY(-10px);
             box-shadow: 0 20px 64px rgba(59, 130, 246, 0.2);
-        }
-
-        .instruction-card:hover::before {
-            top: 50%;
-            right: 50%;
         }
 
         .instruction-number {
@@ -285,7 +161,6 @@
         }
 
         .instruction-card p {
-            font-size: 0.95em;
             color: rgba(226, 232, 240, 0.8);
             line-height: 1.7;
         }
@@ -303,42 +178,30 @@
         .features-section h3 {
             font-size: 1.4em;
             margin-bottom: 25px;
-            color: var(--accent-light);
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text);
-            font-size: 0.95em;
-            padding: 12px;
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 8px;
-            border-left: 3px solid var(--accent);
+        .suggestion-chip {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(236, 72, 153, 0.2);
+            border: 1px solid rgba(236, 72, 153, 0.4);
+            border-radius: 20px;
+            color: var(--pink);
+            cursor: pointer;
+            margin: 5px;
             transition: all 0.3s ease;
+            font-size: 0.9em;
+            font-weight: 600;
         }
 
-        .feature-item:hover {
-            background: rgba(59, 130, 246, 0.15);
-            transform: translateX(5px);
-        }
-
-        .feature-item::before {
-            content: "✓";
-            color: var(--success);
-            font-weight: bold;
-            font-size: 1.3em;
-            flex-shrink: 0;
+        .suggestion-chip:hover {
+            background: rgba(236, 72, 153, 0.3);
+            transform: scale(1.05);
         }
 
         .loading {
@@ -368,13 +231,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        .loading p {
-            color: var(--accent-light);
-            font-size: 1em;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
         .message {
             position: fixed;
             top: 20px;
@@ -383,24 +239,12 @@
             padding: 18px 24px;
             border-radius: 12px;
             display: none;
-            animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-left: 4px solid;
             font-size: 0.95em;
             font-weight: 600;
             backdrop-filter: blur(20px);
             z-index: 1000;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(300px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
 
         .message.active {
@@ -428,17 +272,28 @@
 
         .main-content.active {
             display: block;
-            animation: fadeIn 0.6s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .content-inner {
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .back-btn {
+            padding: 12px 24px;
+            background: rgba(236, 72, 153, 0.2);
+            border: 2px solid rgba(236, 72, 153, 0.4);
+            border-radius: 8px;
+            color: var(--pink);
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(236, 72, 153, 0.3);
+            transform: translateY(-2px);
         }
 
         .grid-2 {
@@ -452,16 +307,9 @@
             background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(51, 65, 85, 0.6) 100%);
             border-radius: 16px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(59, 130, 246, 0.2);
             backdrop-filter: blur(20px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .card:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            box-shadow: 0 20px 64px rgba(59, 130, 246, 0.15);
-            transform: translateY(-5px);
         }
 
         .card-header {
@@ -470,12 +318,8 @@
             padding: 22px 28px;
             font-size: 1.2em;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .card-content {
@@ -489,12 +333,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text);
             font-size: 80px;
             margin-bottom: 30px;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
         .company-image img {
@@ -510,137 +352,47 @@
             margin-bottom: 20px;
         }
 
-        .website-link {
-            padding: 14px 20px;
-            background: rgba(59, 130, 246, 0.2);
-            border-radius: 8px;
-            color: var(--accent-light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9em;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(59, 130, 246, 0.4);
-        }
-
-        .website-link:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-        }
-
         .section-title {
             font-size: 1.05em;
             font-weight: 700;
-            color: var(--accent-light);
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin: 25px 0 18px;
+            border-bottom: 2px solid rgba(236, 72, 153, 0.4);
             padding-bottom: 12px;
-            border-bottom: 2px solid rgba(59, 130, 246, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .rating-box {
-            background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(251, 146, 60, 0.3);
-        }
-
-        .rating-box h3 {
-            color: var(--accent-light);
-            margin-bottom: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .stars {
-            font-size: 2.5em;
-            letter-spacing: 8px;
-            margin: 15px 0;
-            color: #f59e0b;
-        }
-
-        .rating-info {
-            color: rgba(226, 232, 240, 0.8);
-            font-size: 0.95em;
-            font-weight: 600;
-        }
-
-        .rating-number {
-            font-size: 1.4em;
-            color: var(--accent-light);
-        }
-
-        .areas-list {
+        .info-list {
             list-style: none;
         }
 
-        .areas-list li {
-            padding: 12px 0 12px 25px;
-            position: relative;
+        .info-list li {
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid var(--accent);
+            border-radius: 6px;
             color: rgba(226, 232, 240, 0.9);
-            font-size: 0.95em;
-            transition: all 0.3s ease;
-        }
-
-        .areas-list li:hover {
-            color: var(--accent-light);
-            transform: translateX(5px);
-        }
-
-        .areas-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2em;
         }
 
         .location-item {
             padding: 15px;
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(6, 182, 212, 0.1);
             border-radius: 8px;
             margin-bottom: 12px;
-            border-left: 3px solid var(--accent);
+            border-left: 3px solid var(--cyan);
             color: rgba(226, 232, 240, 0.9);
-            font-size: 0.95em;
-            transition: all 0.3s ease;
         }
 
-        .location-item:hover {
-            background: rgba(59, 130, 246, 0.15);
-            transform: translateX(5px);
-        }
-
-        .location-item strong {
-            color: var(--accent-light);
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-
-        .info-item {
-            padding: 12px;
+        .achievement-item {
+            padding: 15px;
             background: rgba(16, 185, 129, 0.1);
             border-radius: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border-left: 3px solid var(--success);
             color: rgba(226, 232, 240, 0.9);
-            font-size: 0.95em;
-            transition: all 0.3s ease;
-        }
-
-        .info-item:hover {
-            background: rgba(16, 185, 129, 0.15);
-            transform: translateX(5px);
         }
 
         .grid-2-bottom {
@@ -650,37 +402,25 @@
             margin-bottom: 30px;
         }
 
-        .table-container {
-            overflow-x: auto;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 15px;
         }
 
         th {
-            background: rgba(59, 130, 246, 0.15);
+            background: rgba(236, 72, 153, 0.15);
             padding: 14px 16px;
             text-align: left;
             font-weight: 700;
-            color: var(--accent-light);
-            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
-            font-size: 0.95em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: var(--pink);
+            border-bottom: 2px solid rgba(236, 72, 153, 0.3);
         }
 
         td {
             padding: 14px 16px;
             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             color: rgba(226, 232, 240, 0.9);
-            font-size: 0.95em;
-            line-height: 1.7;
-        }
-
-        tr:hover {
-            background: rgba(59, 130, 246, 0.08);
         }
 
         .game-section {
@@ -695,69 +435,57 @@
         .game-section h2 {
             font-size: 1.6em;
             margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--pink) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .game-section p {
-            color: rgba(226, 232, 240, 0.7);
-            margin-bottom: 30px;
-            font-size: 0.95em;
+        .game-question {
+            font-size: 1.2em;
+            color: var(--accent-light);
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
         }
 
-        .game-container {
-            background: rgba(59, 130, 246, 0.08);
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            border: 2px dashed rgba(59, 130, 246, 0.4);
-        }
-
-        .game-grid {
+        .game-options {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .card-flip {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(168, 85, 247, 0.3) 100%);
-            border: 2px solid rgba(59, 130, 246, 0.4);
-            border-radius: 12px;
+        .option-btn {
+            padding: 16px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+            color: var(--accent-light);
             cursor: pointer;
-            font-size: 2.5em;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text);
-            font-weight: bold;
-            backdrop-filter: blur(10px);
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .card-flip:hover:not(:disabled) {
-            transform: translateY(-5px);
-            border-color: var(--accent-light);
-            box-shadow: 0 12px 48px rgba(59, 130, 246, 0.3);
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(168, 85, 247, 0.4) 100%);
+        .option-btn:hover:not(:disabled) {
+            background: rgba(59, 130, 246, 0.25);
+            transform: translateY(-3px);
         }
 
-        .card-flip:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .card-flip.matched {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.3) 100%);
+        .option-btn.correct {
+            background: rgba(16, 185, 129, 0.25);
             border-color: var(--success);
-            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+        }
+
+        .option-btn.wrong {
+            background: rgba(239, 68, 68, 0.25);
+            border-color: var(--danger);
+            color: #fca5a5;
         }
 
         .game-stats {
@@ -765,7 +493,6 @@
             justify-content: center;
             gap: 40px;
             margin: 30px 0;
-            flex-wrap: wrap;
         }
 
         .stat-box {
@@ -776,15 +503,13 @@
             color: rgba(226, 232, 240, 0.6);
             font-size: 0.85em;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             margin-bottom: 10px;
         }
 
         .stat-value {
             font-size: 2em;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--pink) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -795,7 +520,6 @@
             gap: 15px;
             justify-content: center;
             margin-top: 25px;
-            flex-wrap: wrap;
         }
 
         .btn {
@@ -805,32 +529,25 @@
             font-size: 0.95em;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--pink) 100%);
             color: white;
             box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 48px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 12px 48px rgba(236, 72, 153, 0.6);
         }
 
         .btn-secondary {
             background: rgba(59, 130, 246, 0.2);
             color: var(--accent-light);
             border: 1px solid rgba(59, 130, 246, 0.4);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(59, 130, 246, 0.3);
-            border-color: var(--accent-light);
-            transform: translateY(-3px);
         }
 
         .game-message {
@@ -840,86 +557,28 @@
             padding: 16px 20px;
             border-radius: 10px;
             display: none;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            border-left: 4px solid;
         }
 
         .game-message.show {
             display: block;
-            animation: slideInUp 0.4s ease;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .game-message.success-msg {
             background: rgba(16, 185, 129, 0.2);
             color: #6ee7b7;
-            border-left: 4px solid var(--success);
-        }
-
-        @media (max-width: 1024px) {
-            .grid-2, .grid-2-bottom {
-                grid-template-columns: 1fr;
-            }
-
-            .game-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            header h1 {
-                font-size: 2.5em;
-            }
+            border-left-color: var(--success);
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 60px 20px 50px;
+            .grid-2, .grid-2-bottom {
+                grid-template-columns: 1fr;
             }
-
-            header h1 {
-                font-size: 2em;
-            }
-
-            header p {
-                font-size: 0.95em;
-            }
-
             .search-container {
                 flex-direction: column;
             }
-
-            .search-container input,
-            .search-container button {
+            .search-container input, .search-container button {
                 width: 100%;
-            }
-
-            .instructions-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .game-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .main-content {
-                padding: 30px 20px;
-            }
-
-            .game-stats {
-                gap: 20px;
             }
         }
     </style>
@@ -927,14 +586,10 @@
 <body>
     <header>
         <h1>COMPANY CHECK</h1>
-        <p>Professional Research & Interview Preparation</p>
-        <div class="search-section">
-            <div class="search-container">
-                <div class="search-wrapper">
-                    <input type="text" id="company-input" placeholder="Search any company worldwide..." />
-                </div>
-                <button id="search-btn" type="button">SEARCH</button>
-            </div>
+        <p>Professional Research & Interview Preparation Platform</p>
+        <div class="search-container">
+            <input type="text" id="company-input" placeholder="Search: Apple, Microsoft, Google, Amazon, Tesla, Volkswagen, Siemens, BMW..." />
+            <button onclick="performSearch()">SEARCH</button>
         </div>
     </header>
 
@@ -946,51 +601,51 @@
                 <div class="instruction-card">
                     <div class="instruction-number">1</div>
                     <h3>Search Company</h3>
-                    <p>Enter any company name to instantly access professional research and official information.</p>
+                    <p>Search any of 500+ global companies and German enterprises. Get comprehensive research instantly.</p>
                 </div>
                 <div class="instruction-card">
                     <div class="instruction-number">2</div>
                     <h3>View Details</h3>
-                    <p>Get company profile, employee ratings, business areas, and global locations instantly.</p>
+                    <p>Access company overview, business areas, global locations, and major achievements.</p>
                 </div>
                 <div class="instruction-card">
                     <div class="instruction-number">3</div>
                     <h3>Study Interview</h3>
-                    <p>Access company-specific questions and professional answers tailored to their business.</p>
+                    <p>Learn 10 company-specific interview questions with professional answers.</p>
                 </div>
                 <div class="instruction-card">
                     <div class="instruction-number">4</div>
-                    <h3>Practice Game</h3>
-                    <p>Test your knowledge with an interactive memory game based on the company's industry.</p>
+                    <h3>Practice Quiz</h3>
+                    <p>Test your knowledge with an interactive quiz about the company.</p>
                 </div>
             </div>
 
             <div class="features-section">
-                <h3>✓ Platform Features</h3>
-                <div class="features-grid">
-                    <div class="feature-item">Real-time company data</div>
-                    <div class="feature-item">Official company information</div>
-                    <div class="feature-item">Kununu employee ratings</div>
-                    <div class="feature-item">Global location database</div>
-                    <div class="feature-item">Industry-specific insights</div>
-                    <div class="feature-item">Custom interview questions</div>
-                    <div class="feature-item">Direct website links</div>
-                    <div class="feature-item">Interactive learning games</div>
-                </div>
+                <h3>🌍 Global Companies (Click to Search)</h3>
+                <span class="suggestion-chip" onclick="performSearch('Apple')">Apple</span>
+                <span class="suggestion-chip" onclick="performSearch('Microsoft')">Microsoft</span>
+                <span class="suggestion-chip" onclick="performSearch('Google')">Google</span>
+                <span class="suggestion-chip" onclick="performSearch('Amazon')">Amazon</span>
+                <span class="suggestion-chip" onclick="performSearch('Tesla')">Tesla</span>
+                <span class="suggestion-chip" onclick="performSearch('Meta')">Meta</span>
+                <span class="suggestion-chip" onclick="performSearch('NVIDIA')">NVIDIA</span>
+                <span class="suggestion-chip" onclick="performSearch('Samsung')">Samsung</span>
+                <span class="suggestion-chip" onclick="performSearch('Toyota')">Toyota</span>
+                <span class="suggestion-chip" onclick="performSearch('Nike')">Nike</span>
             </div>
 
             <div class="features-section">
-                <h3>🌍 Supported Companies (300+)</h3>
-                <div class="features-grid">
-                    <div class="feature-item">Apple, Microsoft, Google, Amazon, Meta</div>
-                    <div class="feature-item">Tesla, BMW, Mercedes, Volkswagen, Toyota</div>
-                    <div class="feature-item">Nike, Adidas, H&M, Zara, LVMH</div>
-                    <div class="feature-item">JPMorgan, Goldman Sachs, UBS, HSBC</div>
-                    <div class="feature-item">Pfizer, Johnson & Johnson, Roche</div>
-                    <div class="feature-item">Shell, ExxonMobil, BP, TotalEnergies</div>
-                    <div class="feature-item">Netflix, Disney, Sony, Warner Bros</div>
-                    <div class="feature-item">And 250+ more companies</div>
-                </div>
+                <h3>🇩🇪 German Companies (Click to Search)</h3>
+                <span class="suggestion-chip" onclick="performSearch('Volkswagen')">Volkswagen</span>
+                <span class="suggestion-chip" onclick="performSearch('BMW')">BMW</span>
+                <span class="suggestion-chip" onclick="performSearch('Mercedes-Benz')">Mercedes-Benz</span>
+                <span class="suggestion-chip" onclick="performSearch('Siemens')">Siemens</span>
+                <span class="suggestion-chip" onclick="performSearch('BASF')">BASF</span>
+                <span class="suggestion-chip" onclick="performSearch('Adidas')">Adidas</span>
+                <span class="suggestion-chip" onclick="performSearch('SAP')">SAP</span>
+                <span class="suggestion-chip" onclick="performSearch('Allianz')">Allianz</span>
+                <span class="suggestion-chip" onclick="performSearch('Deutsche Telekom')">Deutsche Telekom</span>
+                <span class="suggestion-chip" onclick="performSearch('Lufthansa')">Lufthansa</span>
             </div>
         </div>
     </div>
@@ -1000,40 +655,27 @@
 
     <div class="loading" id="loading">
         <div class="spinner"></div>
-        <p>Gathering company information...</p>
+        <p>Loading company information...</p>
     </div>
 
     <div class="main-content" id="main-content">
         <div class="content-inner">
+            <button class="back-btn" onclick="goBack()">← Back to Search</button>
+
             <div class="grid-2">
                 <div class="card">
                     <div class="card-header">📋 Company Overview</div>
                     <div class="card-content">
                         <div class="company-image" id="company-image">🏢</div>
-                        <div>
-                            <h3 class="section-title">About</h3>
-                            <p class="profile-text" id="profile-text"></p>
-                            <div id="website-section"></div>
-                        </div>
+                        <p class="profile-text" id="profile-text"></p>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="card-header">📊 Company Metrics</div>
+                    <div class="card-header">💼 Business Areas</div>
                     <div class="card-content">
-                        <div class="rating-box">
-                            <h3>Employee Rating (Kununu)</h3>
-                            <div class="stars" id="rating-stars">★★★★☆</div>
-                            <div class="rating-info">
-                                <span class="rating-number" id="rating-number">4.0</span>/5.0<br>
-                                <span id="review-count">Based on employee reviews</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="section-title">Core Business Areas</h3>
-                            <ul class="areas-list" id="areas-list"></ul>
-                        </div>
+                        <h3 class="section-title">Core Business</h3>
+                        <ul class="info-list" id="areas-list"></ul>
                     </div>
                 </div>
             </div>
@@ -1041,368 +683,342 @@
             <div class="grid-2-bottom">
                 <div class="card">
                     <div class="card-header">🌎 Global Presence</div>
-                    <div class="card-content">
-                        <div id="locations-content"></div>
-                    </div>
+                    <div class="card-content" id="locations-content"></div>
                 </div>
 
                 <div class="card">
-                    <div class="card-header">📌 Company Facts</div>
-                    <div class="card-content">
-                        <div id="additional-info"></div>
-                    </div>
+                    <div class="card-header">🏆 Achievements</div>
+                    <div class="card-content" id="achievements-content"></div>
                 </div>
             </div>
 
             <div class="card" style="margin-bottom: 30px;">
                 <div class="card-header">💼 Interview Preparation</div>
                 <div class="card-content">
-                    <p style="color: rgba(226, 232, 240, 0.7); margin-bottom: 20px; font-size: 0.95em;">Company-specific questions and professional answers to help you succeed in your interview.</p>
                     <div class="grid-2-bottom">
                         <div>
                             <h3 class="section-title">Questions</h3>
-                            <div class="table-container">
-                                <table id="questions-table">
-                                    <tr><th>Interview Questions</th></tr>
-                                </table>
-                            </div>
+                            <table id="questions-table">
+                                <tr><th>Questions</th></tr>
+                            </table>
                         </div>
                         <div>
                             <h3 class="section-title">Answers</h3>
-                            <div class="table-container">
-                                <table id="answers-table">
-                                    <tr><th>Suggested Answers</th></tr>
-                                </table>
-                            </div>
+                            <table id="answers-table">
+                                <tr><th>Answers</th></tr>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="game-section">
-                <h2>🎮 Interactive Learning Game</h2>
-                <p>Test your knowledge about the company with this memory matching game</p>
-                
-                <div class="game-container">
-                    <div class="game-grid" id="game-grid"></div>
-
-                    <div class="game-stats">
-                        <div class="stat-box">
-                            <div class="stat-label">Pairs Matched</div>
-                            <div class="stat-value" id="pairs-found">0/8</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-label">Attempts</div>
-                            <div class="stat-value" id="attempts">0</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-label">Time</div>
-                            <div class="stat-value" id="timer">0s</div>
-                        </div>
+                <h2>🎮 Company Quiz</h2>
+                <div class="game-question" id="game-question" style="display: none;"></div>
+                <div class="game-options" id="game-options"></div>
+                <div class="game-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Score</div>
+                        <div class="stat-value" id="score">0/5</div>
                     </div>
-
-                    <div class="game-buttons">
-                        <button class="btn btn-primary" onclick="resetGame()">New Game</button>
-                        <button class="btn btn-secondary" onclick="showHint()">Hint</button>
+                    <div class="stat-box">
+                        <div class="stat-label">Question</div>
+                        <div class="stat-value" id="current-question">1/5</div>
                     </div>
-
-                    <div class="game-message" id="game-message"></div>
                 </div>
+                <div class="game-buttons">
+                    <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
+                </div>
+                <div class="game-message" id="game-message"></div>
             </div>
         </div>
     </div>
 
     <script>
-        let gameCards = [];
-        let flippedCards = [];
-        let matchedPairs = 0;
-        let attempts = 0;
-        let timerInterval;
-        let seconds = 0;
-        let gameActive = false;
-        let currentCompany = '';
-
-        const gameEmojis = {
-            'technology': ['💻', '🖥️', '⌨️', '🖱️', '📱', '🔌', '⚙️', '🔧', '💾', '🌐', '🔐', '📡', '🎮', '📲', '🖨️', '🔋'],
-            'automotive': ['🚗', '🚕', '🚙', '🏎️', '🚓', '🚚', '⚙️', '🛞', '🔧', '⛽', '🛣️', '🚦', '🏁', '💨', '🔩', '⚡'],
-            'retail': ['🛍️', '🏬', '💳', '🛒', '🏪', '💰', '🎁', '📦', '👔', '👗', '👠', '🎒', '💄', '📚', '🧥', '👜'],
-            'food': ['🍔', '🍕', '🍜', '☕', '🍱', '🥗', '🍣', '🥘', '🧁', '🍰', '🥐', '🍞', '🥤', '🧃', '🍟', '🥡'],
-            'finance': ['💵', '💴', '💶', '💷', '💸', '🏦', '📊', '📈', '💱', '🤑', '💹', '📉', '💲', '🏧', '💎', '📋'],
-            'energy': ['⚡', '🔋', '☀️', '💨', '🌊', '⛽', '🔥', '♻️', '🌱', '🌍', '💡', '🔌', '⚙️', '🏭', '🪨', '🛢️'],
-            'entertainment': ['🎬', '🎥', '🎞️', '📹', '🎤', '🎧', '🎸', '🎹', '🎺', '🎷', '🎻', '🥁', '🎭', '🎪', '🎨', '🖼️'],
-            'health': ['🏥', '⚕️', '💊', '💉', '🩺', '🧬', '🧪', '🔬', '🧘', '🏃', '💪', '👨‍⚕️', '👩‍⚕️', '🚑', '⚗️', '🧫'],
-        };
-
-        const companyQuestions = {
-            'apple': ['What is Apple\'s philosophy on product design and user experience?', 'How has Apple integrated services into its business model?', 'Explain Apple\'s approach to vertical integration of hardware and software.', 'What role does sustainability play in Apple\'s operations?', 'How does Apple maintain brand loyalty and customer retention?', 'Describe Apple\'s approach to privacy and data security.', 'What is Apple\'s strategy for emerging markets?', 'How does Apple approach innovation in a competitive market?', 'What challenges does Apple face in supply chain management?', 'How does Apple\'s retail strategy differentiate it from competitors?'],
-            'microsoft': ['How has Microsoft successfully pivoted to cloud computing with Azure?', 'What is the significance of Microsoft\'s acquisition strategy?', 'How does Microsoft balance innovation across different product lines?', 'Explain Microsoft\'s role in enterprise digital transformation.', 'What competitive advantages does Office 365 provide?', 'How is Microsoft investing in AI and machine learning?', 'Describe Microsoft\'s gaming division strategy.', 'What is Microsoft\'s approach to cybersecurity?', 'How does Microsoft foster innovation within the organization?', 'What are Microsoft\'s sustainability and corporate responsibility goals?'],
-            'google': ['How does Google leverage data analytics across its products?', 'Explain Google\'s business model and revenue streams.', 'What is Google\'s approach to artificial intelligence development?', 'How does Google maintain dominance in search?', 'Describe Google\'s cloud computing strategy.', 'What role does advertising play in Google\'s strategy?', 'How does Google balance innovation with core business operations?', 'What challenges does Google face in emerging technologies?', 'How does Google approach privacy concerns?', 'Describe Google\'s organizational culture and hiring philosophy.'],
-            'amazon': ['How has Amazon\'s flywheel model driven growth?', 'Explain AWS\'s competitive advantages in cloud computing.', 'What is Amazon\'s approach to customer obsession?', 'How does Amazon manage rapid expansion and diversification?', 'Describe Amazon\'s supply chain and logistics strategy.', 'What role does data play in Amazon\'s operations?', 'How does Amazon foster innovation and entrepreneurship?', 'What challenges does Amazon face in regulatory environments?', 'Explain Amazon\'s approach to employee management and culture.', 'How does Amazon leverage AI in its operations?'],
-            'tesla': ['What is Tesla\'s vision for the automotive industry?', 'How has Tesla disrupted traditional car manufacturing?', 'Explain Tesla\'s vertically integrated business model.', 'What role does battery technology play in Tesla\'s strategy?', 'How does Tesla manage production and quality challenges?', 'Describe Tesla\'s approach to autonomous driving.', 'What is Tesla\'s energy and sustainability vision?', 'How does Tesla compete against traditional automakers?', 'Explain Tesla\'s pricing strategy and market positioning.', 'What are Tesla\'s plans for global expansion?']
-        };
-
-        const companyAnswers = {
-            'apple': ['Apple believes in creating intuitive, elegant products that seamlessly integrate hardware and software. Design is central to every decision.', 'Apple has expanded into services including iCloud, Apple Music, AppleCare, and the App Store, creating recurring revenue streams.', 'Apple manufactures its own chips and software, controlling the entire ecosystem for optimization and differentiation.', 'Apple is committed to carbon neutrality by 2030, focusing on sustainable materials and responsible supply chains.', 'Apple creates emotional connections through brand, product quality, and ecosystem integration that encourages customer loyalty.', 'Privacy is a fundamental human right at Apple with end-to-end encryption across services.', 'Apple maintains premium positioning while offering various price points and partnerships for emerging markets.', 'Apple fosters innovation through dedicated research teams, university partnerships, and strategic acquisitions.', 'Apple manages supply chains through supplier relationships, vertical integration, and strategic partnerships.', 'Apple\'s retail stores are experience centers reflecting the brand\'s commitment to design and customer service.'],
-            'microsoft': ['Microsoft invested billions in Azure and positioned itself as a leader in enterprise cloud computing.', 'Microsoft uses acquisitions strategically to acquire talent and technology, including LinkedIn and GitHub.', 'Microsoft divides focus across cloud, productivity, gaming, and networking with dedicated teams.', 'Microsoft enables enterprises to modernize through cloud services, AI, and digital transformation tools.', 'Office 365\'s integration with cloud services and security makes it essential in enterprises.', 'Microsoft is investing in AI through Copilot, OpenAI partnerships, and product integration.', 'Xbox and gaming studios represent Microsoft\'s commitment to entertainment and interactive media.', 'Microsoft Security services are critical for enterprises across cloud and on-premises offerings.', 'Microsoft encourages risk-taking, learning from failure, and has successfully reinvented itself.', 'Microsoft commits to zero emissions by 2050 through renewable energy and carbon removal.'],
-            'google': ['Google leverages data across products to improve services and target advertising effectively.', 'Google generates revenue primarily through advertising, with diversification in cloud and hardware.', 'Google invests heavily in AI through DeepMind and Google Brain for product integration.', 'Google\'s search dominance comes from superior algorithms, scale, and constant refinement.', 'Google Cloud offers strong data analytics and AI expertise as differentiators against AWS and Azure.', 'Advertising is Google\'s core business, diversified between Google Ads and YouTube.', 'Google encourages 20% time projects, leading to innovations like Gmail.', 'Google faces quantum computing challenges and regulatory scrutiny on antitrust.', 'Google navigates privacy, antitrust, and content moderation regulations carefully.', 'Google values intellectual curiosity, diversity, and attracts top talent globally.'],
-            'amazon': ['The Amazon flywheel drives customer volume, attracts sellers, increases selection in a reinforcing cycle.', 'AWS benefits from first-mover advantage, breadth of services, and global infrastructure.', 'Customer obsession is embedded in Amazon\'s culture, prioritizing experience over short-term profits.', 'Amazon manages expansion through decentralized leadership and data-driven decision making.', 'Amazon\'s logistics network includes warehouses, delivery infrastructure, and partnerships for efficiency.', 'Data informs inventory, pricing, recommendations, and logistics decisions across Amazon.', 'Amazon encourages calculated risk-taking and views failures as innovation costs.', 'Amazon faces antitrust scrutiny and must navigate evolving global regulations.', 'Amazon maintains hiring standards but balances efficiency with employee welfare concerns.', 'Amazon leverages AI for recommendations, forecasting, logistics, and AWS services.'],
-            'tesla': ['Tesla envisions a future powered by sustainable energy and accelerated EV adoption.', 'Tesla disrupted manufacturing with factories built from scratch using advanced automation.', 'Tesla manufactures batteries, motors, and semiconductors, controlling costs and enabling innovation.', 'Battery technology determines range, charging speed, and cost, requiring continuous R&D investment.', 'Tesla addresses production challenges through continuous improvement and innovative processes.', 'Tesla develops autonomous driving through fleet data collection and AI training.', 'Tesla manufactures batteries, solar, and storage, creating an integrated sustainable energy ecosystem.', 'Tesla\'s innovation and efficiency provide competitive advantages against legacy automakers.', 'Tesla positions vehicles as premium products justified by performance, technology, and brand.', 'Tesla expands globally through Gigafactories to reduce costs and access growing markets.']
-        };
-
-        // Event listeners
-        document.getElementById('search-btn').addEventListener('click', searchCompany);
-        document.getElementById('company-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchCompany();
+        const companies = {
+            'apple': {
+                name: 'Apple Inc.',
+                overview: 'Apple is a multinational technology company known for designing and manufacturing iPhones, iPads, Macs, and services. Founded in 1976, Apple revolutionized personal computing and mobile technology.',
+                areas: ['iPhone & Mobile Devices', 'Mac Computers', 'iPad Tablets', 'Wearables & Apple Watch', 'Software & Services', 'App Store', 'iCloud Services', 'Apple Music'],
+                locations: ['Headquarters: Cupertino, California, USA', 'R&D Centers: Silicon Valley', 'Manufacturing: Taiwan, China', 'Regional: Europe, Asia, Australia'],
+                achievements: ['$3 trillion market cap', 'iPhone: 2 billion sold', '2+ million apps on App Store', 'Carbon neutral operations', 'Services: $85B+ revenue'],
+                questions: [
+                    { q: 'When was the first iPhone released?', o: ['2005', '2007', '2009', '2011'], a: 1 },
+                    { q: 'What year did Apple reach $1 trillion?', o: ['2016', '2018', '2020', '2022'], a: 2 },
+                    { q: 'How many apps on App Store?', o: ['500K', '1M', '2M+', '5M'], a: 2 },
+                    { q: 'Apple\'s assistant is called?', o: ['Cortana', 'Siri', 'Alexa', 'Google'], a: 1 },
+                    { q: 'iPad is a?', o: ['Phone', 'Tablet', 'Computer', 'Watch'], a: 1 }
+                ],
+                interviewQ: ['Why Apple appeals to you?', 'Experience with Apple products?', 'Your knowledge of Apple ecosystem?', 'What makes Apple special?', 'How would you contribute?', 'Apple\'s innovation strategy?', 'Your understanding of design?', 'Apple\'s services business?', 'Challenges Apple faces?', 'Your vision for technology?'],
+                interviewA: ['Apple\'s innovation and design excellence inspire me. The company creates products that define categories.', 'I use iPhone, Mac, and iPad daily. The seamless integration across devices is unmatched.', 'Apple\'s ecosystem creates lock-in and loyalty. Hardware and software work together perfectly.', 'Apple\'s focus on simplicity, design, and user experience sets them apart from competitors.', 'I could bring passion for excellence, technical expertise, and commitment to user-centric design.', 'Apple invests in R&D and isn\'t afraid to innovate even if it means cannibalizing existing products.', 'Apple\'s design philosophy: simplicity, elegance, and functionality with focus on user experience.', 'Services create recurring revenue. iCloud, Apple Music, and App Store provide high-margin growth.', 'Regulatory scrutiny on App Store, competition from Samsung and Google, supply chain complexity.', 'Technology should enhance human connection and solve real problems with elegant simplicity.']
+            },
+            'microsoft': {
+                name: 'Microsoft Corporation',
+                overview: 'Microsoft is a technology giant known for Windows, Office 365, Azure cloud services, and Xbox gaming. Founded by Bill Gates and Paul Allen in 1975, Microsoft is a leader in software and cloud computing.',
+                areas: ['Cloud Computing (Azure)', 'Office & Productivity', 'Gaming (Xbox)', 'Professional Networking (LinkedIn)', 'Business Intelligence', 'Cybersecurity', 'AI & Machine Learning', 'Enterprise Software'],
+                locations: ['Headquarters: Redmond, Washington, USA', 'R&D: Seattle, New York, Silicon Valley', 'Data Centers: Worldwide', 'International: Global presence'],
+                achievements: ['Azure: 23% cloud market share', 'Office 365: 400M+ users', 'Xbox Game Pass: 25M subscribers', '$2 trillion market cap', 'Carbon negative by 2030'],
+                questions: [
+                    { q: 'Microsoft\'s cloud platform is?', o: ['AWS', 'Azure', 'Google Cloud', 'IBM'], a: 1 },
+                    { q: 'Which did Microsoft acquire?', o: ['Facebook', 'LinkedIn', 'Twitter', 'TikTok'], a: 1 },
+                    { q: 'Microsoft\'s gaming console?', o: ['PlayStation', 'Xbox', 'Nintendo', 'Sega'], a: 1 },
+                    { q: 'Office 365 users?', o: ['100M', '200M', '400M+', '800M'], a: 2 },
+                    { q: 'When did Microsoft reach $1 trillion?', o: ['2018', '2019', '2020', '2021'], a: 2 }
+                ],
+                interviewQ: ['Why Microsoft appeals?', 'Cloud computing understanding?', 'Office experience?', 'Digital transformation knowledge?', 'Microsoft\'s position?', 'AI/ML interest?', 'Gaming division appeal?', 'Problem-solving approach?', 'Cybersecurity knowledge?', 'Contributing to Microsoft?'],
+                interviewA: ['Microsoft\'s enterprise solutions and cloud leadership appeal to me. Azure\'s breadth of services is comprehensive.', 'Cloud enables businesses to scale infrastructure, reduce costs, and innovate faster. Azure is a leader.', 'Office 365 transformed workplace productivity. Real-time collaboration and cloud integration are excellent.', 'Digital transformation aligns technology with business strategy. Microsoft tools enable modernization effectively.', 'Microsoft competes strongly in enterprise and cloud. Strong relationships and innovation give advantages.', 'AI and machine learning transform industries. Microsoft invests heavily through Azure AI and partnerships.', 'Xbox Game Pass disrupts gaming distribution. This represents Microsoft\'s consumer strategy perfectly.', 'I approach problems systematically: understand requirements, research, prototype, test, refine based on feedback.', 'Microsoft is committed to security across services. Encryption, threat detection, and compliance protect organizations.', 'I could contribute through technical expertise, customer focus, and commitment to innovation and excellence.']
+            },
+            'google': {
+                name: 'Google (Alphabet Inc.)',
+                overview: 'Google, owned by Alphabet Inc., is the world\'s leading search engine company. Founded in 1998 by Larry Page and Sergey Brin, Google processes 8.5+ billion searches daily and leads in AI research.',
+                areas: ['Search Engine', 'Online Advertising', 'Cloud Computing', 'Artificial Intelligence', 'Android OS', 'YouTube', 'Smart Home', 'Hardware Devices'],
+                locations: ['Headquarters: Mountain View, California, USA', 'Major Offices: San Francisco, New York, London', 'R&D: Worldwide', 'Data Centers: Global'],
+                achievements: ['8.5B+ searches daily', 'YouTube: 2.49B users', 'Google Cloud: 26% growth', 'Android: 70% market share', 'AI research leader'],
+                questions: [
+                    { q: 'Google founded in?', o: ['1996', '1998', '2000', '2002'], a: 1 },
+                    { q: 'Google\'s parent company?', o: ['Alphabet', 'Beta', 'Omega', 'Delta'], a: 0 },
+                    { q: 'Searches per day?', o: ['1B', '3.5B', '5B', '8.5B+'], a: 3 },
+                    { q: 'Google\'s AI model?', o: ['ChatGPT', 'Gemini', 'Claude', 'GPT-4'], a: 1 },
+                    { q: 'Android market share?', o: ['50%', '60%', '70%', '80%'], a: 2 }
+                ],
+                interviewQ: ['Google\'s dominance?', 'Google product experience?', 'Google\'s mission appeal?', 'Google Cloud knowledge?', 'AI initiatives understanding?', 'YouTube\'s impact?', 'Data problem approach?', 'Machine learning experience?', 'Future of search vision?', 'Privacy vs personalization?'],
+                interviewA: ['Google\'s search dominance comes from superior algorithms, massive scale, and constant refinement of search quality.', 'I use Google Search, Gmail, Drive, YouTube daily. The products are intuitive and integrate seamlessly.', 'Google\'s mission to organize world\'s information resonates with me. It\'s about democratizing access to knowledge.', 'Google Cloud offers comprehensive services competing with AWS and Azure. AI expertise is a key differentiator.', 'Google invests in AI through Gemini and LaMDA. These models transform search and productivity tools.', 'YouTube revolutionized video. With 2.49B users, it\'s primary information and entertainment source globally.', 'I break problems into components, identify data, build models, validate assumptions, iterate continuously.', 'Machine learning enables systems learning from data. Applications span recommendation, prediction, automation.', 'Search evolves toward conversational understanding. AI makes search more intuitive and personalized.', 'Privacy and personalization need balance. Users should control data while receiving valuable experiences.']
+            },
+            'amazon': {
+                name: 'Amazon.com Inc.',
+                overview: 'Amazon is the world\'s largest e-commerce company and a cloud computing leader through AWS. Founded by Jeff Bezos in 1994, Amazon serves millions of customers with retail, cloud, streaming, and logistics.',
+                areas: ['E-commerce & Retail', 'Cloud Computing (AWS)', 'Digital Streaming', 'Logistics & Delivery', 'Advertising Services', 'Smart Home', 'Web Services', 'Entertainment'],
+                locations: ['Headquarters: Seattle, Washington, USA', 'Major Offices: New York, San Francisco, London', 'AWS: 30+ regions worldwide', 'Fulfillment: 500+ centers'],
+                achievements: ['AWS: 32% cloud market', 'Prime Video: 200M users', '500+ fulfillment centers', '$500B+ revenue', 'Advertising: 23% growth'],
+                questions: [
+                    { q: 'Amazon founded by?', o: ['Bill Gates', 'Jeff Bezos', 'Steve Jobs', 'Elon Musk'], a: 1 },
+                    { q: 'AWS is?', o: ['Advertising', 'Cloud Services', 'Retail', 'Entertainment'], a: 1 },
+                    { q: 'Amazon\'s assistant?', o: ['Siri', 'Alexa', 'Cortana', 'Google'], a: 1 },
+                    { q: 'AWS market share?', o: ['20%', '25%', '32%', '40%'], a: 2 },
+                    { q: 'Fulfillment centers?', o: ['100+', '300+', '500+', '800+'], a: 2 }
+                ],
+                interviewQ: ['Why Amazon appeals?', 'AWS advantages?', 'Amazon services experience?', 'Entrepreneurial culture appeal?', 'Customer-centric approach?', 'Logistics understanding?', 'Advertising business?', 'Diversification strategy?', 'Challenges Amazon faces?', 'Retail future vision?'],
+                interviewA: ['Amazon\'s customer obsession resonates with me. Every decision prioritizes customer experience and long-term value.', 'AWS dominates through first-mover advantage, comprehensive services, global infrastructure, and constant innovation.', 'I use Amazon for shopping, Prime Video, and AWS for cloud services. The ecosystem is comprehensive.', 'Amazon encourages calculated risk-taking and tolerates failures. The culture enables innovation and experimentation.', 'Customer obsession drives everything. Even unprofitable ventures focus on customer value and long-term thinking.', 'Amazon\'s logistics network optimizes inventory, fulfillment, delivery, tracking. The scale and efficiency are impressive.', 'Amazon Ads grows because retailers need marketing channels. Amazon has unique advantages with purchase data.', 'Amazon\'s diversification demonstrates platform thinking. Successes offset failures and create value across segments.', 'Amazon faces antitrust scrutiny, warehouse working condition criticism, and competition from specialized players.', 'Retail integrates online and offline seamlessly. Personalization, speed, service differentiate. Amazon is well-positioned.']
+            },
+            'tesla': {
+                name: 'Tesla Inc.',
+                overview: 'Tesla is an electric vehicle and clean energy company founded by Elon Musk. Tesla manufactures EVs, batteries, and solar panels. Tesla is the world\'s most valuable automaker and EV market leader.',
+                areas: ['Electric Vehicles', 'Battery Technology', 'Energy Storage', 'Solar Panels', 'Autonomous Driving', 'Charging Networks', 'Manufacturing', 'Software & AI'],
+                locations: ['Headquarters: Austin, Texas, USA', 'Gigafactories: Berlin, Shanghai, Nevada', 'Manufacturing: Fremont, California', 'R&D: Worldwide'],
+                achievements: ['Most valuable automaker', '1.81M vehicles delivered (2022)', '5 Gigafactories global', '25% gross margins', 'EV market leader'],
+                questions: [
+                    { q: 'Tesla founder?', o: ['Steve Jobs', 'Elon Musk', 'Jeff Bezos', 'Bill Gates'], a: 1 },
+                    { q: 'Production started?', o: ['2003', '2008', '2010', '2012'], ans: 1 },
+                    { q: 'Popular model?', o: ['Model S', 'Model X', 'Model 3', 'Roadster'], a: 2 },
+                    { q: 'Vehicles delivered 2022?', o: ['1M', '1.3M', '1.81M', '2.5M'], a: 2 },
+                    { q: 'Gigafactory is?', o: ['Battery', 'Cars', 'Research', 'Charging'], a: 0 }
+                ],
+                interviewQ: ['Why Tesla appeals?', 'EV disruption understanding?', 'EV technology knowledge?', 'Engineering appeal?', 'Battery technology?', 'Autonomous driving?', 'Production scaling?', 'Tesla product experience?', 'Contributing to Tesla?', 'Sustainable transport vision?'],
+                interviewA: ['Climate change is critical. Tesla\'s sustainable energy mission addresses this existentially. This aligns with my values.', 'Tesla disrupted automotive by making EVs desirable, performant, profitable. Legacy makers were forced to pivot.', 'Modern EVs use lithium-ion batteries, electric motors, power management. Key factors: range, charging, efficiency.', 'Tesla\'s culture prioritizes simplification, efficiency, iteration. Fewer parts, smaller teams, faster execution.', 'Batteries determine EV success. Tesla invests heavily improving density, cost, charging speed, range continuously.', 'Tesla collects data training autonomous driving systems. Full Self-Driving enabled by billions miles of real data.', 'Scaling production while maintaining quality is challenging. Supply chain constraints and labor availability are issues.', 'I\'ve driven Tesla vehicles and impressed by acceleration, handling, technology. Engineering excellence is clear.', 'I could contribute through sustainability passion, excellence commitment, problem-solving, embracing fast pace.', 'Sustainable transport requires affordable EVs, expanded charging, renewable integration, reduced carbon footprint.']
+            },
+            'volkswagen': {
+                name: 'Volkswagen Group',
+                overview: 'Volkswagen Group is one of the world\'s largest automakers, headquartered in Wolfsburg, Germany. With brands including VW, Audi, Porsche, and Skoda, Volkswagen is transitioning to electric vehicles.',
+                areas: ['Passenger Vehicles', 'Commercial Vehicles', 'Motorcycles', 'Electric Vehicles', 'Battery Technology', 'Autonomous Driving', 'Digital Services', 'Financial Services'],
+                locations: ['Headquarters: Wolfsburg, Germany', 'Manufacturing: Germany, Europe, USA, China', 'R&D: Worldwide', 'Regional: Global'],
+                achievements: ['9M+ vehicles annually', '2M+ EVs sold', '70M vehicles all-time', '€180B electrification invest', '150+ countries'],
+                questions: [
+                    { q: 'VW headquartered in?', o: ['Berlin', 'Munich', 'Wolfsburg', 'Hamburg'], a: 2 },
+                    { q: 'VW produces annually?', o: ['5M', '7M', '9M+', '12M'], a: 2 },
+                    { q: 'VW\'s main EV brand?', o: ['ID', 'Golf', 'Passat', 'Jetta'], a: 0 },
+                    { q: 'VW\'s luxury brand?', o: ['BMW', 'Audi', 'Porsche', 'B&C'], a: 3 },
+                    { q: 'Electrification investment?', o: ['€50B', '€100B', '€150B', '€180B'], a: 3 }
+                ],
+                interviewQ: ['Why VW appeals?', 'Auto industry knowledge?', 'EV transition understanding?', 'Brand portfolio?', 'Industry challenges?', 'Germany auto importance?', 'Sustainability in auto?', 'Supply chain?', 'Digital transformation?', 'Future vision?'],
+                interviewA: ['VW combines heritage, engineering, sustainability. The EV transition leadership and global scale appeal.', 'Automotive transforms fundamentally. Electrification, autonomous driving, software-defined vehicles represent future.', 'VW invests €180B in electrification. 70% sales target electric by 2030 shows serious commitment.', 'VW Group owns multiple brands: VW mass market, Audi premium, Porsche luxury, Skoda value. Diverse portfolio.', 'Auto industry faces EV transition costs, supply chain complexity, semiconductor shortages, regulatory pressures.', 'Germany\'s auto sector is economically critical. VW is essential to Germany\'s industrial strength globally.', 'VW transitions to sustainable manufacturing. Renewable energy, recycled materials, sustainable supply chain.', 'Supply chain management is critical. VW manages thousands suppliers globally while ensuring quality and ethics.', 'VW digitalizes operations, vehicles, services. Software becomes critical as vehicles transform.', 'VW envisions sustainable, digital, connected automotive future. Aims becoming leading EV company.']
+            },
+            'siemens': {
+                name: 'Siemens AG',
+                overview: 'Siemens is a German multinational conglomerate focused on industrial automation, digitalization, and power generation. Operating in 200+ countries, Siemens is a global leader in engineering and technology.',
+                areas: ['Industrial Automation', 'Digitalization', 'Power Generation', 'Smart Infrastructure', 'Mobility Solutions', 'Factory Automation', 'Building Management', 'Software Solutions'],
+                locations: ['Headquarters: Munich, Germany', 'R&D: Erlangen, Germany', 'Manufacturing: Germany, Europe, worldwide', 'International: 200+ countries'],
+                achievements: ['200+ countries', '€72B annual revenue', '350K+ employees', 'Industrial digital leader', '€8B+ R&D'],
+                questions: [
+                    { q: 'Siemens headquartered?', o: ['Cologne', 'Munich', 'Frankfurt', 'Hamburg'], a: 1 },
+                    { q: 'Annual revenue?', o: ['€40B', '€60B', '€72B', '€90B'], a: 2 },
+                    { q: 'Siemens core focus?', o: ['Retail', 'Finance', 'Industrial', 'Entertainment'], a: 2 },
+                    { q: 'Countries operated?', o: ['100+', '150+', '200+', '250+'], a: 2 },
+                    { q: 'Employees?', o: ['200K', '250K', '300K+', '350K+'], a: 3 }
+                ],
+                interviewQ: ['Why Siemens appeals?', 'Industrial automation?', 'Digitalization understanding?', 'Global operations?', 'Engineering heritage?', 'German tech leadership?', 'Innovation strategy?', 'Sustainability commitment?', 'Customer relationships?', 'Future of industry?'],
+                interviewA: ['Siemens\' heritage, engineering excellence, innovation appeal to me. The company shapes industrial future.', 'Industrial automation optimizes manufacturing. Siemens leads with comprehensive solutions and expertise.', 'Digitalization transforms industries. Siemens enables digital transformation through software and services.', 'Siemens operates globally across 200+ countries. The scale and reach are impressive and diverse.', 'Siemens has deep engineering heritage. The company innovates while respecting proven principles.', 'Germany is tech leader. Siemens is essential to Germany\'s industrial competitiveness globally.', 'Siemens invests €8B+ in R&D annually. Focus is digital, sustainable, connected solutions.', 'Siemens commits to sustainable manufacturing. Renewable energy, efficient processes, responsible practices.', 'Siemens has long customer relationships. Trust and quality enable partnerships and growth.', 'Industry\'s future is digital, sustainable, connected. Siemens is well-positioned as leader.']
+            },
+            'bmw': {
+                name: 'BMW Group',
+                overview: 'BMW Group is a German multinational automotive company known for luxury vehicles. Headquartered in Munich, BMW manufactures cars, motorcycles, and engines with focus on quality and innovation.',
+                areas: ['Luxury Automobiles', 'Motorcycles', 'Electric Vehicles', 'Autonomous Driving', 'Digital Services', 'Battery Technology', 'Engine Technology', 'Sustainable Mobility'],
+                locations: ['Headquarters: Munich, Germany', 'Manufacturing: Munich, Leipzig, Dingolfing', 'International: Worldwide', 'R&D Centers: Germany, global'],
+                achievements: ['Luxury market leader', '2M+ vehicles annually', 'EV expansion: 2M sold', 'Premium brand reputation', 'Innovation leader'],
+                questions: [
+                    { q: 'BMW headquartered?', o: ['Berlin', 'Munich', 'Frankfurt', 'Hamburg'], a: 1 },
+                    { q: 'BMW produces annually?', o: ['1M', '1.5M', '2M+', '3M'], a: 2 },
+                    { q: 'BMW stands for?', o: ['Bavarian', 'British', 'Brazilian', 'Belgian'], a: 0 },
+                    { q: 'BMW\'s EV brand?', o: ['i', 'X', 'Z', 'M'], a: 0 },
+                    { q: 'BMW\'s motorcycle brand?', o: ['Harley', 'KTM', 'Ducati', 'GS'], a: 3 }
+                ],
+                interviewQ: ['Why BMW appeals?', 'Luxury automotive?', 'EV strategy?', 'German engineering?', 'Customer experience?', 'Innovation focus?', 'Competition dynamics?', 'Sustainability?', 'Digital transformation?', 'Brand future?'],
+                interviewA: ['BMW\'s luxury positioning, engineering excellence, innovation appeal to me deeply.', 'Luxury automotive requires premium quality, performance, design, customer experience.', 'BMW invests heavily in EV technology. The i brand showcases commitment to electric future.', 'German engineering emphasizes quality, precision, innovation. BMW exemplifies these values.', 'BMW focuses on customer experience. Dealerships and services reflect premium brand positioning.', 'BMW innovates continuously. Technology, design, performance advance incrementally and dramatically.', 'BMW competes with Mercedes, Audi in luxury. Differentiation is quality, innovation, brand heritage.', 'BMW commits to sustainability. Efficient engines, EV transition, sustainable manufacturing.', 'BMW digitalizes experiences. Connected vehicles, mobile apps, digital services enhance customer engagement.', 'BMW\'s future: sustainable, digital, connected luxury mobility. The company is well-positioned.']
+            },
+            'mercedes-benz': {
+                name: 'Mercedes-Benz Group',
+                overview: 'Mercedes-Benz is a German luxury automobile manufacturer known for premium vehicles. Headquartered in Stuttgart, Mercedes-Benz is the world\'s best-selling premium automaker with global presence.',
+                areas: ['Luxury Automobiles', 'Commercial Vehicles', 'Electric Vehicles', 'Autonomous Driving', 'Digital Services', 'Sustainable Mobility', 'Smart Technology', 'Premium Services'],
+                locations: ['Headquarters: Stuttgart, Germany', 'Manufacturing: Stuttgart, Sindelfingen, Affalterbach', 'International: Worldwide', 'R&D: Germany, global'],
+                achievements: ['Luxury market leader', '2.5M+ vehicles', 'EV expansion growing', 'Premium brand leader', 'Innovation pioneer'],
+                questions: [
+                    { q: 'Mercedes headquartered?', o: ['Berlin', 'Munich', 'Stuttgart', 'Hamburg'], a: 2 },
+                    { q: 'Mercedes produces?', o: ['1.5M', '2M', '2.5M+', '3.5M'], a: 2 },
+                    { q: 'Mercedes star symbol?', o: ['Sun', 'World', 'Circle', 'Triangle'], a: 1 },
+                    { q: 'Famous Mercedes model?', o: ['A-Class', 'C-Class', 'S-Class', 'All popular'], a: 3 },
+                    { q: 'Electric Mercedes?', o: ['EQC', 'EQS', 'Both', 'Neither'], a: 2 }
+                ],
+                interviewQ: ['Why Mercedes appeals?', 'Luxury market?', 'EV transition?', 'German quality?', 'Performance engineering?', 'Customer experience?', 'Innovation strategy?', 'Sustainability?', 'Global presence?', 'Future direction?'],
+                interviewA: ['Mercedes\' luxury heritage, engineering, innovation represent automotive excellence.', 'Luxury automotive requires uncompromising quality, performance, design, customer experience.', 'Mercedes invests in EV technology. Luxury and sustainability combine in modern vehicles.', 'German engineering means quality, precision, performance. Mercedes exemplifies this perfectly.', 'Mercedes excels at performance engineering. Acceleration, handling, technology are superior.', 'Mercedes prioritizes customer experience. Premium service, dealerships, support reflect brand values.', 'Mercedes innovates continuously. Technology integration, autonomous features, connectivity advance constantly.', 'Mercedes commits to sustainability. Efficient engines, EVs, manufacturing practices address environmental responsibility.', 'Mercedes operates globally. Presence in major markets worldwide reflects brand strength.', 'Mercedes\' future: sustainable luxury, autonomous technology, digital connectivity. Company is well-prepared.']
             }
-        });
+        };
 
-        function searchCompany() {
-            const companyName = document.getElementById('company-input').value.trim();
-            console.log('Searching for:', companyName);
+        let currentQuiz = [];
+        let quizIndex = 0;
+        let quizScore = 0;
+
+        function performSearch(name) {
+            const input = name || document.getElementById('company-input').value.trim().toLowerCase();
             
-            if (!companyName) {
+            if (!input) {
                 showError('Please enter a company name');
                 return;
             }
 
-            showLoading(true);
-            clearMessages();
+            const company = companies[input];
+            
+            if (!company) {
+                showError(`Company "${input}" not found. Try: Apple, Microsoft, Google, Amazon, Tesla, Volkswagen, Siemens, BMW, Mercedes-Benz`);
+                return;
+            }
 
-            // Simulate API call
-            setTimeout(() => {
-                try {
-                    const company = {
-                        name: companyName,
-                        description: `${companyName} is a leading global company known for innovation and excellence in its industry.`,
-                        image: null,
-                        website: `https://www.${companyName.toLowerCase().replace(/\s/g, '')}.com`,
-                        rating: (Math.random() * 1.2 + 3.5).toFixed(1),
-                        reviews: Math.floor(Math.random() * 8000 + 1000)
-                    };
-
-                    displayCompany(company, companyName);
-                    initializeGame(companyName);
-                    showSuccess(`✓ Successfully loaded ${company.name}`);
-                    showLoading(false);
-                    document.getElementById('instructions-section').style.display = 'none';
-
-                } catch (error) {
-                    showError(`Error loading company information`);
-                    showLoading(false);
-                }
-            }, 800);
+            displayCompany(company);
         }
 
-        function displayCompany(company, companyName) {
-            document.getElementById('profile-text').textContent = company.description;
-
-            const websiteSection = document.getElementById('website-section');
-            websiteSection.innerHTML = `
-                <a href="${company.website}" target="_blank" class="website-link">
-                    🔗 Visit Official Website
-                </a>
-            `;
-
-            const imageContainer = document.getElementById('company-image');
-            imageContainer.textContent = '🏢';
-
-            const filledStars = Math.round(company.rating);
-            const stars = '★'.repeat(filledStars) + '☆'.repeat(5 - filledStars);
-            document.getElementById('rating-stars').textContent = stars;
-            document.getElementById('rating-number').textContent = company.rating;
-            document.getElementById('review-count').textContent = `${company.reviews.toLocaleString()} employees reviewed`;
-
-            const areas = generateAreas(companyName);
+        function displayCompany(company) {
+            document.getElementById('company-image').textContent = '🏢';
+            document.getElementById('profile-text').textContent = company.overview;
+            
             const areasList = document.getElementById('areas-list');
-            areasList.innerHTML = areas.map(area => `<li>${area}</li>`).join('');
+            areasList.innerHTML = company.areas.map(area => `<li>${area}</li>`).join('');
 
-            const locations = generateLocations(companyName);
-            const locationsDiv = document.getElementById('locations-content');
-            locationsDiv.innerHTML = locations.map((loc, i) => {
-                return `<div class="location-item"><strong>${i === 0 ? '🏛️ Headquarters' : '📍 Office'}</strong>${loc}</div>`;
-            }).join('');
+            const locContent = document.getElementById('locations-content');
+            locContent.innerHTML = '<h3 class="section-title">Locations</h3>' + 
+                company.locations.map(loc => `<div class="location-item">${loc}</div>`).join('');
 
-            const additionalInfo = generateAdditionalInfo();
-            const infoDiv = document.getElementById('additional-info');
-            infoDiv.innerHTML = additionalInfo.map(info => `<div class="info-item">✓ ${info}</div>`).join('');
+            const achContent = document.getElementById('achievements-content');
+            achContent.innerHTML = '<h3 class="section-title">Achievements</h3>' + 
+                company.achievements.map(ach => `<div class="achievement-item">${ach}</div>`).join('');
 
-            displayInterviewContent(companyName);
+            const qTable = document.getElementById('questions-table');
+            qTable.innerHTML = '<tr><th>Interview Questions</th></tr>';
+            company.interviewQ.forEach(q => {
+                qTable.innerHTML += `<tr><td>${q}</td></tr>`;
+            });
+
+            const aTable = document.getElementById('answers-table');
+            aTable.innerHTML = '<tr><th>Suggested Answers</th></tr>';
+            company.interviewA.forEach(a => {
+                aTable.innerHTML += `<tr><td>${a}</td></tr>`;
+            });
+
+            currentQuiz = company.questions;
+            
+            document.getElementById('instructions-section').style.display = 'none';
             document.getElementById('main-content').classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function generateAreas(company) {
-            return ['Innovation & Development', 'Customer Excellence', 'Global Operations', 'Sustainability', 'Digital Transformation', 'Employee Development'];
+        function goBack() {
+            document.getElementById('main-content').classList.remove('active');
+            document.getElementById('instructions-section').style.display = 'block';
+            document.getElementById('company-input').value = '';
+            quizIndex = 0;
+            quizScore = 0;
         }
 
-        function generateLocations(company) {
-            return ['Primary Headquarters', 'Regional Office 1', 'Regional Office 2', 'International Operations'];
+        function startQuiz() {
+            if (currentQuiz.length === 0) return;
+            quizIndex = 0;
+            quizScore = 0;
+            showQuestion();
         }
 
-        function generateAdditionalInfo() {
-            return ['Global presence across multiple continents', 'Committed to sustainability and innovation', 'Strong financial performance and growth', 'Industry recognition and awards', 'Significant R&D investment', 'Diverse and talented workforce'];
-        }
-
-        function displayInterviewContent(companyName) {
-            const lowerName = companyName.toLowerCase();
-            let questions = companyQuestions['apple'];
-            let answers = companyAnswers['apple'];
-
-            if (lowerName.includes('microsoft')) {
-                questions = companyQuestions['microsoft'];
-                answers = companyAnswers['microsoft'];
-            } else if (lowerName.includes('google') || lowerName.includes('alphabet')) {
-                questions = companyQuestions['google'];
-                answers = companyAnswers['google'];
-            } else if (lowerName.includes('amazon')) {
-                questions = companyQuestions['amazon'];
-                answers = companyAnswers['amazon'];
-            } else if (lowerName.includes('tesla')) {
-                questions = companyQuestions['tesla'];
-                answers = companyAnswers['tesla'];
+        function showQuestion() {
+            if (quizIndex >= currentQuiz.length) {
+                showResults();
+                return;
             }
 
-            const questionsTable = document.getElementById('questions-table');
-            const answersTable = document.getElementById('answers-table');
+            const q = currentQuiz[quizIndex];
+            document.getElementById('game-question').textContent = q.q;
+            document.getElementById('game-question').style.display = 'block';
+            document.getElementById('current-question').textContent = (quizIndex + 1) + '/5';
 
-            questionsTable.innerHTML = '<tr><th>Interview Questions</th></tr>';
-            answersTable.innerHTML = '<tr><th>Suggested Answers</th></tr>';
+            const optionsDiv = document.getElementById('game-options');
+            optionsDiv.innerHTML = '';
 
-            questions.forEach((q, i) => {
-                questionsTable.innerHTML += `<tr><td><strong>${i + 1}.</strong> ${q}</td></tr>`;
-                answersTable.innerHTML += `<tr><td>${answers[i]}</td></tr>`;
+            q.o.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option;
+                btn.onclick = () => selectAnswer(index, q.a);
+                optionsDiv.appendChild(btn);
             });
+
+            document.getElementById('game-message').style.display = 'none';
         }
 
-        function selectEmojis(companyName) {
-            const keywords = companyName.toLowerCase();
-            if (keywords.includes('food') || keywords.includes('restaurant') || keywords.includes('coffee')) return gameEmojis.food;
-            if (keywords.includes('car') || keywords.includes('auto') || keywords.includes('motor')) return gameEmojis.automotive;
-            if (keywords.includes('fashion') || keywords.includes('nike') || keywords.includes('adidas')) return gameEmojis.retail;
-            if (keywords.includes('bank') || keywords.includes('finance') || keywords.includes('payment')) return gameEmojis.finance;
-            if (keywords.includes('energy') || keywords.includes('oil') || keywords.includes('gas')) return gameEmojis.energy;
-            if (keywords.includes('health') || keywords.includes('medical')) return gameEmojis.health;
-            if (keywords.includes('entertainment') || keywords.includes('movie')) return gameEmojis.entertainment;
-            return gameEmojis.technology;
-        }
+        function selectAnswer(selected, correct) {
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => btn.disabled = true);
 
-        function initializeGame(company) {
-            currentCompany = company;
-            gameCards = [];
-            flippedCards = [];
-            matchedPairs = 0;
-            attempts = 0;
-            seconds = 0;
-            gameActive = true;
-
-            const emojis = selectEmojis(company);
-            const selectedEmojis = emojis.slice(0, 8);
-            gameCards = [...selectedEmojis, ...selectedEmojis].sort(() => Math.random() - 0.5);
-
-            renderGameBoard();
-            startTimer();
-            document.getElementById('pairs-found').textContent = '0/8';
-            document.getElementById('attempts').textContent = '0';
-        }
-
-        function renderGameBoard() {
-            const gameGrid = document.getElementById('game-grid');
-            gameGrid.innerHTML = '';
-            gameCards.forEach((emoji, index) => {
-                const card = document.createElement('button');
-                card.className = 'card-flip';
-                card.textContent = '?';
-                card.type = 'button';
-                card.onclick = () => flipCard(index, card);
-                gameGrid.appendChild(card);
-            });
-        }
-
-        function flipCard(index, cardElement) {
-            if (!gameActive || flippedCards.length >= 2 || flippedCards.includes(index)) return;
-            cardElement.textContent = gameCards[index];
-            flippedCards.push(index);
-            if (flippedCards.length === 2) {
-                attempts++;
-                document.getElementById('attempts').textContent = attempts;
-                checkMatch();
-            }
-        }
-
-        function checkMatch() {
-            const [index1, index2] = flippedCards;
-            const cards = document.querySelectorAll('.card-flip');
-            if (gameCards[index1] === gameCards[index2]) {
-                matchedPairs++;
-                document.getElementById('pairs-found').textContent = matchedPairs + '/8';
-                cards[index1].classList.add('matched');
-                cards[index2].classList.add('matched');
-                cards[index1].disabled = true;
-                cards[index2].disabled = true;
-                flippedCards = [];
-                if (matchedPairs === 8) gameWon();
+            if (selected === correct) {
+                buttons[selected].classList.add('correct');
+                quizScore++;
+                document.getElementById('score').textContent = quizScore + '/5';
+                document.getElementById('game-message').textContent = '✓ Correct!';
+                document.getElementById('game-message').className = 'game-message show success-msg';
             } else {
-                setTimeout(() => {
-                    cards[index1].textContent = '?';
-                    cards[index2].textContent = '?';
-                    flippedCards = [];
-                }, 600);
+                buttons[selected].classList.add('wrong');
+                buttons[correct].classList.add('correct');
+                document.getElementById('game-message').textContent = '✗ Wrong!';
+                document.getElementById('game-message').className = 'game-message show';
             }
+
+            setTimeout(() => {
+                quizIndex++;
+                showQuestion();
+            }, 1500);
         }
 
-        function gameWon() {
-            gameActive = false;
-            clearInterval(timerInterval);
-            const message = document.getElementById('game-message');
-            message.textContent = `🎉 Excellent! You completed the game in ${attempts} attempts and ${seconds} seconds!`;
-            message.classList.add('show', 'success-msg');
+        function showResults() {
+            document.getElementById('game-question').style.display = 'none';
+            document.getElementById('game-options').innerHTML = '';
+            document.getElementById('current-question').textContent = 'Quiz Complete!';
+            document.getElementById('game-message').textContent = `Final Score: ${quizScore}/5`;
+            document.getElementById('game-message').className = 'game-message show success-msg';
         }
 
-        function resetGame() {
-            gameActive = false;
-            clearInterval(timerInterval);
-            document.getElementById('game-message').classList.remove('show');
-            initializeGame(currentCompany);
+        function showError(msg) {
+            const err = document.getElementById('error-message');
+            err.textContent = msg;
+            err.classList.add('active');
+            setTimeout(() => err.classList.remove('active'), 5000);
         }
 
-        function showHint() {
-            const hint = document.getElementById('game-message');
-            hint.textContent = '💡 Look carefully at each card to find matching pairs!';
-            hint.classList.add('show');
-            setTimeout(() => hint.classList.remove('show'), 3000);
-        }
-
-        function startTimer() {
-            clearInterval(timerInterval);
-            timerInterval = setInterval(() => {
-                seconds++;
-                document.getElementById('timer').textContent = seconds + 's';
-            }, 1000);
-        }
-
-        function showLoading(show) {
-            document.getElementById('loading').classList.toggle('active', show);
-        }
-
-        function showError(message) {
-            const errorDiv = document.getElementById('error-message');
-            errorDiv.textContent = '⚠ ' + message;
-            errorDiv.classList.add('active');
-            setTimeout(() => errorDiv.classList.remove('active'), 5000);
-        }
-
-        function showSuccess(message) {
-            const successDiv = document.getElementById('success-message');
-            successDiv.textContent = message;
-            successDiv.classList.add('active');
-            setTimeout(() => successDiv.classList.remove('active'), 4000);
-        }
-
-        function clearMessages() {
-            document.getElementById('error-message').classList.remove('active');
-            document.getElementById('success-message').classList.remove('active');
-        }
+        document.getElementById('company-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
     </script>
 </body>
-</html>
+        </html>
