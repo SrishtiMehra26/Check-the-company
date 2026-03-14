@@ -589,7 +589,7 @@
         <p>Professional Research & Interview Preparation Platform</p>
         <div class="search-container">
             <input type="text" id="company-input" placeholder="Search: Apple, Microsoft, Google, Amazon, Tesla, Volkswagen, Siemens, BMW..." />
-            <button onclick="performSearch()">SEARCH</button>
+            <button id="searchBtn" type="button">SEARCH</button>
         </div>
     </header>
 
@@ -622,30 +622,34 @@
 
             <div class="features-section">
                 <h3>🌍 Global Companies (Click to Search)</h3>
-                <span class="suggestion-chip" onclick="performSearch('Apple')">Apple</span>
-                <span class="suggestion-chip" onclick="performSearch('Microsoft')">Microsoft</span>
-                <span class="suggestion-chip" onclick="performSearch('Google')">Google</span>
-                <span class="suggestion-chip" onclick="performSearch('Amazon')">Amazon</span>
-                <span class="suggestion-chip" onclick="performSearch('Tesla')">Tesla</span>
-                <span class="suggestion-chip" onclick="performSearch('Meta')">Meta</span>
-                <span class="suggestion-chip" onclick="performSearch('NVIDIA')">NVIDIA</span>
-                <span class="suggestion-chip" onclick="performSearch('Samsung')">Samsung</span>
-                <span class="suggestion-chip" onclick="performSearch('Toyota')">Toyota</span>
-                <span class="suggestion-chip" onclick="performSearch('Nike')">Nike</span>
+                <div>
+                    <span class="suggestion-chip" data-company="apple">Apple</span>
+                    <span class="suggestion-chip" data-company="microsoft">Microsoft</span>
+                    <span class="suggestion-chip" data-company="google">Google</span>
+                    <span class="suggestion-chip" data-company="amazon">Amazon</span>
+                    <span class="suggestion-chip" data-company="tesla">Tesla</span>
+                    <span class="suggestion-chip" data-company="meta">Meta</span>
+                    <span class="suggestion-chip" data-company="nvidia">NVIDIA</span>
+                    <span class="suggestion-chip" data-company="samsung">Samsung</span>
+                    <span class="suggestion-chip" data-company="toyota">Toyota</span>
+                    <span class="suggestion-chip" data-company="nike">Nike</span>
+                </div>
             </div>
 
             <div class="features-section">
                 <h3>🇩🇪 German Companies (Click to Search)</h3>
-                <span class="suggestion-chip" onclick="performSearch('Volkswagen')">Volkswagen</span>
-                <span class="suggestion-chip" onclick="performSearch('BMW')">BMW</span>
-                <span class="suggestion-chip" onclick="performSearch('Mercedes-Benz')">Mercedes-Benz</span>
-                <span class="suggestion-chip" onclick="performSearch('Siemens')">Siemens</span>
-                <span class="suggestion-chip" onclick="performSearch('BASF')">BASF</span>
-                <span class="suggestion-chip" onclick="performSearch('Adidas')">Adidas</span>
-                <span class="suggestion-chip" onclick="performSearch('SAP')">SAP</span>
-                <span class="suggestion-chip" onclick="performSearch('Allianz')">Allianz</span>
-                <span class="suggestion-chip" onclick="performSearch('Deutsche Telekom')">Deutsche Telekom</span>
-                <span class="suggestion-chip" onclick="performSearch('Lufthansa')">Lufthansa</span>
+                <div>
+                    <span class="suggestion-chip" data-company="volkswagen">Volkswagen</span>
+                    <span class="suggestion-chip" data-company="bmw">BMW</span>
+                    <span class="suggestion-chip" data-company="mercedes-benz">Mercedes-Benz</span>
+                    <span class="suggestion-chip" data-company="siemens">Siemens</span>
+                    <span class="suggestion-chip" data-company="basf">BASF</span>
+                    <span class="suggestion-chip" data-company="adidas">Adidas</span>
+                    <span class="suggestion-chip" data-company="sap">SAP</span>
+                    <span class="suggestion-chip" data-company="allianz">Allianz</span>
+                    <span class="suggestion-chip" data-company="deutschetelekom">Deutsche Telekom</span>
+                    <span class="suggestion-chip" data-company="lufthansa">Lufthansa</span>
+                </div>
             </div>
         </div>
     </div>
@@ -660,7 +664,7 @@
 
     <div class="main-content" id="main-content">
         <div class="content-inner">
-            <button class="back-btn" onclick="goBack()">← Back to Search</button>
+            <button class="back-btn" id="backBtn" type="button">← Back to Search</button>
 
             <div class="grid-2">
                 <div class="card">
@@ -727,7 +731,7 @@
                     </div>
                 </div>
                 <div class="game-buttons">
-                    <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
+                    <button class="btn btn-primary" id="startQuizBtn" type="button">Start Quiz</button>
                 </div>
                 <div class="game-message" id="game-message"></div>
             </div>
@@ -808,7 +812,7 @@
                 achievements: ['Most valuable automaker', '1.81M vehicles delivered (2022)', '5 Gigafactories global', '25% gross margins', 'EV market leader'],
                 questions: [
                     { q: 'Tesla founder?', o: ['Steve Jobs', 'Elon Musk', 'Jeff Bezos', 'Bill Gates'], a: 1 },
-                    { q: 'Production started?', o: ['2003', '2008', '2010', '2012'], ans: 1 },
+                    { q: 'Production started?', o: ['2003', '2008', '2010', '2012'], a: 1 },
                     { q: 'Popular model?', o: ['Model S', 'Model X', 'Model 3', 'Roadster'], a: 2 },
                     { q: 'Vehicles delivered 2022?', o: ['1M', '1.3M', '1.81M', '2.5M'], a: 2 },
                     { q: 'Gigafactory is?', o: ['Battery', 'Cars', 'Research', 'Charging'], a: 0 }
@@ -859,7 +863,7 @@
                     { q: 'BMW produces annually?', o: ['1M', '1.5M', '2M+', '3M'], a: 2 },
                     { q: 'BMW stands for?', o: ['Bavarian', 'British', 'Brazilian', 'Belgian'], a: 0 },
                     { q: 'BMW\'s EV brand?', o: ['i', 'X', 'Z', 'M'], a: 0 },
-                    { q: 'BMW\'s motorcycle brand?', o: ['Harley', 'KTM', 'Ducati', 'GS'], a: 3 }
+                    { q: 'BMW\'s motorcycle line?', o: ['S', 'C', 'F', 'GS'], a: 3 }
                 ],
                 interviewQ: ['Why BMW appeals?', 'Luxury automotive?', 'EV strategy?', 'German engineering?', 'Customer experience?', 'Innovation focus?', 'Competition dynamics?', 'Sustainability?', 'Digital transformation?', 'Brand future?'],
                 interviewA: ['BMW\'s luxury positioning, engineering excellence, innovation appeal to me deeply.', 'Luxury automotive requires premium quality, performance, design, customer experience.', 'BMW invests heavily in EV technology. The i brand showcases commitment to electric future.', 'German engineering emphasizes quality, precision, innovation. BMW exemplifies these values.', 'BMW focuses on customer experience. Dealerships and services reflect premium brand positioning.', 'BMW innovates continuously. Technology, design, performance advance incrementally and dramatically.', 'BMW competes with Mercedes, Audi in luxury. Differentiation is quality, innovation, brand heritage.', 'BMW commits to sustainability. Efficient engines, EV transition, sustainable manufacturing.', 'BMW digitalizes experiences. Connected vehicles, mobile apps, digital services enhance customer engagement.', 'BMW\'s future: sustainable, digital, connected luxury mobility. The company is well-positioned.']
@@ -874,7 +878,7 @@
                     { q: 'Mercedes headquartered?', o: ['Berlin', 'Munich', 'Stuttgart', 'Hamburg'], a: 2 },
                     { q: 'Mercedes produces?', o: ['1.5M', '2M', '2.5M+', '3.5M'], a: 2 },
                     { q: 'Mercedes star symbol?', o: ['Sun', 'World', 'Circle', 'Triangle'], a: 1 },
-                    { q: 'Famous Mercedes model?', o: ['A-Class', 'C-Class', 'S-Class', 'All popular'], a: 3 },
+                    { q: 'Famous Mercedes model?', o: ['A-Class', 'C-Class', 'S-Class', 'All'], a: 3 },
                     { q: 'Electric Mercedes?', o: ['EQC', 'EQS', 'Both', 'Neither'], a: 2 }
                 ],
                 interviewQ: ['Why Mercedes appeals?', 'Luxury market?', 'EV transition?', 'German quality?', 'Performance engineering?', 'Customer experience?', 'Innovation strategy?', 'Sustainability?', 'Global presence?', 'Future direction?'],
@@ -886,9 +890,40 @@
         let quizIndex = 0;
         let quizScore = 0;
 
-        function performSearch(name) {
-            const input = name || document.getElementById('company-input').value.trim().toLowerCase();
-            
+        // Search button click
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const input = document.getElementById('company-input').value.trim().toLowerCase();
+            performSearch(input);
+        });
+
+        // Enter key in search input
+        document.getElementById('company-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const input = this.value.trim().toLowerCase();
+                performSearch(input);
+            }
+        });
+
+        // Suggestion chips click
+        document.querySelectorAll('.suggestion-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                const company = this.getAttribute('data-company');
+                document.getElementById('company-input').value = company;
+                performSearch(company);
+            });
+        });
+
+        // Back button
+        document.getElementById('backBtn').addEventListener('click', function() {
+            goBack();
+        });
+
+        // Start quiz button
+        document.getElementById('startQuizBtn').addEventListener('click', function() {
+            startQuiz();
+        });
+
+        function performSearch(input) {
             if (!input) {
                 showError('Please enter a company name');
                 return;
@@ -897,7 +932,7 @@
             const company = companies[input];
             
             if (!company) {
-                showError(`Company "${input}" not found. Try: Apple, Microsoft, Google, Amazon, Tesla, Volkswagen, Siemens, BMW, Mercedes-Benz`);
+                showError('Company not found. Try: apple, microsoft, google, amazon, tesla, volkswagen, siemens, bmw, mercedes-benz');
                 return;
             }
 
@@ -936,6 +971,7 @@
             document.getElementById('instructions-section').style.display = 'none';
             document.getElementById('main-content').classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            showSuccess(`✓ ${company.name} loaded successfully!`);
         }
 
         function goBack() {
@@ -944,6 +980,7 @@
             document.getElementById('company-input').value = '';
             quizIndex = 0;
             quizScore = 0;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function startQuiz() {
@@ -970,8 +1007,9 @@
             q.o.forEach((option, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
+                btn.type = 'button';
                 btn.textContent = option;
-                btn.onclick = () => selectAnswer(index, q.a);
+                btn.onclick = function() { selectAnswer(index, q.a); };
                 optionsDiv.appendChild(btn);
             });
 
@@ -1005,20 +1043,23 @@
             document.getElementById('game-question').style.display = 'none';
             document.getElementById('game-options').innerHTML = '';
             document.getElementById('current-question').textContent = 'Quiz Complete!';
-            document.getElementById('game-message').textContent = `Final Score: ${quizScore}/5`;
+            document.getElementById('game-message').textContent = `🎉 Final Score: ${quizScore}/5`;
             document.getElementById('game-message').className = 'game-message show success-msg';
         }
 
         function showError(msg) {
             const err = document.getElementById('error-message');
-            err.textContent = msg;
+            err.textContent = '⚠ ' + msg;
             err.classList.add('active');
             setTimeout(() => err.classList.remove('active'), 5000);
         }
 
-        document.getElementById('company-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') performSearch();
-        });
+        function showSuccess(msg) {
+            const succ = document.getElementById('success-message');
+            succ.textContent = msg;
+            succ.classList.add('active');
+            setTimeout(() => succ.classList.remove('active'), 4000);
+        }
     </script>
 </body>
-        </html>
+</html>
