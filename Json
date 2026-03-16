@@ -1,0 +1,66 @@
+[
+  {
+    "id": "apple",
+    "name": "Apple",
+    "logo": "https://logo.clearbit.com/apple.com",
+    "kununu_rating": { "score": 4.2, "reviews": 12874 },
+    "core_business_areas": ["Consumer Electronics", "Software", "Services"],
+    "achievements": [
+      "Reached $100B+ services revenue in recent years",
+      "Major advances in silicon with M1/M2 chip family",
+      "Sustained strong growth in wearables and services"
+    ],
+    "locations": ["Cupertino, CA (HQ)", "Austin, TX", "London, UK", "Shanghai, CN"],
+    "headquarters": "Cupertino, California, USA",
+    "interview_prep": [
+      {
+        "q": "Tell us about a time you solved a tough technical problem.",
+        "recommended": "Describe context, the challenge, your approach, technologies you used, and the measurable result. Keep it structured (STAR)."
+      },
+      {
+        "q": "Why do you want to work at Apple?",
+        "recommended": "Speak about Apple's product focus, design/quality obsession, customer impact, and how your skills align."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "What product family uses Apple silicon like M1 and M2?",
+        "choices": ["iPhone", "Mac", "Apple Watch", "AirPods"],
+        "correct": 1
+      },
+      {
+        "q": "Which area is a major Apple services product?",
+        "choices": ["iCloud", "Maps", "Siri", "GarageBand"],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "microsoft",
+    "name": "Microsoft",
+    "logo": "https://logo.clearbit.com/microsoft.com",
+    "kununu_rating": { "score": 4.1, "reviews": 14200 },
+    "core_business_areas": ["Cloud (Azure)", "Productivity (Office)", "Operating Systems", "Gaming (Xbox)"],
+    "achievements": [
+      "Azure growth into a top cloud provider",
+      "Strong Office 365 subscriptions growth",
+      "Acquisitions to expand cloud and AI capabilities"
+    ],
+    "locations": ["Redmond, WA (HQ)", "New York, NY", "Dublin, IE", "Bengaluru, IN"],
+    "headquarters": "Redmond, Washington, USA",
+    "interview_prep": [
+      {
+        "q": "How do you prioritize customer needs when designing a product?",
+        "recommended": "Talk about user research, metrics, prioritization frameworks, and trade-offs you considered."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "What is Microsoft's cloud platform called?",
+        "choices": ["AWS", "Azure", "GCP", "Oracle Cloud"],
+        "correct": 1
+      }
+    ]
+  }
+  /* Additional companies can be added here. For the demo, the script includes a built-in sample set if this file is not available. */
+]
