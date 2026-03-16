@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Top Companies Search — Company Profiles & Interview Prep</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1 class="title">Top Companies Search</h1>
+      <p class="subtitle">Search the top companies and get profiles, interview prep, and a quick quiz.</p>
+
+      <div class="search-bar">
+        <input id="searchInput" type="search" placeholder="Search company name (e.g. Apple)" aria-label="Search company" />
+        <button id="searchBtn" class="btn">Search</button>
+      </div>
+
+      <div id="suggestions" class="suggestions"></div>
+
+      <section class="instructions card">
+        <h2>How to use</h2>
+        <ol>
+          <li>Type a company name into the search box or click one of the suggestions below.</li>
+          <li>Click Search (or press Enter).</li>
+          <li>You'll see the company profile (logo, rating, business areas, achievements, locations).</li>
+          <li>Read the Interview Preparation Q&A for likely questions and recommended answers.</li>
+          <li>Play the Quick Quiz to test your knowledge about the company.</li>
+        </ol>
+        <p class="hint">Tip: Use partial names (e.g. "Micro" for Microsoft). Suggestions update as you type.</p>
+      </section>
+
+      <div class="suggested-companies card">
+        <h3>Popular companies</h3>
+        <div id="popularList" class="chips"></div>
+      </div>
+    </header>
+
+    <section id="profileArea" class="profile-area"></section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
