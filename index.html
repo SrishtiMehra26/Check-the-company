@@ -4,44 +4,409 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Top 100 Companies — Search & Profiles</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- Colorful, large, friendly design --- */
+    :root{
+      --bg-a: #0f1724;
+      --bg-b: #062b51;
+      --card:#ffffff;
+      --muted: #94a3b8;
+      --accent1: #7c3aed;
+      --accent2: #06b6d4;
+      --glass: rgba(255,255,255,0.06);
+      --radius:14px;
+      --max:1200px;
+      --text-dark:#071023;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+      background: linear-gradient(180deg,var(--bg-a),var(--bg-b));
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{width:100%; max-width:var(--max)}
+    header.top{
+      display:flex; gap:18px; align-items:center; justify-content:space-between;
+      margin-bottom:16px;
+    }
+    .brand{
+      display:flex; flex-direction:column;
+    }
+    .title{font-size:2.6rem; margin:0; letter-spacing:0.4px; font-weight:800; color:linear-gradient(90deg,#fff,#e6f7ff)}
+    .subtitle{color:var(--muted); margin-top:6px; font-weight:600}
+    .badge{
+      display:inline-block; background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:#021; padding:8px 12px; border-radius:999px; font-weight:800; box-shadow:0 10px 30px rgba(6,182,212,0.12)
+    }
+
+    .searchbar{
+      margin-top:10px; display:flex; gap:12px; align-items:center;
+    }
+    .searchbar input{
+      min-width:360px; padding:16px 18px; border-radius:12px; border:none; font-size:1.05rem;
+      background: rgba(255,255,255,0.08); color:#fff; outline:none; box-shadow: 0 10px 30px rgba(2,6,23,0.5);
+    }
+    .btn{
+      padding:12px 16px; border-radius:12px; border:none; cursor:pointer; font-weight:800;
+      background: linear-gradient(90deg,var(--accent1),var(--accent2)); color:#021;
+      box-shadow: 0 8px 24px rgba(124,58,237,0.14);
+    }
+    .hint{color:var(--muted); margin-top:8px}
+
+    main{
+      display:grid; grid-template-columns: 1fr 380px; gap:20px; align-items:start;
+    }
+    .left{min-height:60vh}
+    .panel-right{position:sticky; top:28px; height:calc(100vh - 56px); overflow:auto}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:var(--radius); padding:16px; border:1px solid rgba(255,255,255,0.04);
+    }
+
+    .grid{
+      display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:12px; margin-top:12px;
+    }
+    .tile{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
+      display:flex; gap:12px; align-items:center; cursor:pointer; transition: transform .14s, box-shadow .14s;
+    }
+    .tile:hover{transform:translateY(-8px); box-shadow:0 20px 40px rgba(2,6,23,0.5)}
+    .tile img{width:56px; height:56px; object-fit:contain; border-radius:10px; background:rgba(255,255,255,0.02); padding:6px}
+    .tile h4{margin:0; font-size:1rem}
+    .tile p{margin:4px 0 0; font-size:0.8rem; color:var(--muted)}
+
+    /* profile drawer */
+    .drawer{
+      background:#fff; color:var(--text-dark); padding:18px; border-radius:12px; position:relative;
+      box-shadow: 0 20px 60px rgba(2,6,23,0.5);
+      transform: translateY(0);
+    }
+    .close-x{position:absolute; right:10px; top:6px; background:transparent; border:none; font-size:22px; cursor:pointer; color:#334155}
+    .logo-large{height:110px; display:flex; align-items:center; justify-content:center; background:linear-gradient(90deg,#f0f9ff,#eef2ff); border-radius:10px; margin-bottom:12px}
+    .logo-large img{max-height:100px; max-width:100%}
+    .meta h2{margin:0 0 6px}
+    .muted-dark{color:#64748b}
+
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+    .chip{background:linear-gradient(90deg,#e9d5ff,#bae6fd); padding:6px 10px; border-radius:999px; color:var(--text-dark); font-weight:700}
+
+    .section{margin-top:14px}
+    .section h4{margin:0 0 6px}
+    .note{background:#0b1220; color:#fff; padding:12px; border-radius:10px; margin-top:12px; border:1px solid rgba(255,255,255,0.03)}
+
+    /* files / side notes */
+    .files{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+    .file{background:linear-gradient(180deg,#fff,#f6f7fb); padding:10px 12px; border-radius:8px; color:var(--text-dark); font-weight:700; border:1px solid #e6e9ef}
+
+    /* responsive */
+    @media (max-width:1000px){
+      main{grid-template-columns: 1fr; }
+      .panel-right{order:2}
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <h1>Top 100 Companies</h1>
-      <p class="tag">Search only the curated Top 100 companies — click any card to open the profile</p>
-    </div>
-    <div class="search-wrap">
-      <div class="search-large">
-        <input id="searchInput" type="search" placeholder="Search company name (Top 100 only) — try 'Apple' or 'Micro'..." aria-label="Search company" />
-        <button id="searchBtn" class="btn-primary">Search</button>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div style="display:flex; align-items:baseline; gap:12px">
+          <div class="title">Top 100 Companies</div>
+          <div class="badge">Top 100 only</div>
+        </div>
+        <div class="subtitle">Search the curated Top 100 list — click any card to view the profile</div>
+
+        <div class="searchbar" style="margin-top:12px">
+          <input id="search" placeholder="Search name (e.g. Tesla or Micro)..."/>
+          <button id="btnSearch" class="btn">Search</button>
+        </div>
+        <div class="hint">Tip: Type to filter the grid. Click a company tile to open details.</div>
       </div>
-      <p class="help">Tip: Type to filter the grid. Or click any company card below.</p>
-    </div>
-  </header>
+    </header>
 
-  <main class="main">
-    <section class="left">
-      <div class="controls card">
-        <h2>Click-to-Search</h2>
-        <p class="muted">Click any company tile to view its profile. You can also filter using the search bar above.</p>
-        <div id="companyGrid" class="grid"></div>
-      </div>
-    </section>
+    <main>
+      <section class="left">
+        <div class="card">
+          <h3 style="margin:0">Click-to-Search</h3>
+          <p class="muted" style="margin:6px 0 8px">Click any tile below to pop the company profile. You can also filter using the search field above.</p>
+          <div id="grid" class="grid" aria-live="polite"></div>
+        </div>
 
-    <aside id="profilePanel" class="panel" aria-hidden="true">
-      <button id="closePanel" class="close">&times;</button>
-      <div id="profileContent" class="panel-inner">
-        <!-- profile content injected here -->
-      </div>
-    </aside>
-  </main>
+        <div class="card" style="margin-top:12px">
+          <h3 style="margin:0">Files</h3>
+          <div class="files" style="margin-top:8px">
+            <div class="file">index.html</div>
+            <div class="file">companies.json (embedded)</div>
+            <div class="file">styles (inlined)</div>
+            <div class="file">script (inlined)</div>
+          </div>
+        </div>
+      </section>
 
-  <footer class="footer">
-    <small>Built for Top 100 companies — static demo. Replace companies.json to update the dataset.</small>
-  </footer>
+      <aside class="panel-right">
+        <div id="details" class="drawer card">
+          <button id="close" class="close-x" title="Close">&times;</button>
+          <div id="detailsInner">
+            <div style="text-align:center; padding:28px 10px">
+              <div style="font-size:22px; font-weight:800">Click a company to view details</div>
+              <div class="muted" style="margin-top:8px">Or search and press Search.</div>
+              <div class="note" style="margin-top:12px">Only the curated Top 100 companies are supported. If a search returns nothing, check spelling or click a tile.</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
 
-  <script src="script.js" defer></script>
+  <script>
+    // Self-contained Top-100 dataset (id, name, website, logo, core areas)
+    // I created slugs and used Clearbit logo host for logos. You can replace logos with your own images later.
+    const companies = [
+      {id:'nvidia', name:'Nvidia', website:'https://www.nvidia.com', logo:'https://logo.clearbit.com/nvidia.com', core:['Halbleiter','KI']},
+      {id:'apple', name:'Apple', website:'https://www.apple.com', logo:'https://logo.clearbit.com/apple.com', core:['Technologie']},
+      {id:'alphabet', name:'Alphabet / Google', website:'https://abc.xyz', logo:'https://logo.clearbit.com/google.com', core:['Internet']},
+      {id:'microsoft', name:'Microsoft', website:'https://www.microsoft.com', logo:'https://logo.clearbit.com/microsoft.com', core:['Software','Cloud']},
+      {id:'amazon', name:'Amazon', website:'https://www.amazon.com', logo:'https://logo.clearbit.com/amazon.com', core:['E-Commerce','Cloud']},
+      {id:'tsmc', name:'TSMC', website:'https://www.tsmc.com', logo:'https://logo.clearbit.com/tsmc.com', core:['Halbleiter']},
+      {id:'saudi-aramco', name:'Saudi Aramco', website:'https://www.aramco.com', logo:'https://logo.clearbit.com/aramco.com', core:['Energie']},
+      {id:'meta', name:'Meta Platforms', website:'https://about.meta.com', logo:'https://logo.clearbit.com/meta.com', core:['Soziale Medien']},
+      {id:'broadcom', name:'Broadcom', website:'https://www.broadcom.com', logo:'https://logo.clearbit.com/broadcom.com', core:['Halbleiter']},
+      {id:'tesla', name:'Tesla', website:'https://www.tesla.com', logo:'https://logo.clearbit.com/tesla.com', core:['Automobil','Energie']},
+      {id:'berkshire', name:'Berkshire Hathaway', website:'https://www.berkshirehathaway.com', logo:'https://logo.clearbit.com/berkshirehathaway.com', core:['Investment']},
+      {id:'walmart', name:'Walmart', website:'https://www.walmart.com', logo:'https://logo.clearbit.com/walmart.com', core:['Einzelhandel']},
+      {id:'eli-lilly', name:'Eli Lilly', website:'https://www.lilly.com', logo:'https://logo.clearbit.com/lilly.com', core:['Pharma']},
+      {id:'samsung', name:'Samsung', website:'https://www.samsung.com', logo:'https://logo.clearbit.com/samsung.com', core:['Mischkonzern']},
+      {id:'jpmorgan', name:'JPMorgan Chase', website:'https://www.jpmorganchase.com', logo:'https://logo.clearbit.com/jpmorganchase.com', core:['Banken']},
+      {id:'exxonmobil', name:'ExxonMobil', website:'https://corporate.exxonmobil.com', logo:'https://logo.clearbit.com/exxonmobil.com', core:['Energie']},
+      {id:'tencent', name:'Tencent', website:'https://www.tencent.com', logo:'https://logo.clearbit.com/tencent.com', core:['Internet','Gaming']},
+      {id:'visa', name:'Visa', website:'https://www.visa.com', logo:'https://logo.clearbit.com/visa.com', core:['Finanzdienstleistungen']},
+      {id:'jnj', name:'Johnson & Johnson', website:'https://www.jnj.com', logo:'https://logo.clearbit.com/jnj.com', core:['Pharma','Konsum']},
+      {id:'asml', name:'ASML', website:'https://www.asml.com', logo:'https://logo.clearbit.com/asml.com', core:['Halbleitertechnik']},
+      {id:'micron', name:'Micron Technology', website:'https://www.micron.com', logo:'https://logo.clearbit.com/micron.com', core:['Halbleiter']},
+      {id:'sk-hynix', name:'SK Hynix', website:'https://www.skhynix.com', logo:'https://logo.clearbit.com/hynix.com', core:['Halbleiter']},
+      {id:'costco', name:'Costco', website:'https://www.costco.com', logo:'https://logo.clearbit.com/costco.com', core:['Einzelhandel']},
+      {id:'oracle', name:'Oracle', website:'https://www.oracle.com', logo:'https://logo.clearbit.com/oracle.com', core:['Software']},
+      {id:'mastercard', name:'Mastercard', website:'https://www.mastercard.com', logo:'https://logo.clearbit.com/mastercard.com', core:['Finanzdienstleistungen']},
+      {id:'netflix', name:'Netflix', website:'https://www.netflix.com', logo:'https://logo.clearbit.com/netflix.com', core:['Streaming']},
+      {id:'chevron', name:'Chevron', website:'https://www.chevron.com', logo:'https://logo.clearbit.com/chevron.com', core:['Energie']},
+      {id:'abbvie', name:'AbbVie', website:'https://www.abbvie.com', logo:'https://logo.clearbit.com/abbvie.com', core:['Biopharma']},
+      {id:'icbc', name:'ICBC', website:'http://www.icbc.com.cn', logo:'https://logo.clearbit.com/icbc.com.cn', core:['Banken']},
+      {id:'palantir', name:'Palantir', website:'https://www.palantir.com', logo:'https://logo.clearbit.com/palantir.com', core:['Software','KI']},
+      {id:'p&g', name:'Procter & Gamble', website:'https://www.pg.com', logo:'https://logo.clearbit.com/pg.com', core:['Konsumgüter']},
+      {id:'ccb', name:'China Construction Bank', website:'http://www.ccb.com', logo:'https://logo.clearbit.com/ccb.com', core:['Banken']},
+      {id:'bofa', name:'Bank of America', website:'https://www.bankofamerica.com', logo:'https://logo.clearbit.com/bankofamerica.com', core:['Banken']},
+      {id:'home-depot', name:'Home Depot', website:'https://www.homedepot.com', logo:'https://logo.clearbit.com/homedepot.com', core:['Einzelhandel']},
+      {id:'agricultural-bank', name:'Agricultural Bank of China', website:'http://www.abchina.com', logo:'https://logo.clearbit.com/abchina.com', core:['Banken']},
+      {id:'coca-cola', name:'Coca-Cola', website:'https://www.coca-colacompany.com', logo:'https://logo.clearbit.com/coca-cola.com', core:['Getränke']},
+      {id:'alibaba', name:'Alibaba', website:'https://www.alibabagroup.com', logo:'https://logo.clearbit.com/alibaba.com', core:['E-Commerce']},
+      {id:'toyota', name:'Toyota', website:'https://global.toyota', logo:'https://logo.clearbit.com/toyota-global.com', core:['Automobil']},
+      {id:'lvmh', name:'LVMH', website:'https://www.lvmh.com', logo:'https://logo.clearbit.com/lvmh.com', core:['Luxusgüter']},
+      {id:'shell', name:'Shell', website:'https://www.shell.com', logo:'https://logo.clearbit.com/shell.com', core:['Energie']},
+      {id:'hermes', name:'Hermès', website:'https://www.hermes.com', logo:'https://logo.clearbit.com/hermes.com', core:['Luxusgüter']},
+      {id:'astrazeneca', name:'AstraZeneca', website:'https://www.astrazeneca.com', logo:'https://logo.clearbit.com/astrazeneca.com', core:['Pharma']},
+      {id:'novo', name:'Novo Nordisk', website:'https://www.novonordisk.com', logo:'https://logo.clearbit.com/novonordisk.com', core:['Pharma']},
+      {id:'pepsico', name:'PepsiCo', website:'https://www.pepsico.com', logo:'https://logo.clearbit.com/pepsico.com', core:['Getränke']},
+      {id:'sap', name:'SAP', website:'https://www.sap.com', logo:'https://logo.clearbit.com/sap.com', core:['Software']},
+      {id:'adobe', name:'Adobe', website:'https://www.adobe.com', logo:'https://logo.clearbit.com/adobe.com', core:['Software']},
+      {id:'mcdonalds', name:'McDonald’s', website:'https://www.mcdonalds.com', logo:'https://logo.clearbit.com/mcdonalds.com', core:['Gastronomie']},
+      {id:'cisco', name:'Cisco Systems', website:'https://www.cisco.com', logo:'https://logo.clearbit.com/cisco.com', core:['Netzwerke']},
+      {id:'t-mobile', name:'T-Mobile US', website:'https://www.t-mobile.com', logo:'https://logo.clearbit.com/t-mobile.com', core:['Telekommunikation']},
+      {id:'totalenergies', name:'TotalEnergies', website:'https://totalenergies.com', logo:'https://logo.clearbit.com/totalenergies.com', core:['Energie']},
+      {id:'wells', name:'Wells Fargo', website:'https://www.wellsfargo.com', logo:'https://logo.clearbit.com/wellsfargo.com', core:['Banken']},
+      {id:'unitedhealth', name:'UnitedHealth', website:'https://www.unitedhealthgroup.com', logo:'https://logo.clearbit.com/unitedhealthgroup.com', core:['Gesundheit']},
+      {id:'rbc', name:'Royal Bank of Canada', website:'https://www.rbc.com', logo:'https://logo.clearbit.com/rbc.com', core:['Banken']},
+      {id:'linde', name:'Linde', website:'https://www.linde.com', logo:'https://logo.clearbit.com/linde.com', core:['Industriegase']},
+      {id:'salesforce', name:'Salesforce', website:'https://www.salesforce.com', logo:'https://logo.clearbit.com/salesforce.com', core:['Software']},
+      {id:'abbott', name:'Abbott Laboratories', website:'https://www.abbott.com', logo:'https://logo.clearbit.com/abbott.com', core:['Pharma']},
+      {id:'reliance', name:'Reliance Industries', website:'https://www.ril.com', logo:'https://logo.clearbit.com/relianceindustry.co.in', core:['Mischkonzern']},
+      {id:'bank-of-china', name:'Bank of China', website:'http://www.boc.cn', logo:'https://logo.clearbit.com/boc.cn', core:['Banken']},
+      {id:'walt-disney', name:'Walt Disney', website:'https://www.thewaltdisneycompany.com', logo:'https://logo.clearbit.com/thewaltdisneycompany.com', core:['Medien']},
+      {id:'merck', name:'Merck & Co.', website:'https://www.merck.com', logo:'https://logo.clearbit.com/merck.com', core:['Pharma']},
+      {id:'amd', name:'AMD', website:'https://www.amd.com', logo:'https://logo.clearbit.com/amd.com', core:['Halbleiter']},
+      {id:'qualcomm', name:'Qualcomm', website:'https://www.qualcomm.com', logo:'https://logo.clearbit.com/qualcomm.com', core:['Halbleiter']},
+      {id:'intuit', name:'Intuit', website:'https://www.intuit.com', logo:'https://logo.clearbit.com/intuit.com', core:['Software']},
+      {id:'comcast', name:'Comcast', website:'https://corporate.comcast.com', logo:'https://logo.clearbit.com/comcast.com', core:['Medien']},
+      {id:'caterpillar', name:'Caterpillar', website:'https://www.caterpillar.com', logo:'https://logo.clearbit.com/caterpillar.com', core:['Baumaschinen']},
+      {id:'general-electric', name:'General Electric', website:'https://www.ge.com', logo:'https://logo.clearbit.com/ge.com', core:['Industrie']},
+      {id:'thermo', name:'Thermo Fisher Scientific', website:'https://www.thermofisher.com', logo:'https://logo.clearbit.com/thermofisher.com', core:['Labortechnik']},
+      {id:'pfizer', name:'Pfizer', website:'https://www.pfizer.com', logo:'https://logo.clearbit.com/pfizer.com', core:['Pharma']},
+      {id:'amgen', name:'Amgen', website:'https://www.amgen.com', logo:'https://logo.clearbit.com/amgen.com', core:['Biotech']},
+      {id:'pinduoduo', name:'Pinduoduo', website:'https://www.pinduoduo.com', logo:'https://logo.clearbit.com/pinduoduo.com', core:['E-Commerce']},
+      {id:'siemens', name:'Siemens', website:'https://www.siemens.com', logo:'https://logo.clearbit.com/siemens.com', core:['Technologie','Industrie']},
+      {id:'uber', name:'Uber', website:'https://www.uber.com', logo:'https://logo.clearbit.com/uber.com', core:['Mobilität']},
+      {id:'intel', name:'Intel', website:'https://www.intel.com', logo:'https://logo.clearbit.com/intel.com', core:['Halbleiter']},
+      {id:'sony', name:'Sony', website:'https://www.sony.com', logo:'https://logo.clearbit.com/sony.com', core:['Elektronik','Entertainment']},
+      {id:'morgan-stanley', name:'Morgan Stanley', website:'https://www.morganstanley.com', logo:'https://logo.clearbit.com/morganstanley.com', core:['Finanzen']},
+      {id:'applied-materials', name:'Applied Materials', website:'https://www.appliedmaterials.com', logo:'https://logo.clearbit.com/appliedmaterials.com', core:['Halbleitertechnik']},
+      {id:'loreal', name:"L'Oréal", website:'https://www.loreal.com', logo:'https://logo.clearbit.com/loreal.com', core:['Kosmetik']},
+      {id:'nike', name:'Nike', website:'https://www.nike.com', logo:'https://logo.clearbit.com/nike.com', core:['Sportartikel']},
+      {id:'amex', name:'American Express', website:'https://www.americanexpress.com', logo:'https://logo.clearbit.com/americanexpress.com', core:['Finanzen']},
+      {id:'goldman', name:'Goldman Sachs', website:'https://www.goldmansachs.com', logo:'https://logo.clearbit.com/goldmansachs.com', core:['Banken']},
+      {id:'hsbc', name:'HSBC', website:'https://www.hsbc.com', logo:'https://logo.clearbit.com/hsbc.com', core:['Banken']},
+      {id:'honeywell', name:'Honeywell', website:'https://www.honeywell.com', logo:'https://logo.clearbit.com/honeywell.com', core:['Mischkonzern']},
+      {id:'servicenow', name:'ServiceNow', website:'https://www.servicenow.com', logo:'https://logo.clearbit.com/servicenow.com', core:['Software']},
+      {id:'intuitive', name:'Intuitive Surgical', website:'https://www.intuitive.com', logo:'https://logo.clearbit.com/intuitive.com', core:['Medizintechnik']},
+      {id:'hdfc', name:'HDFC Bank', website:'https://www.hdfcbank.com', logo:'https://logo.clearbit.com/hdfcbank.com', core:['Banken']},
+      {id:'union-pacific', name:'Union Pacific', website:'https://www.up.com', logo:'https://logo.clearbit.com/up.com', core:['Transport']},
+      {id:'keyence', name:'Keyence', website:'https://www.keyence.com', logo:'https://logo.clearbit.com/keyence.com', core:['Automation']},
+      {id:'blackrock', name:'BlackRock', website:'https://www.blackrock.com', logo:'https://logo.clearbit.com/blackrock.com', core:['Vermögensverwaltung']},
+      {id:'inditex', name:'Inditex (Zara)', website:'https://www.inditex.com', logo:'https://logo.clearbit.com/inditex.com', core:['Mode']},
+      {id:'dior', name:'Christian Dior', website:'https://www.dior.com', logo:'https://logo.clearbit.com/dior.com', core:['Luxus']},
+      {id:'booking', name:'Booking Holdings', website:'https://www.bookingholdings.com', logo:'https://logo.clearbit.com/bookingholdings.com', core:['Reisen']},
+      {id:'sanofi', name:'Sanofi', website:'https://www.sanofi.com', logo:'https://logo.clearbit.com/sanofi.com', core:['Pharma']},
+      {id:'commonwealth', name:'Commonwealth Bank', website:'https://www.commbank.com.au', logo:'https://logo.clearbit.com/commbank.com.au', core:['Banken']},
+      {id:'schneider', name:'Schneider Electric', website:'https://www.se.com', logo:'https://logo.clearbit.com/se.com', core:['Elektrotechnik']},
+      {id:'airbus', name:'Airbus', website:'https://www.airbus.com', logo:'https://logo.clearbit.com/airbus.com', core:['Luftfahrt']},
+      {id:'allianz', name:'Allianz', website:'https://www.allianz.com', logo:'https://logo.clearbit.com/allianz.com', core:['Versicherungen']},
+      {id:'target', name:'Target', website:'https://www.target.com', logo:'https://logo.clearbit.com/target.com', core:['Einzelhandel']},
+      {id:'bp', name:'BP', website:'https://www.bp.com', logo:'https://logo.clearbit.com/bp.com', core:['Energie']}
+    ];
+
+    // References to DOM
+    const grid = document.getElementById('grid');
+    const detailsInner = document.getElementById('detailsInner');
+    const btnSearch = document.getElementById('btnSearch');
+    const input = document.getElementById('search');
+    const closeBtn = document.getElementById('close');
+
+    // Render grid tiles
+    function renderGrid(list){
+      grid.innerHTML = '';
+      if (!list.length){
+        grid.innerHTML = '<div class="card" style="color:#fff">No companies match your search.</div>';
+        return;
+      }
+      for (const c of list){
+        const div = document.createElement('div');
+        div.className = 'tile';
+        div.tabIndex = 0;
+        div.setAttribute('data-id', c.id);
+        div.innerHTML = `
+          <img src="${c.logo}" alt="${c.name} logo" onerror="this.src='https://via.placeholder.com/80x80?text=Logo'"/>
+          <div>
+            <h4>${escapeHtml(c.name)}</h4>
+            <p>${escapeHtml((c.core||[]).slice(0,2).join(' • '))}</p>
+          </div>
+        `;
+        div.addEventListener('click', ()=> openDetail(c));
+        div.addEventListener('keydown', (e)=>{ if (e.key==='Enter') openDetail(c); });
+        grid.appendChild(div);
+      }
+    }
+
+    // Basic escape
+    function escapeHtml(s){ return String(s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+    // Show details in right panel
+    function openDetail(c){
+      detailsInner.innerHTML = DetailHTML(c);
+      // scroll into view on mobile
+      detailsInner.scrollIntoView({behavior:'smooth'});
+    }
+
+    function DetailHTML(c){
+      return `
+        <button class="close-x" style="float:right" onclick="closePanel()">×</button>
+        <div class="logo-large"><img src="${c.logo}" alt="${escapeHtml(c.name)} logo" onerror="this.src='https://via.placeholder.com/300x120?text=Logo'"/></div>
+        <div class="meta">
+          <h2>${escapeHtml(c.name)}</h2>
+          <div class="muted-dark">${escapeHtml((c.core||[]).join(' • '))}</div>
+        </div>
+        <div style="margin-top:10px">
+          <a href="${c.website}" target="_blank" rel="noopener noreferrer">${escapeHtml(c.website)}</a>
+        </div>
+
+        <div class="section">
+          <h4>Quick info</h4>
+          <div class="chips">
+            <div class="chip">Top 100</div>
+            <div class="chip">${escapeHtml((c.core||[]).slice(0,1).join(''))}</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>Interview prep (example)</h4>
+          <div style="background:#eef2ff; padding:10px; border-radius:8px; color:#0b1220">Prepare STAR examples: Situation, Task, Action, Result. Tailor to ${escapeHtml(c.name)}'s business and values.</div>
+        </div>
+
+        <div class="section">
+          <h4>Quick quiz</h4>
+          <div style="font-weight:700; margin-bottom:8px">Which sector best describes ${escapeHtml(c.name)}?</div>
+          <div id="quizButtons">${renderQuizChoices(c)}</div>
+          <div id="quizFeedback" style="margin-top:8px"></div>
+        </div>
+
+        <div class="section note" style="margin-top:14px">
+          Side note: This demo uses an embedded Top 100 list. Replace the list or logos if you want production images or live ratings.
+        </div>
+      `;
+    }
+
+    function renderQuizChoices(c){
+      const choices = ['Technology','Finance','Healthcare','Energy','Retail','Other'];
+      return choices.map((choice, idx)=>`<button class="quizOpt" data-choice="${choice}" data-id="${c.id}" style="margin:6px 6px 0 0;padding:8px 10px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;color:var(--text-dark)">${choice}</button>`).join('');
+    }
+
+    // Handle quiz clicks via event delegation
+    document.addEventListener('click', (e)=>{
+      const opt = e.target.closest('.quizOpt');
+      if (!opt) return;
+      const choice = opt.dataset.choice;
+      const id = opt.dataset.id;
+      const comp = companies.find(x=>x.id===id);
+      const correct = (comp.core||[]).join(' ').toLowerCase().includes(choice.toLowerCase()) ? true : false;
+      const fb = document.getElementById('quizFeedback');
+      if (correct) {
+        fb.textContent = 'Good! That is a relevant sector for this company. ✅';
+        fb.style.color = '#059669';
+      } else {
+        fb.textContent = `Not exactly — ${comp.name} is primarily: ${comp.core.join(', ')}`;
+        fb.style.color = '#dc2626';
+      }
+    });
+
+    // Close panel support
+    function closePanel(){ detailsInner.innerHTML = `<div style="text-align:center;padding:28px 10px"><div style="font-weight:800">Click a company to view details</div><div class="muted">Use the search field above or click a tile.</div></div>`; }
+    window.closePanel = closePanel;
+
+    // Search handler (exact / fuzzy)
+    btnSearch.addEventListener('click', ()=>{
+      const q = (input.value||'').trim().toLowerCase();
+      if (!q) { renderGrid(companies); return; }
+      // exact match first
+      const exact = companies.find(c => c.name.toLowerCase()===q || c.id.toLowerCase()===q);
+      if (exact) { openDetail(exact); scrollToTile(exact.id); return; }
+      const matches = companies.filter(c => c.name.toLowerCase().includes(q) || (c.core||[]).join(' ').toLowerCase().includes(q));
+      if (matches.length===1) { openDetail(matches[0]); scrollToTile(matches[0].id); return; }
+      renderGrid(matches);
+    });
+
+    function scrollToTile(id){
+      setTimeout(()=>{
+        const tile = document.querySelector('.tile[data-id="'+id+'"]');
+        if (tile) tile.scrollIntoView({behavior:'smooth', block:'center'});
+      },120);
+    }
+
+    // live filter while typing
+    input.addEventListener('input', ()=>{
+      const q = (input.value||'').trim().toLowerCase();
+      if (!q) { renderGrid(companies); return; }
+      const filtered = companies.filter(c=> c.name.toLowerCase().includes(q) || (c.core||[]).join(' ').toLowerCase().includes(q));
+      renderGrid(filtered);
+    });
+
+    // initial render
+    renderGrid(companies);
+
+    // Accessibility: close details with ESC
+    document.addEventListener('keydown',(e)=>{ if (e.key==='Escape'){ closePanel(); }});
+  </script>
 </body>
 </html>
