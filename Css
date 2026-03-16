@@ -125,6 +125,7 @@ body{
 
 .meta h2{margin:0}
 .meta p{margin:6px 0; color:var(--muted)}
+.meta a{color:var(--accent); text-decoration:none}
 
 .section{
   margin-top:10px;
