@@ -1,66 +1,1702 @@
 [
   {
+    "id": "nvidia",
+    "name": "Nvidia",
+    "logo": "https://logo.clearbit.com/nvidia.com",
+    "website": "https://www.nvidia.com",
+    "kununu_rating": { "score": 4.4, "reviews": 12500 },
+    "core_business_areas": ["Semiconductors", "AI", "Graphics"],
+    "achievements": ["Market leadership in GPUs for AI and gaming", "Rapid data-center revenue growth"],
+    "locations": ["Santa Clara, CA (HQ)", "Austin, TX", "Bangalore, IN"],
+    "headquarters": "Santa Clara, California, USA",
+    "interview_prep": [
+      { "q": "Explain a project where you optimized performance.", "recommended": "Describe the bottleneck, profiling approach, algorithmic improvements and measurable gains." }
+    ],
+    "quiz": [
+      { "q": "Nvidia is best known for:", "choices": ["Banking services", "GPU and AI hardware", "Retail stores", "Pharmaceuticals"], "correct": 1 }
+    ]
+  },
+  {
     "id": "apple",
     "name": "Apple",
     "logo": "https://logo.clearbit.com/apple.com",
+    "website": "https://www.apple.com",
     "kununu_rating": { "score": 4.2, "reviews": 12874 },
     "core_business_areas": ["Consumer Electronics", "Software", "Services"],
-    "achievements": [
-      "Reached $100B+ services revenue in recent years",
-      "Major advances in silicon with M1/M2 chip family",
-      "Sustained strong growth in wearables and services"
-    ],
-    "locations": ["Cupertino, CA (HQ)", "Austin, TX", "London, UK", "Shanghai, CN"],
+    "achievements": ["Leading device ecosystem and services revenue growth", "In-house silicon (M-series) innovation"],
+    "locations": ["Cupertino, CA (HQ)", "Austin, TX", "London, UK"],
     "headquarters": "Cupertino, California, USA",
     "interview_prep": [
-      {
-        "q": "Tell us about a time you solved a tough technical problem.",
-        "recommended": "Describe context, the challenge, your approach, technologies you used, and the measurable result. Keep it structured (STAR)."
-      },
-      {
-        "q": "Why do you want to work at Apple?",
-        "recommended": "Speak about Apple's product focus, design/quality obsession, customer impact, and how your skills align."
-      }
+      { "q": "Why Apple? How do you align with our product values?", "recommended": "Show product empathy, attention to design, and customer focus." }
     ],
     "quiz": [
-      {
-        "q": "What product family uses Apple silicon like M1 and M2?",
-        "choices": ["iPhone", "Mac", "Apple Watch", "AirPods"],
-        "correct": 1
-      },
-      {
-        "q": "Which area is a major Apple services product?",
-        "choices": ["iCloud", "Maps", "Siri", "GarageBand"],
-        "correct": 0
-      }
+      { "q": "Which Apple chip family is used in modern Macs?", "choices": ["Snapdragon", "M-series", "Exynos", "Kirin"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "alphabet",
+    "name": "Alphabet / Google",
+    "logo": "https://logo.clearbit.com/google.com",
+    "website": "https://www.abc.xyz",
+    "kununu_rating": { "score": 4.0, "reviews": 19800 },
+    "core_business_areas": ["Search & Ads", "Cloud", "YouTube", "AI"],
+    "achievements": ["Leadership in search and online video advertising", "Major AI research contributions"],
+    "locations": ["Mountain View, CA (HQ)", "London, UK", "Zurich, CH"],
+    "headquarters": "Mountain View, California, USA",
+    "interview_prep": [
+      { "q": "Explain a complex system simply.", "recommended": "Choose clear analogies and focus on impact to the user." }
+    ],
+    "quiz": [
+      { "q": "Which OS is developed by Google for mobiles?", "choices": ["iOS", "Android", "Windows Mobile", "BlackBerry OS"], "correct": 1 }
     ]
   },
   {
     "id": "microsoft",
     "name": "Microsoft",
     "logo": "https://logo.clearbit.com/microsoft.com",
+    "website": "https://www.microsoft.com",
     "kununu_rating": { "score": 4.1, "reviews": 14200 },
-    "core_business_areas": ["Cloud (Azure)", "Productivity (Office)", "Operating Systems", "Gaming (Xbox)"],
-    "achievements": [
-      "Azure growth into a top cloud provider",
-      "Strong Office 365 subscriptions growth",
-      "Acquisitions to expand cloud and AI capabilities"
-    ],
-    "locations": ["Redmond, WA (HQ)", "New York, NY", "Dublin, IE", "Bengaluru, IN"],
+    "core_business_areas": ["Software", "Cloud (Azure)", "Productivity", "Gaming"],
+    "achievements": ["Azure growth into a top cloud provider", "Office and Teams enterprise adoption"],
+    "locations": ["Redmond, WA (HQ)", "New York, NY", "Dublin, IE"],
     "headquarters": "Redmond, Washington, USA",
     "interview_prep": [
-      {
-        "q": "How do you prioritize customer needs when designing a product?",
-        "recommended": "Talk about user research, metrics, prioritization frameworks, and trade-offs you considered."
-      }
+      { "q": "Describe a time you prioritized customer needs.", "recommended": "Explain customer research, trade-offs, and outcomes." }
     ],
     "quiz": [
-      {
-        "q": "What is Microsoft's cloud platform called?",
-        "choices": ["AWS", "Azure", "GCP", "Oracle Cloud"],
-        "correct": 1
-      }
+      { "q": "What is Microsoft's cloud platform called?", "choices": ["Azure", "AWS", "GCP", "Heroku"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon",
+    "logo": "https://logo.clearbit.com/amazon.com",
+    "website": "https://www.amazon.com",
+    "kununu_rating": { "score": 3.8, "reviews": 22100 },
+    "core_business_areas": ["E-Commerce", "Cloud (AWS)", "Logistics", "Devices"],
+    "achievements": ["AWS market leader", "Global fulfillment and logistics scale"],
+    "locations": ["Seattle, WA (HQ)", "Luxembourg", "Bengaluru, IN"],
+    "headquarters": "Seattle, Washington, USA",
+    "interview_prep": [
+      { "q": "Tell us about applying a leadership principle.", "recommended": "Refer to Amazon's principles and concrete examples." }
+    ],
+    "quiz": [
+      { "q": "Amazon's cloud brand is:", "choices": ["Azure", "AWS", "GCP", "DigitalOcean"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "tsmc",
+    "name": "TSMC",
+    "logo": "https://logo.clearbit.com/tsmc.com",
+    "website": "https://www.tsmc.com",
+    "kununu_rating": { "score": 4.1, "reviews": 7200 },
+    "core_business_areas": ["Semiconductor foundry", "Advanced process nodes"],
+    "achievements": ["Leading advanced process manufacturing and capacity expansion"],
+    "locations": ["Hsinchu, Taiwan (HQ)", "Nanjing, CN", "Arizona, USA"],
+    "headquarters": "Hsinchu, Taiwan",
+    "interview_prep": [
+      { "q": "Describe dealing with yield or process variation.", "recommended": "Explain measurement, root cause analysis, and process controls." }
+    ],
+    "quiz": [
+      { "q": "TSMC is primarily a:", "choices": ["Chip designer", "Foundry/fabrication company", "Retailer", "Bank"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "saudi-aramco",
+    "name": "Saudi Aramco",
+    "logo": "https://logo.clearbit.com/aramco.com",
+    "website": "https://www.aramco.com",
+    "kununu_rating": { "score": 3.7, "reviews": 6300 },
+    "core_business_areas": ["Oil & Gas", "Energy"],
+    "achievements": ["High oil production scale and major energy projects"],
+    "locations": ["Dhahran, Saudi Arabia (HQ)", "Global operations"],
+    "headquarters": "Dhahran, Saudi Arabia",
+    "interview_prep": [
+      { "q": "How do you manage large-scale projects?", "recommended": "Discuss planning, risk mitigation, and stakeholder alignment." }
+    ],
+    "quiz": [
+      { "q": "Saudi Aramco operates in which sector?", "choices": ["Technology", "Energy & Oil", "Retail", "Healthcare"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "meta",
+    "name": "Meta Platforms",
+    "logo": "https://logo.clearbit.com/meta.com",
+    "website": "https://about.meta.com",
+    "kununu_rating": { "score": 3.9, "reviews": 11800 },
+    "core_business_areas": ["Social Media", "Ads", "VR/AR"],
+    "achievements": ["Leading social platforms and investment in metaverse/VR"],
+    "locations": ["Menlo Park, CA (HQ)", "New York, NY", "Dublin, IE"],
+    "headquarters": "Menlo Park, California, USA",
+    "interview_prep": [
+      { "q": "How do you measure product engagement?", "recommended": "Talk about user cohorts, metrics, experiments, and retention drivers." }
+    ],
+    "quiz": [
+      { "q": "Meta's primary business is:", "choices": ["Banking", "Social platforms & ads", "Manufacturing", "Pharma"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "broadcom",
+    "name": "Broadcom",
+    "logo": "https://logo.clearbit.com/broadcom.com",
+    "website": "https://www.broadcom.com",
+    "kununu_rating": { "score": 3.9, "reviews": 8200 },
+    "core_business_areas": ["Semiconductors", "Infrastructure software"],
+    "achievements": ["Acquisitions and diversification into enterprise software and chips"],
+    "locations": ["Irvine, CA (HQ)", "San Jose, CA", "Singapore"],
+    "headquarters": "Irvine, California, USA",
+    "interview_prep": [
+      { "q": "Describe an engineering trade-off you made.", "recommended": "Explain constraints, options, and measurable outcomes." }
+    ],
+    "quiz": [
+      { "q": "Broadcom is known for:", "choices": ["Fashion", "Semiconductors and enterprise software", "Restaurants", "Automotive parts"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "tesla",
+    "name": "Tesla",
+    "logo": "https://logo.clearbit.com/tesla.com",
+    "website": "https://www.tesla.com",
+    "kununu_rating": { "score": 3.6, "reviews": 16400 },
+    "core_business_areas": ["Automotive", "Energy", "Battery Technology"],
+    "achievements": ["Leader in electric vehicles, energy storage and vehicle software updates"],
+    "locations": ["Austin, TX (HQ)", "Fremont, CA", "Shanghai, CN"],
+    "headquarters": "Austin, Texas, USA",
+    "interview_prep": [
+      { "q": "How did you innovate under resource constraints?", "recommended": "Show practical engineering creativity and measurable wins." }
+    ],
+    "quiz": [
+      { "q": "Tesla is primarily:", "choices": ["Bank", "Automotive & energy", "Food brand", "Software-only"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "berkshire-hathaway",
+    "name": "Berkshire Hathaway",
+    "logo": "https://logo.clearbit.com/berkshirehathaway.com",
+    "website": "https://www.berkshirehathaway.com",
+    "kununu_rating": { "score": 4.3, "reviews": 2100 },
+    "core_business_areas": ["Investment", "Insurance", "Conglomerate holdings"],
+    "achievements": ["Long-term capital allocation and diversified holdings"],
+    "locations": ["Omaha, NE (HQ)"],
+    "headquarters": "Omaha, Nebraska, USA",
+    "interview_prep": [
+      { "q": "How do you evaluate long-term investments?", "recommended": "Focus on fundamentals, management quality, and margin of safety." }
+    ],
+    "quiz": [
+      { "q": "Who is the long-time chairman of Berkshire Hathaway?", "choices": ["Warren Buffett", "Jeff Bezos", "Elon Musk", "Tim Cook"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "walmart",
+    "name": "Walmart",
+    "logo": "https://logo.clearbit.com/walmart.com",
+    "website": "https://www.walmart.com",
+    "kununu_rating": { "score": 3.6, "reviews": 15200 },
+    "core_business_areas": ["Retail", "E-commerce", "Logistics"],
+    "achievements": ["Global retail footprint and investments in omnichannel e-commerce"],
+    "locations": ["Bentonville, AR (HQ)", "U.S. & global stores"],
+    "headquarters": "Bentonville, Arkansas, USA",
+    "interview_prep": [
+      { "q": "How do you handle scaling retail operations?", "recommended": "Discuss process standardization, supply chain resilience, and KPIs." }
+    ],
+    "quiz": [
+      { "q": "Walmart is primarily a:", "choices": ["Bank", "Retail chain", "Pharma", "Airline"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "eli-lilly",
+    "name": "Eli Lilly",
+    "logo": "https://logo.clearbit.com/lilly.com",
+    "website": "https://www.lilly.com",
+    "kununu_rating": { "score": 4.0, "reviews": 6700 },
+    "core_business_areas": ["Pharmaceuticals", "Biotech"],
+    "achievements": ["Strong drug development pipeline and growth in specialty medicines"],
+    "locations": ["Indianapolis, IN (HQ)", "Global R&D sites"],
+    "headquarters": "Indianapolis, Indiana, USA",
+    "interview_prep": [
+      { "q": "How do you ensure compliance in regulated projects?", "recommended": "Explain documentation, audits, and cross-functional governance." }
+    ],
+    "quiz": [
+      { "q": "Eli Lilly primarily works in:", "choices": ["Energy", "Pharmaceuticals", "Software", "Retail"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "samsung",
+    "name": "Samsung",
+    "logo": "https://logo.clearbit.com/samsung.com",
+    "website": "https://www.samsung.com",
+    "kununu_rating": { "score": 3.9, "reviews": 8700 },
+    "core_business_areas": ["Consumer Electronics", "Semiconductors", "Displays"],
+    "achievements": ["Leading smartphone shipments and semiconductor manufacturing scale"],
+    "locations": ["Suwon, South Korea (HQ)", "Seoul, KR", "San Jose, CA"],
+    "headquarters": "Suwon, Gyeonggi-do, South Korea",
+    "interview_prep": [
+      { "q": "Describe improving a manufacturing process.", "recommended": "Provide metrics and process control steps." }
+    ],
+    "quiz": [
+      { "q": "Samsung leads in which product area?", "choices": ["Soft drinks", "Semiconductors and displays", "Banking", "Airlines"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "jpmorgan-chase",
+    "name": "J.P. Morgan Chase",
+    "logo": "https://logo.clearbit.com/jpmorganchase.com",
+    "website": "https://www.jpmorganchase.com",
+    "kununu_rating": { "score": 3.7, "reviews": 12500 },
+    "core_business_areas": ["Investment Banking", "Consumer Banking", "Asset Management"],
+    "achievements": ["Global banking leadership and digital banking investments"],
+    "locations": ["New York, NY (HQ)", "London, UK", "Hong Kong"],
+    "headquarters": "New York City, New York, USA",
+    "interview_prep": [
+      { "q": "How do you manage project risk?", "recommended": "Discuss identification, mitigation, monitoring, and contingencies." }
+    ],
+    "quiz": [
+      { "q": "J.P. Morgan is in which sector?", "choices": ["Retail", "Banking & Finance", "Technology", "Pharma"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "exxonmobil",
+    "name": "ExxonMobil",
+    "logo": "https://logo.clearbit.com/exxonmobil.com",
+    "website": "https://corporate.exxonmobil.com",
+    "kununu_rating": { "score": 3.5, "reviews": 9100 },
+    "core_business_areas": ["Energy", "Oil & Gas"],
+    "achievements": ["Large global energy upstream and downstream operations"],
+    "locations": ["Irving, TX (HQ)", "Global operations"],
+    "headquarters": "Irving, Texas, USA",
+    "interview_prep": [
+      { "q": "Describe a major technical failure you fixed.", "recommended": "Explain diagnostics, corrective actions, and preventive measures." }
+    ],
+    "quiz": [
+      { "q": "ExxonMobil operates in:", "choices": ["Banking", "Energy & Oil", "Retail", "Software"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "tencent",
+    "name": "Tencent",
+    "logo": "https://logo.clearbit.com/tencent.com",
+    "website": "https://www.tencent.com",
+    "kununu_rating": { "score": 3.8, "reviews": 11000 },
+    "core_business_areas": ["Internet", "Gaming", "Social platforms"],
+    "achievements": ["Major gaming titles and social platform scale in China"],
+    "locations": ["Shenzhen (HQ)", "Beijing", "Singapore"],
+    "headquarters": "Shenzhen, China",
+    "interview_prep": [
+      { "q": "How do you localize a product for diverse markets?", "recommended": "Discuss market research, regulations, and cultural adaptation." }
+    ],
+    "quiz": [
+      { "q": "Tencent is best known for:", "choices": ["Cars", "Gaming and social platforms", "Agriculture", "Energy"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "visa",
+    "name": "Visa",
+    "logo": "https://logo.clearbit.com/visa.com",
+    "website": "https://www.visa.com",
+    "kununu_rating": { "score": 4.0, "reviews": 5400 },
+    "core_business_areas": ["Payments", "Financial services"],
+    "achievements": ["Global payment network and digital payment innovations"],
+    "locations": ["Foster City, CA (HQ)", "London, UK"],
+    "headquarters": "Foster City, California, USA",
+    "interview_prep": [
+      { "q": "Explain a security measure you implemented.", "recommended": "Talk about threat model, controls, and adoption results." }
+    ],
+    "quiz": [
+      { "q": "Visa operates in which industry?", "choices": ["Automotive", "Payments & financial services", "Healthcare", "Retail"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "johnson-johnson",
+    "name": "Johnson & Johnson",
+    "logo": "https://logo.clearbit.com/jnj.com",
+    "website": "https://www.jnj.com",
+    "kununu_rating": { "score": 3.9, "reviews": 7800 },
+    "core_business_areas": ["Pharma", "Medical devices", "Consumer health"],
+    "achievements": ["Large portfolio in consumer health and medical devices"],
+    "locations": ["New Brunswick, NJ (HQ)", "Global presence"],
+    "headquarters": "New Brunswick, New Jersey, USA",
+    "interview_prep": [
+      { "q": "How do you maintain quality in regulated products?", "recommended": "Discuss processes, audits, and cross-functional compliance." }
+    ],
+    "quiz": [
+      { "q": "J&J operates in which sectors?", "choices": ["Automotive", "Healthcare & consumer products", "Banking", "Retail"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "asml",
+    "name": "ASML",
+    "logo": "https://logo.clearbit.com/asml.com",
+    "website": "https://www.asml.com",
+    "kununu_rating": { "score": 4.1, "reviews": 4200 },
+    "core_business_areas": ["Semiconductor equipment", "Lithography systems"],
+    "achievements": ["Leader in EUV lithography tools for advanced chips"],
+    "locations": ["Veldhoven, Netherlands (HQ)", "San Jose, CA"],
+    "headquarters": "Veldhoven, Netherlands",
+    "interview_prep": [
+      { "q": "Describe complex system integration you worked on.", "recommended": "Show system-level testing, traceability, and reliability metrics." }
+    ],
+    "quiz": [
+      { "q": "ASML makes:", "choices": ["Semiconductor chips", "Lithography machines for chip fabrication", "Consumer electronics", "Pharmaceuticals"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "micron",
+    "name": "Micron Technology",
+    "logo": "https://logo.clearbit.com/micron.com",
+    "website": "https://www.micron.com",
+    "kununu_rating": { "score": 3.9, "reviews": 4600 },
+    "core_business_areas": ["Memory (DRAM, NAND)", "Semiconductors"],
+    "achievements": ["Memory product innovations and capacity expansion"],
+    "locations": ["Boise, ID (HQ)", "Taiwan", "Japan"],
+    "headquarters": "Boise, Idaho, USA",
+    "interview_prep": [
+      { "q": "How do you test memory products at scale?", "recommended": "Discuss validation, failure analysis, and automation." }
+    ],
+    "quiz": [
+      { "q": "Micron is best known for:", "choices": ["Memory products (DRAM/NAND)", "Smartphones", "Airlines", "Restaurants"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "sk-hynix",
+    "name": "SK Hynix",
+    "logo": "https://logo.clearbit.com/hynix.com",
+    "website": "https://www.skhynix.com",
+    "kununu_rating": { "score": 3.9, "reviews": 4200 },
+    "core_business_areas": ["Semiconductors", "Memory"],
+    "achievements": ["DRAM and NAND product scale and technology advances"],
+    "locations": ["Icheon, South Korea (HQ)", "Global facilities"],
+    "headquarters": "Icheon, South Korea",
+    "interview_prep": [
+      { "q": "How do you reduce defect rates in production?", "recommended": "Explain process control, monitoring, and corrective actions." }
+    ],
+    "quiz": [
+      { "q": "SK Hynix is primarily:", "choices": ["A fashion retailer", "A memory semiconductor maker", "A bank", "A travel company"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "costco",
+    "name": "Costco",
+    "logo": "https://logo.clearbit.com/costco.com",
+    "website": "https://www.costco.com",
+    "kununu_rating": { "score": 4.1, "reviews": 4800 },
+    "core_business_areas": ["Retail", "Wholesale clubs"],
+    "achievements": ["Membership-driven warehouse retail model and high customer loyalty"],
+    "locations": ["Issaquah, WA (HQ)", "U.S. & international stores"],
+    "headquarters": "Issaquah, Washington, USA",
+    "interview_prep": [
+      { "q": "Describe improving store operations.", "recommended": "Show measurable improvements in throughput, cost, or customer satisfaction." }
+    ],
+    "quiz": [
+      { "q": "Costco's business model centers on:", "choices": ["Subscription/membership wholesale retail", "Software-as-a-service", "Pharmaceuticals", "Banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "oracle",
+    "name": "Oracle",
+    "logo": "https://logo.clearbit.com/oracle.com",
+    "website": "https://www.oracle.com",
+    "kununu_rating": { "score": 3.8, "reviews": 9300 },
+    "core_business_areas": ["Databases", "Enterprise software", "Cloud"],
+    "achievements": ["Enterprise database leadership and cloud expansion"],
+    "locations": ["Redwood Shores, CA (HQ)", "Global offices"],
+    "headquarters": "Redwood Shores, California, USA",
+    "interview_prep": [
+      { "q": "How do you design for enterprise scale?", "recommended": "Discuss SLAs, scalability patterns, and migration planning." }
+    ],
+    "quiz": [
+      { "q": "Oracle is best known for:", "choices": ["Databases and enterprise software", "Retail stores", "Soft drinks", "Mobile phones"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "mastercard",
+    "name": "Mastercard",
+    "logo": "https://logo.clearbit.com/mastercard.com",
+    "website": "https://www.mastercard.com",
+    "kununu_rating": { "score": 4.0, "reviews": 5200 },
+    "core_business_areas": ["Payments", "Financial services"],
+    "achievements": ["Global payment network and merchant services innovations"],
+    "locations": ["Purchase, NY (HQ)", "London, UK", "Singapore"],
+    "headquarters": "Purchase, New York, USA",
+    "interview_prep": [
+      { "q": "Explain a payment security challenge you addressed.", "recommended": "Describe threat model, controls implemented, and results." }
+    ],
+    "quiz": [
+      { "q": "Mastercard operates in:", "choices": ["Automotive", "Payment processing", "Airlines", "Pharma"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "logo": "https://logo.clearbit.com/netflix.com",
+    "website": "https://www.netflix.com",
+    "kununu_rating": { "score": 3.9, "reviews": 7200 },
+    "core_business_areas": ["Streaming", "Content production"],
+    "achievements": ["Global streaming leadership and original content investments"],
+    "locations": ["Los Gatos, CA (HQ)", "Los Angeles, CA", "London, UK"],
+    "headquarters": "Los Gatos, California, USA",
+    "interview_prep": [
+      { "q": "How do you measure content success?", "recommended": "Discuss engagement metrics, retention, and A/B experiments." }
+    ],
+    "quiz": [
+      { "q": "Netflix is best known for:", "choices": ["Banking services", "Video streaming", "Manufacturing", "Pharmaceuticals"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "chevron",
+    "name": "Chevron",
+    "logo": "https://logo.clearbit.com/chevron.com",
+    "website": "https://www.chevron.com",
+    "kununu_rating": { "score": 3.6, "reviews": 5400 },
+    "core_business_areas": ["Energy", "Oil & Gas"],
+    "achievements": ["Large exploration and production operations and refining networks"],
+    "locations": ["San Ramon, CA (HQ)", "Global operations"],
+    "headquarters": "San Ramon, California, USA",
+    "interview_prep": [
+      { "q": "How do you work safely in high-risk environments?", "recommended": "Emphasize safety protocols, training and incident reporting." }
+    ],
+    "quiz": [
+      { "q": "Chevron primarily operates in:", "choices": ["Retail", "Energy & Oil", "Software", "Fashion"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "abbvie",
+    "name": "AbbVie",
+    "logo": "https://logo.clearbit.com/abbvie.com",
+    "website": "https://www.abbvie.com",
+    "kununu_rating": { "score": 3.8, "reviews": 3900 },
+    "core_business_areas": ["Biopharma", "Pharmaceuticals"],
+    "achievements": ["Strong product franchises in immunology and oncology"],
+    "locations": ["North Chicago, IL (HQ)", "Global R&D"],
+    "headquarters": "North Chicago, Illinois, USA",
+    "interview_prep": [
+      { "q": "How do you approach clinical development timelines?", "recommended": "Talk about trial design, regulatory interactions, and risk mitigation." }
+    ],
+    "quiz": [
+      { "q": "AbbVie is a:", "choices": ["Bank", "Biopharma company", "Retailer", "Tech startup"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "icbc",
+    "name": "ICBC",
+    "logo": "https://logo.clearbit.com/icbc.com.cn",
+    "website": "http://www.icbc.com.cn",
+    "kununu_rating": { "score": 3.5, "reviews": 7400 },
+    "core_business_areas": ["Banking", "Financial services"],
+    "achievements": ["One of the world's largest banks by assets"],
+    "locations": ["Beijing (HQ)", "Global presence"],
+    "headquarters": "Beijing, China",
+    "interview_prep": [
+      { "q": "How do you assess credit risk?", "recommended": "Discuss models, data, and portfolio management strategies." }
+    ],
+    "quiz": [
+      { "q": "ICBC is a:", "choices": ["Tech company", "Bank", "Pharmaceutical", "Airline"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "palantir",
+    "name": "Palantir",
+    "logo": "https://logo.clearbit.com/palantir.com",
+    "website": "https://www.palantir.com",
+    "kununu_rating": { "score": 3.6, "reviews": 4100 },
+    "core_business_areas": ["Software", "Data analytics", "AI"],
+    "achievements": ["Enterprise analytics platforms for government and commercial customers"],
+    "locations": ["Denver, CO (HQ)", "Palo Alto, CA", "London, UK"],
+    "headquarters": "Denver, Colorado, USA",
+    "interview_prep": [
+      { "q": "Describe solving a data integration problem.", "recommended": "Explain ETL, data modeling and how results supported decisions." }
+    ],
+    "quiz": [
+      { "q": "Palantir focuses on:", "choices": ["Food delivery", "Enterprise data analytics", "Retail", "Pharma"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "procter-gamble",
+    "name": "Procter & Gamble",
+    "logo": "https://logo.clearbit.com/pg.com",
+    "website": "https://www.pg.com",
+    "kununu_rating": { "score": 4.0, "reviews": 5300 },
+    "core_business_areas": ["Consumer Goods", "Personal Care", "Household Products"],
+    "achievements": ["Strong brand portfolio and marketing excellence"],
+    "locations": ["Cincinnati, OH (HQ)", "Global operations"],
+    "headquarters": "Cincinnati, Ohio, USA",
+    "interview_prep": [
+      { "q": "How do you measure brand health?", "recommended": "Discuss awareness, penetration, and consumer sentiment metrics." }
+    ],
+    "quiz": [
+      { "q": "P&G is a major company in:", "choices": ["Consumer goods", "Banking", "Semiconductors", "Airlines"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "china-construction-bank",
+    "name": "China Construction Bank",
+    "logo": "https://logo.clearbit.com/ccb.com",
+    "website": "http://www.ccb.com",
+    "kununu_rating": { "score": 3.4, "reviews": 5600 },
+    "core_business_areas": ["Banking", "Financial services"],
+    "achievements": ["Extensive retail banking operations in China"],
+    "locations": ["Beijing (HQ)", "China-wide branches"],
+    "headquarters": "Beijing, China",
+    "interview_prep": [
+      { "q": "How do you ensure regulatory compliance?", "recommended": "Describe controls, reporting, and audit cycles." }
+    ],
+    "quiz": [
+      { "q": "China Construction Bank is primarily:", "choices": ["A bank", "A tech company", "A retailer", "An airline"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "bank-of-america",
+    "name": "Bank of America",
+    "logo": "https://logo.clearbit.com/bankofamerica.com",
+    "website": "https://www.bankofamerica.com",
+    "kununu_rating": { "score": 3.6, "reviews": 8500 },
+    "core_business_areas": ["Retail Banking", "Wealth Management", "Corporate Finance"],
+    "achievements": ["Large retail banking footprint and digital banking investments"],
+    "locations": ["Charlotte, NC (HQ)", "U.S. operations"],
+    "headquarters": "Charlotte, North Carolina, USA",
+    "interview_prep": [
+      { "q": "How would you manage regulatory change impact?", "recommended": "Discuss impact analysis, stakeholder communication, and remediation planning." }
+    ],
+    "quiz": [
+      { "q": "Bank of America is a:", "choices": ["Pharma company", "Banking and financial services firm", "Automotive company", "Fashion brand"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "home-depot",
+    "name": "Home Depot",
+    "logo": "https://logo.clearbit.com/homedepot.com",
+    "website": "https://www.homedepot.com",
+    "kununu_rating": { "score": 3.9, "reviews": 6200 },
+    "core_business_areas": ["Home Improvement Retail", "Supply Chain"],
+    "achievements": ["Large national footprint and pro-customer services"],
+    "locations": ["Atlanta, GA (HQ)", "US stores"],
+    "headquarters": "Atlanta, Georgia, USA",
+    "interview_prep": [
+      { "q": "How do you improve customer in-store experience?", "recommended": "Describe layout, process optimizations, and staff training." }
+    ],
+    "quiz": [
+      { "q": "Home Depot is a:", "choices": ["Home improvement retailer", "Cloud provider", "Pharma manufacturer", "Investment bank"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "agricultural-bank-of-china",
+    "name": "Agricultural Bank of China",
+    "logo": "https://logo.clearbit.com/abchina.com",
+    "website": "http://www.abchina.com",
+    "kununu_rating": { "score": 3.5, "reviews": 4800 },
+    "core_business_areas": ["Banking", "Rural finance"],
+    "achievements": ["Large retail and agricultural finance footprint in China"],
+    "locations": ["Beijing (HQ)"],
+    "headquarters": "Beijing, China",
+    "interview_prep": [
+      { "q": "How do you support rural banking initiatives?", "recommended": "Explain localized solutions, partnerships, and risk management." }
+    ],
+    "quiz": [
+      { "q": "Agricultural Bank of China focuses on:", "choices": ["Fashion", "Rural and retail banking", "Semiconductors", "Streaming services"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "coca-cola",
+    "name": "Coca-Cola",
+    "logo": "https://logo.clearbit.com/coca-cola.com",
+    "website": "https://www.coca-colacompany.com",
+    "kununu_rating": { "score": 3.8, "reviews": 7000 },
+    "core_business_areas": ["Beverages", "Bottling partnerships"],
+    "achievements": ["Global beverage brand portfolio and distribution network"],
+    "locations": ["Atlanta, GA (HQ)", "Global presence"],
+    "headquarters": "Atlanta, Georgia, USA",
+    "interview_prep": [
+      { "q": "How do you manage global brand consistency?", "recommended": "Discuss brand guidelines, local adaptation and centralized governance." }
+    ],
+    "quiz": [
+      { "q": "Coca-Cola is primarily in:", "choices": ["Software", "Beverages", "Automotive", "Banking"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "alibaba",
+    "name": "Alibaba",
+    "logo": "https://logo.clearbit.com/alibaba.com",
+    "website": "https://www.alibabagroup.com",
+    "kununu_rating": { "score": 3.7, "reviews": 8500 },
+    "core_business_areas": ["E-Commerce", "Cloud", "Digital Media"],
+    "achievements": ["Large e-commerce ecosystem and cloud growth in China"],
+    "locations": ["Hangzhou, China (HQ)", "Global operations"],
+    "headquarters": "Hangzhou, China",
+    "interview_prep": [
+      { "q": "How do you scale e-commerce operations?", "recommended": "Address logistics, payments, and marketplace dynamics." }
+    ],
+    "quiz": [
+      { "q": "Alibaba is primarily:", "choices": ["A pharmaceutical company", "An e-commerce and cloud conglomerate", "An airline", "A bank"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "toyota",
+    "name": "Toyota",
+    "logo": "https://logo.clearbit.com/toyota-global.com",
+    "website": "https://global.toyota",
+    "kununu_rating": { "score": 4.0, "reviews": 5400 },
+    "core_business_areas": ["Automotive", "Mobility Services", "Hybrid powertrains"],
+    "achievements": ["Pioneer of hybrid vehicles and global manufacturing scale"],
+    "locations": ["Toyota City, Japan (HQ)", "Global factories"],
+    "headquarters": "Toyota City, Aichi, Japan",
+    "interview_prep": [
+      { "q": "How do you apply continuous improvement (Kaizen)?", "recommended": "Cite examples of small iterative improvements and long-term results." }
+    ],
+    "quiz": [
+      { "q": "Which Toyota model pioneered hybrid mass-market adoption?", "choices": ["Corolla", "Prius", "Camry", "Highlander"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "lvmh",
+    "name": "LVMH",
+    "logo": "https://logo.clearbit.com/lvmh.com",
+    "website": "https://www.lvmh.com",
+    "kununu_rating": { "score": 4.2, "reviews": 3200 },
+    "core_business_areas": ["Luxury goods", "Fashion", "Wines & Spirits"],
+    "achievements": ["World-leading luxury conglomerate with iconic maisons"],
+    "locations": ["Paris, France (HQ)", "Global boutiques"],
+    "headquarters": "Paris, France",
+    "interview_prep": [
+      { "q": "How do you maintain craftsmanship while scaling?", "recommended": "Discuss brand heritage, quality controls and skilled workforce development." }
+    ],
+    "quiz": [
+      { "q": "LVMH operates in:", "choices": ["Luxury goods", "Banking", "Automotive", "Healthcare"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "shell",
+    "name": "Shell",
+    "logo": "https://logo.clearbit.com/shell.com",
+    "website": "https://www.shell.com",
+    "kununu_rating": { "score": 3.7, "reviews": 6200 },
+    "core_business_areas": ["Energy", "Oil & Gas", "Renewables"],
+    "achievements": ["Global energy operations and investments in low-carbon energy"],
+    "locations": ["The Hague / London (HQ)", "Global presence"],
+    "headquarters": "London / The Hague (dual-listed), UK/Netherlands",
+    "interview_prep": [
+      { "q": "How do you manage energy transition projects?", "recommended": "Discuss partnerships, pilots and regulatory engagement." }
+    ],
+    "quiz": [
+      { "q": "Shell is in which industry?", "choices": ["Energy & Oil", "Software", "Retail", "Pharma"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "hermes",
+    "name": "Hermès",
+    "logo": "https://logo.clearbit.com/hermes.com",
+    "website": "https://www.hermes.com",
+    "kununu_rating": { "score": 4.3, "reviews": 900 },
+    "core_business_areas": ["Luxury fashion", "Leather goods"],
+    "achievements": ["Iconic craftsmanship and premium brand positioning"],
+    "locations": ["Paris, France (HQ)", "Global boutiques"],
+    "headquarters": "Paris, France",
+    "interview_prep": [
+      { "q": "How do you maintain product excellence?", "recommended": "Explain crafts training, sourcing, and quality inspections." }
+    ],
+    "quiz": [
+      { "q": "Hermès is best known for:", "choices": ["Luxury leather goods and fashion", "Semiconductors", "Cloud services", "Banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "astrazeneca",
+    "name": "AstraZeneca",
+    "logo": "https://logo.clearbit.com/astrazeneca.com",
+    "website": "https://www.astrazeneca.com",
+    "kununu_rating": { "score": 3.9, "reviews": 4800 },
+    "core_business_areas": ["Pharmaceuticals", "Biotech"],
+    "achievements": ["Vaccine and therapeutic development presence"],
+    "locations": ["Cambridge, UK (HQ)", "Global R&D"],
+    "headquarters": "Cambridge, United Kingdom",
+    "interview_prep": [
+      { "q": "Describe regulatory strategy you've contributed to.", "recommended": "Show knowledge of timelines, safety data and approvals." }
+    ],
+    "quiz": [
+      { "q": "AstraZeneca primarily operates in:", "choices": ["Pharma", "Automotive", "Retail", "Banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "novo-nordisk",
+    "name": "Novo Nordisk",
+    "logo": "https://logo.clearbit.com/novonordisk.com",
+    "website": "https://www.novonordisk.com",
+    "kununu_rating": { "score": 4.1, "reviews": 3600 },
+    "core_business_areas": ["Pharmaceuticals", "Diabetes care"],
+    "achievements": ["Leadership in diabetes treatments and GLP-1 medicines"],
+    "locations": ["Bagsværd, Denmark (HQ)", "Global operations"],
+    "headquarters": "Bagsværd, Denmark",
+    "interview_prep": [
+      { "q": "How do you balance innovation and affordability?", "recommended": "Discuss lifecycle planning and evidence generation for access programs." }
+    ],
+    "quiz": [
+      { "q": "Novo Nordisk is known for:", "choices": ["Sportswear", "Diabetes medicines", "Cloud computing", "Banking"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "pepsico",
+    "name": "PepsiCo",
+    "logo": "https://logo.clearbit.com/pepsico.com",
+    "website": "https://www.pepsico.com",
+    "kununu_rating": { "score": 3.9, "reviews": 6800 },
+    "core_business_areas": ["Beverages", "Snacks", "Consumer goods"],
+    "achievements": ["Strong brand portfolio and global distribution networks"],
+    "locations": ["Purchase, NY (HQ)", "Global operations"],
+    "headquarters": "Purchase, New York, USA",
+    "interview_prep": [
+      { "q": "How do you manage brand portfolios?", "recommended": "Explain segmentation, marketing ROI and innovation pipeline." }
+    ],
+    "quiz": [
+      { "q": "PepsiCo is known for:", "choices": ["Banking", "Beverages & snacks", "Airlines", "Semiconductors"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "sap",
+    "name": "SAP",
+    "logo": "https://logo.clearbit.com/sap.com",
+    "website": "https://www.sap.com",
+    "kununu_rating": { "score": 3.8, "reviews": 4300 },
+    "core_business_areas": ["Enterprise software", "ERP", "Cloud"],
+    "achievements": ["Global footprint in ERP and business applications"],
+    "locations": ["Walldorf, Germany (HQ)", "Global offices"],
+    "headquarters": "Walldorf, Germany",
+    "interview_prep": [
+      { "q": "How do you approach customer implementations at scale?", "recommended": "Discuss methodology, training, and performance tuning." }
+    ],
+    "quiz": [
+      { "q": "SAP focuses on:", "choices": ["Enterprise software and ERP", "Consumer electronics", "Retail stores", "Pharma"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "adobe",
+    "name": "Adobe",
+    "logo": "https://logo.clearbit.com/adobe.com",
+    "website": "https://www.adobe.com",
+    "kununu_rating": { "score": 4.1, "reviews": 5200 },
+    "core_business_areas": ["Creative software", "Document cloud", "Marketing solutions"],
+    "achievements": ["Subscription model success (Creative Cloud)"],
+    "locations": ["San Jose, CA (HQ)", "Global offices"],
+    "headquarters": "San Jose, California, USA",
+    "interview_prep": [
+      { "q": "Tell us about a creative technical solution you built.", "recommended": "Share the problem, your creative approach, and demonstrable results." }
+    ],
+    "quiz": [
+      { "q": "Adobe is best known for:", "choices": ["Creative software (Photoshop, Illustrator)", "Airline services", "Oil production", "Semiconductors"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "mcdonalds",
+    "name": "McDonald's",
+    "logo": "https://logo.clearbit.com/mcdonalds.com",
+    "website": "https://www.mcdonalds.com",
+    "kununu_rating": { "score": 3.7, "reviews": 8800 },
+    "core_business_areas": ["Fast food", "Franchising"],
+    "achievements": ["Global franchise model and strong brand recognition"],
+    "locations": ["Chicago, IL (HQ)", "Global restaurants"],
+    "headquarters": "Chicago, Illinois, USA",
+    "interview_prep": [
+      { "q": "How do you ensure consistent quality across outlets?", "recommended": "Discuss standards, training and supply chain controls." }
+    ],
+    "quiz": [
+      { "q": "McDonald's is a global:", "choices": ["Software company", "Fast-food and franchising business", "Pharmaceutical company", "Semiconductor foundry"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "cisco",
+    "name": "Cisco Systems",
+    "logo": "https://logo.clearbit.com/cisco.com",
+    "website": "https://www.cisco.com",
+    "kununu_rating": { "score": 3.9, "reviews": 7100 },
+    "core_business_areas": ["Networking", "Security", "Collaboration"],
+    "achievements": ["Leading enterprise networking vendor and security portfolio"],
+    "locations": ["San Jose, CA (HQ)", "Global offices"],
+    "headquarters": "San Jose, California, USA",
+    "interview_prep": [
+      { "q": "How do you design resilient networks?", "recommended": "Discuss redundancy, failover strategies and monitoring." }
+    ],
+    "quiz": [
+      { "q": "Cisco is known for:", "choices": ["Networking equipment and solutions", "Food & beverage", "Clothing", "Pharma"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "t-mobile-us",
+    "name": "T-Mobile US",
+    "logo": "https://logo.clearbit.com/t-mobile.com",
+    "website": "https://www.t-mobile.com",
+    "kununu_rating": { "score": 3.8, "reviews": 4100 },
+    "core_business_areas": ["Telecommunications", "Wireless services"],
+    "achievements": ["Network expansion and 5G deployments across the U.S."],
+    "locations": ["Bellevue, WA (HQ)", "US network operations"],
+    "headquarters": "Bellevue, Washington, USA",
+    "interview_prep": [
+      { "q": "How would you improve network coverage?", "recommended": "Discuss planning, small cells, and monitoring for capacity." }
+    ],
+    "quiz": [
+      { "q": "T-Mobile is a:", "choices": ["Telecom operator", "Retail chain", "Pharma company", "Bank"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "totalenergies",
+    "name": "TotalEnergies",
+    "logo": "https://logo.clearbit.com/totalenergies.com",
+    "website": "https://totalenergies.com",
+    "kununu_rating": { "score": 3.7, "reviews": 3100 },
+    "core_business_areas": ["Energy", "Oil & Gas", "Renewables"],
+    "achievements": ["Diversification into renewables and hydrogen projects"],
+    "locations": ["Paris, France (HQ)", "Global operations"],
+    "headquarters": "Courbevoie, France",
+    "interview_prep": [
+      { "q": "How do you plan large energy transition projects?", "recommended": "Explain stakeholder mapping, pilots and investment cases." }
+    ],
+    "quiz": [
+      { "q": "TotalEnergies focuses on:", "choices": ["Luxury goods", "Energy and renewables", "Semiconductors", "Streaming"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "wells-fargo",
+    "name": "Wells Fargo",
+    "logo": "https://logo.clearbit.com/wellsfargo.com",
+    "website": "https://www.wellsfargo.com",
+    "kununu_rating": { "score": 3.5, "reviews": 6700 },
+    "core_business_areas": ["Banking", "Financial services"],
+    "achievements": ["Large retail bank with ongoing transformation efforts"],
+    "locations": ["San Francisco, CA (HQ)", "US branches"],
+    "headquarters": "San Francisco, California, USA",
+    "interview_prep": [
+      { "q": "How would you handle legacy system modernization?", "recommended": "Discuss phased migration, risk mitigation and testing." }
+    ],
+    "quiz": [
+      { "q": "Wells Fargo is a:", "choices": ["Retail bank", "Tech startup", "Pharma company", "Airline"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "unitedhealth",
+    "name": "UnitedHealth",
+    "logo": "https://logo.clearbit.com/unitedhealthgroup.com",
+    "website": "https://www.unitedhealthgroup.com",
+    "kununu_rating": { "score": 3.9, "reviews": 5900 },
+    "core_business_areas": ["Healthcare", "Insurance", "Health services"],
+    "achievements": ["Large health insurance and services provider with data-driven care models"],
+    "locations": ["Minnetonka, MN (HQ)", "Global operations"],
+    "headquarters": "Minnetonka, Minnesota, USA",
+    "interview_prep": [
+      { "q": "How do you improve patient outcomes through data?", "recommended": "Explain analytics, care pathways and measurable KPIs." }
+    ],
+    "quiz": [
+      { "q": "UnitedHealth is primarily:", "choices": ["A bank", "A healthcare and insurance company", "A fashion retailer", "A chip maker"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "rbc",
+    "name": "Royal Bank of Canada",
+    "logo": "https://logo.clearbit.com/rbc.com",
+    "website": "https://www.rbc.com",
+    "kununu_rating": { "score": 3.8, "reviews": 2400 },
+    "core_business_areas": ["Banking", "Wealth management"],
+    "achievements": ["Leading Canadian bank with global wealth services"],
+    "locations": ["Toronto, Canada (HQ)", "Global offices"],
+    "headquarters": "Toronto, Ontario, Canada",
+    "interview_prep": [
+      { "q": "How do you evaluate investment risk for clients?", "recommended": "Discuss asset allocation, client goals, and risk models." }
+    ],
+    "quiz": [
+      { "q": "RBC is a:", "choices": ["Retailer", "Bank", "Pharma company", "Semiconductor maker"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "linde",
+    "name": "Linde",
+    "logo": "https://logo.clearbit.com/linde.com",
+    "website": "https://www.linde.com",
+    "kununu_rating": { "score": 3.8, "reviews": 2100 },
+    "core_business_areas": ["Industrial gases", "Engineering"],
+    "achievements": ["Global industrial gas operations and engineering services"],
+    "locations": ["Dublin / Guildford (HQ)", "Global sites"],
+    "headquarters": "Dublin, Ireland / Surrey, UK",
+    "interview_prep": [
+      { "q": "How do you ensure process safety in plants?", "recommended": "Explain HAZOPs, controls and training." }
+    ],
+    "quiz": [
+      { "q": "Linde specializes in:", "choices": ["Industrial gases and engineering", "Streaming", "Fashion", "Banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "logo": "https://logo.clearbit.com/salesforce.com",
+    "website": "https://www.salesforce.com",
+    "kununu_rating": { "score": 4.0, "reviews": 6400 },
+    "core_business_areas": ["CRM", "Cloud software", "Enterprise applications"],
+    "achievements": ["Market-leading CRM platform and enterprise cloud services"],
+    "locations": ["San Francisco, CA (HQ)", "Global offices"],
+    "headquarters": "San Francisco, California, USA",
+    "interview_prep": [
+      { "q": "How do you deliver customer success at scale?", "recommended": "Talk about onboarding, automation and success metrics." }
+    ],
+    "quiz": [
+      { "q": "Salesforce is best known for:", "choices": ["CRM software", "Semiconductors", "Fast food", "Retail banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "abbott",
+    "name": "Abbott Laboratories",
+    "logo": "https://logo.clearbit.com/abbott.com",
+    "website": "https://www.abbott.com",
+    "kununu_rating": { "score": 3.9, "reviews": 3000 },
+    "core_business_areas": ["Medical devices", "Diagnostics", "Nutrition"],
+    "achievements": ["Diagnostic innovations and medical device market presence"],
+    "locations": ["North Chicago, IL (HQ)", "Global sites"],
+    "headquarters": "North Chicago, Illinois, USA",
+    "interview_prep": [
+      { "q": "How do you validate a diagnostic product?", "recommended": "Discuss sensitivity/specificity, clinical trials and regulatory submission." }
+    ],
+    "quiz": [
+      { "q": "Abbott operates in:", "choices": ["Medical devices & diagnostics", "Retail", "Airlines", "Banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "reliance",
+    "name": "Reliance Industries",
+    "logo": "https://logo.clearbit.com/relianceindustry.co.in",
+    "website": "https://www.ril.com",
+    "kununu_rating": { "score": 3.7, "reviews": 2600 },
+    "core_business_areas": ["Conglomerate", "Energy", "Retail", "Telecom"],
+    "achievements": ["Large Indian conglomerate with retail and telecom expansion"],
+    "locations": ["Mumbai, India (HQ)", "Pan-India operations"],
+    "headquarters": "Mumbai, India",
+    "interview_prep": [
+      { "q": "How do you manage diversified business portfolios?", "recommended": "Discuss governance, capital allocation and synergies." }
+    ],
+    "quiz": [
+      { "q": "Reliance Industries is a major:", "choices": ["Tech-only startup", "Indian conglomerate", "Pharma-only company", "Airline"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "bank-of-china",
+    "name": "Bank of China",
+    "logo": "https://logo.clearbit.com/boc.cn",
+    "website": "http://www.boc.cn",
+    "kununu_rating": { "score": 3.5, "reviews": 5400 },
+    "core_business_areas": ["Banking", "International finance"],
+    "achievements": ["Extensive international banking network and trade finance"],
+    "locations": ["Beijing, China (HQ)", "Global branches"],
+    "headquarters": "Beijing, China",
+    "interview_prep": [
+      { "q": "How do you manage cross-border banking compliance?", "recommended": "Discuss correspondent banking, KYC and AML practices." }
+    ],
+    "quiz": [
+      { "q": "Bank of China is a:", "choices": ["Fashion brand", "Bank", "Semiconductor maker", "Food company"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "disney",
+    "name": "Walt Disney",
+    "logo": "https://logo.clearbit.com/thewaltdisneycompany.com",
+    "website": "https://www.thewaltdisneycompany.com",
+    "kununu_rating": { "score": 3.9, "reviews": 7000 },
+    "core_business_areas": ["Media & Entertainment", "Parks", "Streaming"],
+    "achievements": ["Iconic IP, theme parks and streaming expansion with Disney+"],
+    "locations": ["Burbank, CA (HQ)", "Global parks and studios"],
+    "headquarters": "Burbank, California, USA",
+    "interview_prep": [
+      { "q": "How do you protect and extend creative IP?", "recommended": "Discuss licensing, brand management and audience insights." }
+    ],
+    "quiz": [
+      { "q": "Disney operates in:", "choices": ["Media & entertainment", "Semiconductors", "Banking", "Energy"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "merck",
+    "name": "Merck & Co.",
+    "logo": "https://logo.clearbit.com/merck.com",
+    "website": "https://www.merck.com",
+    "kununu_rating": { "score": 3.8, "reviews": 5200 },
+    "core_business_areas": ["Pharmaceuticals", "Vaccines"],
+    "achievements": ["Strong R&D pipeline and vaccine development"],
+    "locations": ["Kenilworth, NJ (HQ)", "Global R&D"],
+    "headquarters": "Kenilworth, New Jersey, USA",
+    "interview_prep": [
+      { "q": "How do you manage drug lifecycle?", "recommended": "Talk about clinical phases, regulatory processes and commercialization." }
+    ],
+    "quiz": [
+      { "q": "Merck is a:", "choices": ["Pharma company", "Retail chain", "Airline", "Semiconductor foundry"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "amd",
+    "name": "Advanced Micro Devices (AMD)",
+    "logo": "https://logo.clearbit.com/amd.com",
+    "website": "https://www.amd.com",
+    "kununu_rating": { "score": 4.0, "reviews": 4700 },
+    "core_business_areas": ["Semiconductors", "CPUs", "GPUs"],
+    "achievements": ["Competitive CPU and GPU product launches and server gains"],
+    "locations": ["Santa Clara/Austin (HQ)", "Global sites"],
+    "headquarters": "Santa Clara, California, USA",
+    "interview_prep": [
+      { "q": "How do you optimize processor performance?", "recommended": "Discuss microarchitecture choices, testing and benchmarking." }
+    ],
+    "quiz": [
+      { "q": "AMD makes:", "choices": ["Coffee", "CPUs and GPUs", "Clothing", "Pharmaceuticals"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "qualcomm",
+    "name": "Qualcomm",
+    "logo": "https://logo.clearbit.com/qualcomm.com",
+    "website": "https://www.qualcomm.com",
+    "kununu_rating": { "score": 3.9, "reviews": 4800 },
+    "core_business_areas": ["Semiconductors", "Mobile chipsets", "Wireless tech"],
+    "achievements": ["Mobile SoC leadership and 5G technology contributions"],
+    "locations": ["San Diego, CA (HQ)", "Global offices"],
+    "headquarters": "San Diego, California, USA",
+    "interview_prep": [
+      { "q": "How would you design for low-power mobile devices?", "recommended": "Discuss power domains, DVFS and architectural optimizations." }
+    ],
+    "quiz": [
+      { "q": "Qualcomm is known for:", "choices": ["Mobile chipsets and wireless tech", "Banking", "Retail", "Airlines"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "intuit",
+    "name": "Intuit",
+    "logo": "https://logo.clearbit.com/intuit.com",
+    "website": "https://www.intuit.com",
+    "kununu_rating": { "score": 4.1, "reviews": 2100 },
+    "core_business_areas": ["Financial software", "Accounting", "Tax software"],
+    "achievements": ["Market-leading financial tools for small businesses and individuals"],
+    "locations": ["Mountain View, CA (HQ)", "Global offices"],
+    "headquarters": "Mountain View, California, USA",
+    "interview_prep": [
+      { "q": "How have you simplified complex user workflows?", "recommended": "Show user research, simplification steps and metrics." }
+    ],
+    "quiz": [
+      { "q": "Intuit builds products like:", "choices": ["QuickBooks and TurboTax", "Operating systems", "Airplanes", "Pharmaceuticals"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "comcast",
+    "name": "Comcast",
+    "logo": "https://logo.clearbit.com/comcast.com",
+    "website": "https://corporate.comcast.com",
+    "kununu_rating": { "score": 3.6, "reviews": 4400 },
+    "core_business_areas": ["Media", "Cable", "Broadband"],
+    "achievements": ["Media holdings and broadband service expansion"],
+    "locations": ["Philadelphia, PA (HQ)", "Global operations"],
+    "headquarters": "Philadelphia, Pennsylvania, USA",
+    "interview_prep": [
+      { "q": "How do you ensure network QoS for customers?", "recommended": "Discuss SLAs, capacity planning and monitoring." }
+    ],
+    "quiz": [
+      { "q": "Comcast operates in:", "choices": ["Media & broadband", "Pharmaceuticals", "Luxury retail", "Semiconductors"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "caterpillar",
+    "name": "Caterpillar",
+    "logo": "https://logo.clearbit.com/caterpillar.com",
+    "website": "https://www.caterpillar.com",
+    "kununu_rating": { "score": 3.8, "reviews": 4100 },
+    "core_business_areas": ["Construction machinery", "Equipment", "Engines"],
+    "achievements": ["Global heavy equipment leadership and service networks"],
+    "locations": ["Deerfield, IL (HQ)", "Global manufacturing sites"],
+    "headquarters": "Deerfield, Illinois, USA",
+    "interview_prep": [
+      { "q": "Describe an engineering reliability improvement you drove.", "recommended": "Explain testing regimes, design changes and field results." }
+    ],
+    "quiz": [
+      { "q": "Caterpillar makes:", "choices": ["Heavy construction equipment", "Fashion apparel", "Semiconductors", "Soft drinks"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "general-electric",
+    "name": "General Electric",
+    "logo": "https://logo.clearbit.com/ge.com",
+    "website": "https://www.ge.com",
+    "kununu_rating": { "score": 3.7, "reviews": 3900 },
+    "core_business_areas": ["Industrial", "Power", "Aviation", "Healthcare"],
+    "achievements": ["Large industrial systems portfolio and aviation engines"],
+    "locations": ["Boston, MA (HQ)", "Global operations"],
+    "headquarters": "Boston, Massachusetts, USA",
+    "interview_prep": [
+      { "q": "How do you manage large engineering programs?", "recommended": "Talk about milestones, integration testing, and supplier coordination." }
+    ],
+    "quiz": [
+      { "q": "GE is known for:", "choices": ["Industrial equipment and aviation engines", "Fast food chains", "Streaming services", "Retail banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "thermo-fisher",
+    "name": "Thermo Fisher Scientific",
+    "logo": "https://logo.clearbit.com/thermofisher.com",
+    "website": "https://www.thermofisher.com",
+    "kununu_rating": { "score": 4.0, "reviews": 3500 },
+    "core_business_areas": ["Lab equipment", "Life sciences", "Diagnostics"],
+    "achievements": ["Large portfolio for research and diagnostics and global distribution"],
+    "locations": ["Waltham, MA (HQ)", "Global labs"],
+    "headquarters": "Waltham, Massachusetts, USA",
+    "interview_prep": [
+      { "q": "How do you validate scientific instrumentation?", "recommended": "Discuss calibration, standards and reproducibility." }
+    ],
+    "quiz": [
+      { "q": "Thermo Fisher provides:", "choices": ["Lab equipment and life-science tools", "Banking services", "Automotive parts", "Clothing"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "pfizer",
+    "name": "Pfizer",
+    "logo": "https://logo.clearbit.com/pfizer.com",
+    "website": "https://www.pfizer.com",
+    "kununu_rating": { "score": 3.8, "reviews": 6400 },
+    "core_business_areas": ["Pharmaceuticals", "Vaccines"],
+    "achievements": ["Large vaccine and therapeutic development footprint"],
+    "locations": ["New York, NY (HQ)", "Global R&D"],
+    "headquarters": "New York City, New York, USA",
+    "interview_prep": [
+      { "q": "How do you ensure clinical trial integrity?", "recommended": "Talk about monitoring, GCP compliance, and data oversight." }
+    ],
+    "quiz": [
+      { "q": "Pfizer is a:", "choices": ["Pharmaceutical company", "Retail chain", "Bank", "Semiconductor maker"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "amgen",
+    "name": "Amgen",
+    "logo": "https://logo.clearbit.com/amgen.com",
+    "website": "https://www.amgen.com",
+    "kununu_rating": { "score": 3.9, "reviews": 3600 },
+    "core_business_areas": ["Biotech", "Therapeutics"],
+    "achievements": ["Biologic drugs and therapeutic development"],
+    "locations": ["Thousand Oaks, CA (HQ)", "Global clinical sites"],
+    "headquarters": "Thousand Oaks, California, USA",
+    "interview_prep": [
+      { "q": "How do you manage biologics manufacturing complexity?", "recommended": "Discuss process controls, QC and regulatory documentation." }
+    ],
+    "quiz": [
+      { "q": "Amgen specializes in:", "choices": ["Biotech therapeutics", "Semiconductors", "Retail stores", "Airlines"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "pinduoduo",
+    "name": "Pinduoduo",
+    "logo": "https://logo.clearbit.com/pinduoduo.com",
+    "website": "https://www.pinduoduo.com",
+    "kununu_rating": { "score": 3.6, "reviews": 3100 },
+    "core_business_areas": ["E-Commerce", "Social commerce"],
+    "achievements": ["Rapid growth in China with social commerce innovations"],
+    "locations": ["Shanghai, China (HQ)"],
+    "headquarters": "Shanghai, China",
+    "interview_prep": [
+      { "q": "How do you drive user growth in competitive markets?", "recommended": "Discuss incentives, engagement loops and unit economics." }
+    ],
+    "quiz": [
+      { "q": "Pinduoduo is best described as:", "choices": ["A social commerce platform", "A bank", "A pharma company", "An airline"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "siemens",
+    "name": "Siemens",
+    "logo": "https://logo.clearbit.com/siemens.com",
+    "website": "https://www.siemens.com",
+    "kununu_rating": { "score": 3.8, "reviews": 4700 },
+    "core_business_areas": ["Industrial automation", "Healthcare", "Energy"],
+    "achievements": ["Industrial digitalization and healthcare equipment leadership"],
+    "locations": ["Munich, Germany (HQ)", "Global offices"],
+    "headquarters": "Munich, Germany",
+    "interview_prep": [
+      { "q": "How do you coordinate across product and service teams?", "recommended": "Discuss integration points, SLAs and communication cadence." }
+    ],
+    "quiz": [
+      { "q": "Siemens is known for:", "choices": ["Industrial automation and healthcare", "Fashion", "Fast food", "Streaming"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "uber",
+    "name": "Uber",
+    "logo": "https://logo.clearbit.com/uber.com",
+    "website": "https://www.uber.com",
+    "kununu_rating": { "score": 3.6, "reviews": 7800 },
+    "core_business_areas": ["Mobility", "Delivery", "Logistics"],
+    "achievements": ["Global ride-hailing and delivery platform scale"],
+    "locations": ["San Francisco, CA (HQ)", "Global cities"],
+    "headquarters": "San Francisco, California, USA",
+    "interview_prep": [
+      { "q": "How would you balance supply and demand in a marketplace?", "recommended": "Talk about incentives, pricing and real-time matching algorithms." }
+    ],
+    "quiz": [
+      { "q": "Uber is primarily known for:", "choices": ["Ride-hailing & delivery", "Banking", "Pharma", "Manufacturing"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "intel",
+    "name": "Intel",
+    "logo": "https://logo.clearbit.com/intel.com",
+    "website": "https://www.intel.com",
+    "kununu_rating": { "score": 3.7, "reviews": 8300 },
+    "core_business_areas": ["Semiconductors", "Processors", "Data center"],
+    "achievements": ["Long history in CPUs and ongoing manufacturing investments"],
+    "locations": ["Santa Clara, CA (HQ)", "Global fabs and R&D"],
+    "headquarters": "Santa Clara, California, USA",
+    "interview_prep": [
+      { "q": "How do you evaluate a chip architecture change?", "recommended": "Discuss trade-offs in performance, power and area." }
+    ],
+    "quiz": [
+      { "q": "Intel is a major player in:", "choices": ["Semiconductor processors", "Luxury goods", "Streaming", "Retail"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "sony",
+    "name": "Sony",
+    "logo": "https://logo.clearbit.com/sony.com",
+    "website": "https://www.sony.com",
+    "kununu_rating": { "score": 3.9, "reviews": 5000 },
+    "core_business_areas": ["Electronics", "Entertainment", "Gaming"],
+    "achievements": ["PlayStation gaming leadership and content studios"],
+    "locations": ["Tokyo, Japan (HQ)", "Global offices"],
+    "headquarters": "Tokyo, Japan",
+    "interview_prep": [
+      { "q": "Describe a cross-media project you contributed to.", "recommended": "Showcase coordination across hardware, software and content teams." }
+    ],
+    "quiz": [
+      { "q": "Sony is known for:", "choices": ["Gaming, electronics & entertainment", "Pharmaceuticals", "Banking", "Fast food"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "morgan-stanley",
+    "name": "Morgan Stanley",
+    "logo": "https://logo.clearbit.com/morganstanley.com",
+    "website": "https://www.morganstanley.com",
+    "kununu_rating": { "score": 3.7, "reviews": 4100 },
+    "core_business_areas": ["Investment banking", "Wealth management"],
+    "achievements": ["Global investment banking and advisory services"],
+    "locations": ["New York, NY (HQ)", "Global offices"],
+    "headquarters": "New York City, New York, USA",
+    "interview_prep": [
+      { "q": "How would you structure a financial model for a client?", "recommended": "Discuss assumptions, sensitivities and scenario analysis." }
+    ],
+    "quiz": [
+      { "q": "Morgan Stanley operates in:", "choices": ["Finance and investment banking", "Retail clothing", "Food services", "Semiconductors"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "applied-materials",
+    "name": "Applied Materials",
+    "logo": "https://logo.clearbit.com/appliedmaterials.com",
+    "website": "https://www.appliedmaterials.com",
+    "kununu_rating": { "score": 3.8, "reviews": 3100 },
+    "core_business_areas": ["Semiconductor equipment", "Materials engineering"],
+    "achievements": ["Key supplier of equipment for chip manufacturing"],
+    "locations": ["Santa Clara, CA (HQ)", "Global sites"],
+    "headquarters": "Santa Clara, California, USA",
+    "interview_prep": [
+      { "q": "How do you deliver reliable equipment to fabs?", "recommended": "Describe testing, instrumentation, and field service support." }
+    ],
+    "quiz": [
+      { "q": "Applied Materials supplies:", "choices": ["Chip fabrication equipment", "Retail stores", "Streaming content", "Hotels"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "loreal",
+    "name": "L'Oréal",
+    "logo": "https://logo.clearbit.com/loreal.com",
+    "website": "https://www.loreal.com",
+    "kununu_rating": { "score": 4.0, "reviews": 3000 },
+    "core_business_areas": ["Cosmetics", "Beauty products"],
+    "achievements": ["Large global beauty brands and R&D in cosmetics"],
+    "locations": ["Clichy, France (HQ)", "Global markets"],
+    "headquarters": "Clichy, France",
+    "interview_prep": [
+      { "q": "How do you test consumer product preferences?", "recommended": "Discuss consumer research, panels and iterative product testing." }
+    ],
+    "quiz": [
+      { "q": "L'Oréal is a leader in:", "choices": ["Beauty and cosmetics", "Semiconductors", "Airlines", "Banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "nike",
+    "name": "Nike",
+    "logo": "https://logo.clearbit.com/nike.com",
+    "website": "https://www.nike.com",
+    "kununu_rating": { "score": 4.0, "reviews": 4200 },
+    "core_business_areas": ["Sportswear", "Footwear", "Apparel"],
+    "achievements": ["Strong global brand and direct-to-consumer digital growth"],
+    "locations": ["Beaverton, OR (HQ)", "Global operations"],
+    "headquarters": "Beaverton, Oregon, USA",
+    "interview_prep": [
+      { "q": "How do you drive retail and DTC growth?", "recommended": "Discuss personalization, inventory management and marketing." }
+    ],
+    "quiz": [
+      { "q": "Nike primarily sells:", "choices": ["Sportswear and footwear", "Pharmaceuticals", "Banking products", "Semiconductors"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "american-express",
+    "name": "American Express",
+    "logo": "https://logo.clearbit.com/americanexpress.com",
+    "website": "https://www.americanexpress.com",
+    "kununu_rating": { "score": 3.8, "reviews": 2900 },
+    "core_business_areas": ["Payments", "Cards", "Financial services"],
+    "achievements": ["Premium card offerings and travel & merchant services"],
+    "locations": ["New York, NY (HQ)", "Global offices"],
+    "headquarters": "New York City, New York, USA",
+    "interview_prep": [
+      { "q": "How would you design a premium card product?", "recommended": "Explain value proposition, rewards economics, and partnerships." }
+    ],
+    "quiz": [
+      { "q": "American Express is known for:", "choices": ["Credit card and payment services", "Fast food", "Semiconductors", "Luxury goods"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "goldman-sachs",
+    "name": "Goldman Sachs",
+    "logo": "https://logo.clearbit.com/goldmansachs.com",
+    "website": "https://www.goldmansachs.com",
+    "kununu_rating": { "score": 3.7, "reviews": 4700 },
+    "core_business_areas": ["Investment Banking", "Asset Management"],
+    "achievements": ["Global financial advisory and trading operations"],
+    "locations": ["New York, NY (HQ)", "Global offices"],
+    "headquarters": "New York City, New York, USA",
+    "interview_prep": [
+      { "q": "How do you evaluate M&A deals?", "recommended": "Discuss valuation, synergies and due diligence." }
+    ],
+    "quiz": [
+      { "q": "Goldman Sachs operates in:", "choices": ["Investment banking and finance", "Retail", "Pharma", "Semiconductors"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "hsbc",
+    "name": "HSBC",
+    "logo": "https://logo.clearbit.com/hsbc.com",
+    "website": "https://www.hsbc.com",
+    "kununu_rating": { "score": 3.6, "reviews": 5100 },
+    "core_business_areas": ["Banking", "Global finance"],
+    "achievements": ["Large international banking network with global trade finance"],
+    "locations": ["London (HQ)", "Global branches"],
+    "headquarters": "London, United Kingdom",
+    "interview_prep": [
+      { "q": "How do you manage cross-border compliance?", "recommended": "Discuss AML/KYC, sanctions screening, and controls." }
+    ],
+    "quiz": [
+      { "q": "HSBC is primarily a:", "choices": ["Global bank", "Pharmaceutical company", "Retailer", "Semiconductor foundry"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "honeywell",
+    "name": "Honeywell",
+    "logo": "https://logo.clearbit.com/honeywell.com",
+    "website": "https://www.honeywell.com",
+    "kununu_rating": { "score": 3.8, "reviews": 3300 },
+    "core_business_areas": ["Industrial", "Aerospace", "Safety & Productivity"],
+    "achievements": ["Diverse industrial solutions and automation products"],
+    "locations": ["Charlotte, NC (HQ)", "Global operations"],
+    "headquarters": "Charlotte, North Carolina, USA",
+    "interview_prep": [
+      { "q": "How do you approach product safety in industrial systems?", "recommended": "Detail risk analysis, certification and testing procedures." }
+    ],
+    "quiz": [
+      { "q": "Honeywell is known for:", "choices": ["Industrial automation and aerospace", "Streaming", "Retail", "Pharma"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "servicenow",
+    "name": "ServiceNow",
+    "logo": "https://logo.clearbit.com/servicenow.com",
+    "website": "https://www.servicenow.com",
+    "kununu_rating": { "score": 4.0, "reviews": 2100 },
+    "core_business_areas": ["IT service management", "Workflow automation", "Cloud"],
+    "achievements": ["Enterprise workflow automation leader and cloud platform growth"],
+    "locations": ["Santa Clara, CA (HQ)", "Global offices"],
+    "headquarters": "Santa Clara, California, USA",
+    "interview_prep": [
+      { "q": "How do you improve operational workflows?", "recommended": "Discuss automation, monitoring and change management." }
+    ],
+    "quiz": [
+      { "q": "ServiceNow provides:", "choices": ["Workflow automation and ITSM tools", "Retail stores", "Airlines", "Banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "intuitive-surgical",
+    "name": "Intuitive Surgical",
+    "logo": "https://logo.clearbit.com/intuitive.com",
+    "website": "https://www.intuitive.com",
+    "kununu_rating": { "score": 4.0, "reviews": 1500 },
+    "core_business_areas": ["Medical devices", "Robotic surgery"],
+    "achievements": ["Leader in robotic-assisted surgical systems and clinical adoption"],
+    "locations": ["Sunnyvale, CA (HQ)", "Global clinical sites"],
+    "headquarters": "Sunnyvale, California, USA",
+    "interview_prep": [
+      { "q": "How do you ensure device usability for surgeons?", "recommended": "Explain clinical feedback loops and iterative design." }
+    ],
+    "quiz": [
+      { "q": "Intuitive Surgical builds:", "choices": ["Robotic surgical systems", "Retail chains", "Streaming platforms", "Airlines"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "hdfc-bank",
+    "name": "HDFC Bank",
+    "logo": "https://logo.clearbit.com/hdfcbank.com",
+    "website": "https://www.hdfcbank.com",
+    "kununu_rating": { "score": 3.9, "reviews": 2600 },
+    "core_business_areas": ["Banking", "Retail finance"],
+    "achievements": ["Large retail banking franchise in India with digital initiatives"],
+    "locations": ["Mumbai, India (HQ)", "India-wide branches"],
+    "headquarters": "Mumbai, India",
+    "interview_prep": [
+      { "q": "How do you assess retail credit risk?", "recommended": "Discuss scorecards, data sources, and monitoring." }
+    ],
+    "quiz": [
+      { "q": "HDFC Bank is primarily a:", "choices": ["Technology startup", "Retail bank", "Pharma company", "Airline"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "union-pacific",
+    "name": "Union Pacific",
+    "logo": "https://logo.clearbit.com/up.com",
+    "website": "https://www.up.com",
+    "kununu_rating": { "score": 3.6, "reviews": 2200 },
+    "core_business_areas": ["Rail transport", "Logistics"],
+    "achievements": ["Large North American freight rail network and operational efficiency programs"],
+    "locations": ["Omaha, NE (HQ)", "US rail network"],
+    "headquarters": "Omaha, Nebraska, USA",
+    "interview_prep": [
+      { "q": "How do you optimize freight logistics?", "recommended": "Discuss routing, scheduling and asset utilization metrics." }
+    ],
+    "quiz": [
+      { "q": "Union Pacific operates in:", "choices": ["Rail freight and logistics", "Banking", "Pharma", "Cloud services"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "keyence",
+    "name": "Keyence",
+    "logo": "https://logo.clearbit.com/keyence.com",
+    "website": "https://www.keyence.com",
+    "kununu_rating": { "score": 4.1, "reviews": 1200 },
+    "core_business_areas": ["Factory automation", "Sensors", "Measurement systems"],
+    "achievements": ["High-margin automation products and global sales model"],
+    "locations": ["Osaka, Japan (HQ)", "Global offices"],
+    "headquarters": "Osaka, Japan",
+    "interview_prep": [
+      { "q": "How do you approach automation solutions for customers?", "recommended": "Discuss requirements analysis, ROI estimations and pilot deployments." }
+    ],
+    "quiz": [
+      { "q": "Keyence specializes in:", "choices": ["Factory automation sensors and systems", "Food delivery", "Retail banking", "Pharmaceuticals"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "blackrock",
+    "name": "BlackRock",
+    "logo": "https://logo.clearbit.com/blackrock.com",
+    "website": "https://www.blackrock.com",
+    "kununu_rating": { "score": 3.8, "reviews": 3400 },
+    "core_business_areas": ["Asset management", "Investment technology"],
+    "achievements": ["Largest asset manager globally and ETF market leadership"],
+    "locations": ["New York, NY (HQ)", "Global offices"],
+    "headquarters": "New York City, New York, USA",
+    "interview_prep": [
+      { "q": "How do you evaluate investment products for clients?", "recommended": "Discuss risk/return, fees, and client objectives." }
+    ],
+    "quiz": [
+      { "q": "BlackRock is primarily:", "choices": ["An asset manager", "A retailer", "A semiconductor foundry", "A streaming service"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "inditex",
+    "name": "Inditex (Zara)",
+    "logo": "https://logo.clearbit.com/inditex.com",
+    "website": "https://www.inditex.com",
+    "kununu_rating": { "score": 3.9, "reviews": 1800 },
+    "core_business_areas": ["Fashion retail", "Fast fashion"],
+    "achievements": ["Fast design-to-shelf cycles and global store network (Zara)"],
+    "locations": ["Arteixo, Spain (HQ)", "Global stores"],
+    "headquarters": "Arteixo, Galicia, Spain",
+    "interview_prep": [
+      { "q": "How do you shorten design-to-shelf cycles?", "recommended": "Talk about supply chain integration, rapid prototyping, and data-driven assortment." }
+    ],
+    "quiz": [
+      { "q": "Inditex is best known for:", "choices": ["Zara and fashion brands", "Semiconductors", "Banking", "Pharma"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "dior",
+    "name": "Christian Dior",
+    "logo": "https://logo.clearbit.com/dior.com",
+    "website": "https://www.dior.com",
+    "kununu_rating": { "score": 4.1, "reviews": 900 },
+    "core_business_areas": ["Luxury fashion", "Perfumes"],
+    "achievements": ["Iconic haute couture and luxury product lines"],
+    "locations": ["Paris, France (HQ)", "Global boutiques"],
+    "headquarters": "Paris, France",
+    "interview_prep": [
+      { "q": "How do you preserve luxury brand image?", "recommended": "Discuss heritage, craftsmanship and selective distribution." }
+    ],
+    "quiz": [
+      { "q": "Christian Dior operates in:", "choices": ["Luxury fashion and beauty", "Semiconductors", "Cloud computing", "Banking"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "booking",
+    "name": "Booking Holdings",
+    "logo": "https://logo.clearbit.com/bookingholdings.com",
+    "website": "https://www.bookingholdings.com",
+    "kununu_rating": { "score": 3.9, "reviews": 2100 },
+    "core_business_areas": ["Online travel", "Bookings platforms"],
+    "achievements": ["Market-leading online travel marketplaces and global inventory"],
+    "locations": ["Norwalk, CT (HQ)", "Global offices"],
+    "headquarters": "Norwalk, Connecticut, USA",
+    "interview_prep": [
+      { "q": "How do you improve booking conversion rates?", "recommended": "Discuss UX A/B tests, personalization, and trust signals." }
+    ],
+    "quiz": [
+      { "q": "Booking Holdings operates:", "choices": ["In online travel platforms", "In banking", "In semiconductors", "In pharma"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "sanofi",
+    "name": "Sanofi",
+    "logo": "https://logo.clearbit.com/sanofi.com",
+    "website": "https://www.sanofi.com",
+    "kununu_rating": { "score": 3.8, "reviews": 3200 },
+    "core_business_areas": ["Pharmaceuticals", "Vaccines"],
+    "achievements": ["Global pharma R&D and vaccines presence"],
+    "locations": ["Paris, France (HQ)", "Global R&D"],
+    "headquarters": "Paris, France",
+    "interview_prep": [
+      { "q": "How do you manage global clinical programs?", "recommended": "Discuss cross-country coordination, regulatory alignment, and data quality." }
+    ],
+    "quiz": [
+      { "q": "Sanofi is a:", "choices": ["Pharmaceutical company", "Retail chain", "Aircraft manufacturer", "Streaming service"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "commonwealth-bank",
+    "name": "Commonwealth Bank",
+    "logo": "https://logo.clearbit.com/commbank.com.au",
+    "website": "https://www.commbank.com.au",
+    "kununu_rating": { "score": 3.7, "reviews": 2000 },
+    "core_business_areas": ["Banking", "Financial services"],
+    "achievements": ["Leading Australian bank with digital initiatives"],
+    "locations": ["Sydney, Australia (HQ)", "Australia-wide branches"],
+    "headquarters": "Sydney, Australia",
+    "interview_prep": [
+      { "q": "How do you build customer trust digitally?", "recommended": "Discuss security, transparency, and great support." }
+    ],
+    "quiz": [
+      { "q": "Commonwealth Bank is headquartered in:", "choices": ["Canada", "Australia", "UK", "USA"], "correct": 1 }
+    ]
+  },
+  {
+    "id": "schneider-electric",
+    "name": "Schneider Electric",
+    "logo": "https://logo.clearbit.com/se.com",
+    "website": "https://www.se.com",
+    "kununu_rating": { "score": 3.8, "reviews": 2300 },
+    "core_business_areas": ["Energy management", "Automation"],
+    "achievements": ["Global electrical distribution and energy efficiency solutions"],
+    "locations": ["Rueil-Malmaison, France (HQ)", "Global operations"],
+    "headquarters": "Rueil-Malmaison, France",
+    "interview_prep": [
+      { "q": "How do you design energy-efficient solutions?", "recommended": "Explain lifecycle analysis, controls and monitoring." }
+    ],
+    "quiz": [
+      { "q": "Schneider Electric focuses on:", "choices": ["Energy management and automation", "Fashion", "Banking", "Food"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "airbus",
+    "name": "Airbus",
+    "logo": "https://logo.clearbit.com/airbus.com",
+    "website": "https://www.airbus.com",
+    "kununu_rating": { "score": 3.7, "reviews": 2900 },
+    "core_business_areas": ["Aerospace", "Defense", "Helicopters"],
+    "achievements": ["Commercial aircraft manufacturing and defense systems"],
+    "locations": ["Toulouse, France (HQ)", "Global sites"],
+    "headquarters": "Toulouse, France",
+    "interview_prep": [
+      { "q": "How do you ensure aerospace safety and compliance?", "recommended": "Discuss certification, traceability and rigorous testing." }
+    ],
+    "quiz": [
+      { "q": "Airbus is a major manufacturer of:", "choices": ["Commercial aircraft", "Semiconductors", "Pharmaceuticals", "Streaming services"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "allianz",
+    "name": "Allianz",
+    "logo": "https://logo.clearbit.com/allianz.com",
+    "website": "https://www.allianz.com",
+    "kununu_rating": { "score": 3.7, "reviews": 2500 },
+    "core_business_areas": ["Insurance", "Asset management"],
+    "achievements": ["Large global insurance and asset management operations"],
+    "locations": ["Munich, Germany (HQ)", "Global offices"],
+    "headquarters": "Munich, Germany",
+    "interview_prep": [
+      { "q": "How do you assess insurance risk?", "recommended": "Discuss actuarial analysis, data sources and portfolio monitoring." }
+    ],
+    "quiz": [
+      { "q": "Allianz is primarily in:", "choices": ["Insurance and financial services", "Retail", "Semiconductors", "Media"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "target",
+    "name": "Target",
+    "logo": "https://logo.clearbit.com/target.com",
+    "website": "https://www.target.com",
+    "kununu_rating": { "score": 3.8, "reviews": 2800 },
+    "core_business_areas": ["Retail", "E-commerce"],
+    "achievements": ["Strong omnichannel retail presence and private-label growth"],
+    "locations": ["Minneapolis, MN (HQ)", "US stores"],
+    "headquarters": "Minneapolis, Minnesota, USA",
+    "interview_prep": [
+      { "q": "How do you improve customer in-store experience?", "recommended": "Discuss store layout, digital integration, and staff training." }
+    ],
+    "quiz": [
+      { "q": "Target is a:", "choices": ["Retail chain", "Bank", "Pharma", "Streaming service"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "bp",
+    "name": "BP",
+    "logo": "https://logo.clearbit.com/bp.com",
+    "website": "https://www.bp.com",
+    "kununu_rating": { "score": 3.6, "reviews": 4000 },
+    "core_business_areas": ["Energy", "Oil & Gas", "Renewables"],
+    "achievements": ["Global energy operations and investments in low-carbon solutions"],
+    "locations": ["London, UK (HQ)", "Global operations"],
+    "headquarters": "London, United Kingdom",
+    "interview_prep": [
+      { "q": "How do you approach decarbonization projects?", "recommended": "Discuss technology pilots, partnerships and regulatory frameworks." }
+    ],
+    "quiz": [
+      { "q": "BP mainly operates in:", "choices": ["Energy & oil", "Banking", "Fashion", "Pharma"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "hermes-international",
+    "name": "Hermès International",
+    "logo": "https://logo.clearbit.com/hermes.com",
+    "website": "https://www.hermes.com",
+    "kununu_rating": { "score": 4.3, "reviews": 910 },
+    "core_business_areas": ["Luxury fashion", "Leather goods"],
+    "achievements": ["Strong craftsmanship and sustained luxury demand"],
+    "locations": ["Paris, France (HQ)", "Global boutiques"],
+    "headquarters": "Paris, France",
+    "interview_prep": [
+      { "q": "How would you ensure consistency across high-end product lines?", "recommended": "Discuss skilled workforce, audits and quality standards." }
+    ],
+    "quiz": [
+      { "q": "Hermès International is associated with:", "choices": ["Luxury goods", "Semiconductors", "Banking", "Retail warehouses"], "correct": 0 }
+    ]
+  },
+  {
+    "id": "netflix-2",
+    "name": "Netflix (International)",
+    "logo": "https://logo.clearbit.com/netflix.com",
+    "website": "https://www.netflix.com",
+    "kununu_rating": { "score": 3.9, "reviews": 7200 },
+    "core_business_areas": ["Streaming", "Content production"],
+    "achievements": ["Global streaming and international content expansion"],
+    "locations": ["Los Gatos, CA (HQ)", "Global offices"],
+    "headquarters": "Los Gatos, California, USA",
+    "interview_prep": [
+      { "q": "How do you scale streaming infrastructure globally?", "recommended": "Discuss CDN strategies, encoding pipelines and capacity planning." }
+    ],
+    "quiz": [
+      { "q": "Netflix primarily offers:", "choices": ["Cloud infrastructure", "Video streaming service", "Retail stores", "Pharma"], "correct": 1 }
     ]
   }
-  /* Additional companies can be added here. For the demo, the script includes a built-in sample set if this file is not available. */
 ]
