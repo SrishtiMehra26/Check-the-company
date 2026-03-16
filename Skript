@@ -1,0 +1,545 @@
+// Main client-side logic
+// Loads companies.json (fallback to embedded sample), handles search, renders profile, interview prep, and quiz.
+
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+const suggestionsEl = document.getElementById('suggestions');
+const popularList = document.getElementById('popularList');
+const profileArea = document.getElementById('profileArea');
+
+let companies = []; // loaded dataset
+
+// Try to fetch companies.json; fallback to embedded sample if fetch fails.
+async function loadCompanies() {
+  try {
+    const resp = await fetch('companies.json');
+    if (!resp.ok) throw new Error('companies.json not found');
+    companies = await resp.json();
+  } catch (e) {
+    console.warn('Could not fetch companies.json, using inline sample. Error:', e);
+    companies = sampleCompanies(); // fallback
+  }
+  populatePopular();
+  updateSuggestions();
+}
+
+function sampleCompanies() {
+  // Minimal sample data for quick start. Expand companies.json to include more.
+  return [
+    {
+      id: "apple",
+      name: "Apple",
+      logo: "https://logo.clearbit.com/apple.com",
+      kununu_rating: { score: 4.2, reviews: 12874 },
+      core_business_areas: ["Consumer Electronics", "Software", "Services"],
+      achievements: [
+        "Reached $100B+ services revenue in recent years",
+        "Major advances in silicon with M1/M2 chip family",
+        "Sustained strong growth in wearables and services"
+      ],
+      locations: ["Cupertino, CA (HQ)", "Austin, TX", "London, UK", "Shanghai, CN"],
+      headquarters: "Cupertino, California, USA",
+      interview_prep: [
+        {
+          q: "Tell us about a time you solved a tough technical problem.",
+          recommended: "Describe context, the challenge, your approach, technologies you used, and the measurable result. Keep it structured (STAR)."
+        },
+        {
+          q: "Why do you want to work at Apple?",
+          recommended: "Speak about Apple's product focus, design/quality obsession, customer impact, and how your skills align."
+        }
+      ],
+      quiz: [
+        {
+          q: "What product family uses Apple silicon like M1 and M2?",
+          choices: ["iPhone", "Mac", "Apple Watch", "AirPods"],
+          correct: 1
+        },
+        {
+          q: "Which area is a major Apple services product?",
+          choices: ["iCloud", "Maps", "Siri", "GarageBand"],
+          correct: 0
+        }
+      ]
+    },
+    {
+      id: "microsoft",
+      name: "Microsoft",
+      logo: "https://logo.clearbit.com/microsoft.com",
+      kununu_rating: { score: 4.1, reviews: 14200 },
+      core_business_areas: ["Cloud (Azure)", "Productivity (Office)", "Operating Systems", "Gaming (Xbox)"],
+      achievements: [
+        "Azure growth into a top cloud provider",
+        "Strong Office 365 subscriptions growth",
+        "Acquisitions to expand cloud and AI capabilities"
+      ],
+      locations: ["Redmond, WA (HQ)", "New York, NY", "Dublin, IE", "Bengaluru, IN"],
+      headquarters: "Redmond, Washington, USA",
+      interview_prep: [
+        {
+          q: "How do you prioritize customer needs when designing a product?",
+          recommended: "Talk about user research, metrics, prioritization frameworks, and trade-offs you considered."
+        }
+      ],
+      quiz: [
+        {
+          q: "What is Microsoft's cloud platform called?",
+          choices: ["AWS", "Azure", "GCP", "Oracle Cloud"],
+          correct: 1
+        }
+      ]
+    },
+    {
+      id: "google",
+      name: "Google (Alphabet)",
+      logo: "https://logo.clearbit.com/abc.xyz",
+      kununu_rating: { score: 4.0, reviews: 19800 },
+      core_business_areas: ["Search & Ads", "Cloud", "YouTube", "Android"],
+      achievements: [
+        "Dominant market share in search and video advertising",
+        "Continuous AI research and model releases",
+        "Expansion of Google Cloud"
+      ],
+      locations: ["Mountain View, CA (HQ)", "London, UK", "Zurich, CH", "Bangalore, IN"],
+      headquarters: "Mountain View, California, USA",
+      interview_prep: [
+        {
+          q: "Explain a technical concept you worked on to a non-technical stakeholder.",
+          recommended: "Use simple analogies, focus on impact and what changed for users/business, avoid jargon."
+        }
+      ],
+      quiz: [
+        {
+          q: "Which mobile OS is developed by Google?",
+          choices: ["iOS", "Android", "HarmonyOS", "Windows Mobile"],
+          correct: 1
+        }
+      ]
+    },
+    {
+      id: "amazon",
+      name: "Amazon",
+      logo: "https://logo.clearbit.com/amazon.com",
+      kununu_rating: { score: 3.8, reviews: 22100 },
+      core_business_areas: ["E-commerce", "AWS Cloud", "Logistics", "Devices"],
+      achievements: [
+        "AWS leading cloud infrastructure provider",
+        "Global expansion of fulfillment network",
+        "Investment in AI and logistics automation"
+      ],
+      locations: ["Seattle, WA (HQ)", "Luxembourg", "Shenzhen, CN", "Bengaluru, IN"],
+      headquarters: "Seattle, Washington, USA",
+      interview_prep: [
+        {
+          q: "Explain how you applied leadership principles in a project.",
+          recommended: "Reference Amazon Leadership Principles (Customer Obsession, Ownership etc.) and give concrete examples."
+        }
+      ],
+      quiz: [
+        {
+          q: "What is Amazon's cloud computing brand?",
+          choices: ["Azure", "GCP", "AWS", "Heroku"],
+          correct: 2
+        }
+      ]
+    },
+    {
+      id: "samsung",
+      name: "Samsung",
+      logo: "https://logo.clearbit.com/samsung.com",
+      kununu_rating: { score: 3.9, reviews: 8700 },
+      core_business_areas: ["Consumer Electronics", "Semiconductors", "Display Technology"],
+      achievements: [
+        "Leading global smartphone shipments",
+        "Significant semiconductor manufacturing scale",
+        "Advances in OLED and display tech"
+      ],
+      locations: ["Suwon, South Korea (HQ)", "Seoul, KR", "San Jose, CA", "Munich, DE"],
+      headquarters: "Suwon, Gyeonggi-do, South Korea",
+      interview_prep: [
+        {
+          q: "Describe a time you improved a manufacturing or production process.",
+          recommended: "Outline metrics improved, actions taken, and long-term benefits."
+        }
+      ],
+      quiz: [
+        {
+          q: "Samsung is a leader in which semiconductor product?",
+          choices: ["CPUs for PCs", "DRAM and NAND flash", "Discrete GPUs", "Printer chips"],
+          correct: 1
+        }
+      ]
+    },
+    {
+      id: "toyota",
+      name: "Toyota",
+      logo: "https://logo.clearbit.com/toyota-global.com",
+      kununu_rating: { score: 4.0, reviews: 5400 },
+      core_business_areas: ["Automotive", "Mobility Services", "Hybrid powertrains"],
+      achievements: [
+        "Pioneer in hybrid vehicles with Prius lineage",
+        "Global manufacturing and supply chain resilience"
+      ],
+      locations: ["Toyota City, Japan (HQ)", "Brussels, BE", "Georgetown, KY", "Bangkok, TH"],
+      headquarters: "Toyota City, Aichi, Japan",
+      interview_prep: [
+        {
+          q: "How do you approach continuous improvement?",
+          recommended: "Discuss Kaizen mindset, incremental improvements, data-driven changes."
+        }
+      ],
+      quiz: [
+        {
+          q: "Which Toyota model is famous for pioneering hybrid technology?",
+          choices: ["Corolla", "Prius", "Camry", "RAV4"],
+          correct: 1
+        }
+      ]
+    },
+    {
+      id: "berkshire",
+      name: "Berkshire Hathaway",
+      logo: "https://logo.clearbit.com/berkshirehathaway.com",
+      kununu_rating: { score: 4.3, reviews: 2100 },
+      core_business_areas: ["Insurance", "Investments", "Conglomerate holdings"],
+      achievements: [
+        "Long-term capital allocation and value creation",
+        "Stable returns across industries"
+      ],
+      locations: ["Omaha, NE (HQ)"],
+      headquarters: "Omaha, Nebraska, USA",
+      interview_prep: [
+        { q: "How do you evaluate long-term investments?", recommended: "Discuss fundamentals, durable competitive advantage, management quality, and valuation." }
+      ],
+      quiz: [
+        {
+          q: "Who is the long-time chairman of Berkshire Hathaway?",
+          choices: ["Elon Musk", "Warren Buffett", "Jamie Dimon", "Mark Cuban"],
+          correct: 1
+        }
+      ]
+    },
+    {
+      id: "jpmorgan",
+      name: "J.P. Morgan Chase",
+      logo: "https://logo.clearbit.com/jpmorganchase.com",
+      kununu_rating: { score: 3.7, reviews: 12500 },
+      core_business_areas: ["Investment Banking", "Consumer Banking", "Asset Management"],
+      achievements: [
+        "Leading global investment bank and financial services provider",
+        "Major digital banking investments"
+      ],
+      locations: ["New York, NY (HQ)", "London, UK", "Hong Kong", "Mumbai, IN"],
+      headquarters: "New York City, New York, USA",
+      interview_prep: [
+        { q: "How do you manage risk on a project?", recommended: "Discuss identification, mitigation, monitoring, and contingency planning." }
+      ],
+      quiz: [
+        {
+          q: "Which sector is J.P. Morgan primarily in?",
+          choices: ["Retail", "Technology", "Banking & Finance", "Pharmaceuticals"],
+          correct: 2
+        }
+      ]
+    },
+    {
+      id: "nestle",
+      name: "Nestlé",
+      logo: "https://logo.clearbit.com/nestle.com",
+      kununu_rating: { score: 3.9, reviews: 6800 },
+      core_business_areas: ["Food & Beverages", "Nutrition", "Petcare"],
+      achievements: [
+        "Strong global CPG presence and brand portfolio",
+        "Sustainability commitments and product innovation"
+      ],
+      locations: ["Vevey, Switzerland (HQ)", "São Paulo, BR", "Singapore", "Shanghai, CN"],
+      headquarters: "Vevey, Switzerland",
+      interview_prep: [
+        { q: "How have you handled regulatory or quality constraints?", recommended: "Outline compliance processes, cross-functional coordination, and outcomes." }
+      ],
+      quiz: [
+        {
+          q: "Nestlé is best known for which product type?",
+          choices: ["Software", "Food & Beverage", "Aircraft", "Oil"],
+          correct: 1
+        }
+      ]
+    },
+    {
+      id: "p&g",
+      name: "Procter & Gamble",
+      logo: "https://logo.clearbit.com/us.pg.com",
+      kununu_rating: { score: 4.0, reviews: 5300 },
+      core_business_areas: ["Consumer Goods", "Personal Care", "Household Products"],
+      achievements: [
+        "Strong brand management and marketing excellence",
+        "Supply chain optimization and product innovation"
+      ],
+      locations: ["Cincinnati, OH (HQ)", "London, UK", "Singapore"],
+      headquarters: "Cincinnati, Ohio, USA",
+      interview_prep: [
+        { q: "How do you measure brand health?", recommended: "Talk about awareness, penetration, usage frequency, and consumer sentiment metrics." }
+      ],
+      quiz: [
+        {
+          q: "P&G is primarily a company in which sector?",
+          choices: ["Consumer Goods", "Finance", "Tech", "Energy"],
+          correct: 0
+        }
+      ]
+    },
+    {
+      id: "siemens",
+      name: "Siemens",
+      logo: "https://logo.clearbit.com/siemens.com",
+      kununu_rating: { score: 3.8, reviews: 4700 },
+      core_business_areas: ["Industrial Automation", "Healthcare", "Energy"],
+      achievements: [
+        "Strong digitalization offerings for industry",
+        "Investments in renewable energy and electrification"
+      ],
+      locations: ["Munich, Germany (HQ)", "Berlin, DE", "Boston, MA"],
+      headquarters: "Munich, Germany",
+      interview_prep: [
+        { q: "Describe a time you worked with cross-functional engineering teams.", recommended: "Mention communication patterns, synchronization, deliverables, and results." }
+      ],
+      quiz: [
+        {
+          q: "Siemens is known for which area?",
+          choices: ["Industrial Automation", "Fashion", "Gaming", "Social Media"],
+          correct: 0
+        }
+      ]
+    }
+  ];
+}
+
+/* UI behaviors */
+
+function populatePopular() {
+  popularList.innerHTML = "";
+  const popular = companies.slice(0, 8);
+  popular.forEach(c => {
+    const btn = document.createElement('div');
+    btn.className = 'chip';
+    btn.textContent = c.name;
+    btn.onclick = () => renderCompany(c.name);
+    popularList.appendChild(btn);
+  });
+}
+
+function updateSuggestions() {
+  const q = searchInput.value.trim().toLowerCase();
+  suggestionsEl.innerHTML = "";
+  if (q.length === 0) {
+    // show a few suggestions
+    const hints = companies.slice(0, 6);
+    hints.forEach(c => {
+      const el = document.createElement('div');
+      el.className = 'chip';
+      el.textContent = c.name;
+      el.onclick = () => { searchInput.value = c.name; renderCompany(c.name); };
+      suggestionsEl.appendChild(el);
+    });
+    return;
+  }
+  const matched = companies.filter(c => c.name.toLowerCase().includes(q)).slice(0, 8);
+  matched.forEach(c => {
+    const el = document.createElement('div');
+    el.className = 'chip';
+    el.textContent = c.name;
+    el.onclick = () => { searchInput.value = c.name; renderCompany(c.name); };
+    suggestionsEl.appendChild(el);
+  });
+}
+
+function findCompanyByName(name) {
+  const q = name.trim().toLowerCase();
+  return companies.find(c => c.name.toLowerCase() === q) ||
+         companies.find(c => c.name.toLowerCase().includes(q));
+}
+
+function renderCompany(query) {
+  const c = findCompanyByName(query || searchInput.value);
+  if (!c) {
+    profileArea.innerHTML = `<div class="card"><strong>No company found.</strong> Try different spelling or add the company to <code>companies.json</code>.</div>`;
+    return;
+  }
+
+  // Build HTML
+  profileArea.innerHTML = '';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'profile';
+
+  // left column
+  const left = document.createElement('div');
+  left.className = 'profile-card';
+
+  const logoBox = document.createElement('div');
+  logoBox.className = 'logo';
+  const img = document.createElement('img');
+  img.src = c.logo || 'https://via.placeholder.com/300x160?text=No+Logo';
+  img.alt = c.name + ' logo';
+  logoBox.appendChild(img);
+
+  const meta = document.createElement('div');
+  meta.className = 'meta';
+  const h2 = document.createElement('h2');
+  h2.textContent = c.name;
+  const pHQ = document.createElement('p');
+  pHQ.textContent = `Headquarters: ${c.headquarters || '—'}`;
+
+  const kununu = document.createElement('div');
+  kununu.className = 'kununu';
+  const stars = renderStars(c.kununu_rating?.score || 0);
+  kununu.innerHTML = `<div class="stars">${stars} ${c.kununu_rating?.score || 'N/A'}</div>
+                      <div style="color:var(--muted); margin-left:8px">(${c.kununu_rating?.reviews || 0} reviews)</div>`;
+
+  left.appendChild(logoBox);
+  meta.appendChild(h2);
+  meta.appendChild(pHQ);
+  meta.appendChild(kununu);
+  left.appendChild(meta);
+
+  // sections
+  left.appendChild(sectionHTML('Core business areas', c.core_business_areas.map(x => pill(x)).join(' ')));
+  left.appendChild(sectionHTML('Recent achievements', `<ul>${(c.achievements||[]).map(a => `<li>${a}</li>`).join('')}</ul>`));
+  left.appendChild(sectionHTML('Locations', `<ul>${(c.locations||[]).map(l => `<li>${l}</li>`).join('')}</ul>`));
+
+  // right column
+  const right = document.createElement('div');
+  right.className = 'right-column';
+
+  const interviewCard = document.createElement('div');
+  interviewCard.className = 'card';
+  interviewCard.innerHTML = `<h3>Interview Preparation</h3>
+    <div class="qa">${(c.interview_prep || []).map((qa,i) => `
+      <div class="question">
+        <strong>Q${i+1}:</strong> ${qa.q}
+        <div class="recommended">${qa.recommended}</div>
+      </div>`).join('')}</div>`;
+
+  const quizCard = document.createElement('div');
+  quizCard.className = 'card quiz-card';
+  quizCard.innerHTML = `<h3>Quick Quiz</h3>
+    <div id="quizContainer"></div>`;
+
+  right.appendChild(interviewCard);
+  right.appendChild(quizCard);
+
+  wrapper.appendChild(left);
+  wrapper.appendChild(right);
+  profileArea.appendChild(wrapper);
+
+  renderQuiz(c);
+  // Smooth scroll to profile
+  profileArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderStars(score) {
+  const full = Math.floor(score);
+  const half = score - full >= 0.5;
+  let s = '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(Math.max(0, 5-full-(half?1:0)));
+  // return a nicer star display
+  let out = '';
+  for (let i=0;i<5;i++){
+    if (i < full) out += '★';
+    else if (i===full && half) out += '☆';
+    else out += '☆';
+  }
+  return out;
+}
+
+function sectionHTML(title, inner) {
+  return (() => {
+    const div = document.createElement('div');
+    div.className = 'section';
+    div.innerHTML = `<h4>${title}</h4><div>${inner}</div>`;
+    return div;
+  })();
+}
+
+function pill(text) {
+  return `<span class="key-pill">${text}</span>`;
+}
+
+/* Quiz logic */
+function renderQuiz(company) {
+  const container = document.getElementById('quizContainer');
+  const qs = (company.quiz || []).slice(0,5); // use up to 5 questions
+  if (qs.length === 0) {
+    container.innerHTML = `<div>No quiz available for ${company.name}.</div>`;
+    return;
+  }
+
+  // Randomize questions
+  shuffleArray(qs);
+  let current = 0;
+  let score = 0;
+
+  function showQuestion() {
+    const q = qs[current];
+    container.innerHTML = `
+      <div><strong>Q${current+1} / ${qs.length}:</strong> ${q.q}</div>
+      <div class="options">
+        ${q.choices.map((ch, idx) => `<div class="option" data-idx="${idx}">${ch}</div>`).join('')}
+      </div>
+      <div class="score" id="scoreDisplay">Score: ${score} / ${qs.length}</div>
+    `;
+    // attach handlers
+    container.querySelectorAll('.option').forEach(opt => {
+      opt.onclick = () => {
+        const idx = Number(opt.getAttribute('data-idx'));
+        const correct = q.correct;
+        // mark options
+        container.querySelectorAll('.option').forEach(o => {
+          const i = Number(o.getAttribute('data-idx'));
+          if (i === correct) o.classList.add('correct');
+          if (i === idx && i !== correct) o.classList.add('wrong');
+          o.style.pointerEvents = 'none';
+        });
+        if (idx === correct) score++;
+        // next button
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = current+1 < qs.length ? 'Next question' : 'Finish quiz';
+        nextBtn.className = 'btn';
+        nextBtn.style.marginTop = '10px';
+        nextBtn.onclick = () => {
+          current++;
+          if (current < qs.length) showQuestion();
+          else showResults();
+        };
+        container.appendChild(nextBtn);
+        document.getElementById('scoreDisplay').textContent = `Score: ${score} / ${qs.length}`;
+      };
+    });
+  }
+
+  function showResults() {
+    container.innerHTML = `<div><strong>Quiz complete.</strong></div>
+      <div class="score">Your score: ${score} / ${qs.length}</div>
+      <div style="margin-top:10px;">
+        <button id="retryQuiz" class="btn">Retry Quiz</button>
+      </div>`;
+    document.getElementById('retryQuiz').onclick = () => { current = 0; score = 0; shuffleArray(qs); showQuestion(); };
+  }
+
+  showQuestion();
+}
+
+/* helpers */
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+searchInput.addEventListener('input', updateSuggestions);
+searchBtn.addEventListener('click', () => renderCompany(searchInput.value));
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') renderCompany(searchInput.value);
+});
+
+// initial load
+loadCompanies();
