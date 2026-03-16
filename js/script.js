@@ -1,261 +1,194 @@
-// Main client-side logic
-// Loads companies.json, handles search, renders profile, interview prep, and quiz.
+// Improved client-side app: loads companies.json, renders clickable grid, search fixed,
+// profile slides in from right. Expects companies.json in same folder.
 
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
-const suggestionsEl = document.getElementById('suggestions');
-const popularList = document.getElementById('popularList');
-const profileArea = document.getElementById('profileArea');
+const companyGrid = document.getElementById('companyGrid');
+const profilePanel = document.getElementById('profilePanel');
+const profileContent = document.getElementById('profileContent');
+const closePanel = document.getElementById('closePanel');
 
-let companies = []; // loaded dataset
+let companies = [];
 
-// Try to fetch companies.json; display message if not present.
-async function loadCompanies() {
+// Load companies.json
+async function loadCompanies(){
   try {
     const resp = await fetch('companies.json');
     if (!resp.ok) throw new Error('companies.json not found');
     companies = await resp.json();
   } catch (e) {
-    console.error('Could not fetch companies.json. Make sure the file is present and served by a static server.', e);
-    profileArea.innerHTML = `<div class="card"><strong>Error:</strong> Could not load companies.json. Make sure you serve the files with a static server (e.g., python -m http.server) and companies.json is in the same folder.</div>`;
-    companies = [];
-  }
-  populatePopular();
-  updateSuggestions();
-}
-
-function populatePopular() {
-  popularList.innerHTML = "";
-  const popular = companies.slice(0, 8);
-  popular.forEach(c => {
-    const btn = document.createElement('div');
-    btn.className = 'chip';
-    btn.textContent = c.name;
-    btn.onclick = () => renderCompany(c.name);
-    popularList.appendChild(btn);
-  });
-}
-
-function updateSuggestions() {
-  const q = searchInput.value.trim().toLowerCase();
-  suggestionsEl.innerHTML = "";
-  if (companies.length === 0) return;
-  if (q.length === 0) {
-    const hints = companies.slice(0, 6);
-    hints.forEach(c => {
-      const el = document.createElement('div');
-      el.className = 'chip';
-      el.textContent = c.name;
-      el.onclick = () => { searchInput.value = c.name; renderCompany(c.name); };
-      suggestionsEl.appendChild(el);
-    });
+    console.error('Failed to load companies.json', e);
+    companyGrid.innerHTML = `<div class="card">Error: Could not load <code>companies.json</code>. Make sure the file exists and you're using a static server (e.g. python -m http.server).</div>`;
     return;
   }
-  const matched = companies.filter(c => c.name.toLowerCase().includes(q)).slice(0, 8);
-  matched.forEach(c => {
-    const el = document.createElement('div');
-    el.className = 'chip';
-    el.textContent = c.name;
-    el.onclick = () => { searchInput.value = c.name; renderCompany(c.name); };
-    suggestionsEl.appendChild(el);
-  });
+  renderGrid(companies);
 }
 
-function findCompanyByName(name) {
-  if (!name) return null;
-  const q = name.trim().toLowerCase();
-  // Exact match first
-  const exact = companies.find(c => c.name.toLowerCase() === q);
-  if (exact) return exact;
-  // Fuzzy: contains
-  return companies.find(c => c.name.toLowerCase().includes(q));
-}
-
-function renderCompany(query) {
-  const c = findCompanyByName(query || searchInput.value);
-  if (!c) {
-    profileArea.innerHTML = `<div class="card"><strong>No company found.</strong> Try different spelling or open companies.json to verify the name.</div>`;
+// Render clickable grid
+function renderGrid(list){
+  companyGrid.innerHTML = '';
+  if (!list.length) {
+    companyGrid.innerHTML = `<div class="card muted">No companies found.</div>`;
     return;
   }
-
-  profileArea.innerHTML = '';
-  const wrapper = document.createElement('div');
-  wrapper.className = 'profile';
-
-  // left column
-  const left = document.createElement('div');
-  left.className = 'profile-card';
-
-  const logoBox = document.createElement('div');
-  logoBox.className = 'logo';
-  const img = document.createElement('img');
-  img.src = c.logo || 'https://via.placeholder.com/300x160?text=No+Logo';
-  img.alt = c.name + ' logo';
-  logoBox.appendChild(img);
-
-  const meta = document.createElement('div');
-  meta.className = 'meta';
-  const h2 = document.createElement('h2');
-  h2.textContent = c.name;
-  const pHQ = document.createElement('p');
-  pHQ.textContent = `Headquarters: ${c.headquarters || '—'}`;
-
-  meta.appendChild(h2);
-  meta.appendChild(pHQ);
-
-  if (c.website) {
-    const websiteP = document.createElement('p');
-    websiteP.style.margin = '6px 0';
-    const a = document.createElement('a');
-    a.href = c.website;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.textContent = 'Official website';
-    a.style.color = 'var(--accent)';
-    websiteP.appendChild(a);
-    meta.appendChild(websiteP);
-  }
-
-  const kununu = document.createElement('div');
-  kununu.className = 'kununu';
-  const score = (c.kununu_rating && c.kununu_rating.score) ? c.kununu_rating.score : null;
-  const reviews = c.kununu_rating?.reviews || 0;
-  kununu.innerHTML = `<div class="stars">${renderStars(score || 0)} ${score ? score.toFixed(1) : 'N/A'}</div>
-                      <div style="color:var(--muted); margin-left:8px">(${reviews} reviews)</div>`;
-
-  left.appendChild(logoBox);
-  left.appendChild(meta);
-  left.appendChild(kununu);
-
-  left.appendChild(sectionHTML('Core business areas', (c.core_business_areas || []).map(x => pill(x)).join(' ')));
-  left.appendChild(sectionHTML('Recent achievements', `<ul>${(c.achievements||[]).map(a => `<li>${a}</li>`).join('')}</ul>`));
-  left.appendChild(sectionHTML('Locations', `<ul>${(c.locations||[]).map(l => `<li>${l}</li>`).join('')}</ul>`));
-
-  // right column
-  const right = document.createElement('div');
-  right.className = 'right-column';
-
-  const interviewCard = document.createElement('div');
-  interviewCard.className = 'card';
-  interviewCard.innerHTML = `<h3>Interview Preparation</h3>
-    <div class="qa">${(c.interview_prep || []).map((qa,i) => `
-      <div class="question">
-        <strong>Q${i+1}:</strong> ${qa.q}
-        <div class="recommended">${qa.recommended}</div>
-      </div>`).join('')}</div>`;
-
-  const quizCard = document.createElement('div');
-  quizCard.className = 'card quiz-card';
-  quizCard.innerHTML = `<h3>Quick Quiz</h3>
-    <div id="quizContainer"></div>`;
-
-  right.appendChild(interviewCard);
-  right.appendChild(quizCard);
-
-  wrapper.appendChild(left);
-  wrapper.appendChild(right);
-  profileArea.appendChild(wrapper);
-
-  renderQuiz(c);
-  profileArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function renderStars(score) {
-  const full = Math.floor(score);
-  const half = score - full >= 0.5;
-  let out = '';
-  for (let i=0;i<5;i++){
-    if (i < full) out += '★';
-    else if (i===full && half) out += '☆';
-    else out += '☆';
-  }
-  return out;
-}
-
-function sectionHTML(title, inner) {
-  const div = document.createElement('div');
-  div.className = 'section';
-  div.innerHTML = `<h4>${title}</h4><div>${inner}</div>`;
-  return div;
-}
-
-function pill(text) {
-  return `<span class="key-pill">${text}</span>`;
-}
-
-/* Quiz logic */
-function renderQuiz(company) {
-  const container = document.getElementById('quizContainer');
-  const qs = (company.quiz || []).slice(0,5); // up to 5
-  if (qs.length === 0) {
-    container.innerHTML = `<div>No quiz available for ${company.name}.</div>`;
-    return;
-  }
-
-  shuffleArray(qs);
-  let current = 0;
-  let score = 0;
-
-  function showQuestion() {
-    const q = qs[current];
-    container.innerHTML = `
-      <div><strong>Q${current+1} / ${qs.length}:</strong> ${q.q}</div>
-      <div class="options">
-        ${q.choices.map((ch, idx) => `<div class="option" data-idx="${idx}">${ch}</div>`).join('')}
+  list.forEach(c => {
+    const tile = document.createElement('div');
+    tile.className = 'tile';
+    tile.dataset.id = c.id || c.name;
+    tile.innerHTML = `
+      <img loading="lazy" src="${c.logo || 'https://via.placeholder.com/80x80?text=No+Logo'}" alt="${escapeHtml(c.name)} logo" />
+      <div>
+        <div class="name">${escapeHtml(c.name)}</div>
+        <div class="sector">${(c.core_business_areas || []).slice(0,2).join(' • ')}</div>
       </div>
-      <div class="score" id="scoreDisplay">Score: ${score} / ${qs.length}</div>
     `;
-    container.querySelectorAll('.option').forEach(opt => {
-      opt.onclick = () => {
-        const idx = Number(opt.getAttribute('data-idx'));
-        const correct = q.correct;
-        container.querySelectorAll('.option').forEach(o => {
-          const i = Number(o.getAttribute('data-idx'));
-          if (i === correct) o.classList.add('correct');
-          if (i === idx && i !== correct) o.classList.add('wrong');
-          o.style.pointerEvents = 'none';
-        });
-        if (idx === correct) score++;
-        const nextBtn = document.createElement('button');
-        nextBtn.textContent = current+1 < qs.length ? 'Next question' : 'Finish quiz';
-        nextBtn.className = 'btn';
-        nextBtn.style.marginTop = '10px';
-        nextBtn.onclick = () => {
-          current++;
-          if (current < qs.length) showQuestion();
-          else showResults();
-        };
-        container.appendChild(nextBtn);
-        document.getElementById('scoreDisplay').textContent = `Score: ${score} / ${qs.length}`;
-      };
-    });
-  }
-
-  function showResults() {
-    container.innerHTML = `<div><strong>Quiz complete.</strong></div>
-      <div class="score">Your score: ${score} / ${qs.length}</div>
-      <div style="margin-top:10px;">
-        <button id="retryQuiz" class="btn">Retry Quiz</button>
-      </div>`;
-    document.getElementById('retryQuiz').onclick = () => { current = 0; score = 0; shuffleArray(qs); showQuestion(); };
-  }
-
-  showQuestion();
+    tile.onclick = () => openProfile(c);
+    companyGrid.appendChild(tile);
+  });
 }
 
-/* helpers */
-function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
+// Escape helper
+function escapeHtml(s){ return (s || '') .replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+// Search / filter logic
+function filterGrid(q){
+  q = (q || '').trim().toLowerCase();
+  if (!q) return renderGrid(companies);
+  const filtered = companies.filter(c => {
+    const name = (c.name || '').toLowerCase();
+    const id = (c.id || '').toLowerCase();
+    const sectors = (c.core_business_areas || []).join(' ').toLowerCase();
+    return name.includes(q) || id.includes(q) || sectors.includes(q);
+  });
+  renderGrid(filtered);
+  // If exactly 1 match, open it automatically
+  if (filtered.length === 1) openProfile(filtered[0]);
 }
 
-searchInput.addEventListener('input', updateSuggestions);
-searchBtn.addEventListener('click', () => renderCompany(searchInput.value));
-searchInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') renderCompany(searchInput.value);
+// Open profile in panel
+function openProfile(c){
+  profileContent.innerHTML = profileHtml(c);
+  profilePanel.classList.add('open');
+  profilePanel.setAttribute('aria-hidden','false');
+  // scroll top of panel
+  profilePanel.scrollTop = 0;
+}
+
+// Close panel
+function closeProfile(){
+  profilePanel.classList.remove('open');
+  profilePanel.setAttribute('aria-hidden','true');
+}
+
+// Build profile HTML
+function profileHtml(c){
+  const score = c.kununu_rating?.score ?? null;
+  const reviews = c.kununu_rating?.reviews ?? 0;
+  return `
+    <div class="logo-large"><img src="${c.logo || 'https://via.placeholder.com/300x120?text=No+Logo'}" alt="${escapeHtml(c.name)} logo" /></div>
+    <h2>${escapeHtml(c.name)}</h2>
+    <div class="sub">${escapeHtml(c.headquarters || '')}</div>
+
+    <div class="kununu"><div class="stars">${renderStars(score)}</div><div style="color:#64748b; margin-left:8px">${score ? score.toFixed(1) : 'N/A'} (${reviews} reviews)</div></div>
+
+    ${c.website ? `<div style="margin-top:10px;"><a href="${c.website}" target="_blank" rel="noopener noreferrer">Visit official website ↗</a></div>` : ''}
+
+    <div class="section">
+      <h4>Core business areas</h4>
+      <div class="pills">${(c.core_business_areas || []).map(x => `<span class="pill">${escapeHtml(x)}</span>`).join('')}</div>
+    </div>
+
+    <div class="section">
+      <h4>Recent achievements</h4>
+      ${(c.achievements || []).length ? `<ul>${c.achievements.map(a => `<li>${escapeHtml(a)}</li>`).join('')}</ul>` : `<div class="muted">No achievements listed.</div>`}
+    </div>
+
+    <div class="section">
+      <h4>Locations</h4>
+      ${(c.locations || []).length ? `<ul>${c.locations.map(l => `<li>${escapeHtml(l)}</li>`).join('')}</ul>` : `<div class="muted">No locations listed.</div>`}
+    </div>
+
+    <div class="section">
+      <h4>Interview Preparation</h4>
+      ${(c.interview_prep || []).length ? c.interview_prep.map((q,i) => `
+        <div style="margin-bottom:10px">
+          <strong>Q${i+1}:</strong> ${escapeHtml(q.q)}
+          <div style="background:#eef2ff; padding:10px; border-radius:8px; margin-top:6px; color:#0b1220">${escapeHtml(q.recommended)}</div>
+        </div>`).join('') : `<div class="muted">No interview tips available.</div>`}
+    </div>
+
+    <div class="section" id="quizArea">
+      <h4>Quick Quiz</h4>
+      <div id="quizContainer">${renderQuizInline(c)}</div>
+    </div>
+  `;
+}
+
+// Basic star rendering
+function renderStars(score){
+  if (!score) return '☆☆☆☆☆';
+  const full = Math.round(Math.max(0, Math.min(5, score)));
+  return '★'.repeat(full) + '☆'.repeat(5-full);
+}
+
+// Inline simple quiz (first question)
+function renderQuizInline(c){
+  const q = (c.quiz || [])[0];
+  if (!q) return `<div class="muted">No quiz available.</div>`;
+  return `<div style="font-weight:700">${escapeHtml(q.q)}</div>
+    <div style="margin-top:8px">${q.choices.map((ch,idx) => `<button class="quiz-opt" data-cid="${escapeHtml(c.id)}" data-idx="${idx}" style="margin:6px 6px 0 0;padding:8px 10px;border-radius:8px;border:1px solid #e2e8f0;background:#fff">${escapeHtml(ch)}</button>`).join('')}</div>
+    <div id="quizFeedback" style="margin-top:10px;color:#334155"></div>`;
+}
+
+// Hook quiz clicks (delegation)
+document.addEventListener('click', (e) => {
+  const opt = e.target.closest('.quiz-opt');
+  if (!opt) return;
+  const idx = Number(opt.dataset.idx);
+  const cid = opt.dataset.cid;
+  const company = companies.find(x => x.id === cid || x.name === cid);
+  if (!company) return;
+  const q = (company.quiz || [])[0];
+  const feedback = document.getElementById('quizFeedback');
+  if (!q) return;
+  if (idx === q.correct) {
+    feedback.textContent = 'Correct! ✅';
+    feedback.style.color = '#059669';
+  } else {
+    feedback.textContent = `Not quite — correct answer: ${q.choices[q.correct]}`;
+    feedback.style.color = '#dc2626';
+  }
 });
 
-// initial load
+// Wire search input and button
+searchInput.addEventListener('input', () => filterGrid(searchInput.value));
+searchBtn.addEventListener('click', () => {
+  const q = (searchInput.value || '').trim();
+  if (!q) return;
+  // If exact/fuzzy match to one company, open it; otherwise filter list
+  const exact = companies.find(c => (c.name || '').toLowerCase() === q.toLowerCase() || (c.id || '').toLowerCase() === q.toLowerCase());
+  if (exact) {
+    openProfile(exact);
+    // highlight tile (scroll into view)
+    const tile = document.querySelector(`.tile[data-id="${exact.id || exact.name}"]`);
+    if (tile) tile.scrollIntoView({behavior:'smooth', block:'center'});
+  } else {
+    const results = companies.filter(c => (c.name||'').toLowerCase().includes(q.toLowerCase()));
+    if (results.length === 1) openProfile(results[0]);
+    else filterGrid(q);
+  }
+});
+
+// Allow Enter key to trigger search
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') searchBtn.click();
+});
+
+// Close panel handler
+closePanel.addEventListener('click', closeProfile);
+
+// Close panel when clicking outside on small screens
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProfile(); });
+
+// init
 loadCompanies();
